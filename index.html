@@ -33,13 +33,14 @@
   --mono: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas, monospace;
   --bg:    #ffffff;
   --ink:   #111111;
-  --body:  #3a3a3a;
-  --mid:   #6b6b6b;
-  --light: #9a9a9a;
+  --body:  #1a1a1a;
+  --mid:   #474747;
+  --light: #8a8a8a;
   --rule:  #e4e4e4;
   --rule2: #d2d2d2;
   --hair:  #efefef;
   --accent:#773DBD;
+  --accent-deep:#27065C;
   --panel: #fafafa;
 }
 
@@ -52,7 +53,7 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.6;
   letter-spacing: -0.011em;
 }
@@ -106,7 +107,7 @@ strong { color: var(--ink); font-weight: 600; }
   color: var(--mid);
   padding-bottom: 80px;
 }
-.masthead-top .conf { color: var(--accent); }
+.masthead-top .conf { color: var(--accent-deep); }
 .cm-logo { display: block; }
 .cm-logo svg { height: 24px; width: auto; display: block; }
 .cm-logo svg path, .cm-logo svg polygon { fill: var(--ink); }
@@ -118,6 +119,7 @@ strong { color: var(--ink); font-weight: 600; }
   color: var(--ink);
   margin-bottom: 22px;
 }
+.masthead h1 .h1-sub { color: var(--light); }
 .masthead .deck {
   font-size: clamp(18px, 2vw, 22px);
   color: var(--mid);
@@ -152,8 +154,8 @@ strong { color: var(--ink); font-weight: 600; }
 .stat .num .accent { color: var(--accent); }
 .stat .cap {
   margin-top: 18px;
-  font-size: 15px;
-  color: var(--mid);
+  font-size: 18px;
+  color: var(--body);
   line-height: 1.45;
   max-width: 34ch;
 }
@@ -181,29 +183,30 @@ strong { color: var(--ink); font-weight: 600; }
 .finding .fnum {
   font-size: 15px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-deep);
   font-variant-numeric: tabular-nums;
   padding-top: 3px;
 }
 .finding h3 {
-  font-size: 19px;
+  font-size: 21px;
   line-height: 1.3;
   margin-bottom: 8px;
 }
-.finding p { font-size: 16px; color: var(--body); margin: 0; }
+.finding p { font-size: 18px; color: var(--body); margin: 0; }
 
 /* ── Roadmap ─────────────────────────────────── */
 .phase {
-  padding: 28px 0;
+  padding: 32px 0;
   border-top: 1px solid var(--hair);
 }
 .phase:first-child { border-top: none; padding-top: 0; }
 .phase h3 {
-  font-size: 18px;
-  margin-bottom: 6px;
+  font-size: 22px;
+  margin-bottom: 8px;
   display: flex;
   align-items: baseline;
   gap: 12px;
+  letter-spacing: -0.02em;
 }
 .phase h3 .tag {
   font-size: 11px;
@@ -212,11 +215,27 @@ strong { color: var(--ink); font-weight: 600; }
   text-transform: uppercase;
   color: var(--light);
 }
-.phase p { font-size: 16px; margin: 0; }
-
-.upnext-item { margin-bottom: 22px; }
-.upnext-item h3 { font-size: 18px; margin-bottom: 6px; }
-.upnext-item p { font-size: 16px; margin: 0; }
+.phase-sub { font-size: 18px; color: var(--mid); margin: 0 0 16px; }
+.arrows { list-style: none; margin: 0; padding: 0; }
+.arrows li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 18px;
+  color: var(--body);
+  line-height: 1.5;
+  margin-bottom: 11px;
+}
+.arrows li:last-child { margin-bottom: 0; }
+.arrows li::before {
+  content: "\2192";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 400;
+}
+.arrows li strong { color: var(--ink); font-weight: 600; }
 
 /* ── Responses accordion ─────────────────────── */
 .resp-controls {
@@ -255,13 +274,13 @@ details.resp > summary {
 }
 details.resp > summary::-webkit-details-marker { display: none; }
 .resp-name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--ink);
   letter-spacing: -0.02em;
 }
 .resp-role {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--mid);
   font-weight: 400;
   margin-left: 12px;
@@ -290,12 +309,12 @@ details.resp[open] > summary .resp-sign { transform: rotate(45deg); }
   margin-bottom: 3px;
 }
 .resp-detail .a {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--body);
   line-height: 1.55;
 }
 .resp-detail .a.meta {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--mid);
 }
 
@@ -311,12 +330,12 @@ details.resp[open] > summary .resp-sign { transform: rotate(45deg); }
   text-transform: uppercase;
   color: var(--mid);
 }
-.foot .conf { color: var(--accent); }
+.foot .conf { color: var(--accent-deep); }
 
 /* ── Responsive ──────────────────────────────── */
 @media (max-width: 760px) {
   .wrap { padding: 0 24px; }
-  body { font-size: 16px; }
+  body { font-size: 18px; }
   .section-inner { grid-template-columns: 1fr; gap: 14px; padding: 48px 0; }
   .section-label { padding-top: 0; }
   .stats { grid-template-columns: 1fr; }
@@ -338,8 +357,8 @@ details.resp[open] > summary .resp-sign { transform: rotate(45deg); }
     <span class="cm-logo" aria-label="Campminder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 938.24 168.62" role="img"><path d="m71.64,66.48c2.84-1.73,6.26-2.6,10.25-2.6,4.61,0,8.47,1.13,11.58,3.39,3.1,2.26,4.97,5.66,5.59,10.18h16.5c-.44-6.03-2.33-11.13-5.66-15.3-3.33-4.17-7.45-7.3-12.38-9.38-4.92-2.08-10.14-3.13-15.64-3.13-7.1,0-13.31,1.42-18.63,4.26-5.32,2.84-9.43,6.9-12.31,12.18-2.88,5.28-4.33,11.33-4.33,18.17s1.44,13,4.33,18.23c2.88,5.24,7.01,9.29,12.38,12.18,5.37,2.88,11.56,4.33,18.56,4.33,5.5,0,10.71-1.02,15.64-3.06,4.92-2.04,9.05-5.17,12.38-9.38,3.33-4.21,5.21-9.34,5.66-15.37h-16.5c-.62,4.44-2.48,7.83-5.59,10.18-3.11,2.35-6.97,3.53-11.58,3.53-3.99,0-7.41-.87-10.25-2.6-2.84-1.73-4.99-4.17-6.45-7.32-1.46-3.15-2.2-6.72-2.2-10.71s.73-7.52,2.2-10.58c1.46-3.06,3.61-5.46,6.45-7.19Z"/><path d="m189.02,79.45c0-6.39-1.29-11.78-3.86-16.17-2.57-4.39-6.21-7.76-10.91-10.11-4.7-2.35-10.25-3.53-16.64-3.53-5.95,0-11.22,1.04-15.84,3.13-4.61,2.09-8.27,5.06-10.98,8.92-2.71,3.86-4.24,8.45-4.59,13.77h15.7c.35-4.44,1.84-7.7,4.46-9.78,2.62-2.08,6.19-3.13,10.71-3.13,5.32,0,9.2,1.15,11.65,3.46,2.44,2.31,3.75,5.95,3.93,10.91l-23.69,2.4c-8.61.89-14.8,3.02-18.57,6.39-3.77,3.37-5.66,7.9-5.66,13.57,0,4.97,1.68,9.49,5.06,13.57,3.37,4.08,9.49,6.12,18.37,6.12s15.28-1.84,19.76-5.52c4.01-3.3,6.82-7.51,8.45-12.62v7.89c0,2.84.78,5.04,2.33,6.59,1.55,1.55,3.75,2.33,6.59,2.33h13.44v-14.11h-9.72v-24.09Zm-19.03,17.03c-1.78,2.93-4.26,5.21-7.45,6.85-3.19,1.64-6.83,2.46-10.91,2.46-3.37,0-6.01-.73-7.92-2.2-1.91-1.46-2.86-3.75-2.86-6.85,0-2.22.75-3.93,2.26-5.12,1.51-1.2,3.9-1.97,7.19-2.33.71-.18,1.24-.27,1.6-.27l20.76-2.53c0,3.73-.89,7.05-2.66,9.98Z"/><path d="m290.49,49.64c-7.01,0-12.64,1.84-16.9,5.52-3.51,3.04-6.14,6.8-7.9,11.25-.17-.71-.35-1.4-.55-2.07-1.38-4.57-3.62-8.16-6.72-10.78-3.11-2.62-7.28-3.93-12.51-3.93-6.3,0-11.42,1.73-15.37,5.19-3.56,3.12-6.2,7.12-7.92,11.98v-15.84h-16.24v66.68h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.05-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.06-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-36.73c0-9.94-1.82-17.63-5.46-23.09-3.64-5.46-9.54-8.18-17.7-8.18Z"/><path d="m387.96,54.1c-4.66-2.97-10.27-4.46-16.84-4.46-7.54,0-13.62,1.73-18.23,5.19-3.86,2.89-6.87,6.64-9.05,11.21v-15.06h-16.24v92.76h16.24v-41.02c2.06,4.44,5,8.12,8.85,11.01,4.66,3.51,10.8,5.26,18.43,5.26,6.56,0,12.18-1.51,16.84-4.53,4.66-3.02,8.18-7.12,10.58-12.31,2.4-5.19,3.59-11.11,3.59-17.77s-1.2-12.62-3.59-17.9c-2.4-5.28-5.92-9.4-10.58-12.38Zm-4.66,41.72c-1.73,3.02-4.13,5.28-7.19,6.79-3.06,1.51-6.68,2.26-10.85,2.26s-7.83-.75-10.98-2.26c-3.15-1.51-5.64-3.79-7.45-6.85-1.82-3.06-2.73-6.85-2.73-11.38s.91-8.32,2.73-11.38c1.82-3.06,4.3-5.34,7.45-6.85,3.15-1.51,6.81-2.26,10.98-2.26s7.79.75,10.85,2.26c3.06,1.51,5.46,3.77,7.19,6.79,1.73,3.02,2.6,6.83,2.6,11.45s-.86,8.43-2.6,11.45Z"/><path d="m497.13,49.64c-7.01,0-12.64,1.84-16.9,5.52-3.51,3.04-6.14,6.8-7.9,11.25-.17-.71-.35-1.4-.55-2.07-1.38-4.57-3.62-8.16-6.72-10.78-3.11-2.62-7.28-3.93-12.51-3.93-6.3,0-11.42,1.73-15.37,5.19-3.56,3.12-6.2,7.12-7.92,11.98v-15.84h-16.24v66.68h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.06-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.06-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-36.73c0-9.94-1.82-17.63-5.46-23.09-3.64-5.46-9.54-8.18-17.7-8.18Z"/><path d="m563.9,60.15c0-3.1-.8-5.41-2.4-6.92-1.6-1.51-3.86-2.26-6.79-2.26h-20.76v14.24h14.91v38.33h-18.63v14.11h52.44v-14.11h-18.77v-43.39Z"/><path d="m635.91,49.64c-7.37,0-13.44,1.82-18.23,5.46-4.29,3.26-7.26,7.6-8.92,13v-17.12h-16.24v66.68h16.24v-26.48c0-6.03.89-11.09,2.66-15.17,1.77-4.08,4.24-7.12,7.39-9.12,3.15-2,6.94-2.99,11.38-2.99,5.41,0,9.29,1.38,11.65,4.13,2.35,2.75,3.53,7.37,3.53,13.84v35.8h16.37v-38.06c0-9.58-2.26-16.97-6.79-22.16-4.52-5.19-10.87-7.79-19.03-7.79Z"/><path d="m730.5,65.76c-2.1-4.3-5-7.9-8.72-10.79-4.57-3.55-10.71-5.32-18.43-5.32-6.57,0-12.18,1.49-16.84,4.46-4.66,2.97-8.18,7.05-10.58,12.24-2.4,5.19-3.59,11.16-3.59,17.9s1.2,12.6,3.59,17.83c2.4,5.24,5.92,9.36,10.58,12.38,4.66,3.02,10.27,4.53,16.84,4.53,7.54,0,13.64-1.73,18.3-5.19,3.79-2.82,6.73-6.44,8.85-10.85v14.71h16.37V19.83h-16.37v45.93Zm-2.86,29.8c-1.82,3.11-4.33,5.44-7.52,6.99-3.19,1.55-6.79,2.33-10.78,2.33s-7.81-.8-10.91-2.4c-3.11-1.6-5.5-3.93-7.19-6.99-1.69-3.06-2.53-6.81-2.53-11.25s.84-8.29,2.53-11.31c1.68-3.02,4.08-5.28,7.19-6.79,3.1-1.51,6.74-2.26,10.91-2.26s7.59.78,10.78,2.33c3.19,1.55,5.7,3.84,7.52,6.85,1.82,3.02,2.73,6.74,2.73,11.18s-.91,8.21-2.73,11.31Z"/><path d="m803.96,103.21c-2.97,2.09-6.81,3.13-11.51,3.13-5.77,0-10.2-1.84-13.31-5.52-2.81-3.33-4.37-7.71-4.71-13.11h51.42v-5.19c0-10.29-3.06-18.34-9.18-24.15-6.12-5.81-14.46-8.72-25.02-8.72-6.57,0-12.38,1.35-17.43,4.06-5.06,2.71-8.98,6.61-11.78,11.71-2.79,5.1-4.19,11.2-4.19,18.3s1.35,12.91,4.06,18.23c2.71,5.32,6.63,9.49,11.78,12.51,5.14,3.02,11.31,4.53,18.5,4.53,9.76,0,17.43-2.31,23.02-6.92,5.59-4.61,9.05-10.56,10.38-17.83h-16.1c-.98,3.91-2.95,6.9-5.92,8.98Zm-21.23-38.99c2.66-1.46,5.77-2.2,9.32-2.2,5.5,0,9.87,1.58,13.11,4.72,2.84,2.76,4.44,6.47,4.78,11.11h-35.48c.25-2.8.94-5.27,2.09-7.39,1.46-2.71,3.53-4.79,6.19-6.25Z"/><path d="m848.73,50.97c-3.46,0-6.06.84-7.79,2.53-1.73,1.69-2.6,4.26-2.6,7.72v56.43h16.37v-52.44h34.6v-14.24h-40.59Z"/><polygon points="563.49 23.26 547.17 23.26 547.17 38.54 563.49 38.41 563.49 23.26"/><path d="m10.25,0h38.67s0,14.24,0,14.24H14.24v36.73s-14.24,0-14.24,0V10.38C0,6.92.84,4.33,2.53,2.6,4.21.87,6.79,0,10.25,0Z"/><path d="m927.99,168.62h-38.67s0-14.24,0-14.24h34.68v-36.73s14.24,0,14.24,0v40.59c0,3.46-.84,6.06-2.53,7.79-1.69,1.73-4.26,2.6-7.72,2.6Z"/></svg></span>
     <span class="conf">Confidential</span>
   </div>
-  <h1>Survey Findings</h1>
-  <p class="deck">Campminder Brand Architecture — how people across the organization see the brand landscape today, and what they think needs to change.</p>
+  <h1>Brand Architecture<br><span class="h1-sub">Survey Findings</span></h1>
+  <p class="deck">How people across our organization see the brand landscape today.</p>
 </header>
 
 <!-- ───────── ABOUT ───────── -->
@@ -347,8 +366,7 @@ details.resp[open] > summary .resp-sign { transform: rotate(45deg); }
   <div class="section-inner">
     <div class="section-label">About</div>
     <div class="section-body">
-      <p>In early June 2026, Campminder distributed a brand architecture survey to leadership, operations, sales, product, engineering, and client-facing teams across Campminder, UltraCamp, and Swimtopia. The goal was to understand how people across the organization currently see the brand landscape and what they think needs to change.</p>
-      <p>The survey closed on June 19, 2026.</p>
+      <p>In June 2026, we distributed a brand architecture survey to leaders across Campminder and our family of brands. The goal was to understand how people across our organization currently understand our brands.</p>
     </div>
   </div>
 </section>
@@ -365,7 +383,7 @@ details.resp[open] > summary .resp-sign { transform: rotate(45deg); }
         </div>
         <div class="stat">
           <div class="num"><span class="accent">67%</span></div>
-          <div class="cap">used the word "confusing," "unclear," or a close variation. That is not a communications problem. It is a structural one.</div>
+          <div class="cap">used the word "confusing," "unclear," or a close variation to describe how the Campminder brands are currently managed.</div>
         </div>
       </div>
     </div>
@@ -377,9 +395,9 @@ details.resp[open] > summary .resp-sign { transform: rotate(45deg); }
   <div class="section-inner">
     <div class="section-label">The Big Picture</div>
     <div class="section-body">
-      <p class="bigline">It's a business problem, not a marketing one.</p>
-      <p>The survey made clear that confusion about the Campminder brand family is not limited to how the company shows up in sales and marketing. It is equally present inside the organization, in HR, in product, in engineering, in client services, and in operations. People do not know what to call things, who owns what, where to go for guidance, or how to talk about the portfolio in their daily work.</p>
-      <p>The external confusion is a symptom. The internal confusion is the root. Brand is not something marketing owns. Everyone owns it. And right now, no one owns it.</p>
+      <p class="bigline">Brand is everybody's business.</p>
+      <p>Confusion about the Campminder brand family is not limited to how the company shows up in sales and marketing. It's equally present inside the organization, in HR, in product, in engineering, in client services, and in operations.</p>
+      <p>Our people don't know what to call things, who owns what, where to go for guidance, or how to talk about the portfolio in their daily work.</p>
     </div>
   </div>
 </section>
@@ -393,88 +411,67 @@ details.resp[open] > summary .resp-sign { transform: rotate(45deg); }
       <div class="finding">
         <div class="fnum">01</div>
         <div>
-          <h3>The Campminder name has real equity, and real limits.</h3>
-          <p>Twenty-five-plus years of brand recognition in the camp market is a meaningful asset. Nobody wants to throw that away. But the name is doing double duty as both product and parent company, which creates confusion internally and externally. Several respondents flagged that this structure is hard to explain to a prospect, a new hire, or a customer.</p>
+          <h3>The Campminder name is a real asset.</h3>
+          <p>Twenty-five years of recognition in the camp market is equity worth protecting. The catch is that the name does double duty as both product and parent company, which is hard to explain to a prospect or a new hire.</p>
         </div>
       </div>
 
       <div class="finding">
         <div class="fnum">02</div>
         <div>
-          <h3>Confusion costs time and money in the sales process.</h3>
-          <p>Sales and marketing respondents described a consistent pattern: conversations slow down when they have to explain what Campminder owns, what it does not own, and why a prospect might be talking to a Campminder person about an UltraCamp product. The brands operate in the same markets with no clear story connecting them. It shows up in every sales conversation.</p>
+          <h3>Clarity is a sales advantage.</h3>
+          <p>Sales moves faster when the whole portfolio tells one story. Today reps lose time explaining what Campminder owns, what it doesn't, and why a prospect is talking to them about an UltraCamp product.</p>
         </div>
       </div>
 
       <div class="finding">
         <div class="fnum">03</div>
         <div>
-          <h3>CampCo is everywhere but means nothing, and it leaks.</h3>
-          <p>CampCo started as internal operational shorthand. It now lives in Slack, in dashboard names, in core values documents, and in internal culture. It has no brand identity, no voice, and no rules. Because the name only references camps, it signals to teams like Swimtopia that they may not fit into the broader corporate vision. Internal names are not private. They find their way out.</p>
+          <h3>The team is already reaching for an umbrella.</h3>
+          <p>CampCo shows people want a name that sits above the products. As an informal placeholder it has no identity or rules, it leaks to customers, and its camp-only name leaves teams like Swimtopia out.</p>
         </div>
       </div>
 
       <div class="finding">
         <div class="fnum">04</div>
         <div>
-          <h3>Brand decisions affect every department, not just marketing.</h3>
-          <p>Engineers are asking which product they are building for. People managers cannot explain the org structure to their teams. Client success managers are onboarding products that operate under completely different support models. Implementation teams are fielding questions they cannot answer. This touches HR, product, engineering, client services, and operations.</p>
+          <h3>Getting this right helps every team.</h3>
+          <p>Clear brand architecture pays off well beyond marketing. Engineers, people managers, and client success teams all field questions today they can't answer.</p>
         </div>
       </div>
 
       <div class="finding">
         <div class="fnum">05</div>
         <div>
-          <h3>Anything internal eventually becomes external.</h3>
-          <p>Internal names, code names, AI-generated dashboards, and informal shorthand all carry the potential to reach customers, prospects, or the broader industry. The gap between "internal use only" and "out in the world" is smaller than most people assume. UltraCamp customers are already asking questions the company does not have clear answers to. Silence is a story, just not the one Campminder wants to tell.</p>
+          <h3>Consistency inside shows up outside.</h3>
+          <p>The brand reads as trustworthy when internal and customer-facing language match. Code names, dashboards, and shorthand all travel, and UltraCamp customers are already asking questions we can't yet answer.</p>
         </div>
       </div>
 
       <div class="finding">
         <div class="fnum">06</div>
         <div>
-          <h3>Positive brand equity is fragile when ownership is unclear.</h3>
-          <p>When a parent company acquires a beloved brand and goes quiet, customers fill the silence with their own narrative. That narrative tends toward fear: the product they love is about to get worse, disappear, or become something corporate that does not care about them. The UltraCamp customer base in particular is waiting for a story they can trust.</p>
+          <h3>Customers love these brands and want to hear from us.</h3>
+          <p>Brands like UltraCamp and Campanion carry deep customer trust. When the parent company goes quiet, customers fill the silence with worry, so they're waiting for a story they can trust.</p>
         </div>
       </div>
 
       <div class="finding">
         <div class="fnum">07</div>
         <div>
-          <h3>The portfolio looks like a roll-up. It does not have to.</h3>
-          <p>The current structure, a collection of brands with separate identities, no visible connection, and no shared narrative, reads like a typical acquisition strategy: a larger company buying smaller, more authentic brands without a coherent reason. That is not the reality at Campminder. But perception holds until the company tells a better story.</p>
+          <h3>The portfolio can read as a vision, not a roll-up.</h3>
+          <p>The pieces are already here for a coherent story. Without a shared narrative, the separate identities look like a financial roll-up, which isn't the reality.</p>
         </div>
       </div>
 
       <div class="finding">
         <div class="fnum">08</div>
         <div>
-          <h3>There is no brand owner.</h3>
-          <p>When a brand question comes up, about a domain, an email footer, a social media profile, a new product name, there is no clear person to go to. Decisions get made by whoever cares most in the moment, which means they get made inconsistently. This is the operational gap that makes every other problem harder to solve.</p>
+          <h3>Brand decisions work better with a clear home.</h3>
+          <p>Good brand decisions need a clear place to land. Right now they get settled by whoever cares most in the moment, so the answers come out inconsistent.</p>
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ───────── WHAT'S UP NEXT ───────── -->
-<section class="wrap section">
-  <div class="section-inner">
-    <div class="section-label">What's Up Next</div>
-    <div class="section-body">
-      <div class="upnext-item">
-        <h3>Discovery continues with interviews.</h3>
-        <p>Eleven conversations are scheduled across leadership, product, sales, and client services. The goal is to go deeper than the survey allowed, hear real stories, understand specific pain points, and build trust across the team. The more people feel heard, the more invested they will be in what comes out of it.</p>
-      </div>
-      <div class="upnext-item">
-        <h3>Snapshots of each brand today.</h3>
-        <p>Before any architecture decisions are made, we need a clear picture of where each brand stands: how it shows up, what is working, what is confused, and what equity is worth protecting.</p>
-      </div>
-      <div class="upnext-item">
-        <h3>Guiding principles for architecture decisions.</h3>
-        <p>The snapshots and interviews will surface a set of principles to guide the work ahead. These are not rules about what the architecture should look like. They are the criteria for evaluating options, the things any good solution will need to be true.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -484,18 +481,40 @@ details.resp[open] > summary .resp-sign { transform: rotate(45deg); }
   <div class="section-inner">
     <div class="section-label">The Road Ahead</div>
     <div class="section-body">
+
       <div class="phase">
         <h3>Discovery <span class="tag">In Progress</span></h3>
-        <p>Closes with an approved summary before moving to Strategy.</p>
+        <p class="phase-sub">Closes with an approved summary before moving to Strategy.</p>
+        <ul class="arrows">
+          <li><strong>Interviews.</strong> Eleven conversations across leadership, product, sales, and client services to go deeper than the survey allowed.</li>
+          <li><strong>Snapshots of each brand today.</strong> How it shows up, what's working, what's confused, and what equity is worth protecting.</li>
+          <li><strong>Guiding principles.</strong> The criteria any good architecture solution will need to meet.</li>
+        </ul>
       </div>
+
       <div class="phase">
         <h3>Strategy <span class="tag">Next</span></h3>
-        <p>Selecting the architecture model (branded house, house of brands, or hybrid), defining each brand's role and audience, building a decision framework for future acquisitions, developing the internal narrative, and making a parent brand recommendation.</p>
+        <p class="phase-sub">Selecting the model and defining how every brand relates.</p>
+        <ul class="arrows">
+          <li>Choosing the architecture model: branded house, house of brands, or hybrid.</li>
+          <li>Defining each brand's role and audience.</li>
+          <li>Building a decision framework for future acquisitions.</li>
+          <li>Developing the internal narrative.</li>
+          <li>Making a parent brand recommendation.</li>
+        </ul>
       </div>
+
       <div class="phase">
         <h3>Activation <span class="tag">Then</span></h3>
-        <p>Documenting everything into a Brand Architecture Playbook the team can actually use: step-by-step guides for future acquisitions, a communication sequence for announcing changes, channel recommendations across website, social, trade shows, and sales materials, and budget estimates for anything that requires production or investment.</p>
+        <p class="phase-sub">Documenting everything into a Brand Architecture Playbook the team can actually use.</p>
+        <ul class="arrows">
+          <li>Step-by-step guides for future acquisitions.</li>
+          <li>A communication sequence for announcing changes.</li>
+          <li>Channel recommendations across website, social, trade shows, and sales materials.</li>
+          <li>Budget estimates for anything that requires production or investment.</li>
+        </ul>
       </div>
+
     </div>
   </div>
 </section>
