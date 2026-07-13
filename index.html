@@ -4,44 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Survey Findings — Campminder Brand Architecture</title>
+<title>Strategy — Campminder Brand Architecture</title>
 <style>
 /* ─────────────────────────────────────────────
-   FONTS — TWK Lausanne
-───────────────────────────────────────────── */
-@font-face {
-  font-family: "TWK Lausanne";
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: url("fonts/TWKLausanne-400.woff2") format("woff2"),
-       url("fonts/TWKLausanne-400.woff") format("woff");
-}
-@font-face {
-  font-family: "TWK Lausanne";
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-  src: url("fonts/TWKLausanne-600.woff2") format("woff2"),
-       url("fonts/TWKLausanne-600.woff") format("woff");
-}
-
-/* ─────────────────────────────────────────────
-   TOKENS — Swiss / TWK Lausanne
+   TOKENS — SF Pro system stack / Campminder purple
+   v2 — fresh build, July 2026
 ───────────────────────────────────────────── */
 :root {
-  --sans: "TWK Lausanne", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --mono: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas, monospace;
-  --bg:    #ffffff;
-  --ink:   #111111;
-  --body:  #1a1a1a;
-  --mid:   #474747;
-  --light: #8a8a8a;
-  --rule:  #e4e4e4;
-  --rule2: #d2d2d2;
-  --hair:  #efefef;
-  --accent:#773DBD;
-  --panel: #fafafa;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg:      #f7f6f8;
+  --card:    #ffffff;
+  --ink:     #141118;
+  --body:    #1c1922;
+  --mid:     #46414f;
+  --light:   #8d8798;
+  --rule:    #e2dfe7;
+  --hair:    #eceaf0;
+  --accent:  #773DBD;
+  --accent-soft: #f1eaf9;
+  --accent-line: #dcc9f2;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,177 +35,245 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 19px;
-  line-height: 1.6;
-  letter-spacing: -0.011em;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
 }
 
-/* ── Layout grid ─────────────────────────────── */
-.wrap {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 48px;
-}
-.section {
-  padding: 0;
-  border-top: 1px solid var(--rule);
-}
-.section:first-of-type { border-top: none; }
-.section-inner {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 48px;
-  padding: 72px 0;
-}
-.section-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--light);
-  padding-top: 4px;
-}
-.section-body { max-width: 640px; }
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 44px; }
 
-/* ── Type ────────────────────────────────────── */
-h1, h2, h3 { color: var(--ink); font-weight: 600; letter-spacing: -0.025em; }
-.section-body p { margin-bottom: 18px; }
-.section-body p:last-child { margin-bottom: 0; }
-strong { color: var(--ink); font-weight: 600; }
+h1, h2, h3 { color: var(--ink); font-weight: 700; letter-spacing: -0.025em; }
+strong { color: var(--ink); font-weight: 650; }
 
-/* ── Masthead ────────────────────────────────── */
-.masthead {
-  padding: 56px 0 0;
-  border-bottom: 1px solid var(--ink);
+/* ── Topbar ─────────────────────────────────── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(247, 246, 248, 0.85);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
 }
-.masthead-top {
+.topbar .wrap {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.sp-logo svg { height: 18px; width: auto; display: block; }
+.sp-logo svg path, .sp-logo svg rect { fill: var(--ink); }
+.conf-chip {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--mid);
-  padding-bottom: 80px;
-}
-.masthead-top .conf { color: var(--accent); }
-.cm-logo { display: block; }
-.cm-logo svg { height: 24px; width: auto; display: block; }
-.cm-logo svg path, .cm-logo svg polygon { fill: var(--ink); }
-.masthead h1 {
-  font-size: clamp(40px, 6.4vw, 84px);
-  line-height: 0.98;
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  color: var(--ink);
-  margin-bottom: 22px;
-}
-.masthead h1 .h1-sub { color: var(--light); }
-.masthead .deck {
-  font-size: clamp(18px, 2vw, 22px);
-  color: var(--mid);
-  font-weight: 400;
-  max-width: 44ch;
-  letter-spacing: -0.015em;
-  margin-bottom: 40px;
+  color: var(--accent);
 }
 
-/* ── By the numbers ──────────────────────────── */
-.stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border-top: 1px solid var(--rule);
-}
-.stat {
-  padding: 40px 40px 40px 0;
-}
-.stat:nth-child(2) {
-  padding-left: 40px;
-  border-left: 1px solid var(--rule);
-}
-.stat .num {
-  font-size: clamp(52px, 7vw, 88px);
-  font-weight: 600;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
+/* ── Masthead ───────────────────────────────── */
+.masthead { padding-top: 96px; padding-bottom: 88px; }
+.cm-name {
+  display: block;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--ink);
+  margin-bottom: 56px;
+}
+.masthead h1 {
+  font-size: clamp(44px, 7vw, 92px);
+  line-height: 0.99;
+  letter-spacing: -0.04em;
+  margin-bottom: 26px;
+}
+.masthead h1 .accent { color: var(--accent); }
+.masthead .deck {
+  font-size: clamp(18px, 2.1vw, 23px);
+  color: var(--mid);
+  letter-spacing: -0.015em;
+  line-height: 1.45;
+}
+
+/* ── Table of contents ──────────────────────── */
+.toc {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 56px;
+  max-width: 480px;
+}
+.toc a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 17px;
+  font-weight: 550;
+  color: var(--ink);
+  text-decoration: none;
+}
+.toc a:hover { color: var(--accent); }
+.toc a .tn {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
-.stat .num .accent { color: var(--accent); }
-.stat .cap {
-  margin-top: 18px;
-  font-size: 18px;
-  color: var(--body);
-  line-height: 1.45;
-  max-width: 34ch;
-}
+.section { scroll-margin-top: 72px; }
 
-/* ── Big picture pull ────────────────────────── */
+/* ── Sections ───────────────────────────────── */
+.section { border-top: 1px solid var(--rule); }
+.section-inner { padding: 80px 0; }
+.eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 22px;
+}
+.eyebrow .n { color: var(--accent); font-variant-numeric: tabular-nums; }
+.section-label {
+  font-size: clamp(30px, 4.4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  margin-bottom: 36px;
+  max-width: 22ch;
+}
+.section-body { max-width: 660px; }
+.section-body p { margin-bottom: 18px; }
+.section-body p:last-child { margin-bottom: 0; }
+
+/* ── Big pull lines ─────────────────────────── */
 .bigline {
-  font-size: clamp(26px, 3.6vw, 40px);
-  line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-size: clamp(26px, 3.7vw, 42px);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.032em;
   color: var(--ink);
-  margin-bottom: 28px;
+  margin: 8px 0 30px;
 }
 .bigline .accent { color: var(--accent); }
+.section-body .bigline:last-child { margin-bottom: 0; }
 
-/* ── Findings list ───────────────────────────── */
+/* ── Numbered findings ──────────────────────── */
 .finding {
   display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 8px;
+  grid-template-columns: 52px 1fr;
+  gap: 10px;
   padding: 30px 0;
   border-top: 1px solid var(--hair);
 }
-.finding:first-child { border-top: none; padding-top: 0; }
+.finding:first-of-type { border-top: none; }
 .finding .fnum {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 650;
   color: var(--accent);
   font-variant-numeric: tabular-nums;
-  padding-top: 3px;
+  padding-top: 4px;
 }
-.finding h3 {
-  font-size: 21px;
-  line-height: 1.3;
-  margin-bottom: 8px;
-}
-.finding p { font-size: 18px; color: var(--body); margin: 0; }
+.finding h3 { font-size: 24px; line-height: 1.3; margin-bottom: 8px; letter-spacing: -0.02em; }
+.finding p { font-size: 19px; margin: 0 0 12px; }
+.finding p:last-child { margin-bottom: 0; }
 
-/* ── Roadmap ─────────────────────────────────── */
-.phase {
-  padding: 32px 0;
-  border-top: 1px solid var(--hair);
+/* ── Recommendations ────────────────────────── */
+.rec {
+  border-left: 2px solid var(--accent);
+  padding: 6px 0 6px 26px;
+  margin-bottom: 44px;
 }
-.phase:first-child { border-top: none; padding-top: 0; }
-.phase h3 {
-  font-size: 22px;
+.rec:last-child { margin-bottom: 0; }
+.rec .rnum {
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
   margin-bottom: 8px;
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  letter-spacing: -0.02em;
 }
-.phase h3 .tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--light);
+.rec h3 { font-size: 24px; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 10px; }
+.rec p { font-size: 19px; margin: 0 0 12px; }
+.rec p:last-child { margin-bottom: 0; }
+
+/* ── Definition pair ────────────────────────── */
+.defs {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: 28px 0;
 }
-.phase-sub { font-size: 18px; color: var(--mid); margin: 0 0 16px; }
-.arrows { list-style: none; margin: 0; padding: 0; }
+.def { padding: 24px 0; }
+.def + .def { border-top: 1px solid var(--hair); }
+.def .def-term {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.def p { font-size: 19px; margin: 0; }
+
+/* ── Pill link ──────────────────────────────── */
+.pill {
+  display: inline-block;
+  font-size: 13.5px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 999px;
+  padding: 9px 18px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.pill:hover { background: var(--accent-line); }
+.pill span { font-size: 12px; }
+
+/* ── Stats ──────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid var(--rule);
+}
+.stats.two {
+  grid-template-columns: 1fr 1fr;
+  margin: 32px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.stat { padding: 38px 32px 38px 0; }
+.stat + .stat { padding-left: 32px; border-left: 1px solid var(--rule); }
+.stat .num {
+  font-size: clamp(46px, 5.8vw, 76px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.stat .cap { margin-top: 18px; font-size: 17.5px; line-height: 1.5; max-width: 32ch; }
+.stats-note {
+  font-size: 18px;
+  color: var(--mid);
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
+}
+.stats-note > div { max-width: 660px; }
+
+/* ── Arrow list ─────────────────────────────── */
+.arrows { list-style: none; }
 .arrows li {
   position: relative;
   padding-left: 28px;
-  font-size: 18px;
-  color: var(--body);
+  font-size: 19px;
   line-height: 1.5;
-  margin-bottom: 11px;
+  margin-bottom: 12px;
 }
 .arrows li:last-child { margin-bottom: 0; }
 .arrows li::before {
@@ -233,246 +283,549 @@ strong { color: var(--ink); font-weight: 600; }
   top: 1px;
   font-size: 14px;
   color: var(--accent);
-  font-weight: 400;
 }
-.arrows li strong { color: var(--ink); font-weight: 600; }
 
-/* ── Responses accordion ─────────────────────── */
-.resp-controls {
-  display: flex;
-  gap: 18px;
+/* ── Model cards ────────────────────────────── */
+.models { max-width: none; }
+.model {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 40px 44px 44px;
   margin-bottom: 28px;
-  font-size: 13px;
 }
-.resp-controls button {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--mid);
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--rule2);
-  padding: 2px 0;
-  cursor: pointer;
-  letter-spacing: -0.01em;
-  transition: color .15s, border-color .15s;
+.model:last-child { margin-bottom: 0; }
+.model.rec-model { border: 1px solid var(--accent-line); box-shadow: 0 1px 0 var(--accent-line); }
+.model h3 {
+  font-size: 27px;
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
 }
-.resp-controls button:hover { color: var(--ink); border-color: var(--ink); }
+.model .tag {
+  font-size: 10.5px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--light);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+.model .tag.rec {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+.model > p { font-size: 19px; max-width: 640px; margin-bottom: 16px; }
+.model .qa { max-width: 640px; margin-bottom: 20px; }
+.model .qa:last-child { margin-bottom: 0; }
+.model .q {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.model .a { font-size: 19px; line-height: 1.55; }
+.model .a.meta { font-size: 17.5px; color: var(--mid); }
 
-details.resp {
-  border-top: 1px solid var(--rule);
+/* ── Example logo rows ──────────────────────── */
+.logo-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 26px 34px;
+  margin: 16px 0 20px;
 }
-details.resp:last-of-type { border-bottom: 1px solid var(--rule); }
-details.resp > summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 20px 0;
+.logo-row img {
+  filter: brightness(0);
+  opacity: 0.5;
+  width: auto;
+}
+
+/* ── Model diagrams ─────────────────────────── */
+.model-diagram {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  margin: 22px 0 28px;
+}
+.model-diagram .md-box { fill: var(--card); stroke: var(--ink); }
+.model-diagram .md-fill { fill: var(--ink); }
+.model-diagram .md-acc-fill { fill: var(--accent); }
+.model-diagram .md-dash { fill: none; stroke: var(--light); stroke-dasharray: 4 4; }
+.model-diagram .md-line { stroke: var(--rule); fill: none; }
+.model-diagram .md-line-dash { stroke: var(--rule); stroke-dasharray: 4 4; fill: none; }
+.model-diagram text { font-family: var(--sans); }
+.model-diagram .md-t { font-size: 13px; font-weight: 650; letter-spacing: 0.05em; fill: var(--ink); }
+.model-diagram .md-t-w { fill: #ffffff; }
+.model-diagram .md-t2 { font-size: 12px; fill: var(--mid); }
+.model-diagram .md-t-mut { fill: var(--light); }
+.model-diagram .md-t-acc { font-size: 11px; font-weight: 650; letter-spacing: 0.05em; fill: var(--accent); }
+
+/* ── Road ahead steps ───────────────────────── */
+.road-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-details.resp > summary::-webkit-details-marker { display: none; }
-.resp-name {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-}
-.resp-role {
-  font-size: 15px;
-  color: var(--mid);
-  font-weight: 400;
-  margin-left: 12px;
-  letter-spacing: -0.01em;
-}
-.resp-sign {
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--light);
-  line-height: 1;
-  flex-shrink: 0;
-  transition: transform .2s;
-}
-details.resp[open] > summary .resp-sign { transform: rotate(45deg); }
-.resp-detail {
-  padding: 4px 0 30px;
-}
-.resp-detail .qa { margin-bottom: 16px; }
-.resp-detail .qa:last-child { margin-bottom: 0; }
-.resp-detail .q {
+.road-note {
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-weight: 650;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--light);
-  margin-bottom: 3px;
 }
-.resp-detail .a {
-  font-size: 18px;
-  color: var(--body);
-  line-height: 1.55;
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 26px;
+  margin-top: 10px;
 }
-.resp-detail .a.meta {
-  font-size: 16px;
-  color: var(--mid);
+.step { border-top: 2px solid var(--rule); padding-top: 16px; }
+.step.done { border-top-color: var(--ink); }
+.step.now { border-top-color: var(--accent); }
+.step .no {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  color: var(--light);
+  font-variant-numeric: tabular-nums;
 }
+.step.now .no { color: var(--accent); }
+.step h4 { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin: 9px 0 7px; }
+.step p { font-size: 16px; color: var(--mid); margin: 0; line-height: 1.5; }
+.step ul { margin: 14px 0 0; padding-left: 18px; }
+.step li { font-size: 15.5px; color: var(--mid); line-height: 1.5; margin-bottom: 9px; }
+.step li:last-child { margin-bottom: 0; }
+.step li strong { font-weight: 650; color: var(--ink); }
+.step .tag {
+  display: inline-block;
+  margin: 0 0 12px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.step.done .tag { background: var(--ink); color: var(--bg); }
+.step.now .tag { background: var(--accent); color: #ffffff; }
+.step.next .tag { border: 1px solid var(--rule); color: var(--light); }
 
-/* ── Footer ──────────────────────────────────── */
+/* ── Footer ─────────────────────────────────── */
 .foot {
   border-top: 1px solid var(--ink);
-  padding: 40px 0 64px;
+  padding-top: 44px;
+  padding-bottom: 72px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--mid);
+  gap: 20px;
 }
-.foot .conf { color: var(--accent); }
-.foot .sp-logo { display: block; }
-.foot .sp-logo svg { height: 26px; width: auto; display: block; }
-.foot .sp-logo svg path, .foot .sp-logo svg rect { fill: var(--ink); }
+.foot .sp-logo svg { height: 20px; }
+.foot .conf {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: right;
+}
 
-/* ── Responsive ──────────────────────────────── */
+/* ── Responsive ─────────────────────────────── */
 @media (max-width: 760px) {
-  .wrap { padding: 0 24px; }
-  body { font-size: 18px; }
-  .section-inner { grid-template-columns: 1fr; gap: 14px; padding: 48px 0; }
-  .section-label { padding-top: 0; }
-  .stats { grid-template-columns: 1fr; }
-  .stat { padding: 32px 0; }
-  .stat:nth-child(2) { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); }
+  .wrap { padding: 0 22px; }
+  body { font-size: 19px; }
+  .masthead { padding: 64px 0 60px; }
+  .section-inner { padding: 56px 0; }
+  .section-label { margin-bottom: 26px; }
+  .stats, .stats.two { grid-template-columns: 1fr; }
+  .stat { padding: 30px 0; }
+  .stat + .stat { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); }
   .finding { grid-template-columns: 1fr; gap: 4px; }
   .finding .fnum { padding-top: 0; }
-  .masthead-top { padding-bottom: 48px; flex-direction: column; gap: 6px; }
-  .resp-name { display: block; }
-  .resp-role { display: block; margin-left: 0; margin-top: 2px; }
+  .model { padding: 28px 24px 32px; border-radius: 12px; }
+  .steps { grid-template-columns: 1fr; }
+  .foot { flex-direction: column; align-items: flex-start; }
+  .foot .conf { text-align: left; }
 }
 </style>
 </head>
 <body>
 
+<!-- ───────── TOPBAR — Studio Parkside ───────── -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="sp-logo" aria-label="Studio Parkside"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1499.4 151" role="img"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg></span>
+    <span class="conf-chip">Confidential</span>
+  </div>
+</div>
+
 <!-- ───────── MASTHEAD ───────── -->
 <header class="wrap masthead">
-  <div class="masthead-top">
-    <span class="cm-logo" aria-label="Campminder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 938.24 168.62" role="img"><path d="m71.64,66.48c2.84-1.73,6.26-2.6,10.25-2.6,4.61,0,8.47,1.13,11.58,3.39,3.1,2.26,4.97,5.66,5.59,10.18h16.5c-.44-6.03-2.33-11.13-5.66-15.3-3.33-4.17-7.45-7.3-12.38-9.38-4.92-2.08-10.14-3.13-15.64-3.13-7.1,0-13.31,1.42-18.63,4.26-5.32,2.84-9.43,6.9-12.31,12.18-2.88,5.28-4.33,11.33-4.33,18.17s1.44,13,4.33,18.23c2.88,5.24,7.01,9.29,12.38,12.18,5.37,2.88,11.56,4.33,18.56,4.33,5.5,0,10.71-1.02,15.64-3.06,4.92-2.04,9.05-5.17,12.38-9.38,3.33-4.21,5.21-9.34,5.66-15.37h-16.5c-.62,4.44-2.48,7.83-5.59,10.18-3.11,2.35-6.97,3.53-11.58,3.53-3.99,0-7.41-.87-10.25-2.6-2.84-1.73-4.99-4.17-6.45-7.32-1.46-3.15-2.2-6.72-2.2-10.71s.73-7.52,2.2-10.58c1.46-3.06,3.61-5.46,6.45-7.19Z"/><path d="m189.02,79.45c0-6.39-1.29-11.78-3.86-16.17-2.57-4.39-6.21-7.76-10.91-10.11-4.7-2.35-10.25-3.53-16.64-3.53-5.95,0-11.22,1.04-15.84,3.13-4.61,2.09-8.27,5.06-10.98,8.92-2.71,3.86-4.24,8.45-4.59,13.77h15.7c.35-4.44,1.84-7.7,4.46-9.78,2.62-2.08,6.19-3.13,10.71-3.13,5.32,0,9.2,1.15,11.65,3.46,2.44,2.31,3.75,5.95,3.93,10.91l-23.69,2.4c-8.61.89-14.8,3.02-18.57,6.39-3.77,3.37-5.66,7.9-5.66,13.57,0,4.97,1.68,9.49,5.06,13.57,3.37,4.08,9.49,6.12,18.37,6.12s15.28-1.84,19.76-5.52c4.01-3.3,6.82-7.51,8.45-12.62v7.89c0,2.84.78,5.04,2.33,6.59,1.55,1.55,3.75,2.33,6.59,2.33h13.44v-14.11h-9.72v-24.09Zm-19.03,17.03c-1.78,2.93-4.26,5.21-7.45,6.85-3.19,1.64-6.83,2.46-10.91,2.46-3.37,0-6.01-.73-7.92-2.2-1.91-1.46-2.86-3.75-2.86-6.85,0-2.22.75-3.93,2.26-5.12,1.51-1.2,3.9-1.97,7.19-2.33.71-.18,1.24-.27,1.6-.27l20.76-2.53c0,3.73-.89,7.05-2.66,9.98Z"/><path d="m290.49,49.64c-7.01,0-12.64,1.84-16.9,5.52-3.51,3.04-6.14,6.8-7.9,11.25-.17-.71-.35-1.4-.55-2.07-1.38-4.57-3.62-8.16-6.72-10.78-3.11-2.62-7.28-3.93-12.51-3.93-6.3,0-11.42,1.73-15.37,5.19-3.56,3.12-6.2,7.12-7.92,11.98v-15.84h-16.24v66.68h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.05-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.06-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-36.73c0-9.94-1.82-17.63-5.46-23.09-3.64-5.46-9.54-8.18-17.7-8.18Z"/><path d="m387.96,54.1c-4.66-2.97-10.27-4.46-16.84-4.46-7.54,0-13.62,1.73-18.23,5.19-3.86,2.89-6.87,6.64-9.05,11.21v-15.06h-16.24v92.76h16.24v-41.02c2.06,4.44,5,8.12,8.85,11.01,4.66,3.51,10.8,5.26,18.43,5.26,6.56,0,12.18-1.51,16.84-4.53,4.66-3.02,8.18-7.12,10.58-12.31,2.4-5.19,3.59-11.11,3.59-17.77s-1.2-12.62-3.59-17.9c-2.4-5.28-5.92-9.4-10.58-12.38Zm-4.66,41.72c-1.73,3.02-4.13,5.28-7.19,6.79-3.06,1.51-6.68,2.26-10.85,2.26s-7.83-.75-10.98-2.26c-3.15-1.51-5.64-3.79-7.45-6.85-1.82-3.06-2.73-6.85-2.73-11.38s.91-8.32,2.73-11.38c1.82-3.06,4.3-5.34,7.45-6.85,3.15-1.51,6.81-2.26,10.98-2.26s7.79.75,10.85,2.26c3.06,1.51,5.46,3.77,7.19,6.79,1.73,3.02,2.6,6.83,2.6,11.45s-.86,8.43-2.6,11.45Z"/><path d="m497.13,49.64c-7.01,0-12.64,1.84-16.9,5.52-3.51,3.04-6.14,6.8-7.9,11.25-.17-.71-.35-1.4-.55-2.07-1.38-4.57-3.62-8.16-6.72-10.78-3.11-2.62-7.28-3.93-12.51-3.93-6.3,0-11.42,1.73-15.37,5.19-3.56,3.12-6.2,7.12-7.92,11.98v-15.84h-16.24v66.68h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.06-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.06-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-36.73c0-9.94-1.82-17.63-5.46-23.09-3.64-5.46-9.54-8.18-17.7-8.18Z"/><path d="m563.9,60.15c0-3.1-.8-5.41-2.4-6.92-1.6-1.51-3.86-2.26-6.79-2.26h-20.76v14.24h14.91v38.33h-18.63v14.11h52.44v-14.11h-18.77v-43.39Z"/><path d="m635.91,49.64c-7.37,0-13.44,1.82-18.23,5.46-4.29,3.26-7.26,7.6-8.92,13v-17.12h-16.24v66.68h16.24v-26.48c0-6.03.89-11.09,2.66-15.17,1.77-4.08,4.24-7.12,7.39-9.12,3.15-2,6.94-2.99,11.38-2.99,5.41,0,9.29,1.38,11.65,4.13,2.35,2.75,3.53,7.37,3.53,13.84v35.8h16.37v-38.06c0-9.58-2.26-16.97-6.79-22.16-4.52-5.19-10.87-7.79-19.03-7.79Z"/><path d="m730.5,65.76c-2.1-4.3-5-7.9-8.72-10.79-4.57-3.55-10.71-5.32-18.43-5.32-6.57,0-12.18,1.49-16.84,4.46-4.66,2.97-8.18,7.05-10.58,12.24-2.4,5.19-3.59,11.16-3.59,17.9s1.2,12.6,3.59,17.83c2.4,5.24,5.92,9.36,10.58,12.38,4.66,3.02,10.27,4.53,16.84,4.53,7.54,0,13.64-1.73,18.3-5.19,3.79-2.82,6.73-6.44,8.85-10.85v14.71h16.37V19.83h-16.37v45.93Zm-2.86,29.8c-1.82,3.11-4.33,5.44-7.52,6.99-3.19,1.55-6.79,2.33-10.78,2.33s-7.81-.8-10.91-2.4c-3.11-1.6-5.5-3.93-7.19-6.99-1.69-3.06-2.53-6.81-2.53-11.25s.84-8.29,2.53-11.31c1.68-3.02,4.08-5.28,7.19-6.79,3.1-1.51,6.74-2.26,10.91-2.26s7.59.78,10.78,2.33c3.19,1.55,5.7,3.84,7.52,6.85,1.82,3.02,2.73,6.74,2.73,11.18s-.91,8.21-2.73,11.31Z"/><path d="m803.96,103.21c-2.97,2.09-6.81,3.13-11.51,3.13-5.77,0-10.2-1.84-13.31-5.52-2.81-3.33-4.37-7.71-4.71-13.11h51.42v-5.19c0-10.29-3.06-18.34-9.18-24.15-6.12-5.81-14.46-8.72-25.02-8.72-6.57,0-12.38,1.35-17.43,4.06-5.06,2.71-8.98,6.61-11.78,11.71-2.79,5.1-4.19,11.2-4.19,18.3s1.35,12.91,4.06,18.23c2.71,5.32,6.63,9.49,11.78,12.51,5.14,3.02,11.31,4.53,18.5,4.53,9.76,0,17.43-2.31,23.02-6.92,5.59-4.61,9.05-10.56,10.38-17.83h-16.1c-.98,3.91-2.95,6.9-5.92,8.98Zm-21.23-38.99c2.66-1.46,5.77-2.2,9.32-2.2,5.5,0,9.87,1.58,13.11,4.72,2.84,2.76,4.44,6.47,4.78,11.11h-35.48c.25-2.8.94-5.27,2.09-7.39,1.46-2.71,3.53-4.79,6.19-6.25Z"/><path d="m848.73,50.97c-3.46,0-6.06.84-7.79,2.53-1.73,1.69-2.6,4.26-2.6,7.72v56.43h16.37v-52.44h34.6v-14.24h-40.59Z"/><polygon points="563.49 23.26 547.17 23.26 547.17 38.54 563.49 38.41 563.49 23.26"/><path d="m10.25,0h38.67s0,14.24,0,14.24H14.24v36.73s-14.24,0-14.24,0V10.38C0,6.92.84,4.33,2.53,2.6,4.21.87,6.79,0,10.25,0Z"/><path d="m927.99,168.62h-38.67s0-14.24,0-14.24h34.68v-36.73s14.24,0,14.24,0v40.59c0,3.46-.84,6.06-2.53,7.79-1.69,1.73-4.26,2.6-7.72,2.6Z"/></svg></span>
-    <span class="conf">Confidential</span>
-  </div>
-  <h1>Brand Architecture<br><span class="h1-sub">Survey Findings</span></h1>
-  <p class="deck">How people across our organization see the brand landscape today.</p>
+  <span class="cm-name">Campminder</span>
+  <h1>Brand Architecture <span class="accent">Strategy</span></h1>
+  <p class="deck">Where to go next, and the discovery that supports the recommendation.</p>
+  <nav class="toc" aria-label="Contents">
+    <a href="#s01"><span class="tn">01</span>Initial Recommendation</a>
+    <a href="#s02"><span class="tn">02</span>Next Steps</a>
+    <a href="#s03"><span class="tn">03</span>Branding Is Not Marketing</a>
+    <a href="#s04"><span class="tn">04</span>What Campminder Is Now</a>
+    <a href="#s05"><span class="tn">05</span>The Cost Is Measurable</a>
+    <a href="#s06"><span class="tn">06</span>The Architecture Models</a>
+    <a href="#s07"><span class="tn">07</span>What We Don&rsquo;t Know Yet</a>
+    <a href="#s08"><span class="tn">08</span>The Road Ahead</a>
+  </nav>
 </header>
 
-<!-- ───────── ABOUT ───────── -->
-<section class="wrap section">
+<!-- ───────── 01 INITIAL RECOMMENDATION ───────── -->
+<section id="s01" class="wrap section">
   <div class="section-inner">
-    <div class="section-label">About</div>
+    <div class="eyebrow"><span class="n">01</span></div>
+    <h2 class="section-label">Initial Recommendation</h2>
     <div class="section-body">
-      <p>In June 2026, we distributed a brand architecture survey to leaders across Campminder and our family of brands. The goal was to understand how people across our organization currently understand our brands.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── BY THE NUMBERS ───────── -->
-<section class="wrap section">
-  <div class="section-inner">
-    <div class="section-label">By the Numbers</div>
-    <div class="section-body" style="max-width:none;">
-      <div class="stats">
-        <div class="stat">
-          <div class="num">27</div>
-          <div class="cap">responses across C-suite, product, engineering, sales, marketing, client success, operations, and Swimtopia leadership.</div>
-        </div>
-        <div class="stat">
-          <div class="num"><span class="accent">67%</span></div>
-          <div class="cap">used the word "confusing," "unclear," or a close variation to describe how the Campminder brands are currently managed.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── BIG PICTURE ───────── -->
-<section class="wrap section">
-  <div class="section-inner">
-    <div class="section-label">The Big Picture</div>
-    <div class="section-body">
-      <p class="bigline">Brand is everybody's business.</p>
-      <p>Confusion about the Campminder brand family is not limited to how the company shows up in sales and marketing. It's equally present inside the organization, in HR, in product, in engineering, in client services, and in operations.</p>
-      <p>Our people don't know what to call things, who owns what, where to go for guidance, or how to talk about the portfolio in their daily work.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── WHAT THE SURVEY FOUND ───────── -->
-<section class="wrap section">
-  <div class="section-inner">
-    <div class="section-label">What the Survey Found</div>
-    <div class="section-body">
+      <p class="bigline">Campminder needs to stay Campminder. <span class="accent">Something broader needs to carry the portfolio.</span></p>
+      <p style="font-size:13.5px; color:var(--light); margin:34px 0 0;">The portfolio shown in a House of Brands model.</p>
+      <svg class="model-diagram" style="margin-top:12px;" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Campminder portfolio drawn as a House of Brands">
+        <rect x="245" y="4" width="150" height="44" class="md-dash"/>
+        <text x="320" y="23" text-anchor="middle" class="md-t md-t-mut">PARENT</text>
+        <text x="320" y="39" text-anchor="middle" class="md-t2 md-t-mut" style="font-size:10px;">to be named</text>
+        <path d="M320 48 V78 M58 78 H582 M58 78 V106 M189 78 V106 M320 78 V106 M451 78 V106 M582 78 V106" class="md-line-dash"/>
+        <rect x="0" y="106" width="116" height="54" class="md-acc-fill"/>
+        <text x="58" y="138" text-anchor="middle" class="md-t md-t-w" style="font-size:10.5px;">CAMPMINDER</text>
+        <rect x="131" y="106" width="116" height="54" class="md-acc-fill"/>
+        <text x="189" y="138" text-anchor="middle" class="md-t md-t-w" style="font-size:10.5px;">SWIMTOPIA</text>
+        <rect x="262" y="106" width="116" height="54" class="md-acc-fill"/>
+        <text x="320" y="138" text-anchor="middle" class="md-t md-t-w" style="font-size:10.5px;">ULTRACAMP</text>
+        <rect x="393" y="106" width="116" height="54" class="md-acc-fill"/>
+        <text x="451" y="138" text-anchor="middle" class="md-t md-t-w" style="font-size:10.5px;">CAMPANION</text>
+        <rect x="524" y="106" width="116" height="54" class="md-acc-fill"/>
+        <text x="582" y="138" text-anchor="middle" class="md-t md-t-w" style="font-size:10.5px;">GAZEBO</text>
+      </svg>
+      <p style="font-size:13.5px; color:var(--light); margin:-12px 0 32px;">Illustrative. Individual brand decisions follow the discovery outlined below.</p>
+      <p style="margin-bottom:32px;">Below, three reasons a <strong>House of Brands</strong> is the right direction. The full comparison of the four models I evaluated is further down the page.</p>
 
       <div class="finding">
         <div class="fnum">01</div>
         <div>
-          <h3>The Campminder name is a real asset.</h3>
-          <p>Twenty-five years of recognition in the camp market is equity worth protecting. The catch is that the name does double duty as both product and parent company, which is hard to explain to a prospect or a new hire.</p>
+          <h3>Campminder the product has real equity.</h3>
+          <p>A House of Brands model protects the existing Campminder brand and platform. Customers keep the name they trust. The parent brand becomes the entity that signals quality and shared ownership without replacing what customers already know.</p>
         </div>
       </div>
 
       <div class="finding">
         <div class="fnum">02</div>
         <div>
-          <h3>Clarity is a sales advantage.</h3>
-          <p>Sales moves faster when the whole portfolio tells one story. Today reps lose time explaining what Campminder owns, what it doesn't, and why a prospect is talking to them about an UltraCamp product.</p>
+          <h3>The portfolio serves truly different markets.</h3>
+          <p>Within the current portfolio, Campminder customers and Swimtopia customers have different needs and different reasons to choose a product. As M&amp;A continues, we&rsquo;ll bring more platforms into the fold with unique positions. A House of Brands lets each brand speak directly to its own market without compromise.</p>
         </div>
       </div>
 
       <div class="finding">
         <div class="fnum">03</div>
         <div>
-          <h3>The team is already reaching for an umbrella.</h3>
-          <p>CampCo shows people want a name that sits above the products. As an informal placeholder it has no identity or rules, it leaks to customers, and its camp-only name leaves teams like Swimtopia out.</p>
+          <h3>This is how Campminder is already structured today.</h3>
+          <p>The company already operates as a portfolio. It has shared engineering, shared finance, shared leadership, and shared infrastructure running beneath multiple product names. Giving that structure a real name and identity is not a reinvention. A House of Brands makes something already true more visible.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:36px;">The strongest precedent for this at scale is Meta. When Facebook became Meta, the intention was clear: a parent brand that does not describe what any individual product does, but signals shared ownership, shared talent, and shared ambition. Individual products do the work of communicating what they are about. The parent brand makes the case for why they all come from the same place.</p>
+      <p>This kind of investment pays for itself. Kantar tracked brands over four years and found that those which improved their pricing power added 67% to their brand value, roughly twice the gain of everyone else. Brand value is not an abstraction. It shows up as market share, margin, and the ability to charge more. The structure has to be right before that growth can compound.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 02 RECOMMENDATIONS AND NEXT STEPS ───────── -->
+<section id="s02" class="wrap section">
+  <div class="section-inner">
+    <div class="eyebrow"><span class="n">02</span></div>
+    <h2 class="section-label">Next Steps</h2>
+    <div class="section-body">
+      <p style="margin-bottom:40px;">Four moves, in order. Each one sets up the next.</p>
+
+      <div class="rec">
+        <div class="rnum">01</div>
+        <h3>Interview UltraCamp customers.</h3>
+        <p>Talk to UltraCamp customers before any decision is made about their brand. The goal is to learn how much the brand itself drives their loyalty, and what a transition story would need to sound like. If/when the codebase eventually sunsets, that story is coming either way. We need to own it.</p>
+      </div>
+
+      <div class="rec">
+        <div class="rnum">02</div>
+        <h3>Select the architecture model.</h3>
+        <p>Confirm the model the portfolio will follow. My initial recommendation is a House of Brands. Whatever the final choice, the decision needs a clear owner and a decision framework for future acquisitions, so the answer stays consistent through every new deal.</p>
+      </div>
+
+      <div class="rec">
+        <div class="rnum">03</div>
+        <h3>Name the parent brand and align the identities.</h3>
+        <p>Name the new parent company brand, then update the identities across the portfolio so they are cohesive and work together. Each brand keeps its own voice and its own audience. The system is what connects them.</p>
+      </div>
+
+      <div class="rec">
+        <div class="rnum">04</div>
+        <h3>Build the narratives.</h3>
+        <p>Prepare the external narratives for product marketing, brand marketing, and customer lifecycle communication.</p>
+        <p>Alongside them, form the internal narrative so everyone on the team understands how the brands are interlinked and work together. This narrative is what a sales rep says when a prospect asks why UltraCamp and Campminder both exist, and what a new hire learns in their first week.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 03 BRANDING IS NOT MARKETING ───────── -->
+<section id="s03" class="wrap section">
+  <div class="section-inner">
+    <div class="eyebrow"><span class="n">03</span></div>
+    <h2 class="section-label">Branding Is Not Marketing</h2>
+    <div class="section-body">
+      <p>These two words get used interchangeably. They are not the same thing.</p>
+      <div class="defs">
+        <div class="def">
+          <h3 class="def-term">Marketing</h3>
+          <p>External communication. Paid media, organic content, PR, advertising, events, and the website. Marketing tells people what you offer and why they should care.</p>
+        </div>
+        <div class="def">
+          <h3 class="def-term">Branding</h3>
+          <p>The internal and external representation of the organization. The belief system that shapes how the company shows up: what it stands for, how it talks, how its products relate to each other, and how employees understand where they work and why it matters.</p>
+        </div>
+      </div>
+      <p>Marketing takes its direction from the brand. Without a clear brand, marketing becomes noise.</p>
+      <p>This distinction matters because the challenge surfaced in discovery is not a marketing problem. It&rsquo;s a branding problem.</p>
+      <div class="stats two">
+        <div class="stat">
+          <div class="num" style="color:var(--ink);">27</div>
+          <div class="cap">responses across C-suite, product, engineering, sales, marketing, client success, operations, and Swimtopia leadership.</div>
+        </div>
+        <div class="stat">
+          <div class="num">67%</div>
+          <div class="cap">used the word &ldquo;confusing,&rdquo; &ldquo;unclear,&rdquo; or a close variation to describe how the Campminder brands are currently managed.</div>
+        </div>
+      </div>
+      <p style="margin:-8px 0 28px;"><a class="pill" href="https://campminder.studioparkside.co/survey">Full survey findings <span aria-hidden="true">&rarr;</span></a></p>
+      <p>That confusion is not limited to how the company shows up externally. It is equally present in HR, product, engineering, client services, and operations.</p>
+      <p class="bigline">Brand is everybody&rsquo;s business. <span class="accent">And right now, nobody owns it.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 04 WHAT CAMPMINDER IS NOW ───────── -->
+<section id="s04" class="wrap section">
+  <div class="section-inner">
+    <div class="eyebrow"><span class="n">04</span></div>
+    <h2 class="section-label">What Campminder Is Now</h2>
+    <div class="section-body">
+      <p>Campminder started as a product. One platform, one name, one audience. That was the right structure at the time.</p>
+      <p><strong>Today, Campminder is a company that owns multiple products serving multiple markets.</strong></p>
+      <p>We&rsquo;ve acquired UltraCamp, Gazebo, and Swimtopia, and we built Campanion, which carries its own equity with the parents who use it. Most departments have grown exponentially, with financial, revenue, and client success operations that span more than one product name.</p>
+      <p>A product platform with a brand is managed one way. A company that owns many brands is managed another way. The structure, the communication, and the ownership of brand decisions all change when an organization crosses that line.</p>
+      <p class="bigline" style="font-size:clamp(24px,3.2vw,34px);">Campminder needs a brand foundation that works today and tomorrow. <span class="accent">It&rsquo;s time to catch up to what the organization represents now.</span></p>
+      <ul class="arrows">
+        <li>No two people interviewed described the relationship between Campminder and UltraCamp the same way.</li>
+        <li>Sales conversations require extra time to explain a portfolio that should explain itself.</li>
+        <li>New hires from acquired companies are not sure who they work for or who is on their team.</li>
+        <li>UltraCamp has operated without clear marketing ownership for nearly two years since the acquisition closed.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 05 THE COST IS MEASURABLE ───────── -->
+<section id="s05" class="wrap section">
+  <div class="section-inner">
+    <div class="eyebrow"><span class="n">05</span></div>
+    <h2 class="section-label">The Cost Is Measurable</h2>
+    <div class="section-body" style="max-width:none;">
+      <div class="stats">
+        <div class="stat">
+          <div class="num">20%</div>
+          <div class="cap">McKinsey&rsquo;s research on B2B companies found that organizations with strong brands generate EBIT margins 20% higher than those with weak brands.</div>
+        </div>
+        <div class="stat">
+          <div class="num">+82</div>
+          <div class="cap">Strong brands outperformed the S&amp;P 500 by 82 points over two decades, per Kantar BrandZ, and fell less and recovered faster through both the 2008 and 2020 downturns.</div>
+        </div>
+        <div class="stat">
+          <div class="num">43%</div>
+          <div class="cap">LinkedIn research found that companies with strong employer brands see up to a 43% lower cost per hire.</div>
+        </div>
+      </div>
+      <div class="stats-note"><div>These are not soft metrics. They show up in sales cycle length, customer retention, hiring quality, and how attractive the portfolio looks to future partners.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 06 THE ARCHITECTURE MODELS ───────── -->
+<section id="s06" class="wrap section">
+  <div class="section-inner">
+    <div class="eyebrow"><span class="n">06</span></div>
+    <h2 class="section-label">The Architecture Models</h2>
+    <div class="section-body" style="margin-bottom:40px;">
+      <p>A brand architecture is the system that organizes how brands in a portfolio relate to each other. It determines how they show up together, how they borrow equity from one another, and how a customer or employee understands the whole from any single part.</p>
+      <p>There are four primary models. The strongest organizations pick one and commit to it. A clear architecture is easier for the people inside the building to follow and easier for people outside it to understand.</p>
+    </div>
+    <div class="models">
+
+      <div class="model">
+        <h3>Branded House <span class="tag">Not Recommended</span></h3>
+        <p>One parent brand with clear connections to all products and services. Products often carry the parent brand name as part of their own. The parent brand does all the trust work.</p>
+        <svg class="model-diagram" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branded House model diagram">
+          <rect x="250" y="10" width="140" height="36" class="md-fill"/>
+          <text x="320" y="33" text-anchor="middle" class="md-t md-t-w">PARENT</text>
+          <path d="M320 46 V78 M100 78 H540 M100 78 V106 M320 78 V106 M540 78 V106" class="md-line"/>
+          <rect x="10" y="106" width="180" height="54" class="md-box"/>
+          <text x="100" y="129" text-anchor="middle" class="md-t">PARENT</text>
+          <text x="100" y="147" text-anchor="middle" class="md-t2">Product A</text>
+          <rect x="230" y="106" width="180" height="54" class="md-box"/>
+          <text x="320" y="129" text-anchor="middle" class="md-t">PARENT</text>
+          <text x="320" y="147" text-anchor="middle" class="md-t2">Product B</text>
+          <rect x="450" y="106" width="180" height="54" class="md-box"/>
+          <text x="540" y="129" text-anchor="middle" class="md-t">PARENT</text>
+          <text x="540" y="147" text-anchor="middle" class="md-t2">Product C</text>
+        </svg>
+        <div class="qa"><div class="q">Examples</div><div class="a meta">Amazon, Apple, FedEx.</div>
+          <div class="logo-row">
+            <img src="logos/amazon.svg" alt="Amazon" style="height:20px;">
+            <img src="logos/apple.svg" alt="Apple" style="height:26px;">
+            <img src="logos/fedex.svg" alt="FedEx" style="height:18px;">
+          </div>
+        </div>
+        <div class="qa"><div class="q">What works</div><div class="a">Every new product or acquisition immediately inherits trust. Marketing investment compounds. The organization is easy to explain.</div></div>
+        <div class="qa"><div class="q">What it requires</div><div class="a">The parent brand must be broad enough to carry everything under it without contradiction. A category-specific name creates a ceiling.</div></div>
+        <div class="qa"><div class="q">For Campminder</div><div class="a">The Campminder name is tied to camp management software. Expanding it to carry swim management, group events, and future acquisitions in other verticals would stretch the name beyond what it can credibly hold.</div></div>
+      </div>
+
+      <div class="model">
+        <h3>Endorsed Brands <span class="tag">Not Recommended</span></h3>
+        <p>Individual brands that carry a visible connection to the parent. The endorsement can be a visual lockup, a written line, or a badge.</p>
+        <svg class="model-diagram" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Endorsed Brands model diagram">
+          <rect x="250" y="10" width="140" height="36" class="md-box"/>
+          <text x="320" y="33" text-anchor="middle" class="md-t">PARENT</text>
+          <path d="M320 46 V78 M100 78 H540 M100 78 V106 M320 78 V106 M540 78 V106" class="md-line"/>
+          <rect x="10" y="106" width="180" height="54" class="md-box"/>
+          <text x="100" y="129" text-anchor="middle" class="md-t">BRAND A</text>
+          <text x="100" y="147" text-anchor="middle" class="md-t-acc">BY PARENT</text>
+          <rect x="230" y="106" width="180" height="54" class="md-box"/>
+          <text x="320" y="129" text-anchor="middle" class="md-t">BRAND B</text>
+          <text x="320" y="147" text-anchor="middle" class="md-t-acc">BY PARENT</text>
+          <rect x="450" y="106" width="180" height="54" class="md-box"/>
+          <text x="540" y="129" text-anchor="middle" class="md-t">BRAND C</text>
+          <text x="540" y="147" text-anchor="middle" class="md-t-acc">BY PARENT</text>
+        </svg>
+        <div class="qa"><div class="q">Examples</div><div class="a meta">Marriott (Courtyard by Marriott, Westin by Marriott), Sony, Virgin.</div>
+          <div class="logo-row">
+            <img src="logos/marriott.svg" alt="Marriott International" style="height:22px;">
+            <img src="logos/sony.svg" alt="Sony" style="height:14px;">
+          </div>
+        </div>
+        <div class="qa"><div class="q">What works</div><div class="a">Individual brands get breathing room while still benefiting from parent brand trust.</div></div>
+        <div class="qa"><div class="q">What it requires</div><div class="a">Clear rules for when and how the endorsement appears. A parent brand name compelling enough to be worth endorsing with.</div></div>
+        <div class="qa"><div class="q">For Campminder</div><div class="a">Still requires a new parent brand name, plus consistent rules across every product. Adds visual complexity and ongoing governance.</div></div>
+      </div>
+
+      <div class="model">
+        <h3>Hybrid <span class="tag">Not Recommended</span></h3>
+        <p>A combination of the models above, where different brands in the portfolio have different levels of connection to the parent.</p>
+        <svg class="model-diagram" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hybrid model diagram">
+          <rect x="250" y="10" width="140" height="36" class="md-fill"/>
+          <text x="320" y="33" text-anchor="middle" class="md-t md-t-w">PARENT</text>
+          <path d="M320 46 V78 M100 78 H320 M100 78 V106 M320 78 V106" class="md-line"/>
+          <path d="M320 78 H540 M540 78 V106" class="md-line-dash"/>
+          <rect x="10" y="106" width="180" height="54" class="md-box"/>
+          <text x="100" y="129" text-anchor="middle" class="md-t">PARENT</text>
+          <text x="100" y="147" text-anchor="middle" class="md-t2">Product A</text>
+          <rect x="230" y="106" width="180" height="54" class="md-box"/>
+          <text x="320" y="129" text-anchor="middle" class="md-t">BRAND B</text>
+          <text x="320" y="147" text-anchor="middle" class="md-t-acc">BY PARENT</text>
+          <rect x="450" y="106" width="180" height="54" class="md-dash"/>
+          <text x="540" y="129" text-anchor="middle" class="md-t">BRAND C</text>
+          <text x="540" y="147" text-anchor="middle" class="md-t2 md-t-mut">independent</text>
+        </svg>
+        <div class="qa"><div class="q">Examples</div><div class="a meta">Amazon (Prime as branded house, Whole Foods as independent), Disney (Parks as branded house, Pixar and Marvel as endorsed), Coca-Cola, Alphabet (Google as a branded house, YouTube, Waymo, Nest).</div>
+          <div class="logo-row">
+            <img src="logos/amazon.svg" alt="Amazon" style="height:20px;">
+            <img src="logos/disney.svg" alt="Disney" style="height:26px;">
+            <img src="logos/cocacola.svg" alt="Coca-Cola" style="height:20px;">
+            <img src="logos/alphabet.svg" alt="Alphabet" style="height:15px;">
+          </div>
+        </div>
+        <div class="qa"><div class="q">What works</div><div class="a">Flexibility for very large portfolios with truly diverse products and audiences.</div></div>
+        <div class="qa"><div class="q">What it requires</div><div class="a">Significant governance. Different rules for different brands compounds over time.</div></div>
+        <div class="qa"><div class="q">For Campminder</div><div class="a">This is close to what Campminder is doing now: different brands with different levels of connection and different explanations depending on who is asking. Hybrid architecture is more often an ad-hoc outcome of M&amp;A activity than a deliberate choice. It tends to require more ongoing decision-making overhead than the alternatives.</div></div>
+      </div>
+
+      <div class="model rec-model">
+        <h3>House of Brands <span class="tag rec">Recommended</span></h3>
+        <p>A parent company that operates largely out of view. Each brand stands on its own with its own audience, positioning, and identity. The connection to the parent is minimal or invisible externally.</p>
+        <svg class="model-diagram" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="House of Brands model diagram">
+          <rect x="250" y="4" width="140" height="44" class="md-dash"/>
+          <text x="320" y="23" text-anchor="middle" class="md-t md-t-mut">PARENT</text>
+          <text x="320" y="39" text-anchor="middle" class="md-t2 md-t-mut" style="font-size:10px;">out of view</text>
+          <path d="M320 48 V78 M100 78 H540 M100 78 V106 M320 78 V106 M540 78 V106" class="md-line-dash"/>
+          <rect x="10" y="106" width="180" height="54" class="md-acc-fill"/>
+          <text x="100" y="138" text-anchor="middle" class="md-t md-t-w">BRAND A</text>
+          <rect x="230" y="106" width="180" height="54" class="md-acc-fill"/>
+          <text x="320" y="138" text-anchor="middle" class="md-t md-t-w">BRAND B</text>
+          <rect x="450" y="106" width="180" height="54" class="md-acc-fill"/>
+          <text x="540" y="138" text-anchor="middle" class="md-t md-t-w">BRAND C</text>
+        </svg>
+        <div class="qa"><div class="q">Examples</div><div class="a meta">Meta (Facebook, Instagram, WhatsApp), P&amp;G (Tide, Pampers, Gillette), PepsiCo. (food, drinks, restaurants)</div>
+          <div class="logo-row">
+            <img src="logos/meta.svg" alt="Meta" style="height:16px;">
+            <img src="logos/pg.svg" alt="Procter and Gamble" style="height:20px;">
+            <img src="logos/pepsico.svg" alt="PepsiCo" style="height:16px;">
+          </div>
+        </div>
+        <div class="qa"><div class="q">What works</div><div class="a">Each brand speaks directly to its own market without compromise. Acquisitions retain their equity. The parent takes no reputational risk from any individual product.</div></div>
+        <div class="qa"><div class="q">What it requires</div><div class="a">A parent company name that can carry the full portfolio. Resources to support each brand in its own market.</div></div>
+        <div class="qa"><div class="q">For Campminder</div><div class="a">A new parent company name, separate from the Campminder product, that signals shared ownership and shared ambition across the full portfolio. Campminder stays Campminder. The parent brand carries the hiring story, the investor story, and the acquisition story. Individual brands communicate directly with their own customers.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 07 WHAT WE DON'T KNOW YET ───────── -->
+<section id="s07" class="wrap section">
+  <div class="section-inner">
+    <div class="eyebrow"><span class="n">07</span></div>
+    <h2 class="section-label">What We Don&rsquo;t Know Yet</h2>
+    <div class="section-body">
+      <p style="margin-bottom:32px;">A final recommendation requires more information than I currently have. Three questions remain open.</p>
+
+      <div class="finding">
+        <div class="fnum">01</div>
+        <div>
+          <h3>How do UltraCamp customers feel about the acquisition?</h3>
+          <p>Leadership raised this directly in interviews: no decision of this size should be made without hearing from the UltraCamp client base. Some customers might be thrilled. Some might not want to work with Campminder.</p>
+          <p>Most decisions about the UltraCamp brand so far have been made based on internal sentiment and assumptions about what customers care about. Any future changes to the platform experience or the branding means that a transition story is coming regardless. The question is whether that story lands well or creates churn. Talking to even a small sample of UltraCamp customers before making a brand recommendation will give us the context and insight to make a smart decision.</p>
         </div>
       </div>
 
       <div class="finding">
-        <div class="fnum">04</div>
+        <div class="fnum">02</div>
         <div>
-          <h3>Getting this right helps every team.</h3>
-          <p>Clear brand architecture pays off well beyond marketing. Engineers, people managers, and client success teams all field questions today they can't answer.</p>
+          <h3>What&rsquo;s the difference between a product decision and a brand decision?</h3>
+          <p>Internally, these are being treated as the same thing. They are not. A codebase can be consolidated without a brand changing. A brand can persist even as the underlying technology is rebuilt.</p>
+          <p>When people at Campminder say &ldquo;UltraCamp may go away,&rdquo; they typically mean the engineering infrastructure will be unified. That does not automatically mean the external-facing brand disappears. These decisions need to be separated before the external communication begins, because confusing them has real consequences for how the transition lands with customers.</p>
+          <p>The same principle applies to Campanion. The question of what Campanion is as an external brand is separate from whatever decisions the engineering team makes about how it functions internally. Brand decisions should not be driven by technical architecture. They should be driven by what is clearest and most valuable for customers.</p>
         </div>
       </div>
 
       <div class="finding">
-        <div class="fnum">05</div>
+        <div class="fnum">03</div>
         <div>
-          <h3>Consistency inside shows up outside.</h3>
-          <p>The brand reads as trustworthy when internal and customer-facing language match. Code names, dashboards, and shorthand all travel, and UltraCamp customers are already asking questions we can't yet answer.</p>
-        </div>
-      </div>
-
-      <div class="finding">
-        <div class="fnum">06</div>
-        <div>
-          <h3>Customers love these brands and want to hear from us.</h3>
-          <p>Brands like UltraCamp and Campanion carry deep customer trust. When the parent company goes quiet, customers fill the silence with worry, so they're waiting for a story they can trust.</p>
-        </div>
-      </div>
-
-      <div class="finding">
-        <div class="fnum">07</div>
-        <div>
-          <h3>The portfolio can read as a vision, not a roll-up.</h3>
-          <p>The pieces are already here for a coherent story. Without a shared narrative, the separate identities look like a financial roll-up, which isn't the reality.</p>
-        </div>
-      </div>
-
-      <div class="finding">
-        <div class="fnum">08</div>
-        <div>
-          <h3>Brand decisions work better with a clear home.</h3>
-          <p>Good brand decisions need a clear place to land. Right now they get settled by whoever cares most in the moment, so the answers come out inconsistent.</p>
+          <h3>Where does brand management live?</h3>
+          <p>The most consistent finding across every interview: ask who owns brand decisions and you get a different answer every time. Different people point to different executives. That internal question of ownership may be the biggest problem to solve.</p>
+          <p>A brand portfolio manager owns the internal and external story of the organization, sets the rules for how brands relate to each other, and decides how new acquisitions are integrated. This is a senior role, not a marketing role, and it is not the CMO. It requires authority across the organization. A playbook does not run itself.</p>
+          <p>For the same reason, the playbook can&rsquo;t just be a skill in Claude. It is only as current as the information feeding it, and today that information lives in silos. Decisions made on stale or partial inputs compound quickly. Keeping the playbook current is part of the job.</p>
         </div>
       </div>
 
@@ -480,414 +833,62 @@ details.resp[open] > summary .resp-sign { transform: rotate(45deg); }
   </div>
 </section>
 
-<!-- ───────── THE ROAD AHEAD ───────── -->
-<section class="wrap section">
+<!-- ───────── 08 THE ROAD AHEAD ───────── -->
+<section id="s08" class="wrap section">
   <div class="section-inner">
-    <div class="section-label">The Road Ahead</div>
-    <div class="section-body">
-
-      <div class="phase">
-        <h3>Discovery <span class="tag">In Progress</span></h3>
-        <p class="phase-sub">Closes with an approved summary before moving to Strategy.</p>
-        <ul class="arrows">
+    <div class="road-head">
+      <div>
+        <div class="eyebrow"><span class="n">08</span></div>
+        <h2 class="section-label" style="margin-bottom:28px;">The Road Ahead</h2>
+      </div>
+      <span class="road-note">Sequence, not schedule</span>
+    </div>
+    <div class="steps">
+      <div class="step done">
+        <div class="no">01</div>
+        <h4>Discovery</h4>
+        <span class="tag">Completed</span>
+        <p>Closed with the summary of findings on this page.</p>
+        <ul>
           <li><strong>Interviews.</strong> Eleven conversations across leadership, product, sales, and client services to go deeper than the survey allowed.</li>
-          <li><strong>Snapshots of each brand today.</strong> How it shows up, what's working, what's confused, and what equity is worth protecting.</li>
+          <li><strong>Snapshots of each brand today.</strong> How it shows up, what&rsquo;s working, what&rsquo;s confused, and what equity is worth protecting.</li>
           <li><strong>Guiding principles.</strong> The criteria any good architecture solution will need to meet.</li>
         </ul>
       </div>
-
-      <div class="phase">
-        <h3>Strategy <span class="tag">Next</span></h3>
-        <p class="phase-sub">Selecting the model and defining how every brand relates.</p>
-        <ul class="arrows">
+      <div class="step now">
+        <div class="no">02</div>
+        <h4>Strategy</h4>
+        <span class="tag">In progress</span>
+        <p>Selecting the model and defining how every brand relates.</p>
+        <ul>
           <li>Choosing the architecture model: branded house, house of brands, or hybrid.</li>
-          <li>Defining each brand's role and audience.</li>
+          <li>Defining each brand&rsquo;s role and audience.</li>
           <li>Building a decision framework for future acquisitions.</li>
           <li>Developing the internal narrative.</li>
           <li>Making a parent brand recommendation.</li>
         </ul>
       </div>
-
-      <div class="phase">
-        <h3>Activation <span class="tag">Then</span></h3>
-        <p class="phase-sub">Documenting everything into a Brand Architecture Playbook the team can actually use.</p>
-        <ul class="arrows">
+      <div class="step next">
+        <div class="no">03</div>
+        <h4>Activation</h4>
+        <span class="tag">Next</span>
+        <p>Documenting everything into a Brand Architecture Playbook the team can actually use.</p>
+        <ul>
           <li>Step-by-step guides for future acquisitions.</li>
           <li>A communication sequence for announcing changes.</li>
           <li>Channel recommendations across website, social, trade shows, and sales materials.</li>
           <li>Budget estimates for anything that requires production or investment.</li>
         </ul>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ───────── ALL RESPONSES ───────── -->
-<section class="wrap section">
-  <div class="section-inner">
-    <div class="section-label">All Responses</div>
-    <div class="section-body" style="max-width:none;">
-      <div class="resp-controls">
-        <button id="expandAll" type="button">Expand all</button>
-        <button id="collapseAll" type="button">Collapse all</button>
-      </div>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Alan Rice</span><span class="resp-role">President, Swimtopia</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">From Swimtopia's perspective, there is not a direct branding or product link with Campminder. Swimtopia is the only non-camp operating company in the portfolio, which is neither positive nor negative, just an observation.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">There is a strategic question that influences the answer. If future M&amp;A extends well beyond camp, a TopCo parent brand that sits above everything could add legitimacy and give the portfolio a coherent voice, particularly for thought leadership and for attracting future acquisition partners. The risk is that it can feel corporate to customers. If M&amp;A stays camp-focused, the need for a TopCo brand is less clear.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Swimtopia has brand independence and is still viewed as a swim-focused platform by the industry.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Swimtopia is underutilizing its brand and under-resourced on marketing.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Not entirely clear on the project objectives, whether this is focused on the camp brands specifically or the full portfolio including Swimtopia.</div></div>
-          <div class="qa"><div class="q">Nomination</div><div class="a meta">Megan Hubbard.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Ali Vanderheym</span><span class="resp-role">Group Product Manager</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Disconnected. Most people are probably not even aware that they are all owned by Campminder. This is particularly striking with Gazebo and UltraCamp. Swimtopia serves a different market, so a unified brand there feels less valuable.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">There is an opportunity for more cohesion, but the individual brand equity matters. UltraCamp customers made a choice to go with UltraCamp and not Campminder, some of that was pricing, but some of it was brand perception. If brands are unified, the operational experience needs to match. Right now Gazebo is understood as a Campminder product but supported very differently, which frustrates customers.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Campminder has always had a strong opinion about what it is, built for the top camps in the market, a partner not just a software vendor. UltraCamp has a fairly well-defined spot in the lower end of the market.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Clarity on how UltraCamp and Campminder each show up in the same market, two products from the same company, serving the same industry, but different parts of it.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">How UltraCamp and Campminder come to market once modernization progresses.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">Yes</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Amy Jackson</span><span class="resp-role">Head of Payments</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Campminder's current branding does not reflect other products like UltraCamp and Gazebo. UltraCamp branding is clean, sleek, and has a clear voice. Campminder's social media feels more word-heavy by comparison. The problem with thinking of Campminder as both the main product and the parent company is confusing internally and externally, similar to Facebook being its own product while also owning Instagram and WhatsApp.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Eventually yes, though not necessarily today. A parent brand like Meta makes sense, clear own branding with unique branding within. For now, the more pressing issue is getting clear messaging about the product structure, especially Campminder and UltraCamp.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">UltraCamp branding represents their organization well.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Sales teams are siloed. No clear path to define the right product for a lead. Being able to clearly articulate the full suite of products and what each does would lead to a more successful business.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">A clear resource for day-to-day items like email signatures for people who work across multiple products.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">BethAnne</span><span class="resp-role">Operations</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Internally it still feels like processes are fairly separate between Campminder and UltraCamp, even as integration moves forward.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">CampCo has been ad-hoc defined as the umbrella over Campminder and UltraCamp and seems to be understood internally. But the confusion is that Campminder the company owns all product brands while also being a product brand itself. That is a confusing concept.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Slowly moving toward more integration with UltraCamp.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Everything feels complex and likely confusing to a new hire.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">A solution to the umbrella problem, where Campminder is both parent and product.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Cate Richardson</span><span class="resp-role">Implementation Success Manager</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">In her role, she onboards both Campminder and Gazebo, but the two function very independently and Campminder feels more highly prioritized. She has little involvement with Campanion. She has professional connections at UltraCamp but zero workflow overlap, which feels like a significant disconnect. UltraCamp recently launched a new onboarding platform, and given that Campminder is also evaluating its onboarding experience, it seems like a natural opportunity to explore whether UltraCamp's approach could benefit Campminder. Swimtopia is only known from quarterly all-company mentions.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">A parent brand owning multiple distinct software components makes sense, similar to how Gap Inc. operates a portfolio. Gazebo and Campanion feel more like add-ons than standalone products. Critically, hierarchy should not imply prioritization, every product, team, and client base should feel equally valued.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">UltraCamp has been added to Slack and is now attending all-company meetings. Meaningful progress toward functioning as one organization.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Continued disconnect between teams. Cross-company knowledge sharing is not happening. For Swimtopia, no insight at all into how they are contributing to the broader organization.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">The perception of prioritization. Everyone should feel like a valued part of the same family.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Dan Konigsberg</span><span class="resp-role">CEO</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Campminder is a comprehensive standalone camp business management system. Campanion is a mobile app that includes certain community-facing Campminder features but has been designed to be extensible. Gazebo is a standalone group and event management system that will likely be deprecated and folded into Campminder. UltraCamp is a standalone camp business management system that will gradually be shrunk down and folded into Campminder. Swimtopia is a swim league, team, and meet management product that may eventually use shared Campminder technologies.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Internal confusion has existed since acquisitions began. Giving TopCo a brand name could be useful from an M&amp;A perspective, useful for attracting entrepreneurs looking to exit, but it is not clear it would be used commercially. If Campminder and UltraCamp are modernized and associated with a TopCo brand alongside Swimtopia, that TopCo brand might develop equity that would be valuable to future acquisitions.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Swimtopia is completely independent and its connection to Campminder has not been announced publicly, which makes sense. Campanion is well-loved by parents and has strong brand equity.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">It's unclear, even internally, what all these things are. They lack cohesion. UltraCamp customers are wondering about the plan to merge products and communication has been limited. Gazebo has low client satisfaction and is a drag on the Campminder brand. Campanion's long-term purpose is uncertain.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Clarity about what to do with the UltraCamp brand starting in the fall as integration and migration begin.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Danny Lorenzo</span><span class="resp-role">CRO</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Campminder is the flagship and most recognized brand in the portfolio, but the relationship between it and UltraCamp and Swimtopia feels more like a collection of independent products than a cohesive family. There is an implicit hierarchy where Campminder is the main brand, but that relationship is not consistently communicated or visually reinforced.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Yes, and Campminder should be it. The current structure made sense when these were separate products serving adjacent markets. But we are moving toward a unified platform, and fragmented branding will work against that. Buyers should not have to connect the dots themselves.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Campminder has strong brand recognition and continued trust in its core segment. UltraCamp has good brand recognition too. The loosely coupled structure has allowed each product to operate with some autonomy.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">There is no clear story for the portfolio as a whole. Nothing overtly connects the brands, no visuals, no messaging hierarchy, no obvious signal that they share a common parent or vision. In the camp market, there is nothing educating prospects on which solution is right for them.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">A single, crisp platform narrative that every product, every conversation, and every marketing touchpoint ladders up to.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Derek Wright</span><span class="resp-role">Director of Client Services</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">They all feel like very separate brands. Each has its own design and voice.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">No strong opinion. What is needed most right now is clarity on brand guidelines. Where does a team member supporting UltraCamp go for brand guidance? Historically this was one person, and there has been no communication about where to go in the new structure.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">UltraCamp has a clear brand identity and a packet of assets and guidelines, as long as you know where to find it.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Ownership of the brands is unclear. It has been managed by one person for so long that clear communication will be needed for all team members to know where to go. Efforts to standardize brand principles have focused on Campminder and not UltraCamp. We may someday have one set of brand guidelines that serves all of CampCo, but we are not there yet and moving forward as though we are.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Clarity of vision. We do not need to know everything now, but it would help to cast a vision for where we are headed.</div></div>
-          <div class="qa"><div class="q">Nomination</div><div class="a meta">Sharon.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Imani Kutti</span><span class="resp-role">Sr. Paid Search and Social Specialist</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Campminder is like Adobe Inc., with UltraCamp, Campanion, and Swimtopia as products underneath it, each suited to different things, but all under one umbrella. There is space for UltraCamp and Campminder to relate to each other in a way that was not initiated in the past.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Yes. Campminder should leverage all of the different platforms under it. The brand recognition and industry exposure Campminder has can bring light to the other products, especially Swimtopia.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">We have done a good job allowing each brand to be its own thing and keeping its own brand identity so far.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Lack of direction on how to sell and market the products, especially when talking to potential leads because several things are still up in the air. Direction is needed on how to speak about the brands, move forward, and properly prepare clients on what to expect.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Direction on how to market and sell.</div></div>
-          <div class="qa"><div class="q">Nomination</div><div class="a meta">Snug.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">Yes</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Jeremy Boeckel</span><span class="resp-role">UltraCamp Sales</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">For people outside the organization, there is not much of a relationship. Most people in the camp industry are not aware that UltraCamp and Campminder are connected.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Keeping the products as separate as possible in the market will produce the best outcome. Consumers want choices. Merging brands means at most one seat at the table. Keeping them separate doubles the odds of winning the deal. A parent brand is an interesting thought exercise but likely makes no difference to customers who care about how well the tool helps them accomplish their goals.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">No visibility into how the brands are managed.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">No visibility.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">The brand should embrace the idea that one product will not serve everyone. Diversity is good.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">Yes</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Jeremy Davis</span><span class="resp-role">Engineering Manager</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Mostly separate, with some intermingling between Campanion and CampInTouch. Some camps are confused by that relationship and use them incorrectly.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Sees value in a parent brand for the parent-facing experience under something like Campanion, where parents have credentials that work across Campminder and UltraCamp camps. Sees less value for Gazebo or Swimtopia unless economies of scale can be unlocked.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">No good examples noted.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">The parent experience is very fragmented. The same experience, like viewing photos, is under a completely different brand depending on whether it is accessed on web or mobile. Gazebo probably should have started as Campminder Events and gotten more product-market fit before becoming its own brand.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">No need to explain the differences and similarities between the brands when people ask. Clear boundaries between B2B and B2C products.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">Yes</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Josh Bradshaw</span><span class="resp-role">Director of Revenue Operations</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Campminder is the parent of UltraCamp, Campanion, and Gazebo. Swimtopia serves a different vertical.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">The market needs to know who is calling the shots and what the partnership means to the industry.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Business as usual, for now the companies are working and serving clients independently.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Cannot make decisions about which company should focus on which camps. Externally it looks like two separate companies but internally decisions affect both. Marketing cannot currently tell customers they have options.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Clarity internally and externally on what the partnership means and where decisions get made.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Josh Weisman</span><span class="resp-role">Sr. Account Executive</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">There is no clear relationship between the products. Different messaging to different audiences over time has left the relationship feeling murky.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">As the company moves toward a unified platform, with potential spin-offs like a streamlined registration-only option, a parent brand or something like "Platform XYZ powered by Campminder" will be important.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">The Campminder name continues to be well recognized in the space.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Lack of consistency with brand messaging. The team has been in a reactive loop for too long. The lack of a product roadmap and commitment to the suites has made managing the brands impossible for the marketing team.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">A clearly articulated vision, and a commitment to whatever that turns out to be.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Lacey Koleda</span><span class="resp-role">Sales Executive, UltraCamp</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Four or more verticals under one umbrella, each with their own teams, offerings, and branding.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">No strong opinion. A parent brand that owns everything risks diluting the unique identity and community trust that each brand has spent years building.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">No visibility into how the brands are managed.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">UltraCamp has been without a dedicated marketing team for over a year. Slower pipeline, unqualified leads, and no official content showcasing the new UI.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Confidence that significant marketing efforts are happening on behalf of the UltraCamp brand.</div></div>
-          <div class="qa"><div class="q">Nominations</div><div class="a meta">Sharon Ullum and Donnie Keele, formerly UltraCamp marketing.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Laura Eppstein</span><span class="resp-role">Chief Client Experience Officer</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Campanion is a sub-brand of Campminder. The others feel completely separate.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Prefers to leave this to the experts.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">More consistency in client communication and product branding over the past year or two.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Confusion about long-term plans for UltraCamp is creating internal anxiety.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Clear understanding for employees and clients about what is happening with the UltraCamp brand.</div></div>
-          <div class="qa"><div class="q">Questions or concerns</div><div class="a meta">Would like to be kept in the loop.</div></div>
-          <div class="qa"><div class="q">Nomination</div><div class="a meta">The CSM team generally has good insights.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Marty Ferguson</span><span class="resp-role">Sales</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">For Campminder, Gazebo, and Campanion, confusing. Prospects often do not understand the relationship. The explanation is not complex, but it should not require one. For Campminder and UltraCamp, as the two products operate right now, not much of an issue. Nobody seems to care much about the business relationship. Swimtopia never comes up in the role.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">There should be a parent brand for Campminder, Gazebo, and Campanion. Not necessarily for UltraCamp or Swimtopia.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">The current setup makes the company feel like it is doing a lot.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Prospects reach out about Campanion not realizing it is part of Campminder, assuming it is a standalone product.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Making it clear that Campanion is an integrated product with Campminder.</div></div>
-          <div class="qa"><div class="q">Nomination</div><div class="a meta">Frank always has opinions.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Mary Moore-Simmons</span><span class="resp-role">CTO</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Campminder, UltraCamp, and Swimtopia are complementary because they serve slightly different markets. Gazebo may be an unnecessary brand.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Not sure. Knowing a parent company sometimes hurts the sub-brand's reputation, for example, knowing Slack is owned by Salesforce creates worry that Slack will get worse.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">The UltraCamp brand being separate may allow them to reach camps that consider Campminder too expensive.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">The decision to sunset Gazebo has not been actioned, creating a confusing limbo state.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Data-driven brand decisions. Past decisions appear to have been based on feelings rather than customer research.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Mason Hale</span><span class="resp-role">CEO, Swimtopia</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Has limited visibility into the broader Campminder brand family. From Swimtopia's perspective, there is not a direct branding or product link with Campminder.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">No strong opinion. Depends on the degree of customer crossover between brands, which is limited between Swimtopia and the others.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Swimtopia is going through a rebranding process. Nothing has launched yet.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Some people are not aware that Meet Maestro and Swimtopia are from the same company, though the vast majority do understand the relationship.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">How customers perceive the brand. An umbrella brand connecting sub-brands seems net positive.</div></div>
-          <div class="qa"><div class="q">Nominations</div><div class="a meta">Alan Rice, Tracy Nelson, Megan Hubbard.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Melany Hallgren</span><span class="resp-role">Sales</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">They are standalone products with no relationship to each other. The disconnect is hard to explain when talking with prospects.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">No strong opinion. A parent brand would only matter if all product names were changed. Then it would make sense.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Not sure, no real knowledge of the other brands.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Trying to explain that Campminder owns UltraCamp but does not sell or support it.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Everything about explaining Campminder, Campanion, CampInTouch, and Gazebo takes so long when a prospect asks what is included when they purchase the software.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Michael Carbaugh</span><span class="resp-role">Staff Product Designer</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Campminder feels like the umbrella over Campanion, CampInTouch, and Gazebo. UltraCamp feels like a parallel camp brand. Swimtopia feels disconnected.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">The parent brand question is the most pressing issue. CampInTouch and Campanion's different branding is very confusing for what is essentially the same thing. Longer term, all of the parent experience could be under one brand.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Campanion has a very strong and recognizable standalone brand.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Fractured parent experience. Campminder also operates at two levels, it is both the company name and the product name, which creates confusion.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Parent brand experience.</div></div>
-          <div class="qa"><div class="q">Questions or concerns</div><div class="a meta">This process could have significant impact on the product design practice. Wants to start planning for brand changes as early as possible so they do not delay getting changes to market.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Mya McDuffie</span><span class="resp-role">Head of Product Insights</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Disjointed. At worst, completely unrelated brands with no real strategy behind them.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">That should largely be driven by the five-year revenue model. Different brand strategies work for different use cases and markets.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Each brand has niche strengths. Swimtopia and UltraCamp are not dissimilar but are targeted to two very different markets.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Logistical challenges across brands. Some are lower value than others, which warrants a conversation.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Know why a brand change would be made before making it, at the business level.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">Yes</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Nathan Reginato</span><span class="resp-role">Engineer</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">The brands are distinct. Campminder uses different color schemes, language, and themes compared to the others.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Brand continuity should be tied to product continuity. If all these brands are expected to operate as a single product, they should have a coherent brand. Otherwise it is overhead with no payoff.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Clear understanding of the Campminder brand internally. Agreement with recent design decisions.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">This is the third redesign since joining. Stability going forward would help.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Easy to understand, brief, and searchable documents that clearly outline how to display and communicate brand internally and externally.</div></div>
-          <div class="qa"><div class="q">Nomination</div><div class="a meta">Erika and Michael, designers.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Paul Berliner</span><span class="resp-role">President</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Campminder has been the overarching brand used as both product and parent company, which is confusing, especially for brands like Swimtopia. Over time it may make sense to have one unified brand in the camp space: Campminder, UltraCamp, and Gazebo can blend into one under the Campminder name.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">There should be a parent brand that is not Campminder, used for M&amp;A purposes. Then Campminder should replace CampCo and own all camp-related brands.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">There is a differentiated market for Campminder and UltraCamp, so we can market to different segments accordingly. Gazebo and Campanion could theoretically be sold to either Campminder or UltraCamp clients, though we are not doing that in practice.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">There is confusion and no clear message internally or externally about what these brands stand for and how they differ from one another.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">A very clear product offering with consistent messaging understood by everyone.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">Yes</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Scott Nusz</span><span class="resp-role">Chief Product Officer</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Campminder is a luxury brand best serving traditional camp segments. UltraCamp is an entry-level brand best serving smaller camps and camp-like programs. Campanion and Gazebo are features of the camp offering, their separate branding gets in the way. Gazebo has been decided: it will be rebuilt as a feature of the new Campminder. Swimtopia is a different category entirely, facing the swim segment of the teams market.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Yes. We should have a parent brand that aligns with our expanded purpose and does not create friction with the markets we want to serve. Using YouthMinder as a placeholder, the idea is a brand that can serve all youth enrichment markets, team sports, summer camps, camp-like programs, without the friction of camp-specific names. Brand architecture should follow a clear STP framework: segmentation, targeting, positioning.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Both UltraCamp and Campminder have 25+ years of brand equity in the markets they serve. That should not be thrown away.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">Overlapping brand mappings to target segments. Both Campminder and UltraCamp are marketed to day camps and to schools and teams, creating confusion.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">A scalable brand architecture that can accommodate future acquisitions.</div></div>
-          <div class="qa"><div class="q">Questions or concerns</div><div class="a meta">Decisions about platform and product direction have already been made. Those decisions should be an input to this process, not re-litigated.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">Yes</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Shauna Callahan</span><span class="resp-role">CFO</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Gazebo is a feature of Campminder. UltraCamp and Campminder are moving toward one company and one combined brand, which makes sense given the similarity in their markets. Swimtopia is under the Campminder umbrella, but because the market it serves is different, its own brand and external presence is appropriate.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Yes. None of these brands are operating in a vacuum, and several areas are already consolidating or likely will.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">The brands currently appear to be separate in the market. Not much is working from a cohesion standpoint.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">It's not clear that all these companies are under the Campminder umbrella, which seems like the ideal state. The most confusion is around Campminder and UltraCamp.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Better unification of Campminder and UltraCamp, with a playbook to determine the best path for future acquisitions.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Stacey August</span><span class="resp-role">CSM</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Not sure about the relationships between the brands.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Does not think a parent brand is necessary. Finds it interesting that multiple recreation and experience management brands are all related.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Campminder and UltraCamp seem to engage well with camps.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">It could be confusing for camps to understand whether they have the best product for their needs.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">How to pitch the right product to the right camp.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
-      <details class="resp">
-        <summary><span><span class="resp-name">Tracy Nelson</span><span class="resp-role">Director of Customer Success, Swimtopia</span></span><span class="resp-sign">+</span></summary>
-        <div class="resp-detail">
-          <div class="qa"><div class="q">Relationship between the brands</div><div class="a">Gazebo and Campanion are products within the Campminder suite. UltraCamp is a separate camp management platform with a potentially different target market. It is unclear whether UltraCamp will be absorbed into Campminder or become a new tier under the Campminder umbrella. Swimtopia is a swim software platform with a completely different target market.</div></div>
-          <div class="qa"><div class="q">Do we need a parent brand?</div><div class="a">Could see the camp-related platforms under one Campminder parent brand. Does not think it makes sense to brand Swimtopia under a Campminder parent brand.</div></div>
-          <div class="qa"><div class="q">What's working</div><div class="a">Swimtopia managing its own brand works well given how different its products and markets are.</div></div>
-          <div class="qa"><div class="q">What's not working</div><div class="a">No awareness of challenges with UltraCamp, Gazebo, or Campanion management.</div></div>
-          <div class="qa"><div class="q">One thing to solve</div><div class="a">Clarifying where UltraCamp fits into the Campminder ecosystem.</div></div>
-          <div class="qa"><div class="q">Questions or concerns</div><div class="a meta">Wondering if Swimtopia will be branded more explicitly under the Campminder umbrella and what that would look like.</div></div>
-          <div class="qa"><div class="q">Nominations</div><div class="a meta">Megan Hubbard for day-to-day branding, Alan Rice or Tracy Nelson for strategic direction.</div></div>
-          <div class="qa"><div class="q">Interview</div><div class="a meta">No preference</div></div>
-        </div>
-      </details>
-
     </div>
   </div>
 </section>
 
 <!-- ───────── FOOTER ───────── -->
 <footer class="wrap foot">
-  <span class="sp-logo" aria-label="Studio Parkside"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 379 152" role="img"><path d="M227,121l-5-1.3c-6.1-1.6-9.5-3.1-9.5-7s3.4-6.8,8.7-6.8,7.9,3.1,8.3,8.8h13.3c-1.1-8.2-9.3-13.3-21.6-13.3s-21.2,6.4-21.2,15.5,4.4,11.6,15,14.2l4.9,1.2c7.5,1.8,10.7,4.2,10.7,8s-3.7,6.9-9.7,6.9-9-3.8-9.4-10.5h-13.5c1.2,9.6,9.3,14.8,22.9,14.8s22.5-5,22.5-16.1-6.3-11.9-16.6-14.5Z"/><path d="M128.3,124.5c0-7.2,3-10.8,9.1-10.8s4.5.2,7.2.6v-11.7c-.9,0-1.9-.1-2.7-.1-4.5,0-7.8,1.8-10.3,5.6-1.4,2-2.3,4.1-2.9,6.2,0,.3-.3.4-.6.4-.3,0-.5-.3-.5-.6v-11.5h-14.2v47.8h14.8v-26Z"/><path d="M92.3,142.7c.2,0,.4.3.4.5l.4,7.2h13.5l-.2-3.9c-.2-3-.3-4.9-.3-6.1v-19.5c.1-5.8-1.5-10.4-4.6-13.6-3.8-3.8-9.8-5.7-17.9-5.7-12,0-21.2,6.1-22.5,15h13.7c.4-6.9,3.5-10.7,8.8-10.7s8.3,3.6,8.3,11.2v2.8c0,.3-.2.5-.5.6l-9,1.5c-17,3-23.1,7.1-23.1,16s8.9,13.4,16.6,13.4,12.5-2.9,15.9-8.5c.1-.2.4-.3.6-.3ZM81.8,144.7c-4.7,0-7.8-3.2-7.8-8.2s5.3-9.8,17.3-10.9c.2,0,.3,0,.4.1.1.1.2.3.2.4v4.3c0,9.7-5.2,14.1-10.1,14.1Z"/><path d="M370.1,135.9c-1.8,6.1-6.8,9.7-13.3,9.7s-13.5-7-13.5-18.7.3-.6.6-.6h33.7v-1.4c0-13.8-10.2-23.4-24.9-23.4s-25.2,8.7-25.2,24.8,13.4,25.1,26.7,25.1,20.7-5.8,23.2-15.6h-7.3ZM352.6,106c2.3,0,4.2.7,5.6,2.2,2.3,2.4,3.4,6.5,3.4,12.8,0,.3-.3.6-.6.6h-17.1c-.2,0-.3,0-.4-.2-.1-.1-.2-.3-.2-.4.2-9.9,3.3-14.9,9.3-14.9Z"/><path d="M28.2,84.2H4.9v66.2h16.1v-25.4c0-.3.3-.6.6-.6h6.6c14,0,30.8-3.5,30.8-20.4s-10.4-19.8-30.8-19.8ZM27.5,119.1h-5.9c-.3,0-.6-.3-.6-.6v-28.3c0-.3.3-.6.6-.6h5.9c9.2,0,14.5,5.3,14.5,14.5s-5.2,14.9-14.5,14.9Z"/><rect x="249.2" y="102.6" width="14.8" height="47.8"/><path d="M321.8,150.4v-68.1h-14.8v25.7c0,.2-.2.5-.4.5-.2,0-.5,0-.6-.2-3.2-4.5-8.1-6.8-14.6-6.8-13.1,0-21.6,9.7-21.6,24.7s8.3,25.2,21.7,25.2,12-2.9,15.3-8.5c.1-.2.4-.3.6-.3.2,0,.4.3.4.6v7.1h14.1ZM296.2,145c-6.8,0-10.2-6.3-10.2-18.8s3.4-18.3,10.1-18.3,11.2,7.5,11.2,18.3-4.7,18.8-11.2,18.8Z"/><rect x="214.6" y=".5" width="15.4" height="12.1"/><path d="M69,11.3v8.9c0,.3-.3.6-.6.6h-7.2v4.9h7.2c.3,0,.6.3.6.6v30.5c0,8.8,3.8,11.9,14.4,11.9s7.9,0,11.3-.2v-4.7h-4.7c-4.1,0-6.2-1-6.2-6.5v-31c0-.3.4-.6.7-.6h10.3v-4.9h-10.3c-.3,0-.6-.3-.6-.6V5.9l-14.8,5.4Z"/><path d="M147,68.6V20.8h-14.8v24.3c0,11.2-3.7,17.9-9.9,17.9s-7.4-1.4-7.4-10.5v-31.8h-14.8v30c0,11.9,6.1,18.8,16.8,18.8s12.2-3,15-8.3c.1-.2.4-.4.6-.3.3,0,.4.3.4.6v7.1h14.1Z"/><path d="M0,49.5c1.6,12.8,12.3,20.1,29.4,20.1s28.2-11.1,28.2-21.4-10.3-16.9-21.4-19.6l-8.4-2c-7.7-1.8-11.1-4.9-11.1-10s5.4-10.5,12.9-10.5,11.8,4.4,12.4,12.4h14.7C55.1,7.7,44.8,1,29.6,1S2.9,11.8,2.9,22.1s5.7,15.2,20.4,19l7.2,1.8c6.3,1.6,12.7,4.2,12.7,11.3s-5.6,10.3-13.9,10.3-13.9-5.3-14.4-15H0Z"/><path d="M263.4,69.7c15.7,0,26.7-10.4,26.7-25.2s-11.2-24.8-26.7-24.8-26.7,8.5-26.7,24.8,11,25.2,26.7,25.2ZM263.4,24.1c9.5,0,10.6,11.6,10.6,20.4s-1.2,20.8-10.6,20.8-10.6-11.9-10.6-20.8,1.2-20.4,10.6-20.4Z"/><rect x="214.9" y="20.8" width="14.8" height="47.8"/><path d="M189.8,26.2c0,.2-.2.5-.4.5-.2,0-.5,0-.6-.2-3.2-4.5-8.1-6.8-14.6-6.8-13.1,0-21.6,9.7-21.6,24.7s8.3,25.2,21.7,25.2,12-2.9,15.3-8.5c.1-.2.4-.3.6-.3.2,0,.4.3.4.6v7.1h14.1V.5h-14.8v25.7ZM178.9,63.2c-6.8,0-10.2-6.3-10.2-18.8s3.4-18.3,10.1-18.3,11.2,7.5,11.2,18.3-4.7,18.8-11.2,18.8Z"/><path d="M148.7,82.3v68.1h14.8v-17.4c0-.2,0-.3.2-.4l6.3-6c.1-.1.3-.2.5-.1.2,0,.3.2.4.3l11.3,23.6h16.3l-16.6-34.5c-.1-.2,0-.5.1-.7l13.5-12.7h-8.3l-22.7,21.7c-.2.2-.4.2-.6.1-.2,0-.3-.3-.3-.5v-41.6h-14.8Z"/><rect x="248.9" y="82.3" width="15.4" height="12.1"/></svg></span>
-  <span class="conf">Confidential — June 2026</span>
+  <span class="sp-logo" aria-label="Studio Parkside"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1499.4 151" role="img"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg></span>
+  <span class="conf">Confidential &mdash; Working Document &mdash; July 2026</span>
 </footer>
-
-<script>
-  document.getElementById('expandAll').addEventListener('click', function () {
-    document.querySelectorAll('details.resp').forEach(function (d) { d.open = true; });
-  });
-  document.getElementById('collapseAll').addEventListener('click', function () {
-    document.querySelectorAll('details.resp').forEach(function (d) { d.open = false; });
-  });
-</script>
 
 </body>
 </html>
