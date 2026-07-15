@@ -123,14 +123,6 @@ strong { color: var(--ink); font-weight: 650; }
   color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
-.toc-group {
-  font-size: clamp(24px, 3vw, 32px);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  padding: 36px 0 14px;
-}
-.toc-group:first-child { padding-top: 0; }
 .section { scroll-margin-top: 72px; }
 
 /* ── Sections ───────────────────────────────── */
@@ -209,18 +201,6 @@ strong { color: var(--ink); font-weight: 650; }
 .rec h3 { font-size: 24px; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 10px; }
 .rec p { font-size: 19px; margin: 0 0 12px; }
 .rec p:last-child { margin-bottom: 0; }
-
-/* ── Brand decision list ────────────────────── */
-.brandlist { list-style: none; border-top: 1px solid var(--hair); margin: 14px 0 20px; }
-.brandlist li {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--hair);
-  font-size: 19px;
-}
-.brandlist .bname { font-weight: 650; color: var(--ink); }
 
 /* ── Definition pair ────────────────────────── */
 .defs {
@@ -467,7 +447,6 @@ strong { color: var(--ink); font-weight: 650; }
   .masthead { padding: 64px 0 60px; }
   .section-inner { padding: 56px 0; }
   .section-label { margin-bottom: 26px; }
-  .brandlist li { grid-template-columns: 1fr; gap: 4px; }
   .stats, .stats.two { grid-template-columns: 1fr; }
   .stat { padding: 30px 0; }
   .stat + .stat { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); }
@@ -494,122 +473,23 @@ strong { color: var(--ink); font-weight: 650; }
 <header class="wrap masthead">
   <span class="cm-name">Campminder</span>
   <h1>Brand Architecture <span class="accent">Strategy</span></h1>
-  <p class="deck">The recommendation, the decisions that unlock the playbook, and the discovery behind it.</p>
+  <p class="deck">Where to go next, and the discovery that supports the recommendation.</p>
   <nav class="toc" aria-label="Contents">
-    <div class="toc-group">Start Here</div>
-    <a href="#s01"><span class="tn">01</span>The Recommendation</a>
-    <a href="#s02"><span class="tn">02</span>Decisions That Move Us Forward</a>
-    <a href="#s03"><span class="tn">03</span>Once You Decide</a>
-    <div class="toc-group">The Full Picture</div>
-    <a href="#s04"><span class="tn">04</span>Initial Recommendation</a>
-    <a href="#s05"><span class="tn">05</span>Next Steps</a>
-    <a href="#s06"><span class="tn">06</span>Branding Is Not Marketing</a>
-    <a href="#s07"><span class="tn">07</span>What Campminder Is Now</a>
-    <a href="#s08"><span class="tn">08</span>The Cost Is Measurable</a>
-    <a href="#s09"><span class="tn">09</span>The Architecture Models</a>
-    <a href="#s10"><span class="tn">10</span>What We Don&rsquo;t Know Yet</a>
-    <a href="#s11"><span class="tn">11</span>The Road Ahead</a>
+    <a href="#s01"><span class="tn">01</span>Initial Recommendation</a>
+    <a href="#s02"><span class="tn">02</span>Next Steps</a>
+    <a href="#s03"><span class="tn">03</span>Branding Is Not Marketing</a>
+    <a href="#s04"><span class="tn">04</span>What Campminder Is Now</a>
+    <a href="#s05"><span class="tn">05</span>The Cost Is Measurable</a>
+    <a href="#s06"><span class="tn">06</span>The Architecture Models</a>
+    <a href="#s07"><span class="tn">07</span>What We Don&rsquo;t Know Yet</a>
+    <a href="#s08"><span class="tn">08</span>The Road Ahead</a>
   </nav>
 </header>
 
-<!-- ───────── START HERE 01 THE RECOMMENDATION ───────── -->
+<!-- ───────── 01 INITIAL RECOMMENDATION ───────── -->
 <section id="s01" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">01</span> Start Here</div>
-    <h2 class="section-label">The Recommendation</h2>
-    <div class="section-body">
-      <p class="bigline">A House of Brands. <span class="accent">Campminder stays Campminder. A new parent carries the portfolio.</span></p>
-      <p>Each brand in the portfolio serves a different market and has equity worth protecting. The company already operates as a portfolio underneath the product names, with shared engineering, finance, and leadership.</p>
-      <p>A House of Brands gives that structure a name and makes it visible where it matters: hiring, investors, and every future acquisition.</p>
-      <p>Snug, Janet, and I arrived at this recommendation together and feel good about the direction. The full rationale, the four models I evaluated, and the discovery behind all of it are further down this page.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── START HERE 02 DECISIONS THAT MOVE US FORWARD ───────── -->
-<section id="s02" class="wrap section">
-  <div class="section-inner">
-    <div class="eyebrow"><span class="n">02</span> Start Here</div>
-    <h2 class="section-label">Decisions That Move Us Forward</h2>
-    <div class="section-body">
-      <p style="margin-bottom:40px;">Four decisions we need leadership to weigh in on. They&rsquo;re the inputs that turn the recommendation into a working playbook.</p>
-
-      <div class="rec">
-        <div class="rnum">01</div>
-        <h3>Confirm the architecture.</h3>
-        <p>A House of Brands is the direction we feel good about. Once it&rsquo;s confirmed, naming the parent brand can start right away. The logo, identity, and a small parent website follow naturally from the name, all one process, and budget for it is already planned.</p>
-      </div>
-
-      <div class="rec">
-        <div class="rnum">02</div>
-        <h3>Which brands remain?</h3>
-        <p>My working recommendation for each brand in the portfolio:</p>
-        <ul class="brandlist">
-          <li><span class="bname">Campminder</span><span>Stays as a brand.</span></li>
-          <li><span class="bname">UltraCamp</span><span>Stays as a brand. This is a brand decision, separate from the shared codebase work already planned.</span></li>
-          <li><span class="bname">Gazebo</span><span>Becomes a functionally named product feature, something like Groups.</span></li>
-          <li><span class="bname">Campanion</span><span>Needs assessment. Is it a companion app for Campminder, an app for all camps, or a product that could serve any vertical?</span></li>
-          <li><span class="bname">Swimtopia</span><span>Stays as a brand.</span></li>
-        </ul>
-        <p>What I need is your take on what to do with each brand, and what&rsquo;s missing to make the decision on the ones we&rsquo;re not sure about.</p>
-      </div>
-
-      <div class="rec">
-        <div class="rnum">03</div>
-        <h3>Who owns the brand, and what is the role?</h3>
-        <p>This work crosses marketing, product, HR, sales, and client services, so it needs one accountable owner who can move quickly, communicate the vision, empower people on every team, and hold the brand as their charge rather than any one department&rsquo;s agenda.</p>
-        <p>The title matters less than the mandate. It could sit with the incoming CMO, a dedicated brand manager, or a chief of staff position if one is created. What I need is the role named and its brand responsibilities defined, because the playbook gets built around that person.</p>
-      </div>
-
-      <div class="rec">
-        <div class="rnum">04</div>
-        <h3>What context are we missing?</h3>
-        <p>Plans, constraints, or history that haven&rsquo;t reached me yet, including product or acquisition plans that would change any of the answers above. Interviews with UltraCamp teammates and customers belong here too. They give us the context to handle UltraCamp well as a standalone brand, and they start to set the approach for evaluating the brands that arrive with future acquisitions. They&rsquo;re ready to schedule once we align.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ───────── START HERE 03 ONCE YOU DECIDE ───────── -->
-<section id="s03" class="wrap section">
-  <div class="section-inner">
-    <div class="eyebrow"><span class="n">03</span> Start Here</div>
-    <h2 class="section-label">Once You Decide</h2>
-    <div class="section-body">
-      <p>With those answers, I build the playbook documentation:</p>
-      <ul class="arrows">
-        <li>Define each brand&rsquo;s role and audience.</li>
-        <li>Define the decision framework for future acquisitions.</li>
-        <li>Develop the internal narrative.</li>
-        <li>Create a Brand Architecture Playbook built around the person who owns the decisions.</li>
-        <li>Kick off naming and building the new parent brand, from identity through how it shows up on its own website and at events.</li>
-      </ul>
-      <p style="margin-top:28px;">Then activation turns those decisions into a rollout:</p>
-      <ul class="arrows">
-        <li>How future acquisitions fit into the brand architecture model.</li>
-        <li>A communication sequence for announcing changes.</li>
-        <li>Channel recommendations across website, social, trade shows, and sales materials.</li>
-        <li>Budget estimates for anything that requires production or investment.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── DIVIDER — THE FULL PICTURE ───────── -->
-<section class="wrap section">
-  <div class="section-inner" style="padding-bottom:24px;">
-    <div class="eyebrow">The Full Picture</div>
-    <div class="section-body">
-      <p>Everything below is an overview of the work scoped in the proposal: the strategy to date and the discovery that supports the recommendation above.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── 04 INITIAL RECOMMENDATION ───────── -->
-<section id="s04" class="wrap section">
-  <div class="section-inner">
-    <div class="eyebrow"><span class="n">04</span></div>
+    <div class="eyebrow"><span class="n">01</span></div>
     <h2 class="section-label">Initial Recommendation</h2>
     <div class="section-body">
       <p class="bigline">Campminder needs to stay Campminder. <span class="accent">Something broader needs to carry the portfolio.</span></p>
@@ -663,10 +543,10 @@ strong { color: var(--ink); font-weight: 650; }
   </div>
 </section>
 
-<!-- ───────── 05 RECOMMENDATIONS AND NEXT STEPS ───────── -->
-<section id="s05" class="wrap section">
+<!-- ───────── 02 RECOMMENDATIONS AND NEXT STEPS ───────── -->
+<section id="s02" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">05</span></div>
+    <div class="eyebrow"><span class="n">02</span></div>
     <h2 class="section-label">Next Steps</h2>
     <div class="section-body">
       <p style="margin-bottom:40px;">Four moves, in order. Each one sets up the next.</p>
@@ -700,10 +580,10 @@ strong { color: var(--ink); font-weight: 650; }
   </div>
 </section>
 
-<!-- ───────── 06 BRANDING IS NOT MARKETING ───────── -->
-<section id="s06" class="wrap section">
+<!-- ───────── 03 BRANDING IS NOT MARKETING ───────── -->
+<section id="s03" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">06</span></div>
+    <div class="eyebrow"><span class="n">03</span></div>
     <h2 class="section-label">Branding Is Not Marketing</h2>
     <div class="section-body">
       <p>These two words get used interchangeably. They are not the same thing.</p>
@@ -736,10 +616,10 @@ strong { color: var(--ink); font-weight: 650; }
   </div>
 </section>
 
-<!-- ───────── 07 WHAT CAMPMINDER IS NOW ───────── -->
-<section id="s07" class="wrap section">
+<!-- ───────── 04 WHAT CAMPMINDER IS NOW ───────── -->
+<section id="s04" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">07</span></div>
+    <div class="eyebrow"><span class="n">04</span></div>
     <h2 class="section-label">What Campminder Is Now</h2>
     <div class="section-body">
       <p>Campminder started as a product. One platform, one name, one audience. That was the right structure at the time.</p>
@@ -757,10 +637,10 @@ strong { color: var(--ink); font-weight: 650; }
   </div>
 </section>
 
-<!-- ───────── 08 THE COST IS MEASURABLE ───────── -->
-<section id="s08" class="wrap section">
+<!-- ───────── 05 THE COST IS MEASURABLE ───────── -->
+<section id="s05" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">08</span></div>
+    <div class="eyebrow"><span class="n">05</span></div>
     <h2 class="section-label">The Cost Is Measurable</h2>
     <div class="section-body" style="max-width:none;">
       <div class="stats">
@@ -782,10 +662,10 @@ strong { color: var(--ink); font-weight: 650; }
   </div>
 </section>
 
-<!-- ───────── 09 THE ARCHITECTURE MODELS ───────── -->
-<section id="s09" class="wrap section">
+<!-- ───────── 06 THE ARCHITECTURE MODELS ───────── -->
+<section id="s06" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">09</span></div>
+    <div class="eyebrow"><span class="n">06</span></div>
     <h2 class="section-label">The Architecture Models</h2>
     <div class="section-body" style="margin-bottom:40px;">
       <p>A brand architecture is the system that organizes how brands in a portfolio relate to each other. It determines how they show up together, how they borrow equity from one another, and how a customer or employee understands the whole from any single part.</p>
@@ -912,10 +792,10 @@ strong { color: var(--ink); font-weight: 650; }
   </div>
 </section>
 
-<!-- ───────── 10 WHAT WE DON'T KNOW YET ───────── -->
-<section id="s10" class="wrap section">
+<!-- ───────── 07 WHAT WE DON'T KNOW YET ───────── -->
+<section id="s07" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">10</span></div>
+    <div class="eyebrow"><span class="n">07</span></div>
     <h2 class="section-label">What We Don&rsquo;t Know Yet</h2>
     <div class="section-body">
       <p style="margin-bottom:32px;">A final recommendation requires more information than I currently have. Three questions remain open.</p>
@@ -953,12 +833,12 @@ strong { color: var(--ink); font-weight: 650; }
   </div>
 </section>
 
-<!-- ───────── 11 THE ROAD AHEAD ───────── -->
-<section id="s11" class="wrap section">
+<!-- ───────── 08 THE ROAD AHEAD ───────── -->
+<section id="s08" class="wrap section">
   <div class="section-inner">
     <div class="road-head">
       <div>
-        <div class="eyebrow"><span class="n">11</span></div>
+        <div class="eyebrow"><span class="n">08</span></div>
         <h2 class="section-label" style="margin-bottom:28px;">The Road Ahead</h2>
       </div>
       <span class="road-note">Sequence, not schedule</span>
@@ -983,8 +863,9 @@ strong { color: var(--ink); font-weight: 650; }
         <ul>
           <li>Choosing the architecture model: branded house, house of brands, or hybrid.</li>
           <li>Defining each brand&rsquo;s role and audience.</li>
-          <li>Defining the decision framework for future acquisitions.</li>
+          <li>Building a decision framework for future acquisitions.</li>
           <li>Developing the internal narrative.</li>
+          <li>Making a parent brand recommendation.</li>
         </ul>
       </div>
       <div class="step next">
@@ -993,7 +874,7 @@ strong { color: var(--ink); font-weight: 650; }
         <span class="tag">Next</span>
         <p>Documenting everything into a Brand Architecture Playbook the team can actually use.</p>
         <ul>
-          <li>How future acquisitions fit into the brand architecture model.</li>
+          <li>Step-by-step guides for future acquisitions.</li>
           <li>A communication sequence for announcing changes.</li>
           <li>Channel recommendations across website, social, trade shows, and sales materials.</li>
           <li>Budget estimates for anything that requires production or investment.</li>
