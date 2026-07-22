@@ -4,15 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Strategy — Campminder Brand Architecture</title>
+<title>Brand Architecture Strategy — Campminder</title>
 <style>
 /* ─────────────────────────────────────────────
-   TOKENS — SF Pro system stack / Campminder purple
-   v2 — fresh build, July 2026
+   Campminder Brand Architecture — Strategy landing page
+   v3 — narrowed to the three open Strategy decisions.
+   Result and model sit up top as settled ground.
+   Activation preview archived at _archive/activation-preview.html
+   Copy marked [ … ] is placeholder, to be written together.
+   Suggested copy sits in .sug blocks and is clearly labeled.
+   Design tokens inherited from the strategy page (v2, July 2026).
 ───────────────────────────────────────────── */
 :root {
   --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
           "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   --bg:      #f7f6f8;
   --card:    #ffffff;
   --ink:     #141118;
@@ -43,381 +49,411 @@ body {
 
 .wrap { max-width: 1060px; margin: 0 auto; padding: 0 44px; }
 
-h1, h2, h3 { color: var(--ink); font-weight: 700; letter-spacing: -0.025em; }
+h1, h2, h3, h4 { color: var(--ink); font-weight: 700; letter-spacing: -0.025em; }
 strong { color: var(--ink); font-weight: 650; }
+
+/* placeholder marker */
+.ph {
+  color: var(--light);
+  font-style: normal;
+  background: repeating-linear-gradient(-45deg, #faf8fc, #faf8fc 8px, #f3eefa 8px, #f3eefa 16px);
+  border: 1px dashed var(--accent-line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: block;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.ph.inline { display: inline; padding: 2px 8px; border-radius: 6px; font-size: 0.82em; }
+
+/* suggested copy block — a draft to react to, not final */
+.sug {
+  border-left: 2px solid var(--accent); background: var(--accent-soft);
+  border-radius: 0 10px 10px 0; padding: 18px 22px; margin-top: 26px; max-width: 680px;
+}
+.sug .lab {
+  display: inline-block; font-size: 11px; font-weight: 650; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent); background: var(--card);
+  border: 1px solid var(--accent-line); border-radius: 999px; padding: 4px 11px;
+  margin-bottom: 12px;
+}
+.sug p { font-size: 21px; line-height: 1.55; color: var(--ink); margin-bottom: 14px; }
+.sug p:last-child { margin-bottom: 0; }
+
+/* inline links */
+.section-body a, .desc a, .result-row a {
+  color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-line);
+}
+.section-body a:hover, .desc a:hover, .result-row a:hover { border-bottom-color: var(--accent); }
+
+/* in-section second headline */
+.subhead {
+  margin-top: 72px; padding-top: 44px; border-top: 1px solid var(--rule);
+}
+.subhead h3 {
+  font-size: clamp(30px, 4.6vw, 50px); font-weight: 700;
+  letter-spacing: -0.04em; line-height: 1.04; margin-bottom: 30px; max-width: 20ch;
+}
+
+/* architecture diagram */
+.arch { margin-top: 44px; max-width: 680px; }
+.arch-parent {
+  border: 1.5px dashed var(--accent-line); color: var(--accent); background: #faf8fc;
+  border-radius: 12px; padding: 16px; text-align: center;
+  font-size: 15px; font-weight: 650; letter-spacing: 0.02em; margin-bottom: 14px;
+}
+.arch-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
+.arch-chip {
+  background: var(--card); border: 1px solid var(--rule); border-radius: 12px;
+  padding: 18px 14px; text-align: center; font-weight: 650; color: var(--ink); font-size: 16px;
+}
+.arch-col { display: flex; flex-direction: column; align-items: stretch; }
+.arch-stem { width: 1.5px; height: 12px; background: var(--accent-line); margin: 0 auto; }
+.arch-sub {
+  border: 1px solid var(--hair); background: var(--card); border-radius: 10px;
+  padding: 10px 12px; text-align: center; font-weight: 600; font-size: 14px; color: var(--mid);
+}
+.arch-note { font-size: 14.5px; color: var(--light); margin-top: 14px; line-height: 1.5; }
+
+/* real world example, drawn in the same shape as the portfolio diagram */
+.ex-lab {
+  display: block; font-size: 11px; font-weight: 650; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--light); margin-bottom: 16px;
+}
+.arch-h {
+  font-size: clamp(22px, 2.6vw, 28px); font-weight: 700;
+  letter-spacing: -0.03em; line-height: 1.15; color: var(--ink); margin-bottom: 18px;
+}
+.arch-parent.solid {
+  border: 1px solid var(--rule); background: var(--card);
+  display: flex; align-items: center; justify-content: center; padding: 20px 16px;
+}
+.arch-parent.solid img {
+  height: 20px; width: auto; display: block;
+  filter: grayscale(1); opacity: 0.55;
+}
+.arch-chip.mark {
+  display: flex; flex-direction: column; align-items: center; gap: 11px;
+  padding: 17px 12px 15px;
+}
+.arch-chip.mark img {
+  height: 21px; width: auto; display: block;
+  filter: grayscale(1); opacity: 0.5;
+}
+.arch-chip.mark span { font-size: 15px; }
+
+/* ── Decision framework diagram ─────────────── */
+.fw { margin-top: 40px; }
+.fw-band { margin-bottom: 8px; }
+.fw-band + .fw-band { margin-top: 0; }
+.fw-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.fw-grid.three { grid-template-columns: repeat(3, 1fr); }
+.fw-grid.two { grid-template-columns: repeat(2, 1fr); }
+.fw-more { font-size: 16px; color: var(--light); margin-top: 18px; line-height: 1.5; max-width: 680px; }
+.fw-crit {
+  background: var(--card); border: 1px solid var(--rule); border-radius: 12px;
+  padding: 24px 24px 22px; display: flex; flex-direction: column; gap: 12px;
+}
+.fw-crit .fw-num {
+  font-size: 12px; font-weight: 650; letter-spacing: 0.06em;
+  color: var(--accent); font-variant-numeric: tabular-nums; margin-bottom: -4px;
+}
+.fw-crit h5 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+.fw-crit ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.fw-crit li {
+  position: relative; padding-left: 18px;
+  font-size: 17px; line-height: 1.45; color: var(--mid);
+}
+.fw-crit li::before {
+  content: "\2013"; position: absolute; left: 0; top: 0;
+  color: var(--accent); font-weight: 400;
+}
+.fw-out { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.fw-out.one { grid-template-columns: 1fr; }
+.fw-out.two { grid-template-columns: 1fr 1fr; }
+.fw-out.three { grid-template-columns: repeat(3, 1fr); }
+.fw-out + .fw-out { margin-top: 14px; }
+.fw-outbox {
+  border: 1.5px solid var(--accent); background: #faf8fc; border-radius: 12px;
+  padding: 30px 32px;
+  display: grid; grid-template-columns: minmax(210px, 0.8fr) 1.7fr;
+  gap: 36px; align-items: start;
+}
+.ob-head { display: flex; flex-direction: column; gap: 18px; }
+.fw-outbox h5 {
+  font-size: clamp(32px, 4vw, 44px); font-weight: 700;
+  letter-spacing: -0.03em; line-height: 1; color: var(--accent);
+}
+.ob-house { display: flex; flex-direction: column; }
+.ob-lbl {
+  font-size: 12px; font-weight: 650; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--light); margin-bottom: 4px;
+}
+.ob-item {
+  font-size: 16px; line-height: 1.4; color: var(--ink);
+  padding: 10px 0; border-top: 1px solid var(--rule);
+}
+.ob-item:last-child { padding-bottom: 0; }
+.ob-item .ob-parent { color: var(--light); }
+.ob-body p { font-size: 18px; line-height: 1.55; color: var(--mid); max-width: 46ch; }
+.fw-ex { font-size: 14.5px; line-height: 1.5; color: var(--light); margin-top: 4px; }
+.fw-ex b { font-weight: 650; color: var(--mid); }
+.fw-not {
+  margin-top: 34px; border: 1px solid var(--rule); border-radius: 12px;
+  background: var(--card); padding: 24px 26px;
+}
+.fw-not p { font-size: 16px; color: var(--mid); line-height: 1.5; max-width: 62ch; }
+.fw-not p.fw-close { font-size: 14.5px; color: var(--light); max-width: none; margin-top: 16px; }
+.fw-not .mlist { max-width: 62ch; }
+
+/* subsection headline — replaces the small caps label */
+.fw-head {
+  font-size: clamp(24px, 3.2vw, 34px); font-weight: 700; color: var(--ink);
+  letter-spacing: -0.032em; line-height: 1.08; margin-bottom: 22px;
+}
+.fw-not .fw-head { font-size: 24px; margin-bottom: 14px; }
+
+/* marker lists — ✕ for exclusions, → for statements */
+.mlist { list-style: none; margin: 0; padding: 0; }
+.mlist li {
+  display: grid; grid-template-columns: 24px 1fr; gap: 2px;
+  align-items: start; margin-bottom: 10px;
+}
+.mlist li:last-child { margin-bottom: 0; }
+.mlist li::before {
+  content: "\2715"; color: var(--accent); font-size: 13px;
+  font-weight: 700; line-height: 1.75;
+}
+.mlist.arrow li::before { content: "\2192"; font-size: 15px; line-height: 1.6; }
+.fw-not .mlist li { font-size: 16px; line-height: 1.5; color: var(--mid); }
+.sug .mlist li { font-size: 21px; line-height: 1.55; color: var(--ink); }
+
+/* numbered list */
+.nlist { list-style: none; margin: 0; padding: 0; counter-reset: n; }
+.nlist li {
+  counter-increment: n; display: grid; grid-template-columns: 36px 1fr;
+  gap: 2px; align-items: start; margin-bottom: 12px;
+  font-size: 18px; line-height: 1.5; color: var(--body);
+}
+.nlist li:last-child { margin-bottom: 0; }
+.nlist li::before {
+  content: counter(n, decimal-leading-zero); color: var(--accent);
+  font-size: 13px; font-weight: 650; letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums; line-height: 2.05;
+}
+
+/* spoken-version cards, drawn like the decision record card */
+.saylist { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+.saycard {
+  background: var(--card); border: 1px solid var(--rule); border-radius: 16px;
+  padding: 22px 24px 20px; box-shadow: 0 1px 0 var(--hair);
+}
+.saycard .top {
+  display: block; margin-bottom: 13px;
+  padding-bottom: 13px; border-bottom: 1px solid var(--hair);
+}
+.saycard .meta { display: flex; align-items: center; gap: 10px; margin-bottom: 11px; }
+.saycard .pill {
+  font-size: 10.5px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-soft);
+  border: 1px solid var(--accent-line); border-radius: 999px; padding: 3px 10px;
+}
+.saycard .n {
+  font-size: 12px; font-weight: 650; color: var(--accent);
+  letter-spacing: 0.08em; font-variant-numeric: tabular-nums;
+}
+.saycard .q { display: block; font-size: 18px; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); line-height: 1.35; }
+.saycard .a { font-size: 16px; font-weight: 550; color: var(--ink); line-height: 1.5; }
+@media (max-width: 760px) {
+  .saycard { padding: 20px 20px 18px; border-radius: 14px; }
+}
+
+/* lead principle — the customer question that sits above the six */
+.fw-lead {
+  margin: 26px 0 10px; border-left: 3px solid var(--accent);
+  background: var(--accent-soft); border-radius: 0 12px 12px 0;
+  padding: 24px 26px;
+}
+.fw-lead h4 { font-size: 22px; font-weight: 700; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 14px; }
+.fw-lead p { font-size: 21px; line-height: 1.55; color: var(--body); margin-bottom: 16px; max-width: 62ch; }
+.fw-lead p:last-child { margin-bottom: 0; }
+
+/* ── Role and audience blocks ───────────────── */
+.roles { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 34px; }
+.role {
+  background: var(--card); border: 1px solid var(--rule); border-radius: 14px;
+  padding: 26px 26px 24px;
+}
+.role.parent { grid-column: 1 / -1; border-color: var(--accent); background: var(--accent); }
+.role.parent h4 { color: #ffffff; font-size: 30px; letter-spacing: -0.03em; margin-bottom: 6px; }
+.role.parent .who { color: rgba(255,255,255,0.78); font-size: 14px; margin-bottom: 20px; }
+.role.parent dl { gap: 8px 18px; }
+.role.parent dt { color: rgba(255,255,255,0.68); font-size: 12px; }
+.role.parent dd { color: rgba(255,255,255,0.9); font-size: 19px; }
+.role.parent dd strong { color: #ffffff; }
+.role h4 { font-size: 21px; letter-spacing: -0.022em; margin-bottom: 4px; }
+.role .who { font-size: 13px; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: block; }
+.role dl { display: grid; grid-template-columns: 96px 1fr; gap: 6px 14px; }
+.role dt {
+  font-size: 11px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--light); padding-top: 4px;
+}
+.role dd { font-size: 16px; line-height: 1.5; color: var(--mid); }
+.role dd strong { color: var(--ink); }
+
+/* ── Ghost cards — open slots that signal the model keeps growing ── */
+.role.ghost, .fw-crit.ghost {
+  border-style: dashed; border-color: var(--accent-line);
+  background: #faf8fc; box-shadow: none;
+}
+.role.ghost h4, .fw-crit.ghost h5 { color: var(--accent); }
+.role.ghost .who { color: var(--light); }
+.ghost-note { font-size: 16px; line-height: 1.5; color: var(--mid); }
+.role.ghost .ghost-note { margin-top: 4px; }
 
 /* ── Topbar ─────────────────────────────────── */
 .topbar {
-  position: sticky;
-  top: 0;
-  z-index: 40;
+  position: sticky; top: 0; z-index: 40;
   background: rgba(247, 246, 248, 0.85);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
 }
 .topbar .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 18px; padding-bottom: 18px;
 }
 .sp-logo svg { height: 18px; width: auto; display: block; }
 .sp-logo svg path, .sp-logo svg rect { fill: var(--ink); }
+.topbar-right { display: flex; align-items: center; gap: 16px; }
 .conf-chip {
-  font-size: 11px;
-  font-weight: 650;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
+  font-size: 11px; font-weight: 650; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent);
+  background: var(--accent-soft); border-radius: 999px; padding: 5px 12px;
+}
+.draft-chip {
+  font-size: 11px; font-weight: 650; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--light);
+  border: 1px solid var(--rule); border-radius: 999px; padding: 4px 11px;
 }
 
 /* ── Masthead ───────────────────────────────── */
-.masthead { padding-top: 96px; padding-bottom: 88px; }
-.cm-name {
-  display: block;
-  font-size: 13px;
-  font-weight: 650;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 56px;
+.masthead {
+  padding-top: 100px; padding-bottom: 72px;
+  display: grid; grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 64px; align-items: end;
 }
+.cm-name {
+  display: block; font-size: 15px; font-weight: 650;
+  color: var(--mid); margin-bottom: 44px;
+}
+.cm-name .sep { color: var(--light); font-weight: 500; }
 .masthead h1 {
-  font-size: clamp(44px, 7vw, 92px);
-  line-height: 0.99;
-  letter-spacing: -0.04em;
-  margin-bottom: 26px;
+  font-size: clamp(48px, 8vw, 104px); line-height: 0.96;
+  letter-spacing: -0.045em; margin-bottom: 26px;
 }
 .masthead h1 .accent { color: var(--accent); }
 .masthead .deck {
-  font-size: clamp(18px, 2.1vw, 23px);
-  color: var(--mid);
-  letter-spacing: -0.015em;
-  line-height: 1.45;
+  font-size: clamp(18px, 2.1vw, 23px); color: var(--mid);
+  letter-spacing: -0.015em; line-height: 1.45; max-width: 40ch;
 }
 
-/* ── Table of contents ──────────────────────── */
-.toc {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-top: 56px;
-  max-width: 480px;
-}
+/* contents list — whitepaper style */
+.toc { font-size: 15px; font-weight: 600; }
 .toc a {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  padding: 12px 0;
-  border-top: 1px solid var(--rule);
-  font-size: 17px;
-  font-weight: 550;
-  color: var(--ink);
-  text-decoration: none;
+  display: flex; align-items: baseline; gap: 16px;
+  padding: 11px 0; border-top: 1px solid var(--rule);
+  color: var(--ink); text-decoration: none;
 }
+.toc a:last-child { border-bottom: 1px solid var(--rule); }
 .toc a:hover { color: var(--accent); }
-.toc a .tn {
-  font-size: 12px;
-  font-weight: 650;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-}
-.toc-group {
-  font-size: clamp(24px, 3vw, 32px);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  padding: 36px 0 14px;
-}
-.toc-group:first-child { padding-top: 0; }
-.section { scroll-margin-top: 72px; }
+.toc .n { color: var(--accent); font-variant-numeric: tabular-nums; font-size: 13px; }
+.toc .n.blank { color: var(--light); }
 
 /* ── Sections ───────────────────────────────── */
-.section { border-top: 1px solid var(--rule); }
-.section-inner { padding: 80px 0; }
-.eyebrow {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  font-size: 12px;
-  font-weight: 650;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--light);
-  margin-bottom: 22px;
+.section { border-top: 1px solid var(--rule); scroll-margin-top: 72px; }
+.section-inner { padding: 84px 0; display: block; }
+.snum {
+  display: block;
+  font-size: clamp(26px, 3.2vw, 38px); font-weight: 700;
+  letter-spacing: -0.04em; line-height: 1; color: var(--accent);
+  font-variant-numeric: tabular-nums; margin-bottom: 10px;
 }
-.eyebrow .n { color: var(--accent); font-variant-numeric: tabular-nums; }
 .section-label {
-  font-size: clamp(30px, 4.4vw, 48px);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.04;
-  margin-bottom: 36px;
-  max-width: 22ch;
+  font-size: clamp(34px, 5.5vw, 60px); font-weight: 700;
+  letter-spacing: -0.04em; line-height: 1.02; margin-bottom: 36px; max-width: 20ch;
 }
-.section-body { max-width: 660px; }
+
+/* small callout note */
+.note {
+  margin-top: 30px; max-width: 680px;
+  border: 1px solid var(--accent-line); background: #faf8fc;
+  border-radius: 12px; padding: 18px 22px;
+  font-size: 16px; line-height: 1.5; color: var(--mid);
+}
+.note strong { color: var(--ink); font-weight: 650; }
+
+/* label pill */
+.pill {
+  display: inline-block; font-size: 11px; font-weight: 650; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
+  border-radius: 999px; padding: 5px 12px;
+}
+.section-body { max-width: 680px; }
 .section-body p { margin-bottom: 18px; }
 .section-body p:last-child { margin-bottom: 0; }
+.section-body p.aside { font-size: 16px; color: var(--light); margin-top: 26px; }
 
-/* ── Big pull lines ─────────────────────────── */
+/* ── Big pull line ──────────────────────────── */
 .bigline {
-  font-size: clamp(26px, 3.7vw, 42px);
-  line-height: 1.12;
-  font-weight: 700;
-  letter-spacing: -0.032em;
-  color: var(--ink);
-  margin: 8px 0 30px;
+  font-size: clamp(34px, 5.5vw, 60px); line-height: 1.04; font-weight: 700;
+  letter-spacing: -0.04em; color: var(--ink); margin: 0 0 28px;
 }
 .bigline .accent { color: var(--accent); }
-.section-body .bigline:last-child { margin-bottom: 0; }
 
-/* ── Numbered findings ──────────────────────── */
-.finding {
-  display: grid;
-  grid-template-columns: 52px 1fr;
-  gap: 10px;
-  padding: 30px 0;
-  border-top: 1px solid var(--hair);
-}
-.finding:first-of-type { border-top: none; }
-.finding .fnum {
-  font-size: 14px;
-  font-weight: 650;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-  padding-top: 4px;
-}
-.finding h3 { font-size: 24px; line-height: 1.3; margin-bottom: 8px; letter-spacing: -0.02em; }
-.finding p { font-size: 19px; margin: 0 0 12px; }
-.finding p:last-child { margin-bottom: 0; }
+/* ── Stacked fact rows ──────────────────────── */
+.facts { margin-top: 44px; max-width: 680px; border-top: 1px solid var(--rule); }
+.fact { padding: 26px 0; border-bottom: 1px solid var(--rule); }
+.fact .pill { margin-bottom: 13px; }
+.fact .v { font-size: 19px; line-height: 1.5; color: var(--body); }
 
-/* ── Recommendations ────────────────────────── */
-.rec {
-  border-left: 2px solid var(--accent);
-  padding: 6px 0 6px 26px;
-  margin-bottom: 44px;
+/* ── Topic groups ───────────────────────────── */
+.topic {
+  display: grid; grid-template-columns: 46px 1fr; gap: 12px;
+  padding: 26px 0; border-top: 1px solid var(--hair);
+  max-width: 680px;
 }
-.rec:last-child { margin-bottom: 0; }
-.rec .rnum {
-  font-size: 13px;
-  font-weight: 650;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-  margin-bottom: 8px;
+.topic:first-of-type { border-top: none; }
+.topic .tnum {
+  font-size: 13px; font-weight: 650; color: var(--accent);
+  font-variant-numeric: tabular-nums; padding-top: 5px;
 }
-.rec h3 { font-size: 24px; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 10px; }
-.rec p { font-size: 19px; margin: 0 0 12px; }
-.rec p:last-child { margin-bottom: 0; }
-
-/* ── Brand decision list ────────────────────── */
-.brandlist { list-style: none; border-top: 1px solid var(--hair); margin: 14px 0 20px; }
-.brandlist li {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--hair);
-  font-size: 19px;
-}
-.brandlist .bname { font-weight: 650; color: var(--ink); }
-
-/* ── Definition pair ────────────────────────── */
-.defs {
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  margin: 28px 0;
-}
-.def { padding: 24px 0; }
-.def + .def { border-top: 1px solid var(--hair); }
-.def .def-term {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  margin-bottom: 8px;
-}
-.def p { font-size: 19px; margin: 0; }
-
-/* ── Pill link ──────────────────────────────── */
-.pill {
-  display: inline-block;
-  font-size: 13.5px;
-  font-weight: 650;
-  letter-spacing: 0.01em;
-  color: var(--accent);
-  background: var(--accent-soft);
-  border: 1px solid var(--accent-line);
-  border-radius: 999px;
-  padding: 9px 18px;
-  text-decoration: none;
-  transition: background 0.15s ease;
-}
-.pill:hover { background: var(--accent-line); }
-.pill span { font-size: 12px; }
-
-/* ── Stats ──────────────────────────────────── */
-.stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border-top: 1px solid var(--rule);
-}
-.stats.two {
-  grid-template-columns: 1fr 1fr;
-  margin: 32px 0;
-  border-bottom: 1px solid var(--rule);
-}
-.stat { padding: 38px 32px 38px 0; }
-.stat + .stat { padding-left: 32px; border-left: 1px solid var(--rule); }
-.stat .num {
-  font-size: clamp(46px, 5.8vw, 76px);
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-}
-.stat .cap { margin-top: 18px; font-size: 17.5px; line-height: 1.5; max-width: 32ch; }
-.stats-note {
-  font-size: 18px;
-  color: var(--mid);
-  border-top: 1px solid var(--rule);
-  padding-top: 20px;
-}
-.stats-note > div { max-width: 660px; }
-
-/* ── Arrow list ─────────────────────────────── */
-.arrows { list-style: none; }
-.arrows li {
-  position: relative;
-  padding-left: 28px;
-  font-size: 19px;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-.arrows li:last-child { margin-bottom: 0; }
-.arrows li::before {
-  content: "\2192";
-  position: absolute;
-  left: 0;
-  top: 1px;
-  font-size: 14px;
-  color: var(--accent);
-}
-
-/* ── Model cards ────────────────────────────── */
-.models { max-width: none; }
-.model {
-  background: var(--card);
-  border: 1px solid var(--rule);
-  border-radius: 16px;
-  padding: 40px 44px 44px;
-  margin-bottom: 28px;
-}
-.model:last-child { margin-bottom: 0; }
-.model.rec-model { border: 1px solid var(--accent-line); box-shadow: 0 1px 0 var(--accent-line); }
-.model h3 {
-  font-size: 27px;
-  letter-spacing: -0.025em;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-.model .tag {
-  font-size: 10.5px;
-  font-weight: 650;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--light);
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  padding: 4px 12px;
-}
-.model .tag.rec {
-  color: var(--accent);
-  background: var(--accent-soft);
-  border-color: var(--accent-line);
-}
-.model > p { font-size: 19px; max-width: 640px; margin-bottom: 16px; }
-.model .qa { max-width: 640px; margin-bottom: 20px; }
-.model .qa:last-child { margin-bottom: 0; }
-.model .q {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
-.model .a { font-size: 19px; line-height: 1.55; }
-.model .a.meta { font-size: 17.5px; color: var(--mid); }
-
-/* ── Example logo rows ──────────────────────── */
-.logo-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 26px 34px;
-  margin: 16px 0 20px;
-}
-.logo-row img {
-  filter: brightness(0);
-  opacity: 0.5;
-  width: auto;
-}
-
-/* ── Model diagrams ─────────────────────────── */
-.model-diagram {
-  width: 100%;
-  max-width: 620px;
-  height: auto;
-  display: block;
-  margin: 22px 0 28px;
-}
-.model-diagram .md-box { fill: var(--card); stroke: var(--ink); }
-.model-diagram .md-fill { fill: var(--ink); }
-.model-diagram .md-acc-fill { fill: var(--accent); }
-.model-diagram .md-dash { fill: none; stroke: var(--light); stroke-dasharray: 4 4; }
-.model-diagram .md-line { stroke: var(--rule); fill: none; }
-.model-diagram .md-line-dash { stroke: var(--rule); stroke-dasharray: 4 4; fill: none; }
-.model-diagram text { font-family: var(--sans); }
-.model-diagram .md-t { font-size: 13px; font-weight: 650; letter-spacing: 0.05em; fill: var(--ink); }
-.model-diagram .md-t-w { fill: #ffffff; }
-.model-diagram .md-t2 { font-size: 12px; fill: var(--mid); }
-.model-diagram .md-t-mut { fill: var(--light); }
-.model-diagram .md-t-acc { font-size: 11px; font-weight: 650; letter-spacing: 0.05em; fill: var(--accent); }
+.topic h4 { font-size: 22px; line-height: 1.28; margin-bottom: 8px; letter-spacing: -0.02em; }
+.topic .desc { font-size: 17px; color: var(--mid); line-height: 1.5; }
 
 /* ── Road ahead steps ───────────────────────── */
+/* road ahead breaks the left-rail grid — title on top, steps full width */
+.road-inner { display: block; }
 .road-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  flex-wrap: wrap; gap: 8px 20px; margin-bottom: 44px;
 }
+.road-title { display: block; }
+.road-head .section-label { max-width: none; }
 .road-note {
-  font-size: 12px;
-  font-weight: 650;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--light);
+  font-size: 12px; font-weight: 650; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--light);
 }
 .steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px 26px;
-  margin-top: 10px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 30px 26px; margin-top: 10px;
 }
 .step { border-top: 2px solid var(--rule); padding-top: 16px; }
 .step.done { border-top-color: var(--ink); }
 .step.now { border-top-color: var(--accent); }
 .step .no {
-  font-size: 12px;
-  font-weight: 650;
-  letter-spacing: 0.12em;
-  color: var(--light);
-  font-variant-numeric: tabular-nums;
+  font-size: 12px; font-weight: 650; letter-spacing: 0.12em;
+  color: var(--light); font-variant-numeric: tabular-nums;
 }
 .step.now .no { color: var(--accent); }
 .step h4 { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin: 9px 0 7px; }
@@ -426,15 +462,11 @@ strong { color: var(--ink); font-weight: 650; }
 .step li { font-size: 15.5px; color: var(--mid); line-height: 1.5; margin-bottom: 9px; }
 .step li:last-child { margin-bottom: 0; }
 .step li strong { font-weight: 650; color: var(--ink); }
+.step li.here { color: var(--ink); font-weight: 600; }
 .step .tag {
-  display: inline-block;
-  margin: 0 0 12px;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 999px;
+  display: inline-block; margin: 0 0 12px; font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+  padding: 4px 10px; border-radius: 999px;
 }
 .step.done .tag { background: var(--ink); color: var(--bg); }
 .step.now .tag { background: var(--accent); color: #ffffff; }
@@ -442,39 +474,39 @@ strong { color: var(--ink); font-weight: 650; }
 
 /* ── Footer ─────────────────────────────────── */
 .foot {
-  border-top: 1px solid var(--ink);
-  padding-top: 44px;
-  padding-bottom: 72px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  border-top: 1px solid var(--ink); padding-top: 44px; padding-bottom: 72px;
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
 }
 .foot .sp-logo svg { height: 20px; }
 .foot .conf {
-  font-size: 11px;
-  font-weight: 650;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-align: right;
+  font-size: 11px; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-soft); border-radius: 999px;
+  padding: 5px 12px; text-align: right;
 }
 
 /* ── Responsive ─────────────────────────────── */
+@media (max-width: 980px) {
+  .fw-grid, .fw-grid.three, .fw-out, .fw-out.three { grid-template-columns: repeat(2, 1fr); }
+  .fw-out.one { grid-template-columns: 1fr; }
+  .roles { grid-template-columns: 1fr; }
+  .saylist { grid-template-columns: 1fr; }
+}
 @media (max-width: 760px) {
   .wrap { padding: 0 22px; }
   body { font-size: 19px; }
-  .masthead { padding: 64px 0 60px; }
-  .section-inner { padding: 56px 0; }
-  .section-label { margin-bottom: 26px; }
-  .brandlist li { grid-template-columns: 1fr; gap: 4px; }
-  .stats, .stats.two { grid-template-columns: 1fr; }
-  .stat { padding: 30px 0; }
-  .stat + .stat { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); }
-  .finding { grid-template-columns: 1fr; gap: 4px; }
-  .finding .fnum { padding-top: 0; }
-  .model { padding: 28px 24px 32px; border-radius: 12px; }
+  .masthead { padding: 64px 0 48px; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+  .section-inner { padding: 52px 0; }
+  .snum { font-size: 22px; margin-bottom: 6px; }
+  .subhead { margin-top: 48px; padding-top: 34px; }
+  .arch-row { grid-template-columns: 1fr; }
+  .fw-grid, .fw-grid.three, .fw-grid.two, .fw-out, .fw-out.one, .fw-out.two, .fw-out.three { grid-template-columns: 1fr; }
+  .fw-outbox { grid-template-columns: 1fr; gap: 20px; }
+  .role dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .role dt { padding-top: 10px; }
   .steps { grid-template-columns: 1fr; }
+  .saylist { grid-template-columns: 1fr; }
+  .topic { grid-template-columns: 1fr; gap: 4px; }
+  .topic .tnum { padding-top: 0; }
   .foot { flex-direction: column; align-items: flex-start; }
   .foot .conf { text-align: left; }
 }
@@ -482,493 +514,490 @@ strong { color: var(--ink); font-weight: 650; }
 </head>
 <body>
 
-<!-- ───────── TOPBAR — Studio Parkside ───────── -->
+<!-- ───────── TOPBAR ───────── -->
 <div class="topbar">
   <div class="wrap">
     <span class="sp-logo" aria-label="Studio Parkside"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1499.4 151" role="img"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg></span>
-    <span class="conf-chip">Confidential</span>
+    <div class="topbar-right">
+      <span class="conf-chip">Confidential</span>
+    </div>
   </div>
 </div>
 
 <!-- ───────── MASTHEAD ───────── -->
 <header class="wrap masthead">
-  <span class="cm-name">Campminder</span>
-  <h1>Brand Architecture <span class="accent">Strategy</span></h1>
-  <p class="deck">The recommendation, the decisions that unlock the playbook, and the discovery behind it.</p>
+  <div class="mast-left">
+    <span class="cm-name">Campminder <span class="sep">&middot;</span> July 2026</span>
+    <h1>Brand Architecture <span class="accent">Strategy</span></h1>
+    <p class="deck">Selecting the model and defining how every brand relates.</p>
+  </div>
   <nav class="toc" aria-label="Contents">
-    <div class="toc-group">Start Here</div>
-    <a href="#s01"><span class="tn">01</span>The Recommendation</a>
-    <a href="#s02"><span class="tn">02</span>Decisions That Move Us Forward</a>
-    <a href="#s03"><span class="tn">03</span>Once You Decide</a>
-    <div class="toc-group">The Full Picture</div>
-    <a href="#s04"><span class="tn">04</span>Initial Recommendation</a>
-    <a href="#s05"><span class="tn">05</span>Next Steps</a>
-    <a href="#s06"><span class="tn">06</span>Branding Is Not Marketing</a>
-    <a href="#s07"><span class="tn">07</span>What Campminder Is Now</a>
-    <a href="#s08"><span class="tn">08</span>The Cost Is Measurable</a>
-    <a href="#s09"><span class="tn">09</span>The Architecture Models</a>
-    <a href="#s10"><span class="tn">10</span>What We Don&rsquo;t Know Yet</a>
-    <a href="#s11"><span class="tn">11</span>The Road Ahead</a>
+    <a href="#s01"><span class="n">01</span> About this page</a>
+    <a href="#s02"><span class="n">02</span> A House of Brands</a>
+    <a href="#s03"><span class="n">03</span> Brand architecture</a>
+    <a href="#s04"><span class="n">04</span> Decision framework</a>
+    <a href="#s05"><span class="n">05</span> Brand narratives</a>
+    <a href="#s06"><span class="n">06</span> Next steps</a>
   </nav>
 </header>
 
-<!-- ───────── START HERE 01 THE RECOMMENDATION ───────── -->
+<!-- ───────── 01 START HERE ───────── -->
 <section id="s01" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">01</span> Start Here</div>
-    <h2 class="section-label">The Recommendation</h2>
+    <div class="snum">01</div>
+    <div>
+    <h2 class="section-label">About this page.</h2>
     <div class="section-body">
-      <p class="bigline">A House of Brands. <span class="accent">Campminder stays Campminder. A new parent carries the portfolio.</span></p>
-      <p>Each brand in the portfolio serves a different market and has equity worth protecting. The company already operates as a portfolio underneath the product names, with shared engineering, finance, and leadership.</p>
-      <p>A House of Brands gives that structure a name and makes it visible where it matters: hiring, investors, and every future acquisition.</p>
-      <p>Snug, Janet, and I arrived at this recommendation together and feel good about the direction. The full rationale, the four models I evaluated, and the discovery behind all of it are further down this page.</p>
+      <p>This page is presented for your review before we finalize the remaining steps in Strategy.</p>
+      <p>In this phase, strategic work defines the architecture and how our brands relate. We&rsquo;ve decided which model of branding architecture fits Campminder today and scales with future acquisitions. Now, we&rsquo;re defining each brand&rsquo;s role and audience, and building a decision tree the team can use whenever a new acquisition comes in.</p>
+      <div class="note"><strong>Parent Co. is a placeholder.</strong> Until the real name exists, it stands in for the parent company brand in this document.</div>
+    </div>
     </div>
   </div>
 </section>
 
-<!-- ───────── START HERE 02 DECISIONS THAT MOVE US FORWARD ───────── -->
+<!-- ───────── 02 THE RESULT AND THE MODEL ───────── -->
 <section id="s02" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">02</span> Start Here</div>
-    <h2 class="section-label">Decisions That Move Us Forward</h2>
+    <div class="snum">02</div>
+    <div>
     <div class="section-body">
-      <p style="margin-bottom:40px;">Four decisions we need leadership to weigh in on. They&rsquo;re the inputs that turn the recommendation into a working playbook.</p>
-
-      <div class="rec">
-        <div class="rnum">01</div>
-        <h3>Confirm the architecture.</h3>
-        <p>A House of Brands is the direction we feel good about. Once it&rsquo;s confirmed, naming the parent brand can start right away. The logo, identity, and a small parent website follow naturally from the name, all one process, and budget for it is already planned.</p>
-      </div>
-
-      <div class="rec">
-        <div class="rnum">02</div>
-        <h3>Which brands remain?</h3>
-        <p>My working recommendation for each brand in the portfolio:</p>
-        <ul class="brandlist">
-          <li><span class="bname">Campminder</span><span>Stays as a brand.</span></li>
-          <li><span class="bname">UltraCamp</span><span>Stays as a brand. This is a brand decision, separate from the shared codebase work already planned.</span></li>
-          <li><span class="bname">Gazebo</span><span>Becomes a functionally named product feature, something like Groups.</span></li>
-          <li><span class="bname">Campanion</span><span>Needs assessment. Is it a companion app for Campminder, an app for all camps, or a product that could serve any vertical?</span></li>
-          <li><span class="bname">Swimtopia</span><span>Stays as a brand.</span></li>
+      <p class="bigline">A House of Brands.</p>
+      <div class="sug">
+        <ul class="mlist arrow">
+          <li>Campminder stays Campminder.</li>
+          <li>The new Parent Co. company holds the portfolio and is the umbrella organization for all of our offerings.</li>
+          <li>Every brand keeps its own name and speaks to its own market.</li>
         </ul>
-        <p>What I need is your take on what to do with each brand, and what&rsquo;s missing to make the decision on the ones we&rsquo;re not sure about.</p>
+        <p style="margin-top:16px;">The rest of this page is how we keep that straight.</p>
+      </div>
+    </div>
+
+    <div class="subhead">
+      <h3>One parent. Independent brands.</h3>
+      <div class="section-body">
+        <p>In a House of Brands, the parent company stands behind fully independent brands. Customers buy from the name they know and trust. The parent signals shared ownership, shared talent, and shared ambition. Examples include PepsiCo and Meta.</p>
+        <p>Here&rsquo;s why this is the right model for Campminder.</p>
+      </div>
+      <div style="margin-top:26px;">
+        <div class="topic">
+          <div class="tnum">02-01</div>
+          <div>
+            <h4>Campminder has real equity.</h4>
+            <p class="desc">Customers keep the name they trust. Parent Co. adds a layer above Campminder instead of replacing it.</p>
+          </div>
+        </div>
+        <div class="topic">
+          <div class="tnum">02-02</div>
+          <div>
+            <h4>The brands serve different markets.</h4>
+            <p class="desc">A Campminder customer and a Swimtopia customer have different needs and different reasons to buy. Each brand speaks to its own market without compromise.</p>
+          </div>
+        </div>
+        <div class="topic">
+          <div class="tnum">02-03</div>
+          <div>
+            <h4>The company already works this way.</h4>
+            <p class="desc">Shared engineering, shared finance, and shared leadership already run beneath multiple product names. The model gives that structure a name and makes it visible.</p>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <h4 class="arch-h">House of Brands &middot; Example</h4>
+        <div class="arch-parent solid"><img src="/logos/meta.svg" alt="Meta"></div>
+        <div class="arch-row">
+          <div class="arch-chip mark"><img src="/logos/facebook.svg" alt=""><span>Facebook</span></div>
+          <div class="arch-chip mark"><img src="/logos/instagram.svg" alt=""><span>Instagram</span></div>
+          <div class="arch-chip mark"><img src="/logos/whatsapp.svg" alt=""><span>WhatsApp</span></div>
+          <div class="arch-chip mark"><img src="/logos/threads.svg" alt=""><span>Threads</span></div>
+        </div>
+        <p class="arch-note">Nobody buys Meta. They open Instagram. The parent carries the company story to investors, press, and the people it wants to hire. Each app keeps the name people already use, and none of them has to explain the others.</p>
       </div>
 
-      <div class="rec">
-        <div class="rnum">03</div>
-        <h3>Who owns the brand, and what is the role?</h3>
-        <p>This work crosses marketing, product, HR, sales, and client services, so it needs one accountable owner who can move quickly, communicate the vision, empower people on every team, and hold the brand as their charge rather than any one department&rsquo;s agenda.</p>
-        <p>The title matters less than the mandate. It could sit with the incoming CMO, a dedicated brand manager, or a chief of staff position if one is created. What I need is the role named and its brand responsibilities defined, because the playbook gets built around that person.</p>
+      <div class="arch" style="margin-top:52px;">
+        <h4 class="arch-h">Our new model</h4>
+        <div class="arch-parent">Parent Co. &middot; to be named</div>
+        <div class="arch-row">
+          <div class="arch-col">
+            <div class="arch-chip">Campminder</div>
+            <div class="arch-stem"></div>
+            <div class="arch-sub">Campanion</div>
+          </div>
+          <div class="arch-chip">UltraCamp</div>
+          <div class="arch-chip">Gazebo</div>
+          <div class="arch-col">
+            <div class="arch-chip">Swimtopia</div>
+            <div class="arch-stem"></div>
+            <div class="arch-sub">Meet Maestro</div>
+          </div>
+        </div>
+        <p class="arch-note">Campanion is a product of Campminder, and Meet Maestro is a product of Swimtopia. All other brands currently in our portfolio live on their own.</p>
       </div>
-
-      <div class="rec">
-        <div class="rnum">04</div>
-        <h3>What context are we missing?</h3>
-        <p>Plans, constraints, or history that haven&rsquo;t reached me yet, including product or acquisition plans that would change any of the answers above. Interviews with UltraCamp teammates and customers belong here too. They give us the context to handle UltraCamp well as a standalone brand, and they start to set the approach for evaluating the brands that arrive with future acquisitions. They&rsquo;re ready to schedule once we align.</p>
-      </div>
-
+    </div>
     </div>
   </div>
 </section>
 
-<!-- ───────── START HERE 03 ONCE YOU DECIDE ───────── -->
+<!-- ───────── 03 ROLES AND AUDIENCES ───────── -->
 <section id="s03" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">03</span> Start Here</div>
-    <h2 class="section-label">Once You Decide</h2>
+    <div class="snum">03</div>
+    <div>
+    <h2 class="section-label">Brand architecture.</h2>
     <div class="section-body">
-      <p>With those answers, I build the playbook documentation:</p>
-      <ul class="arrows">
-        <li>Define each brand&rsquo;s role and audience.</li>
-        <li>Define the decision framework for future acquisitions.</li>
-        <li>Develop the internal narrative.</li>
-        <li>Create a Brand Architecture Playbook built around the person who owns the decisions.</li>
-        <li>Kick off naming and building the new parent brand, from identity through how it shows up on its own website and at events.</li>
-      </ul>
-      <p style="margin-top:28px;">Then activation turns those decisions into a rollout:</p>
-      <ul class="arrows">
-        <li>How future acquisitions fit into the brand architecture model.</li>
-        <li>A communication sequence for announcing changes.</li>
-        <li>Channel recommendations across website, social, trade shows, and sales materials.</li>
-        <li>Budget estimates for anything that requires production or investment.</li>
-      </ul>
+      <p>Parent Co. sits at the top of our new brand model. Our parent company talks to the people who join us and the people who sell to us. Every other brand speaks directly to customers.</p>
+      <p>Every brand gets a summary and an audience, so anyone can tell at a glance what it is and who it is for.</p>
+    </div>
+
+    <div class="roles">
+
+      <div class="role parent">
+        <h4>Parent Co.</h4>
+        <span class="who">Holding company</span>
+        <dl>
+          <dt>Summary</dt>
+          <dd>Holds the portfolio and is front facing on all M&amp;A actions. Signals shared ownership, shared resources, and shared ambition. Never sells software to anyone.</dd>
+          <dt>Audience</dt>
+          <dd><strong>Other companies.</strong> Founders considering selling, merging, or investing in us.<br>
+          <strong>Investors and the industry.</strong> The shape of what we are building.<br>
+          <strong>Our own team.</strong> Current staff and future hires who want to know what they are part of.</dd>
+        </dl>
+      </div>
+
+      <div class="role">
+        <h4>Campminder</h4>
+        <span class="who">Camp management</span>
+        <dl>
+          <dt>Summary</dt>
+          <dd>Comprehensive camp management with robust features and powerful task support.</dd>
+          <dt>Audience</dt>
+          <dd>Camps and camp directors.</dd>
+        </dl>
+      </div>
+
+      <div class="role">
+        <h4>UltraCamp</h4>
+        <span class="who">Camp management</span>
+        <dl>
+          <dt>Summary</dt>
+          <dd>Registration, reporting, and staff management for growing camps.</dd>
+          <dt>Audience</dt>
+          <dd>Camps and camp directors.</dd>
+        </dl>
+      </div>
+
+      <div class="role">
+        <h4>Swimtopia</h4>
+        <span class="who">Swim management</span>
+        <dl>
+          <dt>Summary</dt>
+          <dd>League, team, and meet management that keeps everyone swimming in the same direction.</dd>
+          <dt>Audience</dt>
+          <dd>Swim teams, leagues, and the coaches and parents who run them.</dd>
+        </dl>
+      </div>
+
+      <div class="role">
+        <h4>Gazebo</h4>
+        <span class="who">Event management</span>
+        <dl>
+          <dt>Summary</dt>
+          <dd>All-in-one management solution for group gatherings and event space rentals.</dd>
+          <dt>Audience</dt>
+          <dd>Event managers and their teams.</dd>
+        </dl>
+      </div>
+
+      <div class="role">
+        <h4>Campanion</h4>
+        <span class="who">Camp experiences</span>
+        <dl>
+          <dt>Summary</dt>
+          <dd>Connecting parents and families with their children&rsquo;s camp experiences.</dd>
+          <dt>Audience</dt>
+          <dd>Families actively enrolled at camps running Campminder.</dd>
+          <dt>Sits under</dt>
+          <dd>Campminder.</dd>
+        </dl>
+      </div>
+
+      <div class="role">
+        <h4>Meet Maestro</h4>
+        <span class="who">Swim meets</span>
+        <dl>
+          <dt>Summary</dt>
+          <dd>Helping coaches and families set up meets and keep them on track.</dd>
+          <dt>Audience</dt>
+          <dd>Coaches and volunteers responsible for running swim meets.</dd>
+          <dt>Sits under</dt>
+          <dd>Swimtopia.</dd>
+        </dl>
+      </div>
+
+      <div class="role ghost">
+        <h4>Future brands</h4>
+        <span class="who">Added over time</span>
+        <p class="ghost-note">New acquisitions and launches take their place here. Each one gets the same summary and audience once we define its role, so the house can grow without a rework.</p>
+      </div>
+
+    </div>
     </div>
   </div>
 </section>
 
-<!-- ───────── DIVIDER — THE FULL PICTURE ───────── -->
-<section class="wrap section">
-  <div class="section-inner" style="padding-bottom:24px;">
-    <div class="eyebrow">The Full Picture</div>
-    <div class="section-body">
-      <p>Everything below is an overview of the work scoped in the proposal: the strategy to date and the discovery that supports the recommendation above.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── 04 INITIAL RECOMMENDATION ───────── -->
+<!-- ───────── 04 THE DECISION FRAMEWORK ───────── -->
 <section id="s04" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">04</span></div>
-    <h2 class="section-label">Initial Recommendation</h2>
+    <div class="snum">04</div>
+    <div>
+    <h2 class="section-label">Decision framework.</h2>
     <div class="section-body">
-      <p class="bigline">Campminder needs to stay Campminder. <span class="accent">Something broader needs to carry the portfolio.</span></p>
-      <p style="font-size:13.5px; color:var(--light); margin:34px 0 0;">The portfolio shown in a House of Brands model.</p>
-      <svg class="model-diagram" style="margin-top:12px;" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Campminder portfolio drawn as a House of Brands">
-        <rect x="245" y="4" width="150" height="44" class="md-dash"/>
-        <text x="320" y="23" text-anchor="middle" class="md-t md-t-mut">PARENT</text>
-        <text x="320" y="39" text-anchor="middle" class="md-t2 md-t-mut" style="font-size:10px;">to be named</text>
-        <path d="M320 48 V78 M58 78 H582 M58 78 V106 M189 78 V106 M320 78 V106 M451 78 V106 M582 78 V106" class="md-line-dash"/>
-        <rect x="0" y="106" width="116" height="54" class="md-acc-fill"/>
-        <text x="58" y="138" text-anchor="middle" class="md-t md-t-w" style="font-size:10.5px;">CAMPMINDER</text>
-        <rect x="131" y="106" width="116" height="54" class="md-acc-fill"/>
-        <text x="189" y="138" text-anchor="middle" class="md-t md-t-w" style="font-size:10.5px;">SWIMTOPIA</text>
-        <rect x="262" y="106" width="116" height="54" class="md-acc-fill"/>
-        <text x="320" y="138" text-anchor="middle" class="md-t md-t-w" style="font-size:10.5px;">ULTRACAMP</text>
-        <rect x="393" y="106" width="116" height="54" class="md-acc-fill"/>
-        <text x="451" y="138" text-anchor="middle" class="md-t md-t-w" style="font-size:10.5px;">CAMPANION</text>
-        <rect x="524" y="106" width="116" height="54" class="md-acc-fill"/>
-        <text x="582" y="138" text-anchor="middle" class="md-t md-t-w" style="font-size:10.5px;">GAZEBO</text>
-      </svg>
-      <p style="font-size:13.5px; color:var(--light); margin:-12px 0 32px;">Illustrative. Individual brand decisions follow the discovery outlined below.</p>
-      <p style="margin-bottom:32px;">Below, three reasons a <strong>House of Brands</strong> is the right direction. The full comparison of the four models I evaluated is further down the page.</p>
+      <p>Something new arrives. We buy a company, or we build something we might promote on its own. The same question gets asked every time. What is this to the portfolio?</p>
+      <p>The framework below answers it the same way every time, no matter who is deciding. One question leads. Everything else gets weighed under it. The answer sets the name, the identity, and the budget.</p>
+      <p>This is a lens, not a rulebook. The same inputs can point different ways, and a real reason can override any single line.</p>
+      <p>It stays simple enough to act on, and every choice here can be explained, not just made.</p>
+    </div>
 
-      <div class="finding">
-        <div class="fnum">01</div>
-        <div>
-          <h3>Campminder the product has real equity.</h3>
-          <p>A House of Brands model protects the existing Campminder brand and platform. Customers keep the name they trust. The parent brand becomes the entity that signals quality and shared ownership without replacing what customers already know.</p>
+    <div class="fw-lead">
+      <h4>What serves our customers best?</h4>
+      <p><strong>The customer decides. Everything else is an input we weigh.</strong> What do the people who use this actually want, and what would they miss if it changed?</p>
+      <p>Each input shapes the answer, and none of them makes the call alone. A build that is easy but that no customer asked for is not a reason to ship it. A name that is awkward but that customers know is not a reason to drop it.</p>
+      <p>The customer sets the target. The inputs set the path.</p>
+    </div>
+
+    <div class="fw">
+
+      <div class="fw-band">
+        <h4 class="fw-head">Inputs.</h4>
+        <div class="section-body" style="margin-bottom:26px;">
+          <p>These are the inputs we weigh when a new brand action hits. We look through all of them, weigh each on its own, and add others when a decision calls for it.</p>
+        </div>
+        <div class="fw-grid two">
+          <div class="fw-crit">
+            <span class="fw-num">04-01</span>
+            <h5>Evidence</h5>
+            <ul>
+              <li>What do our employees tell us?</li>
+              <li>What do our customers tell us?</li>
+              <li>What do the end users tell us?</li>
+            </ul>
+          </div>
+          <div class="fw-crit">
+            <span class="fw-num">04-02</span>
+            <h5>Category</h5>
+            <ul>
+              <li>How much category share can this hold?</li>
+              <li>What can it charge?</li>
+              <li>Is the category growing?</li>
+            </ul>
+          </div>
+          <div class="fw-crit">
+            <span class="fw-num">04-03</span>
+            <h5>Technology</h5>
+            <ul>
+              <li>Does it run on our existing codebase, or need custom code?</li>
+              <li>What can engineering and product support?</li>
+              <li>Is the way it is built an asset or an obstacle?</li>
+            </ul>
+          </div>
+          <div class="fw-crit">
+            <span class="fw-num">04-04</span>
+            <h5>Resources</h5>
+            <ul>
+              <li>What does it take to run as its own brand?</li>
+              <li>What is the engineering and product upkeep?</li>
+              <li>What does it need from customer support, HR, and finance?</li>
+            </ul>
+          </div>
+          <div class="fw-crit">
+            <span class="fw-num">04-05</span>
+            <h5>Equity</h5>
+            <ul>
+              <li>Is there a name customers already know?</li>
+              <li>Do they trust it and search for it?</li>
+              <li>Would they feel the loss if it went away?</li>
+            </ul>
+          </div>
+          <div class="fw-crit">
+            <span class="fw-num">04-06</span>
+            <h5>Marketing</h5>
+            <ul>
+              <li>Does it need a unique approach to sales and support?</li>
+              <li>Does it need a standalone website and social presence?</li>
+              <li>Does it appear on its own at industry events?</li>
+            </ul>
+          </div>
+          <div class="fw-crit">
+            <span class="fw-num">04-07</span>
+            <h5>Reversibility</h5>
+            <ul>
+              <li>How hard is this to undo if we get it wrong?</li>
+              <li>What does it cost to change our mind later?</li>
+              <li>What does it force us to decide next?</li>
+            </ul>
+          </div>
+          <div class="fw-crit ghost">
+            <span class="fw-num">04-??</span>
+            <h5>Other inputs</h5>
+            <p class="ghost-note">Not every decision looks like the ones before it. New considerations get added as we meet them, and the framework makes room.</p>
+          </div>
+        </div>
+        <p class="fw-more">The framework adjusts as our parent brand and internal team grow and learn.</p>
+      </div>
+
+      <div class="fw-band" style="margin-top:44px;">
+        <h4 class="fw-head">Outputs.</h4>
+        <div class="section-body" style="margin-bottom:26px;">
+          <p>A brand architecture framework could conceivably carry more options than this. A good one is right-sized for the company it serves and built to change as that company grows. We keep ours simple so the focus stays on the action, and so brand never becomes a barrier to innovation or a decision.</p>
+        </div>
+        <div class="fw-out one">
+          <div class="fw-outbox">
+            <div class="ob-head">
+              <h5>Brand</h5>
+              <div class="ob-house">
+                <span class="ob-lbl">In the house today</span>
+                <span class="ob-item">Campminder</span>
+                <span class="ob-item">UltraCamp</span>
+                <span class="ob-item">Swimtopia</span>
+                <span class="ob-item">Gazebo</span>
+              </div>
+            </div>
+            <div class="ob-body">
+              <p>The focus for marketing and public communication. Usually a platform, though it does not have to be. Carries its own name and visual identity, and is sold on its own.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fw-out one">
+          <div class="fw-outbox">
+            <div class="ob-head">
+              <h5>Product</h5>
+              <div class="ob-house">
+                <span class="ob-lbl">In the house today</span>
+                <span class="ob-item">Campanion <span class="ob-parent">under Campminder</span></span>
+                <span class="ob-item">Meet Maestro <span class="ob-parent">under Swimtopia</span></span>
+              </div>
+            </div>
+            <div class="ob-body">
+              <p>Almost always carries its own name, with or without an identity of its own. It can sit under one brand, stretch across several, or stand on its own when it is not big enough to be a brand or to command its own resources.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fw-out one">
+          <div class="fw-outbox">
+            <div class="ob-head">
+              <h5>Feature</h5>
+              <div class="ob-house">
+                <span class="ob-lbl">In the house today</span>
+                <span class="ob-item">Registration <span class="ob-parent">within Campminder</span></span>
+                <span class="ob-item">Staffing <span class="ob-parent">within Campminder</span></span>
+                <span class="ob-item">Intelligence <span class="ob-parent">within Campminder</span></span>
+                <span class="ob-item">Ask Camp <span class="ob-parent">within Campanion</span></span>
+              </div>
+            </div>
+            <div class="ob-body">
+              <p>A capability with a plain, functional name, so you know exactly what it is. Lives entirely inside the brand or platform it belongs to. No public brand of its own.</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="finding">
-        <div class="fnum">02</div>
-        <div>
-          <h3>The portfolio serves truly different markets.</h3>
-          <p>Within the current portfolio, Campminder customers and Swimtopia customers have different needs and different reasons to choose a product. As M&amp;A continues, we&rsquo;ll bring more platforms into the fold with unique positions. A House of Brands lets each brand speak directly to its own market without compromise.</p>
-        </div>
+      <div class="fw-not">
+        <h4 class="fw-head">Traps to avoid.</h4>
+        <ul class="mlist">
+          <li>How emotionally attached anyone is to it.</li>
+          <li>How much work went into building it.</li>
+          <li>Who championed it.</li>
+          <li>What we paid to acquire it.</li>
+        </ul>
+        <p class="fw-close">None of these tell us what a thing is worth to the portfolio, and all of them are easy to mistake for an answer.</p>
       </div>
 
-      <div class="finding">
-        <div class="fnum">03</div>
-        <div>
-          <h3>This is how Campminder is already structured today.</h3>
-          <p>The company already operates as a portfolio. It has shared engineering, shared finance, shared leadership, and shared infrastructure running beneath multiple product names. Giving that structure a real name and identity is not a reinvention. A House of Brands makes something already true more visible.</p>
-        </div>
-      </div>
+    </div>
 
-      <p style="margin-top:36px;">The strongest precedent for this at scale is Meta. When Facebook became Meta, the intention was clear: a parent brand that does not describe what any individual product does, but signals shared ownership, shared talent, and shared ambition. Individual products do the work of communicating what they are about. The parent brand makes the case for why they all come from the same place.</p>
-      <p>This kind of investment pays for itself. Kantar tracked brands over four years and found that those which improved their pricing power added 67% to their brand value, roughly twice the gain of everyone else. Brand value is not an abstraction. It shows up as market share, margin, and the ability to charge more. The structure has to be right before that growth can compound.</p>
     </div>
   </div>
 </section>
 
-<!-- ───────── 05 RECOMMENDATIONS AND NEXT STEPS ───────── -->
+<!-- ───────── 05 THE INTERNAL NARRATIVE ───────── -->
 <section id="s05" class="wrap section">
   <div class="section-inner">
-    <div class="eyebrow"><span class="n">05</span></div>
-    <h2 class="section-label">Next Steps</h2>
+    <div class="snum">05</div>
+    <div>
+    <h2 class="section-label">Brand narratives.</h2>
     <div class="section-body">
-      <p style="margin-bottom:40px;">Four moves, in order. Each one sets up the next.</p>
+      <p>One story, told the same way by sales, support, product, and leadership. It answers the question before it gets awkward. Three parts, and they go in this order.</p>
+    </div>
 
-      <div class="rec">
-        <div class="rnum">01</div>
-        <h3>Interview UltraCamp customers.</h3>
-        <p>Talk to UltraCamp customers before any decision is made about their brand. The goal is to learn how much the brand itself drives their loyalty, and what a transition story would need to sound like. If/when the codebase eventually sunsets, that story is coming either way. We need to own it.</p>
+    <div class="sug">
+      <div class="lab">TL;DR &middot; The Short Version</div>
+      <p>We&rsquo;re one company behind a few different brands. Every one of them exists for the same reason, to support the people who run camps, teams, and events for young people. We help them make every moment memorable.</p>
+    </div>
+
+    <div style="margin-top:26px;">
+
+      <div class="topic">
+        <div class="tnum">05-01</div>
+        <div>
+          <h4>Why Parent Co. exists.</h4>
+          <p class="desc">Some people spend their lives building places where a community can gather. Summer camps where kids learn something about themselves. Swim teams where they get to be athletes. It is all the same business, making moments people carry for the rest of their lives. Parent Co. exists because those people deserve tools that are a pleasure to use and that keep getting better every year. We are here so they can make every moment memorable.</p>
+        </div>
       </div>
 
-      <div class="rec">
-        <div class="rnum">02</div>
-        <h3>Select the architecture model.</h3>
-        <p>Confirm the model the portfolio will follow. My initial recommendation is a House of Brands. Whatever the final choice, the decision needs a clear owner and a decision framework for future acquisitions, so the answer stays consistent through every new deal.</p>
+      <div class="topic">
+        <div class="tnum">05-02</div>
+        <div>
+          <h4>Why the brands are stronger together.</h4>
+          <p class="desc">Parent Co. carries finance, staffing, engineering, and everything no brand should have to solve twice. Every brand runs at full strength because the people behind any one of them are working for all of them.</p>
+        </div>
       </div>
 
-      <div class="rec">
-        <div class="rnum">03</div>
-        <h3>Name the parent brand and align the identities.</h3>
-        <p>Name the new parent company brand, then update the identities across the portfolio so they are cohesive and work together. Each brand keeps its own voice and its own audience. The system is what connects them.</p>
+      <div class="topic">
+        <div class="tnum">05-03</div>
+        <div>
+          <h4>Why each brand stands on its own.</h4>
+          <p class="desc">Each brand is built for a distinct group of people and answers to them. A camp director and a swim coach do not want the same product and should not be sold the same one. Keeping them separate is what keeps each one specific. Every brand is remarkable on its own terms and a real piece of a system thought all the way through.</p>
+        </div>
       </div>
 
-      <div class="rec">
-        <div class="rnum">04</div>
-        <h3>Build the narratives.</h3>
-        <p>Prepare the external narratives for product marketing, brand marketing, and customer lifecycle communication.</p>
-        <p>Alongside them, form the internal narrative so everyone on the team understands how the brands are interlinked and work together. This narrative is what a sales rep says when a prospect asks why UltraCamp and Campminder both exist, and what a new hire learns in their first week.</p>
-      </div>
+    </div>
 
+    <div class="section-body" style="margin-top:28px;">
+      <p>Here&rsquo;s how the narrative works in action.</p>
+    </div>
+      <div class="saylist">
+        <div class="saycard">
+          <div class="top"><div class="meta"><span class="pill">Internal</span></div><span class="q">Employees and partners.</span></div>
+          <p class="a">We&rsquo;re here to put big ideas and real skill to work. At Parent Co. we build the teams and the technology behind summer camps, athletic teams, event managers, and more. Every brand here exists to support the people who run them.</p>
+        </div>
+        <div class="saycard">
+          <div class="top"><div class="meta"><span class="pill">External</span></div><span class="q">Trade shows and events.</span></div>
+          <p class="a">We&rsquo;re a growing group of brands guided by a shared set of values, purpose and vision. All of it comes down to supporting the people who run camps, teams, and events for young people. We build the software behind Campminder, UltraCamp, and Swimtopia.</p>
+        </div>
+        <div class="saycard">
+          <div class="top"><div class="meta"><span class="pill">External</span></div><span class="q">Sales conversations.</span></div>
+          <p class="a">Every Parent Co. brand is its own platform. They&rsquo;re built for different customers with different needs, whether that&rsquo;s camps, teams, events, or something else. I&rsquo;m here to make sure you get the one that fits how you run.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ───────── 06 BRANDING IS NOT MARKETING ───────── -->
+<!-- ───────── THE ROAD AHEAD ───────── -->
 <section id="s06" class="wrap section">
-  <div class="section-inner">
-    <div class="eyebrow"><span class="n">06</span></div>
-    <h2 class="section-label">Branding Is Not Marketing</h2>
-    <div class="section-body">
-      <p>These two words get used interchangeably. They are not the same thing.</p>
-      <div class="defs">
-        <div class="def">
-          <h3 class="def-term">Marketing</h3>
-          <p>External communication. Paid media, organic content, PR, advertising, events, and the website. Marketing tells people what you offer and why they should care.</p>
-        </div>
-        <div class="def">
-          <h3 class="def-term">Branding</h3>
-          <p>The internal and external representation of the organization. The belief system that shapes how the company shows up: what it stands for, how it talks, how its products relate to each other, and how employees understand where they work and why it matters.</p>
-        </div>
-      </div>
-      <p>Marketing takes its direction from the brand. Without a clear brand, marketing becomes noise.</p>
-      <p>This distinction matters because the challenge surfaced in discovery is not a marketing problem. It&rsquo;s a branding problem.</p>
-      <div class="stats two">
-        <div class="stat">
-          <div class="num" style="color:var(--ink);">27</div>
-          <div class="cap">responses across C-suite, product, engineering, sales, marketing, client success, operations, and Swimtopia leadership.</div>
-        </div>
-        <div class="stat">
-          <div class="num">67%</div>
-          <div class="cap">used the word &ldquo;confusing,&rdquo; &ldquo;unclear,&rdquo; or a close variation to describe how the Campminder brands are currently managed.</div>
-        </div>
-      </div>
-      <p style="margin:-8px 0 28px;"><a class="pill" href="https://campminder.studioparkside.co/survey">Full survey findings <span aria-hidden="true">&rarr;</span></a></p>
-      <p>That confusion is not limited to how the company shows up externally. It is equally present in HR, product, engineering, client services, and operations.</p>
-      <p class="bigline">Brand is everybody&rsquo;s business. <span class="accent">And right now, nobody owns it.</span></p>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── 07 WHAT CAMPMINDER IS NOW ───────── -->
-<section id="s07" class="wrap section">
-  <div class="section-inner">
-    <div class="eyebrow"><span class="n">07</span></div>
-    <h2 class="section-label">What Campminder Is Now</h2>
-    <div class="section-body">
-      <p>Campminder started as a product. One platform, one name, one audience. That was the right structure at the time.</p>
-      <p><strong>Today, Campminder is a company that owns multiple products serving multiple markets.</strong></p>
-      <p>We&rsquo;ve acquired UltraCamp, Gazebo, and Swimtopia, and we built Campanion, which carries its own equity with the parents who use it. Most departments have grown exponentially, with financial, revenue, and client success operations that span more than one product name.</p>
-      <p>A product platform with a brand is managed one way. A company that owns many brands is managed another way. The structure, the communication, and the ownership of brand decisions all change when an organization crosses that line.</p>
-      <p class="bigline" style="font-size:clamp(24px,3.2vw,34px);">Campminder needs a brand foundation that works today and tomorrow. <span class="accent">It&rsquo;s time to catch up to what the organization represents now.</span></p>
-      <ul class="arrows">
-        <li>No two people interviewed described the relationship between Campminder and UltraCamp the same way.</li>
-        <li>Sales conversations require extra time to explain a portfolio that should explain itself.</li>
-        <li>New hires from acquired companies are not sure who they work for or who is on their team.</li>
-        <li>UltraCamp has operated without clear marketing ownership for nearly two years since the acquisition closed.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── 08 THE COST IS MEASURABLE ───────── -->
-<section id="s08" class="wrap section">
-  <div class="section-inner">
-    <div class="eyebrow"><span class="n">08</span></div>
-    <h2 class="section-label">The Cost Is Measurable</h2>
-    <div class="section-body" style="max-width:none;">
-      <div class="stats">
-        <div class="stat">
-          <div class="num">20%</div>
-          <div class="cap">McKinsey&rsquo;s research on B2B companies found that organizations with strong brands generate EBIT margins 20% higher than those with weak brands.</div>
-        </div>
-        <div class="stat">
-          <div class="num">+82</div>
-          <div class="cap">Strong brands outperformed the S&amp;P 500 by 82 points over two decades, per Kantar BrandZ, and fell less and recovered faster through both the 2008 and 2020 downturns.</div>
-        </div>
-        <div class="stat">
-          <div class="num">43%</div>
-          <div class="cap">LinkedIn research found that companies with strong employer brands see up to a 43% lower cost per hire.</div>
-        </div>
-      </div>
-      <div class="stats-note"><div>These are not soft metrics. They show up in sales cycle length, customer retention, hiring quality, and how attractive the portfolio looks to future partners.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── 09 THE ARCHITECTURE MODELS ───────── -->
-<section id="s09" class="wrap section">
-  <div class="section-inner">
-    <div class="eyebrow"><span class="n">09</span></div>
-    <h2 class="section-label">The Architecture Models</h2>
-    <div class="section-body" style="margin-bottom:40px;">
-      <p>A brand architecture is the system that organizes how brands in a portfolio relate to each other. It determines how they show up together, how they borrow equity from one another, and how a customer or employee understands the whole from any single part.</p>
-      <p>There are four primary models. The strongest organizations pick one and commit to it. A clear architecture is easier for the people inside the building to follow and easier for people outside it to understand.</p>
-    </div>
-    <div class="models">
-
-      <div class="model">
-        <h3>Branded House <span class="tag">Not Recommended</span></h3>
-        <p>One parent brand with clear connections to all products and services. Products often carry the parent brand name as part of their own. The parent brand does all the trust work.</p>
-        <svg class="model-diagram" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Branded House model diagram">
-          <rect x="250" y="10" width="140" height="36" class="md-fill"/>
-          <text x="320" y="33" text-anchor="middle" class="md-t md-t-w">PARENT</text>
-          <path d="M320 46 V78 M100 78 H540 M100 78 V106 M320 78 V106 M540 78 V106" class="md-line"/>
-          <rect x="10" y="106" width="180" height="54" class="md-box"/>
-          <text x="100" y="129" text-anchor="middle" class="md-t">PARENT</text>
-          <text x="100" y="147" text-anchor="middle" class="md-t2">Product A</text>
-          <rect x="230" y="106" width="180" height="54" class="md-box"/>
-          <text x="320" y="129" text-anchor="middle" class="md-t">PARENT</text>
-          <text x="320" y="147" text-anchor="middle" class="md-t2">Product B</text>
-          <rect x="450" y="106" width="180" height="54" class="md-box"/>
-          <text x="540" y="129" text-anchor="middle" class="md-t">PARENT</text>
-          <text x="540" y="147" text-anchor="middle" class="md-t2">Product C</text>
-        </svg>
-        <div class="qa"><div class="q">Examples</div><div class="a meta">Amazon, Apple, FedEx.</div>
-          <div class="logo-row">
-            <img src="logos/amazon.svg" alt="Amazon" style="height:20px;">
-            <img src="logos/apple.svg" alt="Apple" style="height:26px;">
-            <img src="logos/fedex.svg" alt="FedEx" style="height:18px;">
-          </div>
-        </div>
-        <div class="qa"><div class="q">What works</div><div class="a">Every new product or acquisition immediately inherits trust. Marketing investment compounds. The organization is easy to explain.</div></div>
-        <div class="qa"><div class="q">What it requires</div><div class="a">The parent brand must be broad enough to carry everything under it without contradiction. A category-specific name creates a ceiling.</div></div>
-        <div class="qa"><div class="q">For Campminder</div><div class="a">The Campminder name is tied to camp management software. Expanding it to carry swim management, group events, and future acquisitions in other verticals would stretch the name beyond what it can credibly hold.</div></div>
-      </div>
-
-      <div class="model">
-        <h3>Endorsed Brands <span class="tag">Not Recommended</span></h3>
-        <p>Individual brands that carry a visible connection to the parent. The endorsement can be a visual lockup, a written line, or a badge.</p>
-        <svg class="model-diagram" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Endorsed Brands model diagram">
-          <rect x="250" y="10" width="140" height="36" class="md-box"/>
-          <text x="320" y="33" text-anchor="middle" class="md-t">PARENT</text>
-          <path d="M320 46 V78 M100 78 H540 M100 78 V106 M320 78 V106 M540 78 V106" class="md-line"/>
-          <rect x="10" y="106" width="180" height="54" class="md-box"/>
-          <text x="100" y="129" text-anchor="middle" class="md-t">BRAND A</text>
-          <text x="100" y="147" text-anchor="middle" class="md-t-acc">BY PARENT</text>
-          <rect x="230" y="106" width="180" height="54" class="md-box"/>
-          <text x="320" y="129" text-anchor="middle" class="md-t">BRAND B</text>
-          <text x="320" y="147" text-anchor="middle" class="md-t-acc">BY PARENT</text>
-          <rect x="450" y="106" width="180" height="54" class="md-box"/>
-          <text x="540" y="129" text-anchor="middle" class="md-t">BRAND C</text>
-          <text x="540" y="147" text-anchor="middle" class="md-t-acc">BY PARENT</text>
-        </svg>
-        <div class="qa"><div class="q">Examples</div><div class="a meta">Marriott (Courtyard by Marriott, Westin by Marriott), Sony, Virgin.</div>
-          <div class="logo-row">
-            <img src="logos/marriott.svg" alt="Marriott International" style="height:22px;">
-            <img src="logos/sony.svg" alt="Sony" style="height:14px;">
-          </div>
-        </div>
-        <div class="qa"><div class="q">What works</div><div class="a">Individual brands get breathing room while still benefiting from parent brand trust.</div></div>
-        <div class="qa"><div class="q">What it requires</div><div class="a">Clear rules for when and how the endorsement appears. A parent brand name compelling enough to be worth endorsing with.</div></div>
-        <div class="qa"><div class="q">For Campminder</div><div class="a">Still requires a new parent brand name, plus consistent rules across every product. Adds visual complexity and ongoing governance.</div></div>
-      </div>
-
-      <div class="model">
-        <h3>Hybrid <span class="tag">Not Recommended</span></h3>
-        <p>A combination of the models above, where different brands in the portfolio have different levels of connection to the parent.</p>
-        <svg class="model-diagram" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hybrid model diagram">
-          <rect x="250" y="10" width="140" height="36" class="md-fill"/>
-          <text x="320" y="33" text-anchor="middle" class="md-t md-t-w">PARENT</text>
-          <path d="M320 46 V78 M100 78 H320 M100 78 V106 M320 78 V106" class="md-line"/>
-          <path d="M320 78 H540 M540 78 V106" class="md-line-dash"/>
-          <rect x="10" y="106" width="180" height="54" class="md-box"/>
-          <text x="100" y="129" text-anchor="middle" class="md-t">PARENT</text>
-          <text x="100" y="147" text-anchor="middle" class="md-t2">Product A</text>
-          <rect x="230" y="106" width="180" height="54" class="md-box"/>
-          <text x="320" y="129" text-anchor="middle" class="md-t">BRAND B</text>
-          <text x="320" y="147" text-anchor="middle" class="md-t-acc">BY PARENT</text>
-          <rect x="450" y="106" width="180" height="54" class="md-dash"/>
-          <text x="540" y="129" text-anchor="middle" class="md-t">BRAND C</text>
-          <text x="540" y="147" text-anchor="middle" class="md-t2 md-t-mut">independent</text>
-        </svg>
-        <div class="qa"><div class="q">Examples</div><div class="a meta">Amazon (Prime as branded house, Whole Foods as independent), Disney (Parks as branded house, Pixar and Marvel as endorsed), Coca-Cola, Alphabet (Google as a branded house, YouTube, Waymo, Nest).</div>
-          <div class="logo-row">
-            <img src="logos/amazon.svg" alt="Amazon" style="height:20px;">
-            <img src="logos/disney.svg" alt="Disney" style="height:26px;">
-            <img src="logos/cocacola.svg" alt="Coca-Cola" style="height:20px;">
-            <img src="logos/alphabet.svg" alt="Alphabet" style="height:15px;">
-          </div>
-        </div>
-        <div class="qa"><div class="q">What works</div><div class="a">Flexibility for very large portfolios with truly diverse products and audiences.</div></div>
-        <div class="qa"><div class="q">What it requires</div><div class="a">Significant governance. Different rules for different brands compounds over time.</div></div>
-        <div class="qa"><div class="q">For Campminder</div><div class="a">This is close to what Campminder is doing now: different brands with different levels of connection and different explanations depending on who is asking. Hybrid architecture is more often an ad-hoc outcome of M&amp;A activity than a deliberate choice. It tends to require more ongoing decision-making overhead than the alternatives.</div></div>
-      </div>
-
-      <div class="model rec-model">
-        <h3>House of Brands <span class="tag rec">Recommended</span></h3>
-        <p>A parent company that operates largely out of view. Each brand stands on its own with its own audience, positioning, and identity. The connection to the parent is minimal or invisible externally.</p>
-        <svg class="model-diagram" viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="House of Brands model diagram">
-          <rect x="250" y="4" width="140" height="44" class="md-dash"/>
-          <text x="320" y="23" text-anchor="middle" class="md-t md-t-mut">PARENT</text>
-          <text x="320" y="39" text-anchor="middle" class="md-t2 md-t-mut" style="font-size:10px;">out of view</text>
-          <path d="M320 48 V78 M100 78 H540 M100 78 V106 M320 78 V106 M540 78 V106" class="md-line-dash"/>
-          <rect x="10" y="106" width="180" height="54" class="md-acc-fill"/>
-          <text x="100" y="138" text-anchor="middle" class="md-t md-t-w">BRAND A</text>
-          <rect x="230" y="106" width="180" height="54" class="md-acc-fill"/>
-          <text x="320" y="138" text-anchor="middle" class="md-t md-t-w">BRAND B</text>
-          <rect x="450" y="106" width="180" height="54" class="md-acc-fill"/>
-          <text x="540" y="138" text-anchor="middle" class="md-t md-t-w">BRAND C</text>
-        </svg>
-        <div class="qa"><div class="q">Examples</div><div class="a meta">Meta (Facebook, Instagram, WhatsApp), P&amp;G (Tide, Pampers, Gillette), PepsiCo. (food, drinks, restaurants)</div>
-          <div class="logo-row">
-            <img src="logos/meta.svg" alt="Meta" style="height:16px;">
-            <img src="logos/pg.svg" alt="Procter and Gamble" style="height:20px;">
-            <img src="logos/pepsico.svg" alt="PepsiCo" style="height:16px;">
-          </div>
-        </div>
-        <div class="qa"><div class="q">What works</div><div class="a">Each brand speaks directly to its own market without compromise. Acquisitions retain their equity. The parent takes no reputational risk from any individual product.</div></div>
-        <div class="qa"><div class="q">What it requires</div><div class="a">A parent company name that can carry the full portfolio. Resources to support each brand in its own market.</div></div>
-        <div class="qa"><div class="q">For Campminder</div><div class="a">A new parent company name, separate from the Campminder product, that signals shared ownership and shared ambition across the full portfolio. Campminder stays Campminder. The parent brand carries the hiring story, the investor story, and the acquisition story. Individual brands communicate directly with their own customers.</div></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ───────── 10 WHAT WE DON'T KNOW YET ───────── -->
-<section id="s10" class="wrap section">
-  <div class="section-inner">
-    <div class="eyebrow"><span class="n">10</span></div>
-    <h2 class="section-label">What We Don&rsquo;t Know Yet</h2>
-    <div class="section-body">
-      <p style="margin-bottom:32px;">A final recommendation requires more information than I currently have. Three questions remain open.</p>
-
-      <div class="finding">
-        <div class="fnum">01</div>
-        <div>
-          <h3>How do UltraCamp customers feel about the acquisition?</h3>
-          <p>Leadership raised this directly in interviews: no decision of this size should be made without hearing from the UltraCamp client base. Some customers might be thrilled. Some might not want to work with Campminder.</p>
-          <p>Most decisions about the UltraCamp brand so far have been made based on internal sentiment and assumptions about what customers care about. Any future changes to the platform experience or the branding means that a transition story is coming regardless. The question is whether that story lands well or creates churn. Talking to even a small sample of UltraCamp customers before making a brand recommendation will give us the context and insight to make a smart decision.</p>
-        </div>
-      </div>
-
-      <div class="finding">
-        <div class="fnum">02</div>
-        <div>
-          <h3>What&rsquo;s the difference between a product decision and a brand decision?</h3>
-          <p>Internally, these are being treated as the same thing. They are not. A codebase can be consolidated without a brand changing. A brand can persist even as the underlying technology is rebuilt.</p>
-          <p>When people at Campminder say &ldquo;UltraCamp may go away,&rdquo; they typically mean the engineering infrastructure will be unified. That does not automatically mean the external-facing brand disappears. These decisions need to be separated before the external communication begins, because confusing them has real consequences for how the transition lands with customers.</p>
-          <p>The same principle applies to Campanion. The question of what Campanion is as an external brand is separate from whatever decisions the engineering team makes about how it functions internally. Brand decisions should not be driven by technical architecture. They should be driven by what is clearest and most valuable for customers.</p>
-        </div>
-      </div>
-
-      <div class="finding">
-        <div class="fnum">03</div>
-        <div>
-          <h3>Where does brand management live?</h3>
-          <p>The most consistent finding across every interview: ask who owns brand decisions and you get a different answer every time. Different people point to different executives. That internal question of ownership may be the biggest problem to solve.</p>
-          <p>A brand portfolio manager owns the internal and external story of the organization, sets the rules for how brands relate to each other, and decides how new acquisitions are integrated. This is a senior role, not a marketing role, and it is not the CMO. It requires authority across the organization. A playbook does not run itself.</p>
-          <p>For the same reason, the playbook can&rsquo;t just be a skill in Claude. It is only as current as the information feeding it, and today that information lives in silos. Decisions made on stale or partial inputs compound quickly. Keeping the playbook current is part of the job.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ───────── 11 THE ROAD AHEAD ───────── -->
-<section id="s11" class="wrap section">
-  <div class="section-inner">
+  <div class="section-inner road-inner">
     <div class="road-head">
-      <div>
-        <div class="eyebrow"><span class="n">11</span></div>
-        <h2 class="section-label" style="margin-bottom:28px;">The Road Ahead</h2>
+      <div class="road-title">
+        <span class="snum">06</span>
+        <h2 class="section-label" style="margin-bottom:0;">Next steps.</h2>
       </div>
-      <span class="road-note">Sequence, not schedule</span>
+      <span class="road-note">Project sequence</span>
     </div>
     <div class="steps">
       <div class="step done">
         <div class="no">01</div>
         <h4>Discovery</h4>
         <span class="tag">Completed</span>
-        <p>Closed with the summary of findings on this page.</p>
+        <p>Closed with the summary of findings.</p>
         <ul>
           <li><strong>Interviews.</strong> Eleven conversations across leadership, product, sales, and client services to go deeper than the survey allowed.</li>
           <li><strong>Snapshots of each brand today.</strong> How it shows up, what&rsquo;s working, what&rsquo;s confused, and what equity is worth protecting.</li>
@@ -981,10 +1010,10 @@ strong { color: var(--ink); font-weight: 650; }
         <span class="tag">In progress</span>
         <p>Selecting the model and defining how every brand relates.</p>
         <ul>
-          <li>Choosing the architecture model: branded house, house of brands, or hybrid.</li>
-          <li>Defining each brand&rsquo;s role and audience.</li>
-          <li>Defining the decision framework for future acquisitions.</li>
-          <li>Developing the internal narrative.</li>
+          <li><strong>Choosing the architecture model.</strong> Done. House of Brands, confirmed July 16.</li>
+          <li class="here">Defining each brand&rsquo;s role and audience.</li>
+          <li class="here">Defining the decision framework for future acquisitions.</li>
+          <li class="here">Developing the internal narrative.</li>
         </ul>
       </div>
       <div class="step next">
@@ -1006,7 +1035,6 @@ strong { color: var(--ink); font-weight: 650; }
 <!-- ───────── FOOTER ───────── -->
 <footer class="wrap foot">
   <span class="sp-logo" aria-label="Studio Parkside"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1499.4 151" role="img"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg></span>
-  <span class="conf">Confidential &mdash; Working Document &mdash; July 2026</span>
 </footer>
 
 </body>
