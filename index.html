@@ -114,6 +114,12 @@ strong { color: var(--ink); font-weight: 650; }
   padding: 10px 12px; text-align: center; font-weight: 600; font-size: 14px; color: var(--mid);
 }
 .arch-note { font-size: 14.5px; color: var(--light); margin-top: 14px; line-height: 1.5; }
+.arch-boxed {
+  background: var(--card); border: 1px solid var(--accent-line); border-radius: 18px;
+  padding: 30px 32px 28px; box-shadow: 0 1px 2px rgba(20,17,24,0.03), 0 12px 32px rgba(119,61,189,0.06);
+}
+.arch-boxed .arch-note { margin-bottom: 0; }
+@media (max-width: 640px) { .arch-boxed { padding: 24px 20px 22px; } }
 
 /* real world example, drawn in the same shape as the portfolio diagram */
 .ex-lab {
@@ -614,7 +620,7 @@ strong { color: var(--ink); font-weight: 650; }
         <p class="arch-note">Nobody buys Meta. They open Instagram. The parent carries the company story to investors, press, and the people it wants to hire. Each app keeps the name people already use, and none of them has to explain the others.</p>
       </div>
 
-      <div class="arch" style="margin-top:52px;">
+      <div class="arch arch-boxed" style="margin-top:52px;">
         <h4 class="arch-h">Our new model</h4>
         <div class="arch-parent">Parent Co. &middot; to be named</div>
         <div class="arch-row">
