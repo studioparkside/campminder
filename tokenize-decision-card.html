@@ -1,136 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>Decision Record — Brand name: hardcoded or tokenized</title>
-<style>
-:root {
-  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --bg:      #f7f6f8;
-  --card:    #ffffff;
-  --ink:     #141118;
-  --body:    #1c1922;
-  --mid:     #46414f;
-  --light:   #8d8798;
-  --rule:    #e2dfe7;
-  --hair:    #eceaf0;
-  --accent:  #773DBD;
-  --accent-soft: #f1eaf9;
-  --accent-line: #dcc9f2;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: var(--sans); color: var(--body); background: var(--bg);
-  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  line-height: 1.55; letter-spacing: -0.015em;
-  display: flex; justify-content: center; align-items: flex-start;
-  padding: 48px 24px; min-height: 100vh;
-}
-h2, h3, h4 { color: var(--ink); font-weight: 700; letter-spacing: -0.025em; }
-strong { color: var(--ink); font-weight: 650; }
-
-.card {
-  width: 100%; max-width: 680px; background: var(--card);
-  border: 1px solid var(--rule); border-radius: 20px;
-  padding: 38px 40px 34px; box-shadow: 0 1px 0 var(--hair);
-}
-
-/* header row */
-.head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; }
-.eyebrow {
-  font-size: 11.5px; font-weight: 650; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--accent);
-}
-.status {
-  font-size: 10.5px; font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--mid); border: 1px solid var(--rule); border-radius: 999px; padding: 5px 13px; white-space: nowrap;
-}
-.status .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #c9a227; margin-right: 7px; vertical-align: middle; }
-
-.card h2 { font-size: 29px; line-height: 1.14; letter-spacing: -0.03em; margin-bottom: 20px; }
-
-/* compare */
-.compare { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
-.compare .col { padding: 20px 22px 20px 0; }
-.compare .col + .col { padding-left: 22px; border-left: 1px solid var(--hair); }
-.compare .term { font-size: 12px; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-bottom: 7px; }
-.compare .gloss { font-size: 15.5px; line-height: 1.5; color: var(--mid); }
-
-.why { font-size: 17px; color: var(--body); margin: 22px 0 24px; line-height: 1.55; }
-
-/* recommendation */
-.rec { border-left: 2px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 22px; }
-.rec .lab { font-size: 10.5px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-.rec p { font-size: 16.5px; line-height: 1.5; color: var(--ink); font-weight: 550; }
-
-/* the point */
-.point { font-size: 15px; color: var(--mid); line-height: 1.55; margin-bottom: 26px; }
-.point strong { color: var(--ink); }
-
-/* decision fields */
-.fields { border-top: 1px solid var(--rule); padding-top: 20px; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 18px; }
-.field .k { font-size: 10.5px; font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 9px; }
-.field .v { font-size: 15px; color: var(--body); border-bottom: 1px dashed var(--accent-line); padding-bottom: 6px; min-height: 26px; }
-.field .v.ph { color: var(--light); }
-
-.foot { margin-top: 24px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; color: var(--light); }
-
-@media (max-width: 620px) {
-  .card { padding: 28px 24px 26px; border-radius: 16px; }
-  .compare { grid-template-columns: 1fr; }
-  .compare .col + .col { padding-left: 0; border-left: none; border-top: 1px solid var(--hair); }
-  .fields { grid-template-columns: 1fr; gap: 14px; }
-}
-</style>
+<meta charset="utf-8">
+<title>Moved</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="/architecture/tokenize-decision-card.html">
+<meta http-equiv="refresh" content="0; url=/architecture/tokenize-decision-card.html">
+<script>window.location.replace("/architecture/tokenize-decision-card.html");</script>
 </head>
-<body>
-  <div class="card">
-    <div class="head">
-      <span class="eyebrow">Decision Record</span>
-      <span class="status"><span class="dot"></span>Open &middot; Pending decision</span>
-    </div>
-
-    <h2>The brand name in the product: hardcoded or tokenized</h2>
-
-    <div class="compare">
-      <div class="col">
-        <div class="term">Hardcoded</div>
-        <div class="gloss">The brand name is written directly into the product, in the header, the templates, the emails. Today this is Campminder, everywhere.</div>
-      </div>
-      <div class="col">
-        <div class="term">Tokenized</div>
-        <div class="gloss">The product pulls the brand name from one setting. One codebase can show UltraCamp to an UltraCamp customer and Campminder to a Campminder customer.</div>
-      </div>
-    </div>
-
-    <p class="why">This sets whether the platform can ever carry more than one brand, and it changes the cost of keeping UltraCamp as a brand rather than folding it in. The window to choose cheaply is the current rebuild. After that it becomes its own project.</p>
-
-    <div class="rec">
-      <div class="lab">Studio Parkside recommendation</div>
-      <p>Tokenize the brand name during the rebuild, so the brand call is made on whether a brand is worth keeping rather than on what the code makes expensive.</p>
-    </div>
-
-    <p class="point"><strong>Either answer is valid.</strong> The point of recording it here is that it is a conscious call, made by an owner, rather than one that gets decided by default while the rebuild ships.</p>
-
-    <div class="fields">
-      <div class="field">
-        <div class="k">Decision</div>
-        <div class="v ph">Tokenize / Do not tokenize</div>
-      </div>
-      <div class="field">
-        <div class="k">Owner</div>
-        <div class="v ph">&nbsp;</div>
-      </div>
-      <div class="field">
-        <div class="k">Date</div>
-        <div class="v ph">&nbsp;</div>
-      </div>
-    </div>
-
-    <div class="foot">Campminder Brand Architecture Playbook &middot; Brand debt</div>
-  </div>
+<body style="font:16px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;padding:3rem">
+<p>This page moved to <a href="/architecture/tokenize-decision-card.html">/architecture/tokenize-decision-card.html</a>.</p>
 </body>
 </html>
