@@ -154,6 +154,15 @@ body {
 .crit li::before { content: ""; position: absolute; left: 0; top: 12px; width: 9px; height: 1px; background: var(--accent-line); }
 .crit li strong { color: var(--ink); font-weight: 700; }
 
+/* ── Two column card pair ───────────────────── */
+.duo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; margin-top: 12px; }
+.duo-col { display: flex; flex-direction: column; gap: 16px; }
+.duo .crit { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 28px 30px; }
+.duo .crit h5 { font-size: clamp(21px, 2vw, 24px); margin-bottom: 0; }
+.duo .crit p { font-size: 18px; }
+.duo .crit ul { margin-top: 0; }
+.duo .crit li { font-size: 17px; }
+
 /* ── Row list ───────────────────────────────── */
 .rows { border-top: 1px solid var(--rule); }
 .row {
@@ -169,14 +178,16 @@ body {
 .row .d { font-size: 17px; color: var(--mid); font-weight: 500; margin-top: 2px; }
 
 /* ── Recap list ─────────────────────────────── */
-.recap { border-top: 1px solid var(--rule); max-width: 66ch; }
-.recap .r {
-  display: grid; grid-template-columns: 74px minmax(0, 1fr);
-  gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--hair);
+.mini { margin-top: 2px; }
+.mini .m {
+  display: grid; grid-template-columns: 62px minmax(0, 1fr);
+  gap: 16px; padding: 16px 0; border-top: 1px solid var(--hair);
   align-items: baseline;
 }
-.recap .rn { font-size: 13px; font-weight: 650; letter-spacing: 0.06em; color: var(--accent); text-transform: uppercase; }
-.recap .rt { font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.028em; }
+.mini .m:first-child { border-top: 0; padding-top: 4px; }
+.mini .mn { font-size: 12px; font-weight: 650; letter-spacing: 0.06em; color: var(--accent); text-transform: uppercase; }
+.mini .mt { display: block; font-size: 21px; font-weight: 700; color: var(--ink); letter-spacing: -0.026em; line-height: 1.15; }
+.mini .md { font-size: 16px; color: var(--mid); line-height: 1.4; margin-top: 4px; }
 
 /* ── Checklist ──────────────────────────────── */
 .check { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); max-width: 62ch; }
@@ -235,6 +246,7 @@ body {
 @media (max-width: 900px) {
   .masthead { grid-template-columns: 1fr; gap: 44px; align-items: start; padding-top: 64px; padding-bottom: 48px; }
   .people { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 20px; }
+  .duo { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   body { font-size: 18px; }
@@ -371,16 +383,29 @@ body {
     <div class="snum">03</div>
     <h2 class="section-label">Alignment.</h2>
 
-    <div class="stack">
-      <div class="crit">
-        <span class="num">03-01</span>
-        <div>
-          <h5>Homepage highlights</h5>
-          <p>The elements we bring to the homepage will inspire the rest of the campaign.</p>
-          <ul>
-            <li>Are these features accurate and ready to launch?</li>
-            <li>Anything to add, change, or remove?</li>
-          </ul>
+    <div class="duo">
+      <div class="duo-col">
+        <div class="crit">
+          <span class="num">03-01</span>
+          <div>
+            <h5>Homepage highlights</h5>
+            <p>The elements we bring to the homepage will inspire the rest of the campaign.</p>
+            <ul>
+              <li>Are these features accurate and ready to launch?</li>
+              <li>Anything to add, change, or remove?</li>
+            </ul>
+          </div>
+        </div>
+        <div class="crit">
+          <span class="num">03-02</span>
+          <div>
+            <h5>Level setting</h5>
+            <ul>
+              <li>What do you hope this campaign delivers?</li>
+              <li>What are other planned features or changes to the platform?</li>
+              <li>Where does Campminder fall short that we don't want to highlight?</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="crit">
@@ -392,17 +417,6 @@ body {
             <li><strong>Registration.</strong> An upgrade to the experience already trusted by directors and families.</li>
             <li><strong>Companion.</strong> The app families already love, upgraded with an AI assistant that replaces the traditional handbook.</li>
             <li><strong>Camp Success.</strong> Our own team goes beyond the platform with full support and guidance.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="crit">
-        <span class="num">03-02</span>
-        <div>
-          <h5>Level setting</h5>
-          <ul>
-            <li>What do you hope this campaign delivers?</li>
-            <li>What are other planned features or changes to the platform?</li>
-            <li>Where does Campminder fall short that we don't want to highlight?</li>
           </ul>
         </div>
       </div>
