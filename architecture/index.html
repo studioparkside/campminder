@@ -83,10 +83,10 @@ strong { color: var(--ink); font-weight: 650; }
 .sug p:last-child { margin-bottom: 0; }
 
 /* inline links */
-.section-body a, .desc a, .ex-body a, .arch-note a {
+.section-body a, .desc a, .ex-body a, .arch-note a, .tstep a {
   color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-line);
 }
-.section-body a:hover, .desc a:hover, .ex-body a:hover { border-bottom-color: var(--accent); }
+.section-body a:hover, .desc a:hover, .ex-body a:hover, .tstep a:hover { border-bottom-color: var(--accent); }
 
 /* in-section second headline */
 .subhead { margin-top: 72px; padding-top: 44px; border-top: 1px solid var(--rule); }
@@ -315,6 +315,35 @@ strong { color: var(--ink); font-weight: 650; }
 .asset .meta { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--hair); font-size: 13.5px; color: var(--light); font-family: var(--mono); }
 .asset.pending { border-style: dashed; border-color: var(--accent-line); background: #faf8fc; }
 
+/* ── TLDR flow ──────────────────────────────── */
+.tldr { margin-top: 44px; }
+.tldr-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 26px; }
+.tstep { position: relative; background: var(--card); border: 1px solid var(--rule); border-radius: 16px; padding: 26px 26px 24px; }
+.tstep .tn { font-size: clamp(30px, 3.4vw, 40px); font-weight: 700; color: var(--accent); letter-spacing: -0.04em; line-height: 1; margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+.tstep h5 { font-size: 19px; letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 8px; }
+.tstep p { font-size: 15.5px; color: var(--mid); line-height: 1.5; }
+.tstep:not(:last-child)::after { content: "\2192"; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 17px; font-weight: 700; }
+@media (max-width: 760px) {
+  .tldr-flow { grid-template-columns: 1fr; gap: 30px; }
+  .tstep:not(:last-child)::after { content: "\2193"; right: auto; left: 50%; top: auto; bottom: -25px; transform: translateX(-50%); }
+}
+
+/* ── Checklist ──────────────────────────────── */
+.ck { list-style: none; margin: 26px 0 0; padding: 0; max-width: 680px; }
+.ck li { display: flex; gap: 13px; align-items: flex-start; padding: 13px 0; border-bottom: 1px solid var(--hair); font-size: 17px; color: var(--mid); line-height: 1.5; }
+.ck li::before { content: ""; flex: none; width: 19px; height: 19px; border: 1.5px solid var(--accent); border-radius: 6px; margin-top: 4px; background: var(--card); }
+.ck li b { color: var(--ink); font-weight: 650; }
+.ck-close { margin-top: 22px; font-size: 20px; font-weight: 650; color: var(--ink); letter-spacing: -0.02em; }
+
+/* ── Proposed pill ──────────────────────────── */
+.prop { display: inline-block; font-size: 10.5px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: 999px; padding: 3px 10px; vertical-align: 2px; }
+
+/* ── Download cards ─────────────────────────── */
+a.asset { text-decoration: none; color: inherit; transition: border-color 0.15s ease; }
+a.asset:hover { border-color: var(--accent); }
+.asset .dl { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--hair); display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 14.5px; font-weight: 650; color: var(--accent); }
+.asset .dl .fn { font-family: var(--mono); font-size: 13px; color: var(--light); font-weight: 500; }
+
 /* ── Topbar ─────────────────────────────────── */
 .topbar {
   position: sticky; top: 0; z-index: 40;
@@ -323,17 +352,16 @@ strong { color: var(--ink); font-weight: 650; }
   border-bottom: 1px solid var(--rule);
 }
 .topbar .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; padding-bottom: 18px; }
-.sp-logo svg { height: 18px; width: auto; display: block; }
-.sp-logo svg path, .sp-logo svg rect { fill: var(--ink); }
+.cm-logo { display: block; }
+.cm-logo svg { height: 22px; width: auto; display: block; }
+.cm-logo svg path, .cm-logo svg polygon { fill: var(--ink); }
 .topbar-right { display: flex; align-items: center; gap: 10px; }
 .conf-chip { font-size: 11px; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 5px 12px; }
 .draft-chip { font-size: 11px; font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 11px; }
 
 /* ── Masthead ───────────────────────────────── */
 .masthead { padding-top: 100px; padding-bottom: 72px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 64px; align-items: end; }
-.cm-name { display: block; font-size: 15px; font-weight: 650; color: var(--mid); margin-bottom: 44px; }
-.cm-name .sep { color: var(--light); font-weight: 500; }
-.masthead h1 { font-size: clamp(48px, 8vw, 104px); line-height: 0.96; letter-spacing: -0.045em; margin-bottom: 26px; }
+.masthead h1 { font-size: clamp(56px, 9.6vw, 124px); line-height: 0.93; letter-spacing: -0.05em; margin-bottom: 30px; }
 .masthead h1 .accent { color: var(--accent); }
 .masthead .deck { font-size: clamp(18px, 2.1vw, 23px); color: var(--mid); letter-spacing: -0.015em; line-height: 1.45; max-width: 40ch; }
 
@@ -371,34 +399,23 @@ strong { color: var(--ink); font-weight: 650; }
 .topic h4 { font-size: 22px; line-height: 1.28; margin-bottom: 8px; letter-spacing: -0.02em; }
 .topic .desc { font-size: 17px; color: var(--mid); line-height: 1.5; }
 
-/* road ahead steps */
-.road-inner { display: block; }
-.road-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 44px; }
-.road-title { display: block; }
-.road-head .section-label { max-width: none; }
-.road-note { font-size: 12px; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light); }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px 26px; margin-top: 10px; }
-.step { border-top: 2px solid var(--rule); padding-top: 16px; }
-.step.done { border-top-color: var(--ink); }
-.step.now { border-top-color: var(--accent); }
-.step .no { font-size: 12px; font-weight: 650; letter-spacing: 0.12em; color: var(--light); font-variant-numeric: tabular-nums; }
-.step.now .no { color: var(--accent); }
-.step h4 { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin: 9px 0 7px; }
-.step p { font-size: 16px; color: var(--mid); margin: 0; line-height: 1.5; }
-.step ul { margin: 14px 0 0; padding-left: 18px; }
-.step li { font-size: 15.5px; color: var(--mid); line-height: 1.5; margin-bottom: 9px; }
-.step li:last-child { margin-bottom: 0; }
-.step li strong { font-weight: 650; color: var(--ink); }
-.step li.here { color: var(--ink); font-weight: 600; }
-.step .tag { display: inline-block; margin: 0 0 12px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
-.step.done .tag { background: var(--ink); color: var(--bg); }
-.step.now .tag { background: var(--accent); color: #ffffff; }
-.step.next .tag { border: 1px solid var(--rule); color: var(--light); }
+/* ── Contact ────────────────────────────────── */
+.contact {
+  margin-top: 26px; max-width: 680px; background: var(--card);
+  border: 1px solid var(--rule); border-radius: 14px; padding: 24px 26px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.c-name { font-size: 21px; font-weight: 700; color: var(--ink); letter-spacing: -0.022em; }
+.c-role { font-size: 16px; color: var(--mid); }
+.c-mail {
+  margin-top: 10px; font-size: 16.5px; color: var(--accent); text-decoration: none;
+  border-bottom: 1px solid var(--accent-line); align-self: flex-start;
+}
+.c-mail:hover { border-bottom-color: var(--accent); }
 
 /* footer */
-.foot { border-top: 1px solid var(--ink); padding-top: 44px; padding-bottom: 72px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-.foot .sp-logo svg { height: 20px; }
-.foot .conf { font-size: 11px; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 5px 12px; text-align: right; }
+.foot { border-top: 1px solid var(--ink); padding-top: 44px; padding-bottom: 72px; display: flex; justify-content: flex-end; align-items: center; gap: 20px; }
+.foot .conf { font-size: 11px; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: none; border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 14px; text-align: right; }
 
 /* responsive */
 @media (max-width: 980px) {
@@ -412,7 +429,7 @@ strong { color: var(--ink); font-weight: 650; }
   .snum { font-size: 22px; margin-bottom: 6px; }
   .subhead { margin-top: 48px; padding-top: 34px; }
   .arch-row { grid-template-columns: 1fr; }
-  .cgrid, .assets, .saylist, .steps { grid-template-columns: 1fr; }
+  .cgrid, .assets, .saylist { grid-template-columns: 1fr; }
   .fw-outbox { grid-template-columns: 1fr; gap: 20px; }
   .topic { grid-template-columns: 1fr; gap: 4px; }
   .topic .tnum { padding-top: 0; }
@@ -426,9 +443,9 @@ strong { color: var(--ink); font-weight: 650; }
 <!-- ───────── TOPBAR ───────── -->
 <div class="topbar">
   <div class="wrap">
-    <span class="sp-logo" aria-label="Studio Parkside"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1499.4 151" role="img"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg></span>
+    <span class="cm-logo" aria-label="Campminder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 938.24 168.62" role="img"><path d="m71.64,66.48c2.84-1.73,6.26-2.6,10.25-2.6,4.61,0,8.47,1.13,11.58,3.39,3.1,2.26,4.97,5.66,5.59,10.18h16.5c-.44-6.03-2.33-11.13-5.66-15.3-3.33-4.17-7.45-7.3-12.38-9.38-4.92-2.08-10.14-3.13-15.64-3.13-7.1,0-13.31,1.42-18.63,4.26-5.32,2.84-9.43,6.9-12.31,12.18-2.88,5.28-4.33,11.33-4.33,18.17s1.44,13,4.33,18.23c2.88,5.24,7.01,9.29,12.38,12.18,5.37,2.88,11.56,4.33,18.56,4.33,5.5,0,10.71-1.02,15.64-3.06,4.92-2.04,9.05-5.17,12.38-9.38,3.33-4.21,5.21-9.34,5.66-15.37h-16.5c-.62,4.44-2.48,7.83-5.59,10.18-3.11,2.35-6.97,3.53-11.58,3.53-3.99,0-7.41-.87-10.25-2.6-2.84-1.73-4.99-4.17-6.45-7.32-1.46-3.15-2.2-6.72-2.2-10.71s.73-7.52,2.2-10.58c1.46-3.06,3.61-5.46,6.45-7.19Z"/><path d="m189.02,79.45c0-6.39-1.29-11.78-3.86-16.17-2.57-4.39-6.21-7.76-10.91-10.11-4.7-2.35-10.25-3.53-16.64-3.53-5.95,0-11.22,1.04-15.84,3.13-4.61,2.09-8.27,5.06-10.98,8.92-2.71,3.86-4.24,8.45-4.59,13.77h15.7c.35-4.44,1.84-7.7,4.46-9.78,2.62-2.08,6.19-3.13,10.71-3.13,5.32,0,9.2,1.15,11.65,3.46,2.44,2.31,3.75,5.95,3.93,10.91l-23.69,2.4c-8.61.89-14.8,3.02-18.57,6.39-3.77,3.37-5.66,7.9-5.66,13.57,0,4.97,1.68,9.49,5.06,13.57,3.37,4.08,9.49,6.12,18.37,6.12s15.28-1.84,19.76-5.52c4.01-3.3,6.82-7.51,8.45-12.62v7.89c0,2.84.78,5.04,2.33,6.59,1.55,1.55,3.75,2.33,6.59,2.33h13.44v-14.11h-9.72v-24.09Zm-19.03,17.03c-1.78,2.93-4.26,5.21-7.45,6.85-3.19,1.64-6.83,2.46-10.91,2.46-3.37,0-6.01-.73-7.92-2.2-1.91-1.46-2.86-3.75-2.86-6.85,0-2.22.75-3.93,2.26-5.12,1.51-1.2,3.9-1.97,7.19-2.33.71-.18,1.24-.27,1.6-.27l20.76-2.53c0,3.73-.89,7.05-2.66,9.98Z"/><path d="m290.49,49.64c-7.01,0-12.64,1.84-16.9,5.52-3.51,3.04-6.14,6.8-7.9,11.25-.17-.71-.35-1.4-.55-2.07-1.38-4.57-3.62-8.16-6.72-10.78-3.11-2.62-7.28-3.93-12.51-3.93-6.3,0-11.42,1.73-15.37,5.19-3.56,3.12-6.2,7.12-7.92,11.98v-15.84h-16.24v66.68h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.05-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.06-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-36.73c0-9.94-1.82-17.63-5.46-23.09-3.64-5.46-9.54-8.18-17.7-8.18Z"/><path d="m387.96,54.1c-4.66-2.97-10.27-4.46-16.84-4.46-7.54,0-13.62,1.73-18.23,5.19-3.86,2.89-6.87,6.64-9.05,11.21v-15.06h-16.24v92.76h16.24v-41.02c2.06,4.44,5,8.12,8.85,11.01,4.66,3.51,10.8,5.26,18.43,5.26,6.56,0,12.18-1.51,16.84-4.53,4.66-3.02,8.18-7.12,10.58-12.31,2.4-5.19,3.59-11.11,3.59-17.77s-1.2-12.62-3.59-17.9c-2.4-5.28-5.92-9.4-10.58-12.38Zm-4.66,41.72c-1.73,3.02-4.13,5.28-7.19,6.79-3.06,1.51-6.68,2.26-10.85,2.26s-7.83-.75-10.98-2.26c-3.15-1.51-5.64-3.79-7.45-6.85-1.82-3.06-2.73-6.85-2.73-11.38s.91-8.32,2.73-11.38c1.82-3.06,4.3-5.34,7.45-6.85,3.15-1.51,6.81-2.26,10.98-2.26s7.79.75,10.85,2.26c3.06,1.51,5.46,3.77,7.19,6.79,1.73,3.02,2.6,6.83,2.6,11.45s-.86,8.43-2.6,11.45Z"/><path d="m497.13,49.64c-7.01,0-12.64,1.84-16.9,5.52-3.51,3.04-6.14,6.8-7.9,11.25-.17-.71-.35-1.4-.55-2.07-1.38-4.57-3.62-8.16-6.72-10.78-3.11-2.62-7.28-3.93-12.51-3.93-6.3,0-11.42,1.73-15.37,5.19-3.56,3.12-6.2,7.12-7.92,11.98v-15.84h-16.24v66.68h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.06-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-25.42c0-6.21.6-11.36,1.8-15.44,1.2-4.08,3.1-7.25,5.72-9.52,2.62-2.26,6.06-3.39,10.31-3.39,2.84,0,5.1.64,6.79,1.93,1.68,1.29,2.88,3.26,3.59,5.92.71,2.66,1.06,6.17,1.06,10.51v35.4h16.24v-36.73c0-9.94-1.82-17.63-5.46-23.09-3.64-5.46-9.54-8.18-17.7-8.18Z"/><path d="m563.9,60.15c0-3.1-.8-5.41-2.4-6.92-1.6-1.51-3.86-2.26-6.79-2.26h-20.76v14.24h14.91v38.33h-18.63v14.11h52.44v-14.11h-18.77v-43.39Z"/><path d="m635.91,49.64c-7.37,0-13.44,1.82-18.23,5.46-4.29,3.26-7.26,7.6-8.92,13v-17.12h-16.24v66.68h16.24v-26.48c0-6.03.89-11.09,2.66-15.17,1.77-4.08,4.24-7.12,7.39-9.12,3.15-2,6.94-2.99,11.38-2.99,5.41,0,9.29,1.38,11.65,4.13,2.35,2.75,3.53,7.37,3.53,13.84v35.8h16.37v-38.06c0-9.58-2.26-16.97-6.79-22.16-4.52-5.19-10.87-7.79-19.03-7.79Z"/><path d="m730.5,65.76c-2.1-4.3-5-7.9-8.72-10.79-4.57-3.55-10.71-5.32-18.43-5.32-6.57,0-12.18,1.49-16.84,4.46-4.66,2.97-8.18,7.05-10.58,12.24-2.4,5.19-3.59,11.16-3.59,17.9s1.2,12.6,3.59,17.83c2.4,5.24,5.92,9.36,10.58,12.38,4.66,3.02,10.27,4.53,16.84,4.53,7.54,0,13.64-1.73,18.3-5.19,3.79-2.82,6.73-6.44,8.85-10.85v14.71h16.37V19.83h-16.37v45.93Zm-2.86,29.8c-1.82,3.11-4.33,5.44-7.52,6.99-3.19,1.55-6.79,2.33-10.78,2.33s-7.81-.8-10.91-2.4c-3.11-1.6-5.5-3.93-7.19-6.99-1.69-3.06-2.53-6.81-2.53-11.25s.84-8.29,2.53-11.31c1.68-3.02,4.08-5.28,7.19-6.79,3.1-1.51,6.74-2.26,10.91-2.26s7.59.78,10.78,2.33c3.19,1.55,5.7,3.84,7.52,6.85,1.82,3.02,2.73,6.74,2.73,11.18s-.91,8.21-2.73,11.31Z"/><path d="m803.96,103.21c-2.97,2.09-6.81,3.13-11.51,3.13-5.77,0-10.2-1.84-13.31-5.52-2.81-3.33-4.37-7.71-4.71-13.11h51.42v-5.19c0-10.29-3.06-18.34-9.18-24.15-6.12-5.81-14.46-8.72-25.02-8.72-6.57,0-12.38,1.35-17.43,4.06-5.06,2.71-8.98,6.61-11.78,11.71-2.79,5.1-4.19,11.2-4.19,18.3s1.35,12.91,4.06,18.23c2.71,5.32,6.63,9.49,11.78,12.51,5.14,3.02,11.31,4.53,18.5,4.53,9.76,0,17.43-2.31,23.02-6.92,5.59-4.61,9.05-10.56,10.38-17.83h-16.1c-.98,3.91-2.95,6.9-5.92,8.98Zm-21.23-38.99c2.66-1.46,5.77-2.2,9.32-2.2,5.5,0,9.87,1.58,13.11,4.72,2.84,2.76,4.44,6.47,4.78,11.11h-35.48c.25-2.8.94-5.27,2.09-7.39,1.46-2.71,3.53-4.79,6.19-6.25Z"/><path d="m848.73,50.97c-3.46,0-6.06.84-7.79,2.53-1.73,1.69-2.6,4.26-2.6,7.72v56.43h16.37v-52.44h34.6v-14.24h-40.59Z"/><polygon points="563.49 23.26 547.17 23.26 547.17 38.54 563.49 38.41 563.49 23.26"/><path d="m10.25,0h38.67s0,14.24,0,14.24H14.24v36.73s-14.24,0-14.24,0V10.38C0,6.92.84,4.33,2.53,2.6,4.21.87,6.79,0,10.25,0Z"/><path d="m927.99,168.62h-38.67s0-14.24,0-14.24h34.68v-36.73s14.24,0,14.24,0v40.59c0,3.46-.84,6.06-2.53,7.79-1.69,1.73-4.26,2.6-7.72,2.6Z"/></svg></span>
     <div class="topbar-right">
-      <span class="draft-chip">Working draft</span>
+      <span class="draft-chip">Brand Architecture</span>
       <span class="conf-chip">Confidential</span>
     </div>
   </div>
@@ -437,12 +454,11 @@ strong { color: var(--ink); font-weight: 650; }
 <!-- ───────── MASTHEAD ───────── -->
 <header class="wrap masthead">
   <div class="mast-left">
-    <span class="cm-name">Campminder <span class="sep">&middot;</span> August 2026</span>
-    <h1>Brand Architecture <span class="accent">Activation</span></h1>
-    <p class="deck">The playbook. How a brand decision gets made here, and what happens after it does.</p>
+    <h1>Brand Architecture <span class="accent">Playbook</span></h1>
+    <p class="deck">The playbook. A decision framework for every brand question, and what happens after the call is made.</p>
   </div>
   <nav class="toc" aria-label="Contents">
-    <a href="#s01"><span class="n">01</span> About this page</a>
+    <a href="#s01"><span class="n">01</span> About this playbook</a>
     <a href="#s02"><span class="n">02</span> The house today</a>
     <a href="#s03"><span class="n">03</span> Decision framework</a>
     <a href="#s04"><span class="n">04</span> Narratives</a>
@@ -450,7 +466,6 @@ strong { color: var(--ink); font-weight: 650; }
     <a href="#s06"><span class="n">06</span> Channels</a>
     <a href="#s07"><span class="n">07</span> Budget</a>
     <a href="#s08"><span class="n">08</span> The playbook, in three pieces</a>
-    <a href="#s09"><span class="n">09</span> Project sequence</a>
   </nav>
 </header>
 
@@ -458,11 +473,38 @@ strong { color: var(--ink); font-weight: 650; }
 <section id="s01" class="wrap section">
   <div class="section-inner">
     <div class="snum">01</div>
-    <h2 class="section-label">About this page.</h2>
+    <h2 class="section-label">About this playbook.</h2>
     <div class="section-body">
       <p>This is our brand playbook. It covers how our brands are organized, how we decide where something new belongs, and what happens once a decision is made.</p>
       <p>It is written for anyone here. You do not need to work in marketing to use it. If you have ever been asked how the brands relate, or what happens when we buy a company, the answer is on this page.</p>
       <p>It gives us the criteria and the order of operations <strong>before</strong> a decision gets made, so the thinking is visible to everyone rather than arriving as an announcement.</p>
+    </div>
+
+    <div class="tldr">
+      <h4 class="fw-head">The decision framework, in short.</h4>
+      <div class="section-body">
+        <p>Every brand question runs through the same three moves. That is true for a company we might buy, for something we built ourselves, and for a brand that has been in the house for years.</p>
+      </div>
+      <div class="tldr-flow">
+        <div class="tstep">
+          <div class="tn">1</div>
+          <h5>A brand question comes up.</h5>
+          <p>An acquisition, a launch, or something material changing around a brand we already run. Any name in the house, at any time.</p>
+        </div>
+        <div class="tstep">
+          <div class="tn">2</div>
+          <h5>Work through the inputs.</h5>
+          <p>Eight of them, numbered in <a href="#s03">section 03</a>, starting with the people who own what the decision touches. No skipping, no scoring.</p>
+        </div>
+        <div class="tstep">
+          <div class="tn">3</div>
+          <h5>Decide, then record it.</h5>
+          <p>The answer is Brand, Product, or Feature. It goes into the playbook file with the date and the reasoning, then gets communicated in order.</p>
+        </div>
+      </div>
+      <div class="section-body" style="margin-top:22px;">
+        <p class="aside">The checklist at the end of <a href="#s03">section 03</a> confirms nothing got skipped. Every box checked means the decision is ready to make.</p>
+      </div>
     </div>
 
     <div class="note">
@@ -477,8 +519,8 @@ strong { color: var(--ink); font-weight: 650; }
       <h3>How to use it.</h3>
       <div class="rows">
         <details class="row">
-          <summary><span class="r-num">01-01</span><span class="r-title">Something new is on the table<span class="r-sub">A company we might buy, or something we might promote on its own</span></span><span class="r-plus" aria-hidden="true"></span></summary>
-          <div class="r-body"><p>Start at <strong>section 03</strong>. It carries the question that leads, the inputs we weigh under it, and the three answers a decision can come out as.</p></div>
+          <summary><span class="r-num">01-01</span><span class="r-title">A brand decision is on the table<span class="r-sub">A company we might buy, something we might promote, or a brand already in the house</span></span><span class="r-plus" aria-hidden="true"></span></summary>
+          <div class="r-body"><p>Start at <strong>section 03</strong>. Work the numbered inputs in order, then run the checklist at the end. The framework is the same for a brand we have run for years as it is for one we bought last week.</p></div>
         </details>
         <details class="row">
           <summary><span class="r-num">01-02</span><span class="r-title">A decision has been made and people need to hear it<span class="r-sub">Internally first, then out</span></span><span class="r-plus" aria-hidden="true"></span></summary>
@@ -639,7 +681,7 @@ strong { color: var(--ink); font-weight: 650; }
     <div class="snum">03</div>
     <h2 class="section-label">Decision framework.</h2>
     <div class="section-body">
-      <p>Something new arrives. We buy a company, or we build something we might promote on its own. The same question gets asked every time. What is this to the portfolio?</p>
+      <p>A brand question arrives. We buy a company, we build something we might promote on its own, or something material changes around a brand we already run. The same question gets asked every time. What is this to the portfolio?</p>
       <p>The framework answers it the same way every time, no matter who is deciding. One question leads. Everything else gets weighed under it. The answer sets the name, the identity, and the budget.</p>
       <p>This is a lens, not a rulebook. The same inputs can point different ways, and a good reason can override any single line.</p>
     </div>
@@ -653,13 +695,25 @@ strong { color: var(--ink); font-weight: 650; }
     <div class="fw-band" style="margin-top:52px;">
       <h4 class="fw-head">Inputs.</h4>
       <div class="section-body">
-        <p>These are the inputs we weigh when a brand decision comes up. We look through all of them, weigh each on its own, and add others when a decision calls for it.</p>
+        <p>Eight inputs, taken in order, one at a time. The numbers are a path, not a ranking. No input carries a fixed weight, because which one matters most changes with the decision, and a scorecard would move the argument from the decision to the math. Work through all of them, and add others when a decision calls for it.</p>
       </div>
 
       <div class="rows">
 
         <details class="row">
-          <summary><span class="r-num">03-01</span><span class="r-title">Evidence<span class="r-sub">What the people closest to it are telling us</span></span><span class="r-plus" aria-hidden="true"></span></summary>
+          <summary><span class="r-num">03-01</span><span class="r-title">The team<span class="r-sub">The people who own what this touches</span></span><span class="r-plus" aria-hidden="true"></span></summary>
+          <div class="r-body">
+            <ul>
+              <li>Who owns the areas this decision touches, and what do they know that we do not?</li>
+              <li>Product, engineering, data, payments, finance, marketing, sales, and client success each see a different side of it.</li>
+              <li>Has each of them been asked before the decision is framed, not after?</li>
+            </ul>
+            <p style="margin-top:14px;">This one comes first on purpose. Most of the inputs below are answered by these people, and checking with them is a step of its own rather than something scattered across the others. <span class="prop">Proposed roles &middot; to confirm</span></p>
+          </div>
+        </details>
+
+        <details class="row">
+          <summary><span class="r-num">03-02</span><span class="r-title">Evidence<span class="r-sub">What the people closest to it are telling us</span></span><span class="r-plus" aria-hidden="true"></span></summary>
           <div class="r-body"><ul>
             <li>What do our employees tell us?</li>
             <li>What do our customers tell us?</li>
@@ -668,7 +722,7 @@ strong { color: var(--ink); font-weight: 650; }
         </details>
 
         <details class="row">
-          <summary><span class="r-num">03-02</span><span class="r-title">Category<span class="r-sub">The market it plays in</span></span><span class="r-plus" aria-hidden="true"></span></summary>
+          <summary><span class="r-num">03-03</span><span class="r-title">Category<span class="r-sub">The market it plays in</span></span><span class="r-plus" aria-hidden="true"></span></summary>
           <div class="r-body"><ul>
             <li>How much category share can this hold?</li>
             <li>What can it charge?</li>
@@ -677,7 +731,7 @@ strong { color: var(--ink); font-weight: 650; }
         </details>
 
         <details class="row">
-          <summary><span class="r-num">03-03</span><span class="r-title">Technology<span class="r-sub">What it is built on</span></span><span class="r-plus" aria-hidden="true"></span></summary>
+          <summary><span class="r-num">03-04</span><span class="r-title">Technology<span class="r-sub">What it is built on</span></span><span class="r-plus" aria-hidden="true"></span></summary>
           <div class="r-body"><ul>
             <li>Does it run on our existing codebase, or need custom code?</li>
             <li>What can engineering and product support?</li>
@@ -688,7 +742,7 @@ strong { color: var(--ink); font-weight: 650; }
         </details>
 
         <details class="row">
-          <summary><span class="r-num">03-04</span><span class="r-title">Resources<span class="r-sub">What it takes to run</span></span><span class="r-plus" aria-hidden="true"></span></summary>
+          <summary><span class="r-num">03-05</span><span class="r-title">Resources<span class="r-sub">What it takes to run</span></span><span class="r-plus" aria-hidden="true"></span></summary>
           <div class="r-body"><ul>
             <li>What does it take to run as its own brand?</li>
             <li>What is the engineering and product upkeep?</li>
@@ -697,7 +751,7 @@ strong { color: var(--ink); font-weight: 650; }
         </details>
 
         <details class="row">
-          <summary><span class="r-num">03-05</span><span class="r-title">Equity<span class="r-sub">What the name is already worth</span></span><span class="r-plus" aria-hidden="true"></span></summary>
+          <summary><span class="r-num">03-06</span><span class="r-title">Equity<span class="r-sub">What the name is already worth</span></span><span class="r-plus" aria-hidden="true"></span></summary>
           <div class="r-body"><ul>
             <li>Is there a name customers already know?</li>
             <li>Do they trust it and search for it?</li>
@@ -708,7 +762,7 @@ strong { color: var(--ink); font-weight: 650; }
         </details>
 
         <details class="row">
-          <summary><span class="r-num">03-06</span><span class="r-title">Marketing<span class="r-sub">What it needs to be sold</span></span><span class="r-plus" aria-hidden="true"></span></summary>
+          <summary><span class="r-num">03-07</span><span class="r-title">Marketing<span class="r-sub">What it needs to be sold</span></span><span class="r-plus" aria-hidden="true"></span></summary>
           <div class="r-body"><ul>
             <li>Does it need a unique approach to sales and support?</li>
             <li>Does it need a standalone website and social presence?</li>
@@ -717,7 +771,7 @@ strong { color: var(--ink); font-weight: 650; }
         </details>
 
         <details class="row">
-          <summary><span class="r-num">03-07</span><span class="r-title">Reversibility<span class="r-sub">What it costs to change our mind</span></span><span class="r-plus" aria-hidden="true"></span></summary>
+          <summary><span class="r-num">03-08</span><span class="r-title">Reversibility<span class="r-sub">What it costs to change our mind</span></span><span class="r-plus" aria-hidden="true"></span></summary>
           <div class="r-body"><ul>
             <li>How hard is this to undo if we get it wrong?</li>
             <li>What does it cost to change our mind later?</li>
@@ -820,12 +874,29 @@ strong { color: var(--ink); font-weight: 650; }
           <span class="cnum">03-D</span>
           <h5>A vertical that does not obviously fit</h5>
           <p>A business that makes sense to own but does not read as camp or swim from the outside.</p>
-          <p class="lands">Lands as its own <b>Brand</b>, and the work is in the narrative. <span class="ph inline">[ how we explain the fit ]</span></p>
+          <p class="lands">Lands as its own <b>Brand</b>, and the work is in the narrative. The story leads with the people it serves and the moments they make, which is the thread every brand here shares, rather than with the category we are known for. <span class="prop">Proposed</span></p>
         </div>
       </div>
       <div class="note">
         <strong>These shapes also set the communication.</strong> A tuck-in for Swimtopia does not get announced the way a whole new vertical does. Section 05 carries a sequence for each.
       </div>
+    </div>
+
+    <div class="fw-band" style="margin-top:64px;">
+      <h4 class="fw-head">Before you make the call.</h4>
+      <div class="section-body">
+        <p>The framework only works if all of it runs. This is the handbook step. Check every box, and an empty box is the work still to do, not a formality to skip.</p>
+      </div>
+      <ul class="ck">
+        <li><b>The question led.</b> What serves our customers best was asked first and answered honestly.</li>
+        <li><b>The team weighed in.</b> Everyone who owns what this touches was asked before the decision was framed, not after. That is input 01.</li>
+        <li><b>All eight inputs got worked through, in order.</b> The team, evidence, category, technology, resources, equity, marketing, reversibility.</li>
+        <li><b>No trap did the arguing.</b> Attachment, sunk work, championship, price paid, and platform stayed out of it.</li>
+        <li><b>The answer is one of three.</b> Brand, Product, or Feature. Anything else means the decision is not done.</li>
+        <li><b>It is written down.</b> The decision, the date, who made it, and the reasoning go into the playbook file in section 08.</li>
+        <li><b>The sequence is queued.</b> Who hears it, in what order, starting inside. Section 05 carries it.</li>
+      </ul>
+      <p class="ck-close">Every box checked? Make the call.</p>
     </div>
 
   </div>
@@ -885,10 +956,18 @@ strong { color: var(--ink); font-weight: 650; }
         <div class="top"><div class="meta"><span class="pill">External</span></div><span class="q">Sales conversations.</span></div>
         <p class="a">Every Parent Co. brand is its own platform. They&rsquo;re built for different customers with different needs, whether that&rsquo;s camps, teams, events, or something else. I&rsquo;m here to make sure you get the one that fits how you run.</p>
       </div>
+      <div class="saycard">
+        <div class="top"><div class="meta"><span class="pill">External</span><span class="prop">Proposed</span></div><span class="q">A customer asking what a change means for them.</span></div>
+        <p class="a">Your product, your login, and the people you work with stay the same. If anything does change for you, you&rsquo;ll hear it from us directly, with what it means and when, before you read about it anywhere else.</p>
+      </div>
+      <div class="saycard">
+        <div class="top"><div class="meta"><span class="pill">Internal</span><span class="prop">Proposed</span></div><span class="q">People joining us from a company we acquire.</span></div>
+        <p class="a">Your brand and your customers are why we wanted you here. The parent carries what no team should have to solve alone, so the name your customers chose keeps running at full strength, now with more behind it.</p>
+      </div>
     </div>
 
     <div class="note">
-      <strong>Still to write.</strong> A version for a customer asking what a change means for them, and a version for people joining us from a company we acquire. <span class="ph inline">[ in progress ]</span>
+      <strong>The two marked proposed are drafts.</strong> Written as starting points to react to. Once the language is edited together, the labels come off.
     </div>
   </div>
 </section>
@@ -906,7 +985,16 @@ strong { color: var(--ink); font-weight: 650; }
     <div class="seq-pre">
       <h5>Before any of this runs.</h5>
       <p>A small group gets pulled in while the decision is still being made, because the answer depends on what they know. Payments, data, engineering, and finance each change the shape of a deal before it is a deal.</p>
-      <p class="ph">[ The standing list of roles that get pulled in during diligence, and at what point each one joins. ]</p>
+      <div style="margin:6px 0 14px;">
+        <span class="prop">Proposed &middot; to confirm against the org chart</span>
+        <ul class="mlist arrow" style="margin-top:14px;">
+          <li>Finance, from the first conversation. Nothing gets shaped without the numbers.</li>
+          <li>Product and engineering, once a deal is plausible. They say what the platform can carry and what it costs to carry it.</li>
+          <li>Data and payments, before terms are set. Moving customer records and money changes the price of a deal.</li>
+          <li>Marketing and brand, before terms are set, so brand and communication costs sit in the deal model instead of surfacing after close.</li>
+          <li>Legal, throughout.</li>
+        </ul>
+      </div>
       <p style="font-size:16.5px;color:var(--mid);">The decision is made through the framework in section 03 before a single word of this sequence goes out.</p>
     </div>
 
@@ -978,33 +1066,27 @@ strong { color: var(--ink); font-weight: 650; }
         <div class="ccard">
           <span class="cnum">05-A</span>
           <h5>Another camp brand</h5>
-          <p class="ph">[ Which steps run in full, which compress, and how far out it starts. ]</p>
+          <p>All seven steps run in full, and step 05 runs heaviest, because the customers overlap and reps will get asked about both names on the same call. Starts about eight weeks out.</p>
         </div>
         <div class="ccard">
           <span class="cnum">05-B</span>
           <h5>Something our brands would use</h5>
-          <p class="ph">[ Which steps run in full, which compress, and how far out it starts. ]</p>
+          <p>Steps 01 through 04 compress into about a week. Steps 05 and 06 fold into normal product communication, and step 07 is a short announcement rather than a campaign. Starts three to four weeks out.</p>
         </div>
         <div class="ccard">
           <span class="cnum">05-C</span>
           <h5>A vertical next door</h5>
-          <p class="ph">[ Which steps run in full, which compress, and how far out it starts. ]</p>
+          <p>All seven steps, with extra weight on 02 and 04, since a new market has its own language and its own press. The acquired brand keeps its own voice in the external steps. Starts six to eight weeks out.</p>
         </div>
         <div class="ccard">
           <span class="cnum">05-D</span>
           <h5>A vertical that does not obviously fit</h5>
-          <p class="ph">[ Which steps run in full, which compress, and how far out it starts. ]</p>
+          <p>The longest runway. The narrative gets written and tested inside before anything external is scheduled, then all seven steps run in full. Starts about twelve weeks out.</p>
         </div>
       </div>
+      <p class="rows-note"><span class="prop">Proposed</span>&ensp;Starting points to react to, not settled process. The weeks firm up the first time each shape runs.</p>
     </div>
 
-    <div class="subhead">
-      <h3>Working backwards from the show.</h3>
-      <div class="section-body">
-        <p>An announcement is easier to plan when it has a date to run at. The industry show gives us one, and everything upstream gets scheduled against it.</p>
-      </div>
-      <p class="ph" style="max-width:680px;">[ The countdown. Which show we build backwards from, and the weeks out for internal alignment, sales language, website, customer email, trade show materials, and social. ]</p>
-    </div>
   </div>
 </section>
 
@@ -1032,7 +1114,7 @@ strong { color: var(--ink); font-weight: 650; }
             <li>Parent Co. has its own site, aimed at founders, investors, press, and candidates. It never sells software.</li>
             <li>Careers live on the parent site. If you join any brand here, you join Parent Co.</li>
           </ul>
-          <p class="ph" style="margin-top:14px;">[ Decide: a logo lockup in the footer, or text only. Both are normal. Text only is quieter and faster to roll out. ]</p>
+          <p style="margin-top:14px;font-size:16px;line-height:1.5;color:var(--mid);"><span class="prop">Proposed</span>&ensp;Text only. It is quieter, faster to roll out, and easy to upgrade to a lockup later. A logo can wait until the parent has a name and a mark.</p>
         </div>
       </details>
 
@@ -1070,7 +1152,7 @@ strong { color: var(--ink); font-weight: 650; }
             <li>Parent Co. likely needs its own accounts, LinkedIn first.</li>
             <li>An acquired brand&rsquo;s accounts get a plan, whether that is keeping them, merging them, or retiring them.</li>
           </ul>
-          <p class="ph" style="margin-top:14px;">[ Who owns each account today, and who approves a post about a brand change. ]</p>
+          <p style="margin-top:14px;font-size:16px;line-height:1.5;color:var(--mid);"><span class="prop">Proposed</span>&ensp;Each brand&rsquo;s marketing owner runs its accounts day to day. Any post that touches a brand change gets approved by whoever owns marketing at the parent level before it goes out. An acquired brand&rsquo;s accounts post nothing about the change until the plan for them is set.</p>
         </div>
       </details>
 
@@ -1090,7 +1172,7 @@ strong { color: var(--ink); font-weight: 650; }
             <li>Brands show up as brands. The parent is not the thing on the booth.</li>
             <li>Booth staff get the talking points before they travel.</li>
           </ul>
-          <p class="ph" style="margin-top:14px;">[ Which shows each brand attends, and the lead time on materials. ]</p>
+          <p style="margin-top:14px;font-size:16px;line-height:1.5;color:var(--mid);"><span class="prop">Proposed</span>&ensp;Each brand keeps its own show list, owned by its marketing lead, with the camp brands anchored on the national and regional camp conferences and the swim and event brands on their own circuits. Lead times: booth and print to vendors eight weeks out, talking points to booth staff two weeks out.</p>
         </div>
       </details>
 
@@ -1197,7 +1279,9 @@ strong { color: var(--ink); font-weight: 650; }
       </div>
     </div>
 
-    <p class="ph" style="margin-top:34px;max-width:680px;">[ Needed to sharpen these: our own marketing number against the 8% median, and whether acquisition budgets already carry a line for brand and communication. ]</p>
+    <div class="note" style="margin-top:34px;">
+      <strong>Working assumption.</strong> Until our own numbers replace it, the 8% median stands in as the marketing denominator. Two figures sharpen this section the moment they arrive: our actual marketing spend against that median, and whether acquisition budgets already carry a line for brand and communication.
+    </div>
   </div>
 </section>
 
@@ -1207,7 +1291,8 @@ strong { color: var(--ink); font-weight: 650; }
     <div class="snum">08</div>
     <h2 class="section-label">The playbook, in three pieces.</h2>
     <div class="section-body">
-      <p>One source of truth, three ways in. The page is the overview anyone can read in ten minutes. The file is the detail, and it is the one that gets updated. The skill is for asking it a question.</p>
+      <p>A single source of truth, three ways in. The page is the overview anyone can read in ten minutes. The file is the decision log, and it is the one that gets updated. The skill is how you ask it a question.</p>
+      <p>Both files are plain text. Nothing to buy, nothing to install, and they open in anything. Version history is the permanent record, so a year from now anyone can see what was decided, when, by whom, and why. Anyone new can run the same framework the same way on their first day.</p>
     </div>
 
     <div class="assets">
@@ -1217,84 +1302,44 @@ strong { color: var(--ink); font-weight: 650; }
         <p>The overview. Where the portfolio stands, how a decision gets made, and what happens after. Read it once, come back when something changes.</p>
         <span class="meta">campminder.studioparkside.co</span>
       </div>
-      <div class="asset pending">
-        <span class="kind">Markdown &middot; coming</span>
+      <a class="asset" href="playbook.md" download="Campminder-Brand-Playbook.md">
+        <span class="kind">Markdown &middot; working draft</span>
         <h5>The playbook file</h5>
-        <p>The full detail in one file. Decision log, brand roster, criteria, the communication sequence, and the budget framework. Version history becomes the permanent record of who decided what and when.</p>
-        <span class="meta">playbook.md</span>
-      </div>
-      <div class="asset pending">
-        <span class="kind">Skill &middot; coming</span>
+        <p>The decision log. Brand roster, what has been decided, what is still open, and the budget benchmarks with sources. Every entry is dated and attributed, so the version history is the permanent record.</p>
+        <span class="dl"><span>Download .md &rarr;</span><span class="fn">playbook.md</span></span>
+      </a>
+      <a class="asset" href="skill.md" download="Campminder-Brand-Architecture-Skill.md">
+        <span class="kind">Skill &middot; working draft</span>
         <h5>The skill</h5>
-        <p>Reads the playbook file. Describe what happened and it tells you where you are and what comes next. No separate content to keep in sync.</p>
-        <span class="meta">skill.md</span>
-      </div>
+        <p>The playbook as a working tool. Give it to an AI assistant along with the playbook file, describe what is on the table, and it walks the framework with you, the same way every time. It reads the playbook file, so there is no second copy to keep in sync.</p>
+        <span class="dl"><span>Download .md &rarr;</span><span class="fn">skill.md</span></span>
+      </a>
     </div>
 
     <div class="note">
-      <strong>The file has one home.</strong> Every change is dated and attributed, so a year from now anyone can see what was decided, when, and by whom. <span class="ph inline">[ where it lives, and who can update it ]</span>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── 09 PROJECT SEQUENCE ───────── -->
-<section id="s09" class="wrap section">
-  <div class="section-inner road-inner">
-    <div class="road-head">
-      <div class="road-title">
-        <span class="snum">09</span>
-        <h2 class="section-label" style="margin-bottom:0;">Project sequence.</h2>
-      </div>
-      <span class="road-note">Where we are</span>
-    </div>
-    <div class="steps">
-      <div class="step done">
-        <div class="no">01</div>
-        <h4>Discovery</h4>
-        <span class="tag">Completed</span>
-        <p>Closed with the summary of findings.</p>
-        <ul>
-          <li><strong>Interviews.</strong> Eleven conversations across leadership, product, sales, and client services.</li>
-          <li><strong>Snapshots of each brand today.</strong> How it shows up, what is working, and what equity is worth protecting.</li>
-          <li><strong>Guiding principles.</strong> The criteria any good architecture solution will need to meet.</li>
-        </ul>
-      </div>
-      <div class="step done">
-        <div class="no">02</div>
-        <h4>Strategy</h4>
-        <span class="tag">Complete</span>
-        <p>The model and how every brand relates. <a href="/architecture/strategy/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line);">Read it here</a>.</p>
-        <ul>
-          <li><strong>The architecture model.</strong> House of Brands, confirmed July 16.</li>
-          <li><strong>Each brand&rsquo;s role and audience.</strong></li>
-          <li><strong>The decision framework.</strong></li>
-          <li><strong>The internal narrative.</strong></li>
-        </ul>
-      </div>
-      <div class="step now">
-        <div class="no">03</div>
-        <h4>Activation</h4>
-        <span class="tag">In progress</span>
-        <p>Documenting everything into a playbook the team can use.</p>
-        <ul>
-          <li class="here">How future acquisitions fit the model.</li>
-          <li class="here">A communication sequence for announcing changes.</li>
-          <li class="here">Channel recommendations across website, social, trade shows, and sales.</li>
-          <li class="here">Budget estimates for anything that requires production or investment.</li>
-        </ul>
-      </div>
+      <strong>The file has one home.</strong> Every change is dated and attributed, so a year from now anyone can see what was decided, when, and by whom. <span class="prop">Proposed</span> It lives beside this page, Studio Parkside holds the pen through activation, and ownership moves in-house to whoever owns marketing once this phase closes.
     </div>
 
-    <div class="note" style="margin-top:44px;">
-      <strong>This does not end.</strong> The playbook is the thing every future brand question gets run through, so it keeps getting updated as the portfolio grows and as we learn what works.
+    <div class="subhead">
+      <h3>Questions about this framework.</h3>
+      <div class="section-body">
+        <p>If something here is unclear, or you have a brand question and are not sure where it belongs, start with Paul.</p>
+      </div>
+      <div class="contact">
+        <span class="c-name">Paul Berliner</span>
+        <span class="c-role">President, Campminder</span>
+        <a class="c-mail" href="mailto:paul@campminder.com">paul@campminder.com</a>
+      </div>
+      <div class="section-body" style="margin-top:26px;">
+        <p class="aside">This playbook keeps getting updated as the portfolio grows and as we learn what works. If you find a gap in it, that is worth saying out loud.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ───────── FOOTER ───────── -->
 <footer class="wrap foot">
-  <span class="sp-logo" aria-label="Studio Parkside"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1499.4 151" role="img"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg></span>
-  <span class="conf">Confidential &middot; Working draft</span>
+    <span class="conf">Prepared for Campminder by Studio Parkside</span>
 </footer>
 
 </body>
