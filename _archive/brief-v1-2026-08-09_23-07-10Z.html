@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Homepage Creative Brief — Campminder</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage Creative Brief
+   Design tokens inherited from the territories page.
+   Studio Parkside, August 2026
+───────────────────────────────────────────── */
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg: #f7f6f8;
+  --card: #ffffff;
+  --ink: #141118;
+  --body: #1c1922;
+  --mid: #46414f;
+  --light: #8d8798;
+  --rule: #e2dfe7;
+  --hair: #eceaf0;
+  --accent: #773DBD;
+  --accent-soft: #f1eaf9;
+  --accent-line: #dcc9f2;
+  --dark: #16121e;
+  --dark-2: #1e1929;
+  --dark-line: rgba(255,255,255,0.11);
+  --dark-mid: rgba(255,255,255,0.60);
+  --dark-low: rgba(255,255,255,0.40);
+  --dark-accent: #b48ae8;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--body);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+}
+.wrap { max-width: 1060px; margin: 0 auto; padding: 18px 44px; }
+
+/* ── Confidential bar ───────────────────────── */
+.conf {
+  border-bottom: 1px solid var(--hair);
+  background: var(--bg);
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: saturate(180%) blur(12px);
+}
+.conf .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.sp-logo { display: block; height: 17px; width: auto; color: var(--ink); flex: none; }
+.tags { display: flex; align-items: center; gap: 8px; }
+.pill {
+  font-size: 11px; font-weight: 650; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--accent);
+  background: var(--accent-soft); border: 1px solid var(--accent-line);
+  border-radius: 100px; padding: 5px 12px; white-space: nowrap;
+}
+.pill.client { color: var(--mid); background: transparent; border-color: var(--rule); }
+.pill.dark { color: #ffffff; background: var(--ink); border-color: var(--ink); }
+.pill.outline { color: var(--mid); background: transparent; border-color: var(--rule); }
+
+/* ── Masthead ───────────────────────────────── */
+.masthead {
+  padding-top: 100px; padding-bottom: 64px;
+  display: grid; grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 64px; align-items: end;
+}
+.cm-name { display: block; font-size: 15px; font-weight: 650; color: var(--mid); margin-bottom: 22px; }
+.cm-name .sep { color: var(--accent-line); padding: 0 4px; }
+.masthead h1 {
+  font-size: clamp(48px, 8vw, 104px); font-weight: 700;
+  line-height: 0.96; letter-spacing: -0.045em; color: var(--ink);
+}
+.masthead h1 .accent { color: var(--accent); }
+.mast-sub { margin-top: 26px; font-size: clamp(18px, 2.1vw, 23px); color: var(--mid); letter-spacing: -0.015em; line-height: 1.45; max-width: 42ch; }
+
+/* ── Table of contents ──────────────────────── */
+.toc { display: block; }
+.toc a {
+  display: flex; gap: 16px; align-items: baseline;
+  font-size: 15px; font-weight: 600; color: var(--ink);
+  text-decoration: none; padding: 11px 0;
+  border-top: 1px solid var(--hair);
+}
+.toc a:last-child { border-bottom: 1px solid var(--hair); }
+.toc a:hover { color: var(--accent); }
+.toc .n { font-size: 13px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+
+/* ── Sections ───────────────────────────────── */
+.section { border-top: 1px solid var(--rule); scroll-margin-top: 72px; }
+.section-inner { padding: 88px 0; }
+.snum {
+  display: block; font-size: clamp(26px, 3.2vw, 38px); font-weight: 700;
+  letter-spacing: -0.04em; line-height: 1; color: var(--accent);
+  font-variant-numeric: tabular-nums; margin-bottom: 10px;
+}
+.section-label {
+  font-size: clamp(34px, 5.4vw, 60px); font-weight: 700;
+  line-height: 1.02; letter-spacing: -0.04em; color: var(--ink);
+  margin-bottom: 30px; max-width: 20ch;
+}
+.section-body { max-width: 62ch; }
+.section-body p { margin-bottom: 18px; }
+.section-body p:last-child { margin-bottom: 0; }
+.section-body strong { font-weight: 700; color: var(--ink); }
+.sub-lead { font-size: 21px; color: var(--mid); max-width: 60ch; line-height: 1.5; }
+
+/* ── Copy card ──────────────────────────────── */
+.copycard { border: 1px solid var(--rule); border-radius: 14px; background: var(--card); overflow: hidden; }
+.copycard .cc-body { padding: 62px 56px 56px; }
+.copycard h3 {
+  font-size: clamp(42px, 6.2vw, 70px); font-weight: 700;
+  line-height: 1.0; letter-spacing: -0.044em; color: var(--ink); margin-bottom: 18px;
+}
+.copycard .cc-sub { font-size: clamp(23px, 2.9vw, 31px); font-weight: 650; color: var(--ink); letter-spacing: -0.024em; line-height: 1.26; margin-bottom: 24px; }
+.copycard p.copy { font-size: 22px; color: var(--mid); line-height: 1.5; max-width: 54ch; margin-bottom: 24px; }
+.copycard .cc-close { font-size: 22px; font-weight: 600; color: var(--ink); max-width: 54ch; line-height: 1.5; }
+.cc-tagrow { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 30px; }
+.cc-tagrow .tagline { font-size: 26px; font-weight: 700; color: var(--accent); letter-spacing: -0.024em; }
+.cta {
+  display: inline-block; font-size: 14px; font-weight: 650; letter-spacing: 0.02em;
+  color: #ffffff; background: var(--accent); border-radius: 100px; padding: 9px 20px; white-space: nowrap;
+}
+
+/* ── Hierarchy stack ────────────────────────── */
+.stack { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: stretch; }
+.stack-side { display: grid; grid-template-rows: 1fr 1fr; gap: 12px; }
+.block { border-radius: 14px; padding: 28px 30px; border: 1px solid var(--rule); background: var(--card); display: flex; flex-direction: column; }
+.block .lbl { display: block; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 650; color: var(--accent); margin-bottom: 8px; }
+.block .nm { font-weight: 700; font-size: 25px; color: var(--ink); letter-spacing: -0.026em; line-height: 1.12; }
+.block .role { color: var(--mid); font-size: 17.5px; margin-top: 8px; line-height: 1.45; }
+.block .bdiv { border-top: 1px solid var(--hair); margin: 22px 0 16px; }
+.block .use-l { display: block; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 650; color: var(--light); margin-bottom: 7px; }
+.block .use { color: var(--mid); font-size: 17px; line-height: 1.45; }
+.block.leadblock {
+  background: var(--accent); border-color: var(--accent);
+  justify-content: center; padding: 44px 38px;
+}
+.block.leadblock .lbl { color: rgba(255,255,255,0.72); font-size: 12px; margin-bottom: 14px; }
+.block.leadblock .nm { color: #ffffff; font-size: clamp(40px, 5.6vw, 68px); letter-spacing: -0.045em; line-height: 1.0; }
+.block.leadblock .role { color: rgba(255,255,255,0.88); font-size: 25px; margin-top: 18px; max-width: 26ch; line-height: 1.35; }
+.block.leadblock .bdiv { border-color: rgba(255,255,255,0.26); margin: 34px 0 20px; }
+.block.leadblock .use-l { color: rgba(255,255,255,0.62); font-size: 12px; }
+.block.leadblock .use { color: rgba(255,255,255,0.88); font-size: 21px; max-width: 30ch; line-height: 1.4; }
+
+/* ── Subsection label ───────────────────────── */
+.sub {
+  font-size: 15px; font-weight: 700; color: var(--ink);
+  letter-spacing: -0.01em; margin: 56px 0 18px;
+}
+
+/* ── Scope at a glance ──────────────────────── */
+.stats {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--rule); border-radius: 14px;
+  background: var(--card); overflow: hidden; margin-top: 12px;
+}
+.stats > div { padding: 28px 28px 24px; border-left: 1px solid var(--rule); }
+.stats > div:first-child { border-left: none; }
+.stats .fig {
+  display: block; font-size: clamp(40px, 5.4vw, 62px); font-weight: 700;
+  letter-spacing: -0.045em; line-height: 1; color: var(--accent);
+  font-variant-numeric: tabular-nums; margin-bottom: 12px;
+}
+.stats .fl { display: block; font-size: 26px; font-weight: 700; color: var(--ink); letter-spacing: -0.028em; line-height: 1.15; margin-bottom: 12px; }
+.stats .sb { list-style: none; margin: 0; padding: 0; }
+.stats .sb li { font-size: 16px; color: var(--mid); line-height: 1.4; padding: 3px 0 3px 17px; position: relative; }
+.stats .sb li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-line); }
+
+/* ── Channel cards ──────────────────────────── */
+.ccards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.ccard { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 26px 26px 26px; display: flex; flex-direction: column; }
+.ccard .ctop { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+.ccard h5 { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.032em; line-height: 1.1; }
+.ccard .cdiv { border-top: 1px solid var(--hair); margin: 20px 0 16px; }
+.ccard .clab { display: block; font-size: 11px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink); margin-bottom: 9px; }
+.aud { list-style: none; margin: 0; padding: 0; }
+.aud li { font-size: 17px; color: var(--mid); line-height: 1.4; padding: 4px 0 4px 18px; position: relative; }
+.aud li::before { content: ""; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-line); }
+
+/* ── Wireframe, dark ────────────────────────── */
+.frame { border: 1px solid var(--dark); border-radius: 14px; background: var(--dark); overflow: hidden; }
+.frame-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 13px 18px; border-bottom: 1px solid var(--dark-line); background: var(--dark-2);
+}
+.frame-bar .dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+.frame-bar .url { font-size: 13px; font-weight: 650; color: var(--dark-low); margin-left: 6px; }
+.wire { background: var(--dark); }
+.wblock {
+  padding: 56px 50px; border-bottom: 1px solid var(--dark-line);
+  min-height: 440px; display: flex; flex-direction: column;
+}
+.wblock.short { min-height: 0; padding-top: 34px; padding-bottom: 34px; }
+.wblock:last-child { border-bottom: none; }
+.wbar { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; margin-bottom: 30px; }
+.wbar .wn { font-size: 13px; font-weight: 700; color: var(--dark-accent); font-variant-numeric: tabular-nums; letter-spacing: 0.05em; margin-right: 4px; }
+.wbar .wname { font-size: 12px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--dark-low); margin-right: 6px; }
+.pill.dk { font-size: 10px; padding: 4px 10px; color: var(--dark-mid); background: transparent; border-color: rgba(255,255,255,0.22); }
+.pill.dkgo { font-size: 10px; padding: 4px 10px; color: var(--dark); background: var(--dark-accent); border-color: var(--dark-accent); }
+.wblock h4 { font-size: clamp(28px, 4.4vw, 48px); font-weight: 700; color: #ffffff; letter-spacing: -0.038em; line-height: 1.05; margin-bottom: 12px; max-width: 22ch; }
+.wblock .wsub { font-size: clamp(18px, 2vw, 22px); font-weight: 650; color: rgba(255,255,255,0.82); letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 12px; max-width: 34ch; }
+.wblock p.wc { font-size: 17.5px; color: var(--dark-mid); line-height: 1.5; max-width: 54ch; }
+.wctas { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.wcta { display: inline-block; font-size: 13px; font-weight: 650; color: var(--dark); background: var(--dark-accent); border-radius: 100px; padding: 8px 18px; }
+.wcta.gh { color: var(--dark-mid); background: transparent; border: 1px solid rgba(255,255,255,0.24); }
+.wviz {
+  margin-top: auto; padding-top: 30px;
+  font-size: 15px; color: var(--dark-low); line-height: 1.45;
+}
+.wviz b { color: rgba(255,255,255,0.72); font-weight: 700; display: block; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 8px; }
+.bars { display: flex; gap: 10px; margin-top: 16px; }
+.bar { height: 156px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.13); flex: 1; }
+.bar.wide { flex: 2.6; }
+.bar.tall { height: 240px; }
+.bar.hero { height: 360px; }
+.bar.fill { background: rgba(180,138,232,0.16); border-color: rgba(180,138,232,0.36); }
+.bar.r3 { height: 128px; }
+.wroles { margin-top: 18px; }
+.wrole { padding: 18px 0 20px; border-top: 1px solid rgba(255,255,255,0.09); }
+.wrole:first-child { border-top: none; padding-top: 0; }
+.wrole .rname { display: block; font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.82); letter-spacing: -0.022em; }
+.wrolehead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.wrole .rsub { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.42); letter-spacing: -0.015em; }
+.wrolehead .pill { align-self: center; }
+.wrole .bars { margin-top: 12px; }
+.wsuites { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 4px; }
+.wsuite {
+  border: 1px solid rgba(255,255,255,0.14); border-radius: 12px;
+  padding: 30px 26px 28px; background: rgba(255,255,255,0.03);
+  min-height: 340px; display: flex; flex-direction: column;
+}
+.wsuite h6 { font-size: 26px; font-weight: 700; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 8px; }
+.wsuite .pr { font-size: 34px; font-weight: 700; color: var(--dark-accent); letter-spacing: -0.035em; line-height: 1; font-variant-numeric: tabular-nums; }
+.wsuite p { font-size: 16px; color: var(--dark-mid); line-height: 1.45; margin-top: auto; padding-top: 28px; }
+.frame-note { font-size: 12px; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dark-low); padding: 13px 18px; background: var(--dark-2); text-align: right; border-top: 1px solid var(--dark-line); }
+
+/* ── Asset cards ────────────────────────────── */
+.acards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 44px; }
+.acard { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 26px 26px 24px; }
+.acard .atop { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.acard .anum { font-size: 13px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+.pill.now { color: #ffffff; background: var(--accent); border-color: var(--accent); }
+.pill.soon { color: var(--light); background: transparent; border-color: var(--rule); }
+.acard h5 { font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -0.028em; line-height: 1.14; margin-bottom: 9px; }
+.acard p { font-size: 16.5px; color: var(--mid); line-height: 1.45; }
+
+/* ── Project sequence footer ────────────────── */
+.seq { background: #ffffff; border-top: 1px solid var(--rule); }
+.seq .wrap { padding-top: 72px; padding-bottom: 80px; }
+.seq h2 { font-size: clamp(26px, 3.4vw, 38px); font-weight: 700; color: var(--ink); letter-spacing: -0.035em; margin-bottom: 40px; }
+.seqcols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; }
+.seqcol h3 { font-size: 12px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--light); padding-bottom: 12px; border-bottom: 1px solid var(--rule); margin-bottom: 4px; }
+.seqcol ul { list-style: none; margin: 0; padding: 0; }
+.seqcol li {
+  display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px;
+  align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--hair);
+  font-size: 19px; font-weight: 600; letter-spacing: -0.02em;
+}
+.seqcol.done li { color: var(--light); }
+.seqcol.done .mk { color: var(--rule); font-size: 16px; }
+.seqcol.next li { color: var(--ink); }
+.seqcol.next .mk { color: var(--accent); font-size: 16px; }
+
+.foot { border-top: 1px solid var(--rule); background: #ffffff; }
+.foot .wrap { padding-top: 36px; padding-bottom: 64px; }
+.foot p { font-size: 14px; color: var(--light); font-weight: 600; }
+
+/* ── Numbered rail rows ─────────────────────── */
+.rail { margin-top: 44px; border-top: 1px solid var(--rule); }
+.railrow {
+  display: grid; grid-template-columns: 94px minmax(0, 1fr); gap: 28px;
+  padding: 32px 0; border-bottom: 1px solid var(--hair); align-items: start;
+}
+.railrow .rn {
+  font-size: clamp(32px, 4vw, 44px); font-weight: 700; color: var(--accent-line);
+  letter-spacing: -0.045em; line-height: 0.86; font-variant-numeric: tabular-nums;
+}
+.railrow h5 { font-size: clamp(23px, 2.9vw, 29px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.14; margin-bottom: 9px; }
+.railrow p { font-size: 17.5px; color: var(--mid); line-height: 1.5; max-width: 60ch; }
+.railrow p + p { margin-top: 12px; }
+.railrow .rowpills { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 14px; }
+
+/* ── Cadence rows ───────────────────────────── */
+.cad { margin-top: 44px; border-top: 1px solid var(--rule); }
+.cadrow {
+  display: grid; grid-template-columns: 152px minmax(0, 1fr); gap: 28px;
+  padding: 30px 0; border-bottom: 1px solid var(--hair); align-items: start;
+}
+.cadrow .when { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: -0.015em; line-height: 1.3; }
+.cadrow .when small { display: block; font-size: 13px; font-weight: 600; color: var(--light); letter-spacing: 0; margin-top: 5px; }
+.cadrow h5 { font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.028em; line-height: 1.16; margin-bottom: 8px; }
+.cadrow p { font-size: 17px; color: var(--mid); line-height: 1.47; max-width: 60ch; }
+.cadrow .rowpills { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 13px; }
+.pill.fixed { color: var(--mid); background: transparent; border-color: var(--rule); }
+.pill.rec { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
+
+/* ── Callout ────────────────────────────────── */
+.callout {
+  margin-top: 44px; border: 1px solid var(--accent-line); background: var(--accent-soft);
+  border-radius: 14px; padding: 34px 36px;
+}
+.callout h5 { font-size: 25px; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.16; margin-bottom: 12px; }
+.callout p { font-size: 18px; color: var(--mid); line-height: 1.5; max-width: 66ch; }
+.callout p + p { margin-top: 13px; }
+.callout strong { color: var(--ink); font-weight: 700; }
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 900px) {
+  .railrow { grid-template-columns: 62px minmax(0, 1fr); gap: 18px; }
+  .cadrow { grid-template-columns: 1fr; gap: 12px; padding: 26px 0; }
+  .callout { padding: 26px 24px; }
+  .masthead { grid-template-columns: 1fr; gap: 44px; align-items: start; padding-top: 64px; padding-bottom: 48px; }
+  .stack { grid-template-columns: 1fr; }
+  .stack-side { grid-template-rows: none; }
+  .block.leadblock { padding: 34px 30px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats > div:nth-child(3) { border-left: none; }
+  .stats > div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  .ccards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .acards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .seqcols { grid-template-columns: 1fr; gap: 40px; }
+  .wsuites { grid-template-columns: 1fr; }
+  .wsuite { min-height: 0; }
+  .wsuite p { padding-top: 18px; }
+  .wblock { min-height: 0; padding: 40px 30px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 18px; }
+  .wrap { padding: 18px 22px; }
+  .section-inner { padding: 56px 0; }
+  .ccards { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+  .stats > div { border-left: none; }
+  .stats > div + div { border-top: 1px solid var(--rule); }
+  .copycard .cc-body { padding: 32px 26px 28px; }
+  .wblock { padding: 32px 22px; }
+  .acards { grid-template-columns: 1fr; }
+  .bar { height: 96px; }
+  .bar.tall { height: 140px; }
+  .bar.hero { height: 190px; }
+  .sp-logo { height: 14px; }
+  .pill { font-size: 10px; padding: 4px 10px; }
+}
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head><body>
+
+<div class="conf">
+  <div class="wrap">
+    <svg class="sp-logo" viewBox="0 0 1499.4 151" fill="currentColor" role="img" aria-label="Studio Parkside" xmlns="http://www.w3.org/2000/svg"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg>
+    <div class="tags">
+      <span class="pill client">Campminder</span>
+      <span class="pill">Draft for review</span>
+      <span class="pill">Confidential</span>
+    </div>
+  </div>
+</div>
+
+<header class="wrap masthead">
+  <div>
+    <span class="cm-name">Campminder <span class="sep">&middot;</span> Fall Campaign</span>
+    <h1>Homepage <span class="accent">Creative Brief</span></h1>
+    <p class="mast-sub">For Groundwrk. Everything the page has to carry, and everything that is still open.</p>
+  </div>
+  <nav class="toc" aria-label="Contents">
+    <a href="#s01"><span class="n">01</span> Assignment</a>
+    <a href="#s02"><span class="n">02</span> Background</a>
+    <a href="#s03"><span class="n">03</span> Territory</a>
+    <a href="#s04"><span class="n">04</span> Hierarchy</a>
+    <a href="#s05"><span class="n">05</span> Section order</a>
+    <a href="#s06"><span class="n">06</span> What is open</a>
+    <a href="#s07"><span class="n">07</span> What we want</a>
+    <a href="#s08"><span class="n">08</span> Guardrails</a>
+    <a href="#s09"><span class="n">09</span> Process</a>
+  </nav>
+</header>
+
+<!-- 01 -->
+<section id="s01" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">01</div>
+    <h2 class="section-label">The assignment.</h2>
+    <div class="section-body">
+      <p>Design and build a new homepage for campminder.com, live the week of September 7, alongside the new Registration release.</p>
+      <p>It works inside the existing site. Same shell, same navigation, same interior pages. This is one page, not a site redesign, and nothing about it should make the rest of campminder.com look like it was left behind.</p>
+      <p>Everything named on the page has to be live on the platform the day the page goes up. That is the single hard rule and it comes from the company, not from us.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section id="s02" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">02</div>
+    <h2 class="section-label">Background.</h2>
+    <div class="section-body">
+      <p>The homepage has not meaningfully changed in four or five years, and the honest reason is that there was never anything new enough to put on it. That changed this fall.</p>
+      <p>Between September and the end of the year Campminder ships more product than it has in three years. Registration goes generally available September 1. Enrollment reporting, staffing, and an AI assistant inside the Campanion parent app follow. The company is investing again and wants the homepage to work the way Apple's does, showing what is newest rather than explaining what the company is, and changing every few months rather than every few years.</p>
+      <p>Three pressures shape the page.</p>
+      <p><strong>A newer competitor is winning on the impression of momentum.</strong> They publish constantly, show real product screens, and read as software built for a younger generation of camp directors. Campminder does not need to answer them and will not name them. It needs to stop being abstract.</p>
+      <p><strong>Campminder has a trust problem of its own making.</strong> Things were announced ahead of delivery and customers noticed. The correction is simple and total: only what is live goes on the page.</p>
+      <p><strong>The commercial focus is net-new business</strong> for the first time in several years, with particular attention on camps already paying for another platform. The page has to work for someone comparing, not just someone browsing.</p>
+    </div>
+
+    <p class="sub">02-01 Two audiences on one page</p>
+    <div class="ccards">
+      <div class="ccard">
+        <div class="ctop"><span class="pill outline">Primary</span></div>
+        <h5>Camps shopping for a platform</h5>
+        <div class="cdiv"></div>
+        <span class="clab">What they need</span>
+        <ul class="aud">
+          <li>To see that the whole operation is covered, quickly</li>
+          <li>To see the actual product, not a description of it</li>
+          <li>To know who they would be working with</li>
+        </ul>
+      </div>
+      <div class="ccard">
+        <div class="ctop"><span class="pill outline">Secondary</span></div>
+        <h5>Existing customers on their way to log in</h5>
+        <div class="cdiv"></div>
+        <span class="clab">What they need</span>
+        <ul class="aud">
+          <li>A reason to stop before they click through</li>
+          <li>To see what shipped since the last time they looked</li>
+          <li>A visible path to more than they currently pay for</li>
+        </ul>
+      </div>
+      <div class="ccard">
+        <div class="ctop"><span class="pill outline">Both</span></div>
+        <h5>What has to be true either way</h5>
+        <div class="cdiv"></div>
+        <span class="clab">The test</span>
+        <ul class="aud">
+          <li>The whole operation reads in the first screen</li>
+          <li>Proof arrives before they leave</li>
+          <li>Nothing on the page is a promise</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub">02-02 What the current page measures</p>
+    <div class="section-body" style="margin-bottom:0;">
+      <p>From Campminder's analytics, January 1 to August 7, 2026. These are design inputs, not talking points.</p>
+    </div>
+    <div class="stats" style="margin-top:20px;">
+      <div>
+        <span class="fig">9s</span>
+        <span class="fl">Average engagement</span>
+        <ul class="sb">
+          <li>Per session on the homepage</li>
+          <li>The top of the page has to stand alone</li>
+        </ul>
+      </div>
+      <div>
+        <span class="fig">14%</span>
+        <span class="fl">Reach the bottom</span>
+        <ul class="sb">
+          <li>Of users who ever hit full scroll depth</li>
+          <li>Long is fine, but not for anything load-bearing</li>
+        </ul>
+      </div>
+      <div>
+        <span class="fig">4.2</span>
+        <span class="fl">Header clicks per user</span>
+        <ul class="sb">
+          <li>The largest interaction on the site</li>
+          <li>People are hunting, not reading</li>
+        </ul>
+      </div>
+      <div>
+        <span class="fig">6x</span>
+        <span class="fl">Blog over features</span>
+        <ul class="sb">
+          <li>One article outdraws the features page</li>
+          <li>Most visitors arrive knowing nothing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section id="s03" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">03</div>
+    <h2 class="section-label">Territory.</h2>
+    <div class="section-body">
+      <p>The campaign territory was selected with Campminder on August 6 and is settled. It is the conceptual foundation under the homepage, the sales conversation, the emails, and the social posts, so all of them tell one story instead of five. The copy below is direction, not final page copy.</p>
+    </div>
+
+    <div class="copycard" style="margin-top:44px;">
+      <div class="cc-body">
+        <h3>One for all.</h3>
+        <p class="cc-sub">One platform for everyone your camp connects to.</p>
+        <p class="copy">Directors fill their camp. Staff get hired and show up ready. Parents register every kid in one pass. Registration, staffing, health, communication, and the business behind it all, with Campminder Intelligence running underneath and a camp success team that has your back.</p>
+        <p class="cc-close">Take the tour, or we'll walk you through it.</p>
+        <p class="cc-tagrow"><span class="tagline">Unpack possible.</span><span class="cta">Book a demo</span></p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h5>The tagline does not change.</h5>
+      <p><strong>Unpack possible</strong> is the existing brand tagline and it stays exactly as it is. Set it the same way every time, in the same lockup, so it reads as one thing rather than a phrase that gets rewritten per page. It sits next to the call to action and it ends the page.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section id="s04" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">04</div>
+    <h2 class="section-label">Hierarchy.</h2>
+    <div class="section-body" style="margin-bottom:44px;">
+      <p>Three ideas, doing three different jobs. The conceptual lead is what we open with. The narrative support shapes how it sounds once someone is listening. The structural support decides how the page gets built and in what order. Any section you propose should be traceable to one of them.</p>
+    </div>
+    <div class="stack">
+      <div class="block leadblock">
+        <span class="lbl">Conceptual Lead</span>
+        <div class="nm">One for all</div>
+        <div class="role">One platform, every role at camp.</div>
+        <div class="bdiv"></div>
+        <span class="use-l">On this page</span>
+        <div class="use">The hero. The claim the rest of the page pays off.</div>
+      </div>
+      <div class="stack-side">
+        <div class="block">
+          <span class="lbl">Narrative Support</span>
+          <div class="nm">An extension of your team</div>
+          <div class="role">The people who run the platform with you.</div>
+          <div class="bdiv"></div>
+          <span class="use-l">On this page</span>
+          <div class="use">The camp success section, and the tone everywhere else.</div>
+        </div>
+        <div class="block">
+          <span class="lbl">Structural Support</span>
+          <div class="nm">People meet products</div>
+          <div class="role">Every feature introduced by the person who does the work.</div>
+          <div class="bdiv"></div>
+          <span class="use-l">On this page</span>
+          <div class="use">How the role and feature blocks are built and labelled.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section id="s05" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">05</div>
+    <h2 class="section-label">Section order.</h2>
+    <div class="section-body">
+      <p>A starting order, with what each section says and what carries it. The layout accompanying this brief shows one way to build it. Read section 06 before you treat any of this as fixed.</p>
+    </div>
+
+    <div class="rail">
+      <div class="railrow">
+        <div class="rn">00</div>
+        <div>
+          <h5>Navigation</h5>
+          <p>Unchanged. Logo, Features, Solutions, Demo, Company, Log in. Solutions already carries the camp roles this page is built on.</p>
+          <div class="rowpills"><span class="pill outline">Existing</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">01</div>
+        <div>
+          <h5>Hero</h5>
+          <p>One for all. One platform for everyone your camp connects to. Registration, staffing, health, communication, and the business behind it all. Two calls to action.</p>
+          <p>Full-bleed photography from a real customer camp. People, not screens. Holding the product back here is deliberate: it lets the claim stand on its own and lets the scroll do the proving.</p>
+          <div class="rowpills"><span class="pill outline">Photography</span><span class="pill outline">No product screen</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">02</div>
+        <div>
+          <h5>Intelligence</h5>
+          <p>See where enrollment stands, and what to move on first. Campminder Intelligence opening on the enrollment view, every session measured against the same date last season, ordered so the one that needs attention is at the top.</p>
+          <p>Motion. The dashboard assembling. Use the real September screens rather than an illustration of them. Scope this to enrollment specifically. The product does not yet do more than that, and claiming otherwise is the exact failure the company is trying to correct.</p>
+          <div class="rowpills"><span class="pill rec">Animated</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">03</div>
+        <div>
+          <h5>Coverage</h5>
+          <p>The whole operation, named. One list of everything the platform covers, including the parts nobody puts on a homepage. Registration, staffing, health and medical, transportation, group and cabin assignment, billing and payments, communication, reporting, lead capture, the off-season.</p>
+          <p>Type and hairline rules. No screens. Set it dense on purpose, because the length of the list is the argument. This is the section that answers the single most repeated internal criticism of the current site, which is that it says Campminder does a lot without ever showing how much.</p>
+          <div class="rowpills"><span class="pill outline">Type only</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">04</div>
+        <div>
+          <h5>The team</h5>
+          <p>People who answer, and know your camp by name. Camp success, real faces, named, with what they actually do.</p>
+          <p>Photography of the Campminder team, not headshots on a grid. This sits high on purpose. It is the one claim a competitor cannot copy by writing it down, and it is buried on most software homepages including the current one.</p>
+          <div class="rowpills"><span class="pill outline">Photography</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">05</div>
+        <div>
+          <h5>Roles</h5>
+          <p>Everyone at camp has a seat. Each sub-section names a person and their role, what they get, and shows one screen. Owner and Director, Communications and Marketing, Business and Finance to start.</p>
+          <div class="rowpills"><span class="pill outline">Static set</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">06</div>
+        <div>
+          <h5>Features</h5>
+          <p>People meet products. Modular feature blocks, each crediting the Campminder team who built it. Registration and Staffing carry motion. Health and Campanion are static.</p>
+          <p>These blocks are the ones most likely to be reordered, swapped, or added to after launch, so build them to come apart.</p>
+          <div class="rowpills"><span class="pill rec">Two animated</span><span class="pill outline">Two static</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">07</div>
+        <div>
+          <h5>Testimonial</h5>
+          <p>One quote. Named camp, named person, long tenure, so it carries the years without stating them. Type led, small portrait or camp mark, no product screen.</p>
+          <div class="rowpills"><span class="pill outline">Transition</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">08</div>
+        <div>
+          <h5>Pricing</h5>
+          <p>An open question, not a decided section. If pricing appears, it is one number per suite, all in, no calculator and no per-camper math. If it does not, this comes out and the page gets shorter. Campminder is settling it before design starts. Build assuming it might not exist.</p>
+          <div class="rowpills"><span class="pill rec">Decision pending</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">09</div>
+        <div>
+          <h5>Proof</h5>
+          <p>Twenty-five years. The camps you already know. The customer logo wall, the Campanion App Store rating, and the years. Facts stated flat, no adjectives.</p>
+          <div class="rowpills"><span class="pill outline">Existing assets</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">10</div>
+        <div>
+          <h5>Close</h5>
+          <p>Unpack possible, and one call to action. The same lockup that appears everywhere else in the campaign.</p>
+          <div class="rowpills"><span class="pill outline">Type only</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section id="s06" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">06</div>
+    <h2 class="section-label">What is open.</h2>
+    <div class="section-body">
+      <p>The layout that comes with this brief is a starting point. It was built to give Campminder something concrete to react to and to get the design conversation moving, and it did that. It is not final and it is not precious. Treat it as the first draft of an argument rather than a specification to execute.</p>
+    </div>
+
+    <div class="ccards">
+      <div class="ccard">
+        <div class="ctop"><span class="pill dark">Fixed</span></div>
+        <h5>Do not change these</h5>
+        <div class="cdiv"></div>
+        <span class="clab">Settled with the client</span>
+        <ul class="aud">
+          <li>The territory and the hierarchy in 03 and 04</li>
+          <li>The Unpack possible tagline and its treatment</li>
+          <li>The guardrails in section 08</li>
+          <li>Everything on the page is live at launch</li>
+          <li>It works inside the current site shell</li>
+        </ul>
+      </div>
+      <div class="ccard">
+        <div class="ctop"><span class="pill now">Open</span></div>
+        <h5>Yours to decide</h5>
+        <div class="cdiv"></div>
+        <span class="clab">Bring us your version</span>
+        <ul class="aud">
+          <li>Section order, and how many sections there are</li>
+          <li>Combining, splitting, or cutting anything in 05</li>
+          <li>Visual language, typography, and colour within the brand</li>
+          <li>Where motion goes and how much of it there is</li>
+          <li>How product screens are framed and cropped</li>
+          <li>Page density and length</li>
+        </ul>
+      </div>
+      <div class="ccard">
+        <div class="ctop"><span class="pill outline">The test</span></div>
+        <h5>How we will judge it</h5>
+        <div class="cdiv"></div>
+        <span class="clab">Two questions</span>
+        <ul class="aud">
+          <li>Does a camp director understand, in the first screen, that Campminder covers the whole operation?</li>
+          <li>Does the proof arrive before they leave?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h5>If you think the order is wrong, say so.</h5>
+      <p>The order in section 05 is reasoned, and the reasoning is in the section notes, but it has not been tested against a design. You will see things in layout that are invisible in a list. A proposal that moves sections around and explains why is more useful to us than a faithful build of something that turns out not to work.</p>
+      <p>The one structural principle worth protecting is modularity. Paul wants to evolve this page every three to six months as new product ships, so blocks need to come apart, reorder, and be replaced without a rebuild.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section id="s07" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">07</div>
+    <h2 class="section-label">What we want.</h2>
+    <div class="section-body">
+      <p>Less a look than a set of behaviours. Where these conflict with each other, the earlier one wins.</p>
+    </div>
+
+    <div class="rail">
+      <div class="railrow">
+        <div class="rn">01</div>
+        <div>
+          <h5>Show the product. Do not describe it.</h5>
+          <p>Real screens from the real platform, current as of launch. The current site says Campminder has twenty-plus camp-specific tools and shows almost none of them. Every claim on the new page should have something visible sitting next to it.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">02</div>
+        <div>
+          <h5>Motion only where a task completes.</h5>
+          <p>Two moments, not a page that moves everywhere. The useful kind shows something getting done: a form filling, a dashboard assembling, a placement resolving. Decoration that moves is worse than stillness.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">03</div>
+        <div>
+          <h5>Real people, from real camps.</h5>
+          <p>Photography from actual customer camps and actual Campminder staff. No stock, no models, no rows of headshots. This is a business where the customers know each other, and anything staged will be recognised as staged.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">04</div>
+        <div>
+          <h5>One moment of real density.</h5>
+          <p>The coverage section. Most software homepages are a sequence of generous, airy sections that each say one thing. Somewhere on this page there should be a block that is dense on purpose, where the sheer amount of it is the message.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">05</div>
+        <div>
+          <h5>Editorial structure over marketing-page structure.</h5>
+          <p>Numbered rails, stacked rows with hairline dividers, oversized headlines carrying their own sections, pill labels used sparingly on data rather than as decoration. What we would rather avoid is the default of a tracked-out small-caps eyebrow above every headline and three even columns under it.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">06</div>
+        <div>
+          <h5>Plain language, in front.</h5>
+          <p>No acronyms, no API or webhook talk, nothing a camp director has to decode. Technical language earns a place only where someone can act on it. The audience is proud of being camp people rather than technology people.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">07</div>
+        <div>
+          <h5>It has to belong to the site it is on.</h5>
+          <p>The rest of campminder.com is not being redesigned. The new homepage should read as the most current page on the site, not as a page from a different site.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section id="s08" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">08</div>
+    <h2 class="section-label">Guardrails.</h2>
+    <div class="section-body">
+      <p>Set with Campminder's leadership, sales, product, and client success teams in the working session on August 3. These are not preferences. Each one exists because of something specific that happened.</p>
+    </div>
+
+    <div class="rail">
+      <div class="railrow">
+        <div class="rn">01</div>
+        <div>
+          <h5>No pain-point selling.</h5>
+          <p>We do not remind directors that their job is hard. They know. After fifteen years of writing that way, the company's own sales lead called it condescending. We show what they get instead.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">02</div>
+        <div>
+          <h5>No future tense.</h5>
+          <p>If it is not live, it is not on the page. No coming soon, no roadmap, no dates. Announcing ahead of delivery is what damaged trust in the first place, and this page is part of the repair.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">03</div>
+        <div>
+          <h5>No speed claims.</h5>
+          <p>Nothing about shipping faster, innovating faster, or moving quickly. Speed gets proven by a visible release record and then shown, not asserted first.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">04</div>
+        <div>
+          <h5>No running against anyone.</h5>
+          <p>No competitor named, referenced, or answered. No comparison tables, no versus pages, no implied contrast. Campminder states what it stands for and lets the customer draw the conclusion.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">05</div>
+        <div>
+          <h5>No tech talk without a use.</h5>
+          <p>Modern under the hood, plain on the page. Technical language earns its place only when a camp director can act on it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section id="s09" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">09</div>
+    <h2 class="section-label">Process.</h2>
+    <div class="section-body">
+      <p>How this runs, who decides what, and what has to arrive before it can.</p>
+    </div>
+
+    <p class="sub">09-01 Who decides what</p>
+    <div class="ccards" style="margin-top:0;">
+      <div class="ccard">
+        <div class="ctop"><span class="pill outline">Studio Parkside</span></div>
+        <h5>Brand and message</h5>
+        <div class="cdiv"></div>
+        <span class="clab">Owns</span>
+        <ul class="aud">
+          <li>Territory, hierarchy, and guardrails</li>
+          <li>Headlines and section messaging</li>
+          <li>Creative direction and design review</li>
+          <li>Brand review before release</li>
+        </ul>
+      </div>
+      <div class="ccard">
+        <div class="ctop"><span class="pill outline">Groundwrk</span></div>
+        <h5>Design and build</h5>
+        <div class="cdiv"></div>
+        <span class="clab">Owns</span>
+        <ul class="aud">
+          <li>Layout, visual execution, and motion</li>
+          <li>Development, deployment, and QA</li>
+          <li>Responsive behaviour and performance</li>
+          <li>Proposing a better structure than this one</li>
+        </ul>
+      </div>
+      <div class="ccard">
+        <div class="ctop"><span class="pill outline">Campminder</span></div>
+        <h5>Product and assets</h5>
+        <div class="cdiv"></div>
+        <span class="clab">Owns</span>
+        <ul class="aud">
+          <li>Product screens, current at launch</li>
+          <li>Camp photography with rights cleared</li>
+          <li>Testimonial sourcing and approval</li>
+          <li>The pricing decision</li>
+          <li>Confirming every number on the page</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub">09-02 What has to arrive before design can finish</p>
+    <div class="acards" style="margin-top:0;">
+      <div class="acard">
+        <div class="atop"><span class="anum">01</span><span class="pill now">Blocking</span></div>
+        <h5>The coverage list</h5>
+        <p>Everything the platform does, written out in full, including the areas that never make a homepage. Section 03 is only as good as that list is complete.</p>
+      </div>
+      <div class="acard">
+        <div class="atop"><span class="anum">02</span><span class="pill now">Blocking</span></div>
+        <h5>Product screens</h5>
+        <p>The enrollment views first, then Registration and Staffing for motion, then one per role. Final visual state, since the page ships the same week the product does.</p>
+      </div>
+      <div class="acard">
+        <div class="atop"><span class="anum">03</span><span class="pill now">Blocking</span></div>
+        <h5>Camp photography</h5>
+        <p>Real customer camps, rights cleared. The hero and the team section both run on it, so there is no page without it.</p>
+      </div>
+      <div class="acard">
+        <div class="atop"><span class="anum">04</span><span class="pill soon">Needed</span></div>
+        <h5>One customer testimonial</h5>
+        <p>On the record, named camp and named person, from a long-tenure camp.</p>
+      </div>
+      <div class="acard">
+        <div class="atop"><span class="anum">05</span><span class="pill soon">Needed</span></div>
+        <h5>Confirmed numbers</h5>
+        <p>The Campanion review count and rating, the support score, and the camp family total. One source and one owner each, and a way to refresh them after launch.</p>
+      </div>
+      <div class="acard">
+        <div class="atop"><span class="anum">06</span><span class="pill soon">Needed</span></div>
+        <h5>The pricing decision</h5>
+        <p>Whether the pricing block in section 05 exists at all, and if it does, a number per suite.</p>
+      </div>
+    </div>
+
+    <p class="sub">09-03 Dates and dependencies</p>
+    <div class="cad">
+      <div class="cadrow">
+        <div class="when">September 1<small>Fixed</small></div>
+        <div>
+          <h5>Registration goes generally available.</h5>
+          <p>The product milestone the page depends on. A long-form announcement publishes the same day, and the homepage links to it rather than repeating it.</p>
+        </div>
+      </div>
+      <div class="cadrow">
+        <div class="when">September 7<small>Target</small></div>
+        <div>
+          <h5>The homepage goes live.</h5>
+          <p>Labor Day week, after the announcement, so the announcement has somewhere to send people. This date moves only if a named feature is not live.</p>
+        </div>
+      </div>
+      <div class="cadrow">
+        <div class="when">Ongoing<small>After launch</small></div>
+        <div>
+          <h5>The page keeps changing.</h5>
+          <p>Every three to six months as new product ships. Build it so a block can be swapped, reordered, or added by Campminder's team without coming back to us.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="sub">09-04 Not in this scope</p>
+    <div class="section-body">
+      <p>Navigation and information architecture. Interior pages. Full page copy beyond headlines and section messaging. Photography, video, and illustration production. Anything on the site other than this one page.</p>
+    </div>
+
+    <div class="callout">
+      <h5>One review before anything goes live.</h5>
+      <p>Weekly working sessions through design and build, then a brand and design review before release. Feedback runs on a one business day turnaround in both directions.</p>
+      <p>If something hits a wall, on design or on copy, raise it early rather than solving around it. Most of the constraints in this brief exist for a reason, and the ones that do not should be identified and dropped.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Studio Parkside for Campminder &middot; Fall Campaign &middot; Homepage creative brief &middot; 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>

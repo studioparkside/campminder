@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
-<title>Fall Campaign Message Hierarchy — Campminder</title>
+<title>Homepage Creative Brief — Campminder</title>
 <style>
 /* ─────────────────────────────────────────────
-   Campminder Fall Campaign — Message Hierarchy
+   Campminder Fall Campaign — Homepage Creative Brief
    Design tokens inherited from the territories page.
    Studio Parkside, August 2026
 ───────────────────────────────────────────── */
@@ -65,7 +65,7 @@ body {
 }
 .pill.client { color: var(--mid); background: transparent; border-color: var(--rule); }
 .pill.dark { color: #ffffff; background: var(--ink); border-color: var(--ink); }
-.pill.outline { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
+.pill.outline { color: var(--mid); background: transparent; border-color: var(--rule); }
 
 /* ── Masthead ───────────────────────────────── */
 .masthead {
@@ -151,66 +151,41 @@ body {
 .block.leadblock .use-l { color: rgba(255,255,255,0.62); font-size: 12px; }
 .block.leadblock .use { color: rgba(255,255,255,0.88); font-size: 21px; max-width: 30ch; line-height: 1.4; }
 
+/* ── Subsection label ───────────────────────── */
+.sub {
+  font-size: 15px; font-weight: 700; color: var(--ink);
+  letter-spacing: -0.01em; margin: 56px 0 18px;
+}
+
+/* ── Scope at a glance ──────────────────────── */
+.stats {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--rule); border-radius: 14px;
+  background: var(--card); overflow: hidden; margin-top: 12px;
+}
+.stats > div { padding: 28px 28px 24px; border-left: 1px solid var(--rule); }
+.stats > div:first-child { border-left: none; }
+.stats .fig {
+  display: block; font-size: clamp(40px, 5.4vw, 62px); font-weight: 700;
+  letter-spacing: -0.045em; line-height: 1; color: var(--accent);
+  font-variant-numeric: tabular-nums; margin-bottom: 12px;
+}
+.stats .fl { display: block; font-size: 26px; font-weight: 700; color: var(--ink); letter-spacing: -0.028em; line-height: 1.15; margin-bottom: 12px; }
+.stats .sb { list-style: none; margin: 0; padding: 0; }
+.stats .sb li { font-size: 16px; color: var(--mid); line-height: 1.4; padding: 3px 0 3px 17px; position: relative; }
+.stats .sb li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-line); }
+.stats .fl:last-child { margin-bottom: 0; }
+
 /* ── Channel cards ──────────────────────────── */
 .ccards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
 .ccard { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 26px 26px 26px; display: flex; flex-direction: column; }
-.ccard .ctop { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 34px; }
+.ccard .ctop { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
 .ccard h5 { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.032em; line-height: 1.1; }
 .ccard .cdiv { border-top: 1px solid var(--hair); margin: 20px 0 16px; }
-.ccard .cnum { font-size: 13px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
-.carries { font-size: 17px; font-weight: 700; color: var(--accent); letter-spacing: -0.022em; line-height: 1.3; }
+.ccard .clab { display: block; font-size: 11px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink); margin-bottom: 9px; }
 .aud { list-style: none; margin: 0; padding: 0; }
 .aud li { font-size: 17px; color: var(--mid); line-height: 1.4; padding: 4px 0 4px 18px; position: relative; }
-.aud li::before { content: ""; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--ink); }
-
-/* ── Channel band ───────────────────────────── */
-.chband {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-  border: 1px solid var(--rule); border-radius: 14px;
-  background: var(--card); overflow: hidden; margin-top: 44px;
-}
-.chband > div { padding: 30px 28px 28px; border-left: 1px solid var(--rule); }
-.chband > div:first-child { border-left: none; }
-.chband h5 { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.032em; line-height: 1.1; margin-bottom: 22px; }
-.chlab { display: block; font-size: 14px; font-weight: 650; color: var(--light); letter-spacing: -0.01em; margin-bottom: 7px; }
-.chband .carries { font-size: 20px; letter-spacing: -0.026em; line-height: 1.24; }
-
-/* ── Channel map rows ───────────────────────── */
-.cmap { margin-top: 56px; border-top: 1px solid var(--rule); }
-.cmrow {
-  display: grid; grid-template-columns: 210px minmax(0, 1fr) minmax(0, 1fr);
-  gap: 52px; padding: 28px 0; border-bottom: 1px solid var(--hair); align-items: start;
-}
-.cmrow.head { padding: 13px 0; border-bottom: 1px solid var(--rule); }
-.cmh { font-size: 14px; font-weight: 650; color: var(--light); letter-spacing: -0.01em; }
-.cmname { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.032em; line-height: 1.1; }
-.cmpills { margin-top: 12px; }
-.cmrow p { font-size: 16.5px; color: var(--mid); line-height: 1.5; }
-.cmlab { display: none; font-size: 14px; font-weight: 650; color: var(--light); margin-bottom: 6px; }
-
-/* ── Note ───────────────────────────────────── */
-.note {
-  margin-top: 30px; max-width: 760px; border: 1px solid var(--accent-line);
-  background: var(--accent-soft); border-radius: 14px; padding: 20px 24px;
-  font-size: 18px; line-height: 1.5; color: var(--mid);
-}
-.note strong { color: var(--accent); font-weight: 700; }
-.note p + p { margin-top: 11px; }
-
-/* ── Topic rows ─────────────────────────────── */
-.trows { margin-top: 44px; border-top: 1px solid var(--rule); }
-.trow { padding: 38px 0 42px; border-bottom: 1px solid var(--hair); }
-.thead { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; margin-bottom: 12px; }
-.thead h5 { font-size: clamp(29px, 3.8vw, 38px); font-weight: 700; color: var(--accent); letter-spacing: -0.036em; line-height: 1.08; margin-right: 4px; }
-.trow > p { font-size: 17.5px; color: var(--mid); line-height: 1.5; max-width: 62ch; }
-
-/* ── Topic cards ────────────────────────────── */
-.tcards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
-.tcard .cn { display: block; font-size: 12px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: 0.05em; margin-bottom: 12px; }
-.tcard h5 { font-size: 19px; }
-.tcard { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 24px 24px 22px; display: flex; flex-direction: column; }
-.tcard h5 { font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.028em; line-height: 1.16; margin-bottom: 8px; }
-.tcard p { font-size: 16px; color: var(--mid); line-height: 1.45; }
+.aud li::before { content: ""; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-line); }
 
 /* ── Wireframe, dark ────────────────────────── */
 .frame { border: 1px solid var(--dark); border-radius: 14px; background: var(--dark); overflow: hidden; }
@@ -231,6 +206,7 @@ body {
 .wbar .wn { font-size: 13px; font-weight: 700; color: var(--dark-accent); font-variant-numeric: tabular-nums; letter-spacing: 0.05em; margin-right: 4px; }
 .wbar .wname { font-size: 12px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--dark-low); margin-right: 6px; }
 .pill.dk { font-size: 10px; padding: 4px 10px; color: var(--dark-mid); background: transparent; border-color: rgba(255,255,255,0.22); }
+.pill.dkgo { font-size: 10px; padding: 4px 10px; color: var(--dark); background: var(--dark-accent); border-color: var(--dark-accent); }
 .wblock h4 { font-size: clamp(28px, 4.4vw, 48px); font-weight: 700; color: #ffffff; letter-spacing: -0.038em; line-height: 1.05; margin-bottom: 12px; max-width: 22ch; }
 .wblock .wsub { font-size: clamp(18px, 2vw, 22px); font-weight: 650; color: rgba(255,255,255,0.82); letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 12px; max-width: 34ch; }
 .wblock p.wc { font-size: 17.5px; color: var(--dark-mid); line-height: 1.5; max-width: 54ch; }
@@ -272,10 +248,10 @@ body {
 /* ── Asset cards ────────────────────────────── */
 .acards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 44px; }
 .acard { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 26px 26px 24px; }
-.acard .atop { display: flex; align-items: center; gap: 8px; margin-bottom: 34px; }
+.acard .atop { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
 .acard .anum { font-size: 13px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
 .pill.now { color: #ffffff; background: var(--accent); border-color: var(--accent); }
-.pill.soon { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
+.pill.soon { color: var(--light); background: transparent; border-color: var(--rule); }
 .acard h5 { font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -0.028em; line-height: 1.14; margin-bottom: 9px; }
 .acard p { font-size: 16.5px; color: var(--mid); line-height: 1.45; }
 
@@ -309,24 +285,59 @@ body {
 .foot .wrap { padding-top: 36px; padding-bottom: 64px; }
 .foot p { font-size: 14px; color: var(--light); font-weight: 600; }
 
-/* ── Row pills ──────────────────────────────── */
+/* ── Numbered rail rows ─────────────────────── */
+.rail { margin-top: 44px; border-top: 1px solid var(--rule); }
+.railrow {
+  display: grid; grid-template-columns: 94px minmax(0, 1fr); gap: 28px;
+  padding: 32px 0; border-bottom: 1px solid var(--hair); align-items: start;
+}
+.railrow .rn {
+  font-size: clamp(32px, 4vw, 44px); font-weight: 700; color: var(--accent-line);
+  letter-spacing: -0.045em; line-height: 0.86; font-variant-numeric: tabular-nums;
+}
+.railrow h5 { font-size: clamp(23px, 2.9vw, 29px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.14; margin-bottom: 9px; }
+.railrow p { font-size: 17.5px; color: var(--mid); line-height: 1.5; max-width: 60ch; }
+.railrow p + p { margin-top: 12px; }
+.railrow .rowpills { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 14px; }
+
+/* ── Cadence rows ───────────────────────────── */
+.cad { margin-top: 44px; border-top: 1px solid var(--rule); }
+.cadrow {
+  display: grid; grid-template-columns: 152px minmax(0, 1fr); gap: 28px;
+  padding: 30px 0; border-bottom: 1px solid var(--hair); align-items: start;
+}
+.cadrow .when { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: -0.015em; line-height: 1.3; }
+.cadrow .when small { display: block; font-size: 13px; font-weight: 600; color: var(--light); letter-spacing: 0; margin-top: 5px; }
+.cadrow h5 { font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.028em; line-height: 1.16; margin-bottom: 8px; }
+.cadrow p { font-size: 17px; color: var(--mid); line-height: 1.47; max-width: 60ch; }
+.cadrow .rowpills { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 13px; }
 .pill.fixed { color: var(--mid); background: transparent; border-color: var(--rule); }
+.pill.rec { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
+
+/* ── Callout ────────────────────────────────── */
+.callout {
+  margin-top: 44px; border: 1px solid var(--accent-line); background: var(--accent-soft);
+  border-radius: 14px; padding: 34px 36px;
+}
+.callout h5 { font-size: 25px; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.16; margin-bottom: 12px; }
+.callout p { font-size: 18px; color: var(--mid); line-height: 1.5; max-width: 66ch; }
+.callout p + p { margin-top: 13px; }
+.callout strong { color: var(--ink); font-weight: 700; }
 
 /* ── Responsive ─────────────────────────────── */
 @media (max-width: 900px) {
+  .railrow { grid-template-columns: 62px minmax(0, 1fr); gap: 18px; }
+  .cadrow { grid-template-columns: 1fr; gap: 12px; padding: 26px 0; }
+  .callout { padding: 26px 24px; }
   .masthead { grid-template-columns: 1fr; gap: 44px; align-items: start; padding-top: 64px; padding-bottom: 48px; }
   .stack { grid-template-columns: 1fr; }
   .stack-side { grid-template-rows: none; }
   .block.leadblock { padding: 34px 30px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats > div:nth-child(3) { border-left: none; }
+  .stats > div:nth-child(n+3) { border-top: 1px solid var(--rule); }
   .ccards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .tcards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .acards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cmrow { grid-template-columns: 1fr; gap: 16px; padding: 26px 0; }
-  .cmrow.head { display: none; }
-  .cmlab { display: block; }
-  .chband { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .chband > div:nth-child(3) { border-left: none; }
-  .chband > div:nth-child(n+3) { border-top: 1px solid var(--rule); }
   .seqcols { grid-template-columns: 1fr; gap: 32px; }
   .wsuites { grid-template-columns: 1fr; }
   .wsuite { min-height: 0; }
@@ -338,10 +349,9 @@ body {
   .wrap { padding: 18px 22px; }
   .section-inner { padding: 56px 0; }
   .ccards { grid-template-columns: 1fr; }
-  .tcards { grid-template-columns: 1fr; }
-  .chband { grid-template-columns: 1fr; }
-  .chband > div { border-left: none; }
-  .chband > div + div { border-top: 1px solid var(--rule); }
+  .stats { grid-template-columns: 1fr; }
+  .stats > div { border-left: none; }
+  .stats > div + div { border-top: 1px solid var(--rule); }
   .copycard .cc-body { padding: 32px 26px 28px; }
   .wblock { padding: 32px 22px; }
   .acards { grid-template-columns: 1fr; }
@@ -353,8 +363,7 @@ body {
 }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 </style>
-</head>
-<body>
+</head><body>
 
 <div class="conf">
   <div class="wrap">
@@ -369,31 +378,95 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 <header class="wrap masthead">
   <div>
     <span class="cm-name">Campminder <span class="sep">&middot;</span> Fall Campaign</span>
-    <h1>Fall Campaign <span class="accent">Message Hierarchy</span></h1>
+    <h1>Homepage <span class="accent">Creative Brief</span></h1>
+    <p class="mast-sub">Details and preliminary direction for Groundwrk.</p>
   </div>
   <nav class="toc" aria-label="Contents">
-    <a href="#s01"><span class="n">01</span> Territory</a>
-    <a href="#s02"><span class="n">02</span> Hierarchy</a>
-    <a href="#s03"><span class="n">03</span> Homepage</a>
-    <a href="#s04"><span class="n">04</span> Channel map</a>
-    <a href="#s05"><span class="n">05</span> Email</a>
-    <a href="#s06"><span class="n">06</span> Social</a>
-    <a href="#s07"><span class="n">07</span> Sales narrative</a>
-    <a href="#s08"><span class="n">08</span> Assets</a>
+    <a href="#s01"><span class="n">01</span> Assignment</a>
+    <a href="#s02"><span class="n">02</span> Background</a>
+    <a href="#s03"><span class="n">03</span> Territory</a>
+    <a href="#s04"><span class="n">04</span> Hierarchy</a>
+    <a href="#s05"><span class="n">05</span> Layout</a>
+    <a href="#s06"><span class="n">06</span> What's open</a>
+    <a href="#s07"><span class="n">07</span> UX requests</a>
+    <a href="#s08"><span class="n">08</span> Guardrails</a>
+    <a href="#s09"><span class="n">09</span> Assets</a>
   </nav>
 </header>
 
-<!-- 01 ───────────────────────────────────────── -->
+<!-- 01 -->
 <section id="s01" class="wrap section">
   <div class="section-inner">
     <div class="snum">01</div>
-    <h2 class="section-label">Territory.</h2>
+    <h2 class="section-label">Assignment.</h2>
     <div class="section-body">
-      <p>The territory is the conceptual foundation for every piece of communication in the campaign. It extends through the homepage, the sales conversation, the emails, and the social posts, so all of them tell one story.</p>
-      <p>This territory says that Campminder is one comprehensive platform covering every role at a camp, with the people and the intelligence behind it.</p>
+      <p>A new homepage for campminder.com, live the week of September 7, alongside the Registration release.</p>
+      <p>It works inside the existing site. Same shell, same navigation, same interior pages. One page, not a redesign.</p>
+      <p>Everything named on the page has to be live the day it goes up. That's the one hard rule, and it comes from Campminder.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section id="s02" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">02</div>
+    <h2 class="section-label">Background.</h2>
+
+    <p class="sub" style="margin-top:0;">02-01 Why now</p>
+    <div class="section-body">
+      <p>The homepage hasn't meaningfully changed in five years, because there was never anything new enough to put on it. That changed this fall. Campminder ships more product between September and December than it has in three years, starting with Registration on September 1, then Campminder Intelligence, staffing, and Ask Camp, the assistant inside the Campanion parent app.</p>
+      <p><strong>Campminder Intelligence runs across the whole platform.</strong> Registration, staffing, health, and finance in one view. It isn't an enrollment report and it shouldn't be presented as one.</p>
     </div>
 
-    <div class="copycard" style="margin-top:44px;">
+    <p class="sub">02-02 Pressure</p>
+    <div class="section-body">
+      <p><strong>Momentum.</strong> A newer competitor publishes constantly and reads as software built for a younger generation of camp directors. Campminder doesn't need to answer them. It needs to stop being abstract.</p>
+      <p><strong>Trust.</strong> Campminder announced things ahead of delivery and customers noticed. Only what's live goes on the page.</p>
+      <p><strong>New business.</strong> The commercial focus is net-new for the first time in years, with attention on camps already paying for something else.</p>
+    </div>
+
+    <p class="sub">02-03 Who lands here</p>
+    <div class="section-body">
+      <p>Camps shopping for a platform, and existing customers on their way to log in. The page works for both or it doesn't work.</p>
+    </div>
+
+    <p class="sub">02-04 The current page</p>
+    <div class="section-body">
+      <p>Campminder's analytics, January 1 to August 7, 2026.</p>
+    </div>
+
+    <div class="stats" style="margin-top:20px;">
+      <div>
+        <span class="fig">9s</span>
+        <span class="fl">Average engagement per session on the homepage.</span>
+      </div>
+      <div>
+        <span class="fig">14%</span>
+        <span class="fl">Share of users who reach the bottom of a page.</span>
+      </div>
+      <div>
+        <span class="fig">4.2</span>
+        <span class="fl">Header link clicks per user, from 461,962 total.</span>
+      </div>
+      <div>
+        <span class="fig">6x</span>
+        <span class="fl">One article draws six times the sessions of the features page.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section id="s03" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">03</div>
+    <h2 class="section-label">Territory.</h2>
+    <div class="section-body">
+      <p>Selected with Campminder on August 6, and settled. It sits under the homepage, the sales conversation, the emails, and the social posts. Direction, not final page copy.</p>
+    </div>
+
+    <div class="copycard" style="margin-top:40px;">
       <div class="cc-body">
         <h3>One for all.</h3>
         <p class="cc-sub">One platform for everyone your camp connects to.</p>
@@ -402,17 +475,21 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
         <p class="cc-tagrow"><span class="tagline">Unpack possible.</span><span class="cta">Book a demo</span></p>
       </div>
     </div>
+
+    <div class="callout">
+      <h5>The tagline doesn't change.</h5>
+      <p><strong>Unpack possible</strong> is the existing brand tagline. Same lockup every time. It sits next to the call to action, and it ends the page.</p>
+    </div>
   </div>
 </section>
 
-<!-- 02 ───────────────────────────────────────── -->
-<section id="s02" class="wrap section">
+<!-- 04 -->
+<section id="s04" class="wrap section">
   <div class="section-inner">
-    <div class="snum">02</div>
+    <div class="snum">04</div>
     <h2 class="section-label">Hierarchy.</h2>
-    <div class="section-body" style="margin-bottom:44px;">
-      <p>The hierarchy is how different types of information combine across all of our communication channels.</p>
-      <p>The conceptual lead is the idea we open with. The narrative support shapes how a conversation sounds once someone is listening. The structural support decides how a page or an email gets built and in what order.</p>
+    <div class="section-body" style="margin-bottom:40px;">
+      <p>Three ideas doing three different jobs. Any section you propose should trace back to one of them.</p>
     </div>
     <div class="stack">
       <div class="block leadblock">
@@ -420,8 +497,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
         <div class="nm">One for all</div>
         <div class="role">One platform, every role at camp.</div>
         <div class="bdiv"></div>
-        <span class="use-l">Where it runs</span>
-        <div class="use">Homepage hero. Subject lines. The first line of a demo.</div>
+        <span class="use-l">On this page</span>
+        <div class="use">The hero. The claim the rest of the page pays off.</div>
       </div>
       <div class="stack-side">
         <div class="block">
@@ -429,37 +506,33 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <div class="nm">An extension of your team</div>
           <div class="role">The people who run the platform with you.</div>
           <div class="bdiv"></div>
-          <span class="use-l">Where it runs</span>
-          <div class="use">Sales narrative. Camp success. Who signs an email.</div>
+          <span class="use-l">On this page</span>
+          <div class="use">The camp success section, and the tone everywhere else.</div>
         </div>
         <div class="block">
           <span class="lbl">Structural Support</span>
           <div class="nm">Smart tools, real people</div>
           <div class="role">Features introduced by the person who does the work.</div>
           <div class="bdiv"></div>
-          <span class="use-l">Where it runs</span>
-          <div class="use">Role sections. Email audiences. The name of the fall feature campaign.</div>
+          <span class="use-l">On this page</span>
+          <div class="use">How the role and feature blocks get built and labelled.</div>
         </div>
       </div>
-    </div>
-
-    <div class="note">
-      Planning language only. These names, the headlines especially, don&rsquo;t appear in anything customer-facing.
     </div>
   </div>
 </section>
 
-<!-- 03 ───────────────────────────────────────── -->
-<section id="s03" class="wrap section">
+<!-- 05 -->
+<section id="s05" class="wrap section">
   <div class="section-inner">
-    <div class="snum">03</div>
-    <h2 class="section-label">Homepage.</h2>
+    <div class="snum">05</div>
+    <h2 class="section-label">Layout.</h2>
     <div class="section-body">
-      <p>This is a wireframe preview of the homepage so we can start to imagine how the content and the presentation come together. The claim holds the top of the page and the proof arrives as you scroll.</p>
-      <p>Everything under the hero is modular so the order can change as we learn which features matter most.</p>
+      <p>Structure and content order, block by block. The claim holds the top of the page and the proof arrives as you scroll. Everything under the hero is modular, so the order can change as we learn which features matter most.</p>
+      <p>Headlines here are direction, not final page copy. Read section 06 before treating any of it as fixed.</p>
     </div>
 
-    <div class="frame" style="margin-top:44px;">
+    <div class="frame" style="margin-top:40px;">
       <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">campminder.com</span><span class="frame-tag">Wireframe &middot; structure only, not design</span></div>
       <div class="wire">
 
@@ -499,7 +572,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <p class="wsub">Everything your camp runs on.</p>
           <p class="wc">Registration, staffing, health and medical, transportation, group and cabin assignment, billing and payments, communication, reporting, lead capture, and the off-season.</p>
           <div class="wviz">
-            <b>Visual</b>Platform visuals and typography set in dense tiles, each one contained.
+            <b>Visual</b>Platform visuals and typography set in dense tiles, each one contained. This is the dense moment in UX request 04.
             <div class="bars"><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div></div>
             <div class="bars"><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div></div>
           </div>
@@ -592,7 +665,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <div class="wbar"><span class="wn">09</span><span class="wname">Pricing</span><span class="pill dk">CTA</span></div>
           <h4>Priced for your camp.</h4>
           <p class="wsub">Pick the suite that fits how you operate.</p>
-          <p class="wc">Three suites. Built around how much of the season you run with us.</p>
+          <p class="wc">Three suites. Built around how much of the season you run with us. Whether numbers appear here is still open on the Campminder side.</p>
           <div class="wviz">
             <div class="wsuites">
               <div class="wsuite">
@@ -636,656 +709,214 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
         </div>
 
       </div>
-      <div class="frame-note"></div>
+      <div class="frame-note">Starting point &middot; not final</div>
     </div>
   </div>
 </section>
 
-<!-- 04 ───────────────────────────────────────── -->
-<section id="s04" class="wrap section">
-  <div class="section-inner">
-    <div class="snum">04</div>
-    <h2 class="section-label">Channel map.</h2>
-    <div class="chband">
-      <div>
-        <h5>Homepage</h5>
-        <span class="chlab">Message hierarchy</span>
-        <p class="carries">One for all</p>
-      </div>
-      <div>
-        <h5>Email</h5>
-        <span class="chlab">Message hierarchy</span>
-        <p class="carries">An extension of your team</p>
-      </div>
-      <div>
-        <h5>Social</h5>
-        <span class="chlab">Message hierarchy</span>
-        <p class="carries">Smart tools, real people</p>
-      </div>
-      <div>
-        <h5>Sales</h5>
-        <span class="chlab">Message hierarchy</span>
-        <p class="carries">An extension of your team</p>
-      </div>
-    </div>
-
-    <div class="cmap">
-      <div class="cmrow head">
-        <span></span>
-        <span class="cmh">Audience</span>
-        <span class="cmh">Goals</span>
-      </div>
-      <div class="cmrow">
-        <div>
-          <div class="cmname">Homepage</div>
-        </div>
-        <div>
-          <span class="cmlab">Audience</span>
-          <p>Camps actively shopping for a platform, and current customers arriving to log in.</p>
-        </div>
-        <div>
-          <span class="cmlab">Goals</span>
-          <ul class="aud">
-            <li>Show the whole platform in one scroll</li>
-            <li>Prove it with real screens</li>
-          </ul>
-        </div>
-      </div>
-      <div class="cmrow">
-        <div>
-          <div class="cmname">Email</div>
-        <div class="cmpills"><span class="pill fixed">21 emails</span></div>
-        </div>
-        <div>
-          <span class="cmlab">Audience</span>
-          <p>Prospects in the funnel and current customers.</p>
-        </div>
-        <div>
-          <span class="cmlab">Goals</span>
-          <ul class="aud">
-            <li>Put a person&rsquo;s name on every send</li>
-            <li>Support new features and releases</li>
-          </ul>
-        </div>
-      </div>
-      <div class="cmrow">
-        <div>
-          <div class="cmname">Social</div>
-        <div class="cmpills"><span class="pill fixed">35 posts</span></div>
-        </div>
-        <div>
-          <span class="cmlab">Audience</span>
-          <p>Camp directors, owners, and the wider industry, along with camp staff, camp families, and prospective hires.</p>
-        </div>
-        <div>
-          <span class="cmlab">Goals</span>
-          <ul class="aud">
-            <li>Make the release record visible</li>
-            <li>Show the team behind the product</li>
-            <li>Keep a steady presence between releases</li>
-          </ul>
-        </div>
-      </div>
-      <div class="cmrow">
-        <div>
-          <div class="cmname">Sales</div>
-        </div>
-        <div>
-          <span class="cmlab">Audience</span>
-          <p>Camps choosing for the first time or switching, Classic camps with room to grow, and customers coming up for renewal.</p>
-        </div>
-        <div>
-          <span class="cmlab">Goals</span>
-          <ul class="aud">
-            <li>One conversation, three ways in</li>
-            <li>Answer what comes up without naming anyone</li>
-            <li>Lead with the demo</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 ───────────────────────────────────────── -->
-<section id="s05" class="wrap section">
-  <div class="section-inner">
-    <div class="snum">05</div>
-    <h2 class="section-label">Email.</h2>
-    <div class="section-body">
-      <p><strong>Smart tools, real people.</strong> Below, suggested email topics and amounts for customer communications and marketing emails. Emails are signed by a person rather than the brand to demonstrate the deep relationship between the Campminder team and every camp on the platform.</p>
-    </div>
-
-    <div class="note">
-      This is the complete fall campaign recommendation in one place. Some of this overlaps with your existing communications calendar. The flow names below are for internal reference and wouldn&rsquo;t appear in an email.
-    </div>
-
-
-    <div class="trows">
-      <div class="trow">
-        <div class="thead">
-          <h5>Platform overview</h5><span class="pill">Prospects</span><span class="pill fixed">4 emails</span>
-        </div>
-        <p>The platform, then how to shop, then the people behind it, then a camp like theirs.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>One for all</h5>
-            <p>What the platform covers, end to end.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>How to shop</h5>
-            <p>The questions worth asking any vendor, including us.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>The people</h5>
-            <p>The camp success team, before anyone asks.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">04</span>
-            <h5>A camp like yours</h5>
-            <p>A testimonial, then a demo.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>Upgrades</h5><span class="pill">Customers</span><span class="pill fixed">4 emails</span>
-        </div>
-        <p>What their camp runs on today, then the parent side, then the reporting side, then an invitation to meet the team.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>What your suite covers</h5>
-            <p>The breadth and depth of what Classic includes today.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>Parent upgrades</h5>
-            <p>Campanion, and what families get.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>Put your data to work</h5>
-            <p>Campminder Intelligence, across the whole operation.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">04</span>
-            <h5>Meet the team</h5>
-            <p>A webinar invitation, hosted by the people they&rsquo;d work with.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>New releases</h5><span class="pill">Customers</span><span class="pill fixed">6 emails</span>
-        </div>
-        <p>One per release. The feature, and the person or team who built it.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>Registration</h5>
-            <p>The new registration experience, and who built it.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>Ask Camp</h5>
-            <p>The assistant inside Campanion. No handbook required.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>Campminder Intelligence</h5>
-            <p>One view across registration, staffing, health, and finance.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">04</span>
-            <h5>Staffing</h5>
-            <p>Hiring and onboarding in one place.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">05</span>
-            <h5>Campanion</h5>
-            <p>The parent side, and what&rsquo;s new in it.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">06</span>
-            <h5>Release notes</h5>
-            <p>Everything else that shipped, with names on it.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>Webinars</h5><span class="pill">Customers</span><span class="pill fixed">4 emails</span>
-        </div>
-        <p>Invite and recap, twice. One for Professional camps, one for Classic. The product on screen, live.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>Classic invite</h5>
-            <p>The product on screen, live.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>Classic recap</h5>
-            <p>For everyone who didn&rsquo;t attend.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>Professional invite</h5>
-            <p>The product on screen, live.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">04</span>
-            <h5>Professional recap</h5>
-            <p>For everyone who didn&rsquo;t attend.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>After summer</h5><span class="pill">Prospects</span><span class="pill fixed">3 emails</span>
-        </div>
-        <p>For prospects who went somewhere else. How the season went, what shipped while they were running camp, and an invitation to talk it through.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>How did the summer go</h5>
-            <p>No pitch, no product.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>What shipped</h5>
-            <p>While they were running camp.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>Compare notes</h5>
-            <p>A real conversation about how the season went, and what they&rsquo;d try next year.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 ───────────────────────────────────────── -->
+<!-- 06 -->
 <section id="s06" class="wrap section">
   <div class="section-inner">
     <div class="snum">06</div>
-    <h2 class="section-label">Social.</h2>
+    <h2 class="section-label">What's open.</h2>
     <div class="section-body">
-      <p>LinkedIn leads and Instagram supports. Social feeds reward a face, so photography and people&rsquo;s names carry more weight here.</p>
-    </div>
-
-    <div class="note">
-      This is the complete fall campaign recommendation in one place. Some of this overlaps with your existing communications calendar. The series names below are for internal reference and wouldn&rsquo;t appear in a post.
-    </div>
-
-
-    <div class="trows">
-      <div class="trow">
-        <div class="thead">
-          <h5>Registration</h5><span class="pill">LinkedIn</span><span class="pill fixed">4 posts</span>
-        </div>
-        <p>Announcing the new look of registration, and the team who built it.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>It&rsquo;s live</h5>
-            <p>Registration ships. Said plainly, no build-up.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>What changed</h5>
-            <p>The parent side, before and after.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>Who built it</h5>
-            <p>The team behind the release, with their names on it.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">04</span>
-            <h5>In use</h5>
-            <p>A camp&rsquo;s first season on the new flow.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>Faces and features</h5><span class="pill">LinkedIn</span><span class="pill fixed">8 posts</span>
-        </div>
-        <p>Our team&rsquo;s names and faces, on the two features carried across the fall.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>Campminder Intelligence</h5>
-            <p>What it does, in plain language.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>The team behind Intelligence</h5>
-            <p>Their names, their faces.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>Why it works this way</h5>
-            <p>The call, from the person who made it.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">04</span>
-            <h5>Intelligence in use</h5>
-            <p>A camp reading its whole operation, not just one report.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">05</span>
-            <h5>Staffing</h5>
-            <p>What it does, in plain language.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">06</span>
-            <h5>The team behind Staffing</h5>
-            <p>Their names, their faces.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">07</span>
-            <h5>How it got built</h5>
-            <p>From the people who did it.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">08</span>
-            <h5>Staffing in use</h5>
-            <p>A camp hiring for next season.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>Built by camp people</h5><span class="pill">LinkedIn</span><span class="pill fixed">4 posts</span>
-        </div>
-        <p>The team members who ran seasons themselves, and the desk that picks up in July.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>Who worked a season</h5>
-            <p>Team members who ran camps before they built for them.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>The camp success desk</h5>
-            <p>Who answers when it&rsquo;s the middle of the summer.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>A day on the product team</h5>
-            <p>How a feature gets decided.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">04</span>
-            <h5>Twenty-five years in</h5>
-            <p>The people who have been here longest.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>One day at camp</h5><span class="pill">LinkedIn</span><span class="pill fixed">3 posts</span>
-        </div>
-        <p>The same day told three ways. Real footage or stills, cut short.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>The director&rsquo;s day</h5>
-            <p>What the person running it sees.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>The staff member&rsquo;s day</h5>
-            <p>The same hours, a different job.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>The parent&rsquo;s day</h5>
-            <p>What reaches them at home.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>Proof</h5><span class="pill">LinkedIn</span><span class="pill fixed">4 posts</span>
-        </div>
-        <p>Numbers and camp names. No adjectives, no comparisons.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>25 years</h5>
-            <p>The camps they already recognize.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>The Campanion rating</h5>
-            <p>The number, on its own.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>A quote with a face</h5>
-            <p>On the record, from a long-tenure camp.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">04</span>
-            <h5>The customer success rating</h5>
-            <p>How camps score the team they reach in July.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>Camp life</h5><span class="pill">Instagram</span><span class="pill fixed">4 posts</span>
-        </div>
-        <p>Real camp photography from customer camps. Warm, specific, low on product.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>Real camp photography</h5>
-            <p>From customer camps, rights cleared.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>Arrival day</h5>
-            <p>The first morning of a session, from the camp&rsquo;s point of view.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>The look of summer</h5>
-            <p>Camp photography on its own. No product in it.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">04</span>
-            <h5>Reunion day</h5>
-            <p>Families back together at the end of a session.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>The parent side</h5><span class="pill">Instagram</span><span class="pill fixed">3 posts</span>
-        </div>
-        <p>Campanion in a family&rsquo;s hands, from the side of camp parents see.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>Campanion at home</h5>
-            <p>The app, in a family&rsquo;s hands.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>The photo that gets shared</h5>
-            <p>What a parent sends to a grandparent.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>Registration, from a parent&rsquo;s perspective</h5>
-            <p>The new flow, the way a parent sees it.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trow">
-        <div class="thead">
-          <h5>Faces</h5><span class="pill">Instagram</span><span class="pill fixed">5 posts</span>
-        </div>
-        <p>The camp success team, and what they do all day.</p>
-        <div class="tcards">
-          <div class="tcard">
-            <span class="cn">01</span>
-            <h5>The team, up front</h5>
-            <p>With what they do all day.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">02</span>
-            <h5>The truck story</h5>
-            <p>The camp that named a truck after a support rep.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">03</span>
-            <h5>Who&rsquo;s here over the summer</h5>
-            <p>The person on the other end when it&rsquo;s busiest.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">04</span>
-            <h5>Who&rsquo;s here during the off-season</h5>
-            <p>The same team, when camp is quiet.</p>
-          </div>
-          <div class="tcard">
-            <span class="cn">05</span>
-            <h5>Behind the support desk</h5>
-            <p>A morning on the desk, unedited.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 ───────────────────────────────────────── -->
-<section id="s07" class="wrap section">
-  <div class="section-inner">
-    <div class="snum">07</div>
-    <h2 class="section-label">Sales narrative.</h2>
-    <div class="section-body">
-      <p><strong>An extension of your team.</strong> Below, a range of narratives for your sales and camp success teams to build from in conversations with current and future customers.</p>
-    </div>
-
-    <div class="ccards" style="margin-top:44px;">
-      <div class="ccard">
-        <div class="ctop"><span class="cnum">07-01</span><span class="pill outline">New</span></div>
-        <h5>Choosing a platform</h5>
-        <div class="cdiv"></div>
-        <ul class="aud">
-          <li>Here&rsquo;s what to ask any vendor you talk to, including us.</li>
-          <li>Let me walk you through the whole operation, end to end.</li>
-          <li>You already know the camps that are running on this.</li>
-          <li>You get a camp success team on day one.</li>
-        </ul>
-      </div>
-      <div class="ccard">
-        <div class="ctop"><span class="cnum">07-02</span><span class="pill outline">Upgrade</span></div>
-        <h5>Room to grow</h5>
-        <div class="cdiv"></div>
-        <ul class="aud">
-          <li>Here&rsquo;s what your camp does in Campminder today.</li>
-          <li>Here&rsquo;s what sits one suite up.</li>
-          <li>This one&rsquo;s for your registrar. This one&rsquo;s for your nurse.</li>
-          <li>Campanion is the piece your families see.</li>
-        </ul>
-      </div>
-      <div class="ccard">
-        <div class="ctop"><span class="cnum">07-03</span><span class="pill outline">Renewing soon</span></div>
-        <h5>Ready for renewal</h5>
-        <div class="cdiv"></div>
-        <ul class="aud">
-          <li>Here&rsquo;s everything that shipped this year.</li>
-          <li>Here&rsquo;s who built it.</li>
-          <li>You know your camp success contact by name.</li>
-          <li>I&rsquo;m not going to talk about what&rsquo;s coming.</li>
-        </ul>
-      </div>
+      <p>The wireframe was built to give Campminder something concrete to react to. It did that. It isn't final and it isn't precious. If you think the order's wrong, say so. A proposal that moves things around and explains why is worth more to us than a faithful build of something that doesn't work.</p>
     </div>
 
     <div class="ccards">
       <div class="ccard">
-        <div class="ctop"><span class="cnum">07-04</span><span class="pill outline">Objection</span></div>
-        <h5>You&rsquo;ve announced things before and not delivered</h5>
+        <div class="ctop"><span class="pill dark">Fixed</span></div>
+        <h5>Don't change these</h5>
         <div class="cdiv"></div>
+        <span class="clab">Settled with the client</span>
         <ul class="aud">
-          <li>You&rsquo;re right. We did that.</li>
-          <li>Here&rsquo;s the release record, month by month.</li>
-          <li>I&rsquo;m not going to tell you what&rsquo;s next.</li>
-          <li>Judge us on what&rsquo;s already in your hands.</li>
+          <li>The territory and hierarchy in 03 and 04</li>
+          <li>The Unpack possible lockup</li>
+          <li>The guardrails in 08</li>
+          <li>Everything on the page is live at launch</li>
+          <li>It works inside the current site shell</li>
+          <li>Blocks come apart and reorder without a rebuild</li>
         </ul>
       </div>
       <div class="ccard">
-        <div class="ctop"><span class="cnum">07-05</span><span class="pill outline">Objection</span></div>
-        <h5>It&rsquo;s hard to use, and it looks like older software</h5>
+        <div class="ctop"><span class="pill now">Open</span></div>
+        <h5>Yours to decide</h5>
         <div class="cdiv"></div>
+        <span class="clab">Bring us your version</span>
         <ul class="aud">
-          <li>Let me show you what&rsquo;s new rather than describe it.</li>
-          <li>Here&rsquo;s what we haven&rsquo;t modernized yet.</li>
-          <li>Onboarding comes with a person who runs it with you.</li>
-          <li>You won&rsquo;t be learning this on your own.</li>
+          <li>Section order, and how many there are</li>
+          <li>Combining, splitting, or cutting anything</li>
+          <li>Visual language and typography</li>
+          <li>Where motion goes, and how much</li>
+          <li>How product screens are framed</li>
+          <li>Density and page length</li>
         </ul>
       </div>
       <div class="ccard">
-        <div class="ctop"><span class="cnum">07-06</span><span class="pill outline">Objection</span></div>
-        <h5>I prefer one of the competition&rsquo;s platforms</h5>
+        <div class="ctop"><span class="pill outline">The test</span></div>
+        <h5>How we'll judge it</h5>
         <div class="cdiv"></div>
+        <span class="clab">Two questions</span>
         <ul class="aud">
-          <li>Fair. Let me show you what&rsquo;s live here.</li>
-          <li>I&rsquo;m not going to talk about anyone else.</li>
-          <li>We&rsquo;ve been around twenty-five years, and we&rsquo;re not going anywhere.</li>
-          <li>Ask them the same questions you asked me.</li>
+          <li>Does a camp director understand, in the first screen, that Campminder covers the whole operation?</li>
+          <li>Does the proof arrive before they leave?</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 08 ───────────────────────────────────────── -->
+<!-- 07 -->
+<section id="s07" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">07</div>
+    <h2 class="section-label">UX requests.</h2>
+    <div class="section-body">
+      <p>Behaviours, not a look. Where they conflict, the earlier one wins.</p>
+    </div>
+
+    <div class="rail">
+      <div class="railrow">
+        <div class="rn">01</div>
+        <div>
+          <h5>Show the product.</h5>
+          <p>Real screens, current at launch. Every claim should have something visible sitting next to it.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">02</div>
+        <div>
+          <h5>Motion where a task completes.</h5>
+          <p>Two moments, not a page that moves. A form filling, a dashboard assembling. Decoration that moves is worse than stillness.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">03</div>
+        <div>
+          <h5>Real people, real camps.</h5>
+          <p>Customer camps and actual Campminder staff. No stock, no headshot grids. These customers know each other and they'll spot anything staged.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">04</div>
+        <div>
+          <h5>One dense moment.</h5>
+          <p>Somewhere on the page, a block where the sheer amount of it is the message. Everything else can breathe.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">05</div>
+        <div>
+          <h5>Editorial, not marketing page.</h5>
+          <p>Numbered rails, stacked rows with hairline dividers, oversized headlines carrying their sections. Not a tracked small-caps eyebrow over every headline with three even columns underneath.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">06</div>
+        <div>
+          <h5>Plain language.</h5>
+          <p>No acronyms, nothing to decode. This audience is proud of being camp people rather than technology people.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">07</div>
+        <div>
+          <h5>It belongs to the site it's on.</h5>
+          <p>The most current page on campminder.com, not a page from a different site.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
 <section id="s08" class="wrap section">
   <div class="section-inner">
     <div class="snum">08</div>
+    <h2 class="section-label">Guardrails.</h2>
+    <div class="section-body">
+      <p>Set with Campminder's leadership, sales, product, and client success on August 3. Each one exists because of something that happened.</p>
+    </div>
+
+    <div class="rail">
+      <div class="railrow">
+        <div class="rn">01</div>
+        <div>
+          <h5>No pain-point selling.</h5>
+          <p>We don't remind directors that their job is hard. They know. We show what they get.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">02</div>
+        <div>
+          <h5>No future tense.</h5>
+          <p>If it isn't live, it isn't on the page. No coming soon, no roadmap, no dates.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">03</div>
+        <div>
+          <h5>No speed claims.</h5>
+          <p>Speed gets proven by a visible release record, then shown. Not asserted first.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">04</div>
+        <div>
+          <h5>No running against anyone.</h5>
+          <p>No competitor named, referenced, or answered. No comparison tables, no versus pages.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">05</div>
+        <div>
+          <h5>No tech talk without a use.</h5>
+          <p>Modern under the hood, plain on the page. Technical language earns its place only when a camp director can act on it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section id="s09" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">09</div>
     <h2 class="section-label">Assets.</h2>
     <div class="section-body">
-      <p class="sub-lead">Here's what we need to start moving forward.</p>
+      <p>What Campminder is supplying, and roughly when. Design can start without all of it, but the hero and the team block need real photography before anything gets locked.</p>
     </div>
 
     <div class="acards">
       <div class="acard">
-        <div class="atop"><span class="anum">08-01</span><span class="pill now">ASAP</span></div>
-        <h5>Confirm the wireframe</h5>
-        <p>What's missing, wrong, or shouldn't be there. Everything after this builds on it.</p>
+        <div class="atop"><span class="anum">09-01</span><span class="pill now">ASAP</span></div>
+        <h5>Product screens</h5>
+        <p>Current screens for everything named in section 05, captured at launch state rather than today's build.</p>
       </div>
       <div class="acard">
-        <div class="atop"><span class="anum">08-02</span><span class="pill now">ASAP</span></div>
-        <h5>Confirm product details</h5>
-        <p>The page gets designed around the features that are certain to be ready, described the way your team describes them internally. Any nuance or detail that Groundwrk and I will need is better surfaced now than after design starts.</p>
-      </div>
-      <div class="acard">
-        <div class="atop"><span class="anum">08-03</span><span class="pill now">ASAP</span></div>
+        <div class="atop"><span class="anum">09-02</span><span class="pill now">ASAP</span></div>
         <h5>Camp photography</h5>
         <p>Camp photos with usage rights cleared, for the hero and the team block.</p>
       </div>
       <div class="acard">
-        <div class="atop"><span class="anum">08-04</span><span class="pill soon">Soon</span></div>
+        <div class="atop"><span class="anum">09-03</span><span class="pill now">ASAP</span></div>
+        <h5>Team photography</h5>
+        <p>Individual portraits and working shots of actual Campminder staff. No stock, no headshot grid.</p>
+      </div>
+      <div class="acard">
+        <div class="atop"><span class="anum">09-04</span><span class="pill soon">Soon</span></div>
         <h5>Customer testimonials</h5>
         <p>On the record, from long-tenure camps. More than one, so there's a choice to make.</p>
       </div>
       <div class="acard">
-        <div class="atop"><span class="anum">08-05</span><span class="pill soon">Soon</span></div>
+        <div class="atop"><span class="anum">09-05</span><span class="pill soon">Soon</span></div>
+        <h5>Camp logos</h5>
+        <p>Cleared marks for the proof wall, at the count the block ends up needing.</p>
+      </div>
+      <div class="acard">
+        <div class="atop"><span class="anum">09-06</span><span class="pill soon">Soon</span></div>
         <h5>The pricing decision</h5>
-        <p>Whether pricing goes on the page, and if so, a starting number per suite. Better settled before design than after.</p>
+        <p>Whether pricing goes on the page, and if so, a starting number per suite. Campminder's call, and better settled before design than after.</p>
       </div>
     </div>
   </div>
@@ -1308,17 +939,17 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <li class="done"><span class="mk">&#10003;</span><span>Working session</span></li>
           <li class="done"><span class="mk">&#10003;</span><span>Competitive review</span></li>
           <li class="done"><span class="mk">&#10003;</span><span>Positioning directions and recommendation</span></li>
-          <li class="now"><span class="mk">&rarr;</span><span>Message hierarchy</span></li>
-          <li class="now"><span class="mk">&rarr;</span><span>Channel map</span></li>
-          <li class="now"><span class="mk">&rarr;</span><span>Message cadence</span></li>
+          <li class="done"><span class="mk">&#10003;</span><span>Message hierarchy</span></li>
+          <li class="done"><span class="mk">&#10003;</span><span>Channel map</span></li>
+          <li class="done"><span class="mk">&#10003;</span><span>Message cadence</span></li>
         </ul>
       </div>
       <div class="seqcol">
         <h3>Direction</h3>
         <ul>
-          <li class="now"><span class="mk">&rarr;</span><span>Homepage narrative and sections</span></li>
+          <li class="done"><span class="mk">&#10003;</span><span>Homepage narrative and sections</span></li>
+          <li class="now"><span class="mk">&rarr;</span><span>Creative brief for Groundwrk</span></li>
           <li class="ahead"><span class="mk"><span class="ring"></span></span><span>Homepage design concept</span></li>
-          <li class="ahead"><span class="mk"><span class="ring"></span></span><span>Creative brief for Groundwrk</span></li>
         </ul>
       </div>
       <div class="seqcol">
@@ -1335,7 +966,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 
 <footer class="foot">
   <div class="wrap">
-    <p>Studio Parkside for Campminder &middot; Fall Campaign &middot; Message phase &middot; 2026</p>
+    <p>Studio Parkside for Campminder &middot; Fall Campaign &middot; Homepage creative brief &middot; 2026</p>
   </div>
 </footer>
 

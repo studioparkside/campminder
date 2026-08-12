@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Fall Campaign Channels — Campminder</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Channels
+   Held until the homepage is through design.
+   Studio Parkside, August 2026
+───────────────────────────────────────────── */
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg: #f7f6f8;
+  --card: #ffffff;
+  --ink: #141118;
+  --body: #1c1922;
+  --mid: #46414f;
+  --light: #8d8798;
+  --rule: #e2dfe7;
+  --hair: #eceaf0;
+  --accent: #773DBD;
+  --accent-soft: #f1eaf9;
+  --accent-line: #dcc9f2;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  font-family: var(--sans); color: var(--body); background: var(--bg);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  font-size: 21px; font-weight: 500; line-height: 1.55; letter-spacing: -0.015em;
+}
+.wrap { max-width: 1060px; margin: 0 auto; padding: 18px 44px; }
+.conf { border-bottom: 1px solid var(--hair); background: var(--bg); position: sticky; top: 0; z-index: 20; backdrop-filter: saturate(180%) blur(12px); }
+.conf .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.sp-logo { display: block; height: 17px; width: auto; color: var(--ink); flex: none; }
+.tags { display: flex; align-items: center; gap: 8px; }
+.pill { font-size: 11px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: 100px; padding: 5px 12px; white-space: nowrap; }
+.pill.client { color: var(--mid); background: transparent; border-color: var(--rule); }
+.masthead { padding-top: 100px; padding-bottom: 64px; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 64px; align-items: end; }
+.cm-name { display: block; font-size: 15px; font-weight: 650; color: var(--mid); margin-bottom: 22px; }
+.cm-name .sep { color: var(--accent-line); padding: 0 4px; }
+.masthead h1 { font-size: clamp(48px, 8vw, 104px); font-weight: 700; line-height: 0.96; letter-spacing: -0.045em; color: var(--ink); }
+.masthead h1 .accent { color: var(--accent); }
+.mast-sub { margin-top: 26px; font-size: clamp(18px, 2.1vw, 23px); color: var(--mid); letter-spacing: -0.015em; line-height: 1.45; max-width: 42ch; }
+.toc a { display: flex; gap: 16px; align-items: baseline; font-size: 15px; font-weight: 600; color: var(--ink); text-decoration: none; padding: 11px 0; border-top: 1px solid var(--hair); }
+.toc a:last-child { border-bottom: 1px solid var(--hair); }
+.toc a:hover { color: var(--accent); }
+.toc .n { font-size: 13px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+.section { border-top: 1px solid var(--rule); scroll-margin-top: 72px; }
+.section-inner { padding: 88px 0; }
+.snum { display: block; font-size: clamp(26px, 3.2vw, 38px); font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; margin-bottom: 10px; }
+.section-label { font-size: clamp(34px, 5.4vw, 60px); font-weight: 700; line-height: 1.02; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 30px; max-width: 20ch; }
+.section-body { max-width: 62ch; }
+.section-body p { margin-bottom: 18px; }
+.section-body p:last-child { margin-bottom: 0; }
+.section-body strong { font-weight: 700; color: var(--ink); }
+.sub-lead { font-size: 21px; color: var(--mid); max-width: 60ch; line-height: 1.5; }
+.rows { border-top: 1px solid var(--rule); }
+.krow { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 28px; padding: 24px 0; border-bottom: 1px solid var(--hair); align-items: baseline; }
+.krow .k { font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -0.024em; line-height: 1.2; }
+.krow .v { font-size: 18px; color: var(--mid); line-height: 1.5; max-width: 58ch; }
+.krow .v strong { color: var(--ink); font-weight: 700; }
+.krow .who { display: inline-block; margin-top: 12px; }
+.krow .knum { display: block; font-size: 13px; font-weight: 650; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: 0.04em; margin-bottom: 8px; }
+.sub { font-size: 15px; font-weight: 650; color: var(--light); letter-spacing: 0.05em; text-transform: uppercase; margin: 56px 0 18px; }
+.flows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 12px; }
+.flow { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 24px 26px 22px; }
+.flow .ftop { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+.flow h5 { font-size: 21px; font-weight: 700; color: var(--ink); letter-spacing: -0.026em; line-height: 1.15; margin-bottom: 8px; }
+.flow p { font-size: 16px; color: var(--mid); line-height: 1.45; margin-bottom: 12px; }
+.flow ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--hair); }
+.flow li { font-size: 15.5px; color: var(--mid); line-height: 1.4; padding: 9px 0; border-bottom: 1px solid var(--hair); display: grid; grid-template-columns: 26px minmax(0,1fr); gap: 8px; }
+.flow li:last-child { border-bottom: none; }
+.flow li .en { font-size: 12px; font-weight: 650; color: var(--accent); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.flow .meta { font-size: 14px; color: var(--light); font-weight: 600; margin-top: 12px; margin-bottom: 0; }
+.callout { border: 1px solid var(--accent-line); background: var(--accent-soft); border-radius: 14px; padding: 26px 30px; margin-top: 32px; }
+.callout .cl { display: block; font-size: 11px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.callout p { font-size: 18px; color: var(--body); line-height: 1.5; max-width: 62ch; }
+.callout p + p { margin-top: 12px; }
+.foot { border-top: 1px solid var(--rule); }
+.foot .wrap { padding-top: 44px; padding-bottom: 72px; }
+.foot p { font-size: 14px; color: var(--light); font-weight: 600; }
+@media (max-width: 900px) {
+  .masthead { grid-template-columns: 1fr; gap: 44px; align-items: start; padding-top: 64px; padding-bottom: 48px; }
+  .flows { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  body { font-size: 18px; }
+  .wrap { padding: 18px 22px; }
+  .section-inner { padding: 56px 0; }
+  .krow { grid-template-columns: 1fr; gap: 8px; }
+  .sp-logo { height: 14px; }
+  .pill { font-size: 10px; padding: 4px 10px; }
+}
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div class="conf">
+  <div class="wrap">
+    <svg class="sp-logo" viewBox="0 0 1499.4 151" fill="currentColor" role="img" aria-label="Studio Parkside" xmlns="http://www.w3.org/2000/svg"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg>
+    <div class="tags">
+      <span class="pill client">Campminder</span>
+      <span class="pill">Confidential</span>
+    </div>
+  </div>
+</div>
+
+<header class="wrap masthead">
+  <div>
+    <span class="cm-name">Campminder <span class="sep">&middot;</span> Fall Campaign</span>
+    <h1>Fall Campaign <span class="accent">Channels</span></h1>
+    <p class="mast-sub">Sales, email, and social. Held until the homepage is through design. Counts and structures here are proposals.</p>
+  </div>
+  <nav class="toc" aria-label="Contents">
+    <a href="#s01"><span class="n">01</span> Sales</a>
+    <a href="#s02"><span class="n">02</span> Email</a>
+    <a href="#s03"><span class="n">03</span> Social</a>
+  </nav>
+</header>
+
+<!-- 01 ───────────────────────────────────────── -->
+<section id="s01" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">01</div>
+    <h2 class="section-label">Sales.</h2>
+    <div class="section-body">
+      <p>Three versions of the same conversation. The territory doesn't change. The opening move and the proof do.</p>
+    </div>
+    <div class="rows" style="margin-top:44px;">
+      <div class="krow">
+        <div class="k"><span class="knum">01-01</span>Choosing a platform</div>
+        <div class="v"><strong>Open by teaching them how to shop.</strong> The questions worth asking any camp software vendor, including us. Then walk the whole operation end to end without waiting to be asked.
+          <br><br><strong>Proof:</strong> twenty-two years, the camps they already recognize, and the camp success team they get on day one.</div>
+      </div>
+      <div class="krow">
+        <div class="k"><span class="knum">01-02</span>Room to grow</div>
+        <div class="v"><strong>Open with what their camp already does in Campminder</strong>, then what sits one suite up. A map of their own operation with the gaps visible.
+          <br><br><strong>Proof:</strong> features tied to the person at their camp who would use them. Campanion for the parent side.</div>
+      </div>
+      <div class="krow">
+        <div class="k"><span class="knum">01-03</span>Coming up for renewal</div>
+        <div class="v"><strong>Open with what shipped this year and who built it.</strong> The release record is the argument. Nothing about what's coming.
+          <br><br><strong>Proof:</strong> the year's releases, and the named relationship with their camp success contact.</div>
+      </div>
+      <div class="krow">
+        <div class="k"><span class="knum">01-04</span>True in all three</div>
+        <div class="v">Aspirational posture, no pain-point opening, no competitor named or answered, no claim about anything that isn't live. The demo leads.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 ───────────────────────────────────────── -->
+<section id="s02" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">02</div>
+    <h2 class="section-label">Email.</h2>
+    <div class="section-body">
+      <p>Two tiers, different senders, different jobs. Marketing works the funnel. Camp success works the relationship. Every email is signed by a person, which is where <strong>people meet products</strong> shows up in the inbox.</p>
+    </div>
+
+    <div class="sub">Marketing &nbsp;&middot;&nbsp; 2 flows, 8 emails</div>
+    <div class="flows">
+      <div class="flow">
+        <div class="ftop"><span class="pill client">Flow 01</span><span class="pill">5 emails</span></div>
+        <h5>New camp nurture</h5>
+        <p>For camps actively shopping. Runs the territory from the top and ends on a demo.</p>
+        <ol>
+          <li><span class="en">01</span><span>One for all. What the platform covers.</span></li>
+          <li><span class="en">02</span><span>How to shop for camp software. Questions to ask anyone.</span></li>
+          <li><span class="en">03</span><span>One role, one story. Registration end to end.</span></li>
+          <li><span class="en">04</span><span>The people. Camp success, named.</span></li>
+          <li><span class="en">05</span><span>A camp like yours. Testimonial and demo.</span></li>
+        </ol>
+        <p class="meta">Signed by sales</p>
+      </div>
+      <div class="flow">
+        <div class="ftop"><span class="pill client">Flow 02</span><span class="pill">3 emails</span></div>
+        <h5>After their first summer</h5>
+        <p>For prospects who went elsewhere. Sent once they've run a season and know what they wish they'd asked.</p>
+        <ol>
+          <li><span class="en">01</span><span>How did the summer go. No pitch.</span></li>
+          <li><span class="en">02</span><span>What we shipped while you were running camp.</span></li>
+          <li><span class="en">03</span><span>Open door. A conversation, not a demo.</span></li>
+        </ol>
+        <p class="meta">Signed by sales</p>
+      </div>
+    </div>
+
+    <div class="sub">Camp success &nbsp;&middot;&nbsp; 5 flows, 14 emails</div>
+    <div class="flows">
+      <div class="flow">
+        <div class="ftop"><span class="pill client">Flow 03</span><span class="pill">3 emails</span></div>
+        <h5>Release and launch</h5>
+        <p>One per release. The feature, and the team who built it. The flagship of the people meet products campaign.</p>
+        <ol>
+          <li><span class="en">01</span><span>Release one. Feature plus the team.</span></li>
+          <li><span class="en">02</span><span>Release two. Feature plus the team.</span></li>
+          <li><span class="en">03</span><span>Release three. Feature plus the team.</span></li>
+        </ol>
+        <p class="meta">Signed by the person who built it</p>
+      </div>
+      <div class="flow">
+        <div class="ftop"><span class="pill client">Flow 04</span><span class="pill">4 emails</span></div>
+        <h5>Classic to Professional</h5>
+        <p>For Classic camps. What sits one suite up, framed as their operation rather than our catalogue.</p>
+        <ol>
+          <li><span class="en">01</span><span>What your camp runs on today.</span></li>
+          <li><span class="en">02</span><span>The parent side. Campanion.</span></li>
+          <li><span class="en">03</span><span>The reporting side. Intelligence.</span></li>
+          <li><span class="en">04</span><span>Webinar invite. Meet the team.</span></li>
+        </ol>
+        <p class="meta">Signed by their camp success contact</p>
+      </div>
+      <div class="flow">
+        <div class="ftop"><span class="pill client">Flow 05</span><span class="pill">4 emails</span></div>
+        <h5>Webinars</h5>
+        <p>Two webinars, one for Professional camps and one for Classic. Invite and recap for each, so the recap covers everyone who didn't attend.</p>
+        <ol>
+          <li><span class="en">01</span><span>Professional invite.</span></li>
+          <li><span class="en">02</span><span>Professional recap.</span></li>
+          <li><span class="en">03</span><span>Classic invite.</span></li>
+          <li><span class="en">04</span><span>Classic recap.</span></li>
+        </ol>
+        <p class="meta">Signed by the host</p>
+      </div>
+      <div class="flow">
+        <div class="ftop"><span class="pill client">Flow 06</span><span class="pill">2 emails</span></div>
+        <h5>Price change</h5>
+        <p>Delivered by renewal date. Short, flat, specific. Everything we shipped, then the number.</p>
+        <ol>
+          <li><span class="en">01</span><span>What we delivered this year.</span></li>
+          <li><span class="en">02</span><span>Your renewal, and what it covers.</span></li>
+        </ol>
+        <p class="meta">Signed by their camp success contact</p>
+      </div>
+      <div class="flow">
+        <div class="ftop"><span class="pill client">Flow 07</span><span class="pill">1 email</span></div>
+        <h5>Company announcement</h5>
+        <p>One note, sent to everyone, in the window Campminder chooses.</p>
+        <ol>
+          <li><span class="en">01</span><span>The announcement, plainly.</span></li>
+        </ol>
+        <p class="meta">Signed at the top of the company</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="cl">Sequencing</span>
+      <p>Three things want the same inbox this fall: the price change, the company announcement, and the first release email. If the price change lands first and alone, it reads as a bill. If a release email lands first, the price change lands as a receipt.</p>
+      <p>My recommendation is release, then price, then announcement, with clear space between each.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ───────────────────────────────────────── -->
+<section id="s03" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">03</div>
+    <h2 class="section-label">Social.</h2>
+    <div class="section-body">
+      <p>LinkedIn leads, Instagram supports. Photography and testimonials carry more weight here than on the homepage, because a feed rewards a face and a page rewards a claim.</p>
+    </div>
+
+    <div class="sub">LinkedIn &nbsp;&middot;&nbsp; priority &nbsp;&middot;&nbsp; 3 series, 24 posts</div>
+    <div class="rows">
+      <div class="krow">
+        <div class="k"><span class="knum">12 posts</span>People meet products</div>
+        <div class="v">One feature, one team, one post. The engineers, designers, and product people who built it, named and shown. Made by people who know camp, not generated.
+          <br><span class="pill client who">Camp directors and owners, the industry, prospective hires</span></div>
+      </div>
+      <div class="krow">
+        <div class="k"><span class="knum">6 posts</span>One day at camp</div>
+        <div class="v">The same day told three ways. What the director sees, what the staff member sees, what the parent sees. Real footage or stills, cut short.
+          <br><span class="pill client who">Camps shopping, camps already with us</span></div>
+      </div>
+      <div class="krow">
+        <div class="k"><span class="knum">6 posts</span>Proof</div>
+        <div class="v">Numbers and named camps. Twenty-two years, the Campanion rating, a customer quote with a face. No adjectives, no comparisons.
+          <br><span class="pill client who">Camps shopping, the wider industry</span></div>
+      </div>
+    </div>
+
+    <div class="sub">Instagram &nbsp;&middot;&nbsp; supporting &nbsp;&middot;&nbsp; 2 series, 16 posts</div>
+    <div class="rows">
+      <div class="krow">
+        <div class="k"><span class="knum">10 posts</span>Camp life</div>
+        <div class="v">Real camp photography from customer camps. The parent side through Campanion. Warm, specific, low on product.
+          <br><span class="pill client who">Camp staff, the camp community, parents</span></div>
+      </div>
+      <div class="krow">
+        <div class="k"><span class="knum">6 posts</span>Faces</div>
+        <div class="v">The camp success team, named, with what they actually do. The camp that named a truck after a support team member is the anchor post.
+          <br><span class="pill client who">Camp staff, the camp community, prospective hires</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Studio Parkside for Campminder &middot; Fall Campaign &middot; Message phase &middot; 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
