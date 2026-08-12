@@ -30,9 +30,10 @@
   --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
           "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-  --topbar-h: 68px;
+  --topbar-h: 61px; /* first-paint estimate, measured in JS */
   --pad: 44px;
   --sbw: 0px; /* scrollbar width, measured in JS */
+  --railgut: 0px; /* gutter reserved for the tick rail */
 }
 
 /* ── Light (default) ────────────────────────── */
@@ -279,7 +280,8 @@ strong { color: var(--ink); font-weight: 650; }
 @media (max-width: 1080px) { .ticks { display: none; } }
 /* reserve the gutter rather than overlapping the content */
 @media (min-width: 1081px) {
-  .masthead, .section, .topbar .wrap { padding-right: calc(var(--pad) + 74px); }
+  :root { --railgut: 74px; }
+  .masthead, .section, .topbar .wrap { padding-right: calc(var(--pad) + var(--railgut)); }
 }
 
 /* ── Sticky section bar ─────────────────────── */
@@ -295,11 +297,17 @@ strong { color: var(--ink); font-weight: 650; }
    column it would end at the column edge and read as a stray rectangle,
    and sitting there unpinned it would paint a band over the page for no
    reason. It fades in only once the bar is actually stuck under the
-   topbar, where it reads as an extension of it. */
+   topbar, where it reads as an extension of it.
+
+   The bar's column is not centred in the viewport. Its right padding
+   carries the rail gutter, so its midpoint sits half a gutter left of
+   centre. Centring the slab on the bar would leave that half gutter bare
+   at the right edge, so the shift is added back. */
 .stick::before {
   content: ""; position: absolute; z-index: -1;
   top: 0; bottom: 0; left: 50%;
-  width: calc(100vw - var(--sbw)); transform: translateX(-50%);
+  width: calc(100vw - var(--sbw));
+  transform: translateX(calc(-50% + var(--railgut) / 2));
   background: var(--topbar-bg);
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--rule);
@@ -446,7 +454,7 @@ strong { color: var(--ink); font-weight: 650; }
 /* ═════════ CARDS ═════════ */
 /* every surface carries the same tonal purple wash, so the gradient
    reads as one system rather than a decoration on a few cards */
-.card, .xcard, .watch, .bud-card, .saycard, .asset, .step,
+.card, .xcard, .watch, .bud-card, .asset, .step,
 .contact, .note, .tl-node, .casc, .navdd-menu {
   background-image: var(--grad-card);
 }
@@ -533,14 +541,17 @@ strong { color: var(--ink); font-weight: 650; }
 }
 .step h5 { font-size: 25px; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 10px; }
 .step p { font-size: 18px; color: var(--mid); line-height: 1.5; margin-bottom: 22px; }
-.step .go {
-  margin-top: auto; align-self: flex-start; text-decoration: none;
+/* .go — the page's forward-pointer pill. Inside a step card it pins to the
+   bottom. It is also used on its own to hand a reader to a later section. */
+.go {
+  display: inline-block; align-self: flex-start; text-decoration: none;
   font-size: 16px; font-weight: 650; color: var(--accent);
   background: var(--accent-soft); border: 1px solid var(--accent-line);
   border-radius: 999px; padding: 7px 16px;
   transition: background-color .15s ease;
 }
-.step .go:hover { background: var(--card); }
+.go:hover { background: var(--card); }
+.step .go { margin-top: auto; }
 .step:not(:last-child)::after {
   content: "\2192"; position: absolute;
   left: calc(100% + 24px); top: 50%;
@@ -614,18 +625,7 @@ strong { color: var(--ink); font-weight: 650; }
 .ck-count em { font-style: normal; color: var(--accent); }
 @media (max-width: 760px) { .ck { grid-template-columns: 1fr; } }
 
-/* ═════════ 05 — narrative say-cards ═════════ */
-.saycard {
-  background-color: var(--card); border: 1px solid var(--rule); border-radius: 16px;
-  padding: 26px 28px 24px; display: flex; flex-direction: column; gap: 12px;
-}
-.saycard h5 { font-size: 25px; letter-spacing: -0.03em; line-height: 1.2; }
-.saycard p {
-  font-size: 18px; font-weight: 500; color: var(--mid); line-height: 1.5;
-  border-top: 1px solid var(--hair); padding-top: 14px;
-}
-
-/* ═════════ 06 — sequence, a vertical timeline ═════════ */
+/* ═════════ 05 — sequence, a vertical timeline ═════════ */
 .tl { position: relative; margin-top: 40px; padding-left: 92px; max-width: 900px; list-style: none; }
 .tl::before {
   content: ""; position: absolute; left: 27px; top: 16px; bottom: 26px; width: 2px;
@@ -641,31 +641,43 @@ strong { color: var(--ink); font-weight: 650; }
   font-size: 20px; font-weight: 700; color: var(--accent);
   letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
 }
-.tl-step h5 {
+/* child combinator so a gate nested inside a step does not inherit the
+   step's type sizes */
+.tl-step > h5 {
   font-size: 27px; letter-spacing: -0.03em; line-height: 1.2;
   margin-bottom: 8px; padding-top: 10px;
 }
-.tl-step p { font-size: 18.5px; line-height: 1.5; color: var(--mid); }
+.tl-step > p { font-size: 18.5px; line-height: 1.5; color: var(--mid); }
+/* gate — brand work that has to be finished before the next step runs.
+   It sits inside the step it follows rather than as its own list item, so
+   the timeline stays six steps to a screen reader and the numbered spine
+   is never interrupted. A hairline ties it back to the spine. */
+.gate {
+  position: relative; margin-top: 24px; max-width: 760px;
+  background-color: var(--accent-soft); border: 1px solid var(--accent-line);
+  border-radius: 14px; padding: 17px 22px 18px;
+}
+/* the spine sits 65px left of a step's content edge, so the hairline runs
+   the full distance and meets both the spine and the gate's border */
+.gate::before {
+  content: ""; position: absolute; left: -65px; top: 29px;
+  width: 65px; height: 1px; background: var(--accent-line);
+}
+.gate h5 {
+  font-size: 19px; letter-spacing: -0.022em; line-height: 1.25;
+  color: var(--ink); margin-bottom: 5px;
+}
+.gate p { font-size: 17px; line-height: 1.45; color: var(--mid); }
+
 @media (max-width: 760px) {
   .tl { padding-left: 62px; }
   .tl::before { left: 21px; }
   .tl-node { left: -62px; width: 44px; height: 44px; font-size: 16px; border-width: 1.5px; }
   .tl-step { padding-bottom: 32px; }
-  .tl-step h5 { font-size: 23px; padding-top: 6px; }
+  .tl-step > h5 { font-size: 23px; padding-top: 6px; }
+  .gate { margin-top: 20px; padding: 15px 18px 16px; border-radius: 12px; }
+  .gate::before { left: -41px; width: 41px; top: 27px; }
 }
-
-/* callout — a flagged aside inside a section, heavier than .note */
-.callout {
-  margin-top: 44px; max-width: 900px;
-  background-color: var(--accent-soft); border: 1px solid var(--accent-line);
-  border-radius: 16px; padding: 30px 32px;
-}
-.callout h5 {
-  font-size: 25px; letter-spacing: -0.03em; line-height: 1.2;
-  color: var(--ink); margin-bottom: 10px;
-}
-.callout p { font-size: 18.5px; line-height: 1.5; color: var(--mid); }
-@media (max-width: 760px) { .callout { padding: 24px 24px; border-radius: 14px; } }
 
 /* ═════════ 08 — budget cascade + split ═════════ */
 .cascade {
@@ -849,7 +861,7 @@ a.asset:hover .foot { background: var(--accent-line); }
         <div class="sn">Step 3</div>
         <h5>Decide and Share</h5>
         <p>The answer for any brand question is Keep, Absorb, Rebrand, or Retire. The playbook files get updated and communications go out through the proper channels.</p>
-        <a class="go" href="#s06">Sequence &rarr;</a>
+        <a class="go" href="#s05">Sequence &rarr;</a>
       </div>
     </div>
 
@@ -864,8 +876,8 @@ a.asset:hover .foot { background: var(--accent-line); }
       <a href="#s02"><span class="n">02</span> Brand Portfolio</a>
       <a href="#s03"><span class="n">03</span> Inputs</a>
       <a href="#s04"><span class="n">04</span> Outcomes</a>
-      <a href="#s05"><span class="n">05</span> Narratives</a>
-      <a href="#s06"><span class="n">06</span> Sequence</a>
+      <a href="#s05"><span class="n">05</span> Sequence</a>
+      <a href="#s06"><span class="n">06</span> Narratives</a>
       <a href="#s07"><span class="n">07</span> Channels</a>
       <a href="#s08"><span class="n">08</span> Budget</a>
       <a href="#s09"><span class="n">09</span> Questions</a>
@@ -959,6 +971,11 @@ a.asset:hover .foot { background: var(--accent-line); }
           </div>
         </details>
       </div>
+
+      <div class="section-body" style="margin-top:34px;">
+        <p>You can find the language for talking about a change to the portfolio in Narratives.</p>
+      </div>
+      <a class="go" href="#s06" style="margin-top:16px;">Narratives &rarr;</a>
     </div>
 
     <div class="subhead">
@@ -1161,73 +1178,31 @@ a.asset:hover .foot { background: var(--accent-line); }
   </div>
 </section>
 
-<!-- ───────── 05 NARRATIVES ───────── -->
+<!-- ───────── 05 SEQUENCE ───────── -->
 <section id="s05" class="wrap section">
   <div class="section-inner">
     <div class="snum">05</div>
-    <h2 class="section-label">Narratives.</h2>
-    <div class="section-body">
-      <p>Different ways to talk about our portfolio and brands.</p>
-    </div>
-
-    <div class="stick" data-stick><span class="n">05</span><span class="s">Narratives</span><span class="sep">/</span><span class="sub"></span></div>
-
-    <div class="g3">
-      <div class="saycard">
-        <span class="pill">Internal</span>
-        <h5>Our team</h5>
-        <p>We&rsquo;re here to put big ideas and real skill to work. At Parent Co. we build the teams and the technology behind summer camps, athletic teams, event managers, and more. Every brand here exists to support the people who run them.</p>
-      </div>
-      <div class="saycard">
-        <span class="pill">Internal</span>
-        <h5>New employees</h5>
-        <p>Your brand and your customers are why we wanted you here. The parent carries what no team should have to solve alone, so the name your customers chose keeps running at full strength, now with more behind it.</p>
-      </div>
-      <div class="saycard">
-        <span class="pill">External</span>
-        <h5>Partners</h5>
-        <p>You&rsquo;re working with one brand, and the whole company is behind it. Parent Co. carries the engineering, support, and operations across every brand here, so what you build with us never rides on one team&rsquo;s bandwidth.</p>
-      </div>
-      <div class="saycard">
-        <span class="pill">External</span>
-        <h5>Industry events</h5>
-        <p>We&rsquo;re a growing group of brands guided by a shared set of values, purpose and vision. All of it comes down to supporting the people who run camps, teams, and events for young people. We build the software behind Campminder, UltraCamp, and Swimtopia.</p>
-      </div>
-      <div class="saycard">
-        <span class="pill">External</span>
-        <h5>New customers</h5>
-        <p>Every Parent Co. brand is its own platform. They&rsquo;re built for different customers with different needs, whether that&rsquo;s camps, teams, events, or something else. I&rsquo;m here to make sure you get the one that fits how you run.</p>
-      </div>
-      <div class="saycard">
-        <span class="pill">External</span>
-        <h5>Current customers</h5>
-        <p>Your product, your login, and the people you work with stay the same. If anything does change for you, you&rsquo;ll hear it from us directly, with what it means and when, before you read about it anywhere else.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── 06 SEQUENCE ───────── -->
-<section id="s06" class="wrap section">
-  <div class="section-inner">
-    <div class="snum">06</div>
     <h2 class="section-label">Sequence.</h2>
     <div class="section-body">
       <p>The order we follow to share any change to the portfolio or one of its brands.</p>
     </div>
 
-    <div class="stick" data-stick><span class="n">06</span><span class="s">Sequence</span><span class="sep">/</span><span class="sub"></span></div>
+    <div class="stick" data-stick><span class="n">05</span><span class="s">Sequence</span><span class="sep">/</span><span class="sub"></span></div>
 
     <ol class="tl">
       <li class="tl-step">
         <span class="tl-node" aria-hidden="true">01</span>
         <h5>Parent Co. board</h5>
-        <p>They hear it first and they hear it directly from leadership. Nothing moves further down this list until they have.</p>
+        <p>The board was part of the decision, so this step confirms it rather than announces it. Nothing moves down the list until that confirmation lands.</p>
       </li>
       <li class="tl-step">
         <span class="tl-node" aria-hidden="true">02</span>
         <h5>Brand leaders</h5>
         <p>Every brand&rsquo;s leadership, not only the one affected, plus the department leads who will field the questions. Finance, product, engineering, data, payments, legal, marketing, sales, and client success each get the reasoning rather than the announcement.</p>
+        <div class="gate">
+          <h5>Identity and product system</h5>
+          <p>Name, logo, and how our offerings, products, and features fit together. Finished before all staff see it at step 03.</p>
+        </div>
       </li>
       <li class="tl-step">
         <span class="tl-node" aria-hidden="true">03</span>
@@ -1238,11 +1213,19 @@ a.asset:hover .foot { background: var(--accent-line); }
         <span class="tl-node" aria-hidden="true">04</span>
         <h5>Top accounts</h5>
         <p>A call from the person they already work with. Long-standing customers should feel like they were let in, not notified.</p>
+        <div class="gate">
+          <h5>External materials</h5>
+          <p>Customer email, site updates, sales one-pager, and the answers support works from. Built before step 05.</p>
+        </div>
       </li>
       <li class="tl-step">
         <span class="tl-node" aria-hidden="true">05</span>
         <h5>Current customers</h5>
         <p>Email from the parent company saying what is changing, what is not, and when. If the answer is that nothing changes yet, say that plainly.</p>
+        <div class="gate">
+          <h5>Public presence</h5>
+          <p>Press release, social accounts and handles, trade show materials. Live at step 06 and not before.</p>
+        </div>
       </li>
       <li class="tl-step">
         <span class="tl-node" aria-hidden="true">06</span>
@@ -1250,10 +1233,99 @@ a.asset:hover .foot { background: var(--accent-line); }
         <p>Press release, website, social. Public and findable, so it never looks like something we tried to keep quiet.</p>
       </li>
     </ol>
+  </div>
+</section>
 
-    <div class="callout">
-      <h5>Branding</h5>
-      <p>Branding work and communication deliverables slot into these steps rather than running alongside them. Emails, decks, branded accessories, trade show materials, and site updates each land at the step where they are needed, and which of them are needed at all depends on the determination.</p>
+<!-- ───────── 06 NARRATIVES ───────── -->
+<section id="s06" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">06</div>
+    <h2 class="section-label">Narratives.</h2>
+    <div class="section-body">
+      <p>Different ways to talk about our portfolio and brands once a determination has been made. Section 02 covers what we say about ourselves day to day. These are examples to adapt, not approved copy.</p>
+    </div>
+
+    <div class="stick" data-stick><span class="n">06</span><span class="s">Narratives</span><span class="sep">/</span><span class="sub"></span></div>
+
+    <div class="g3 gx">
+      <details class="xcard">
+        <summary>
+          <span class="x-head">
+            <span class="pill">Internal</span>
+            <span class="x-title">Our team</span>
+          </span>
+          <span class="x-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="x-body">
+          <span class="x-lbl">What we say</span>
+          <p>We&rsquo;re here to put big ideas and real skill to work. At Parent Co. we build the teams and the technology behind summer camps, athletic teams, event managers, and more. Every brand here exists to support the people who run them.</p>
+        </div>
+      </details>
+      <details class="xcard">
+        <summary>
+          <span class="x-head">
+            <span class="pill">Internal</span>
+            <span class="x-title">New employees</span>
+          </span>
+          <span class="x-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="x-body">
+          <span class="x-lbl">What we say</span>
+          <p>Your brand and your customers are why we wanted you here. The parent carries what no team should have to solve alone, so the name your customers chose keeps running at full strength, now with more behind it.</p>
+        </div>
+      </details>
+      <details class="xcard">
+        <summary>
+          <span class="x-head">
+            <span class="pill">External</span>
+            <span class="x-title">Partners</span>
+          </span>
+          <span class="x-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="x-body">
+          <span class="x-lbl">What we say</span>
+          <p>You&rsquo;re working with one brand, and the whole company is behind it. Parent Co. carries the engineering, support, and operations across every brand here, so what you build with us never rides on one team&rsquo;s bandwidth.</p>
+        </div>
+      </details>
+      <details class="xcard">
+        <summary>
+          <span class="x-head">
+            <span class="pill">External</span>
+            <span class="x-title">Industry events</span>
+          </span>
+          <span class="x-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="x-body">
+          <span class="x-lbl">What we say</span>
+          <p>We&rsquo;re a growing group of brands guided by a shared set of values, purpose and vision. All of it comes down to supporting the people who run camps, teams, and events for young people. We build the software behind Campminder, UltraCamp, and Swimtopia.</p>
+        </div>
+      </details>
+      <details class="xcard">
+        <summary>
+          <span class="x-head">
+            <span class="pill">External</span>
+            <span class="x-title">New customers</span>
+          </span>
+          <span class="x-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="x-body">
+          <span class="x-lbl">What we say</span>
+          <p>Every Parent Co. brand is its own platform. They&rsquo;re built for different customers with different needs, whether that&rsquo;s camps, teams, events, or something else. I&rsquo;m here to make sure you get the one that fits how you run.</p>
+        </div>
+      </details>
+      <details class="xcard">
+        <summary>
+          <span class="x-head">
+            <span class="pill">External</span>
+            <span class="x-title">Current customers</span>
+          </span>
+          <span class="x-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="x-body">
+          <span class="x-lbl">What we say</span>
+          <p>Your product, your login, and the people you work with stay the same. If anything does change for you, you&rsquo;ll hear it from us directly, with what it means and when, before you read about it anywhere else.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -1572,6 +1644,17 @@ a.asset:hover .foot { background: var(--accent-line); }
     root.style.setProperty('--sbw', (w > 0 ? w : 0) + 'px');
   }
 
+  /* the topbar's height is set by its contents, and those change: the
+     nav dropdown appears below the rail's breakpoint and is taller than
+     the theme toggle. A hardcoded height leaves a sliver of page above
+     the pinned bar at one width and buries it at another. Measure it. */
+  var topbarEl = document.querySelector('.topbar');
+  function measureTop() {
+    if (!topbarEl) return;
+    var h = Math.round(topbarEl.getBoundingClientRect().height);
+    if (h > 0) root.style.setProperty('--topbar-h', h + 'px');
+  }
+
   function draw() {
     ticking = false;
     var y = window.pageYOffset || root.scrollTop;
@@ -1586,9 +1669,13 @@ a.asset:hover .foot { background: var(--accent-line); }
   }
   function req() { if (!ticking) { ticking = true; window.requestAnimationFrame(draw); } }
   window.addEventListener('scroll', req, { passive: true });
-  window.addEventListener('resize', function () { measureSbw(); req(); });
+  window.addEventListener('resize', function () { measureSbw(); measureTop(); req(); });
   measureSbw();
+  measureTop();
   draw();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { measureTop(); req(); });
+  }
 
   /* ── checklist counter ──────────────────────── */
   var ck = document.getElementById('ck');
