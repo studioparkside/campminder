@@ -386,6 +386,8 @@ strong { color: var(--ink); font-weight: 650; }
 .note strong { color: var(--ink); font-weight: 650; }
 .note.accent { background-color: var(--accent-soft); }
 .note.accent strong { color: var(--accent); }
+/* the plain-language opener, sits above the 01 number */
+.note.welcome { margin-top: 0; margin-bottom: 44px; }
 
 /* ═════════ GRIDS ═════════ */
 .g2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 34px; }
@@ -455,7 +457,7 @@ strong { color: var(--ink); font-weight: 650; }
 /* every surface carries the same tonal purple wash, so the gradient
    reads as one system rather than a decoration on a few cards */
 .card, .xcard, .watch, .bud-card, .asset, .step,
-.contact, .note, .tl-node, .casc, .navdd-menu {
+.note, .tl-node, .casc, .navdd-menu {
   background-image: var(--grad-card);
 }
 .card {
@@ -730,8 +732,9 @@ strong { color: var(--ink); font-weight: 650; }
 .bud-card p { font-size: 18px; line-height: 1.5; color: var(--mid); }
 
 /* ═════════ 09 — the three pieces ═════════ */
+/* dashed edge, because nothing in this section is built yet */
 .asset {
-  background-color: var(--card); border: 1px solid var(--rule); border-radius: 16px;
+  background-color: var(--card); border: 1px dashed var(--rule); border-radius: 16px;
   padding: 34px 30px 0; display: flex; flex-direction: column; gap: 14px;
   text-decoration: none; color: inherit; transition: border-color .15s ease;
   overflow: hidden; min-height: 400px;
@@ -756,30 +759,30 @@ a.asset:hover { border-color: var(--accent); }
 .asset .fn { font-family: var(--mono); font-size: 14px; color: var(--mid); font-weight: 500; }
 a.asset:hover .foot { background: var(--accent-line); }
 
-.qgrid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 44px;
-  align-items: start; margin-top: 8px;
+/* ═════════ 10 — questions ═════════ */
+/* stacked rows on hairlines, so one entry and ten both sit right */
+.qlist { margin-top: 44px; border-top: 1px solid var(--rule); }
+.qrow {
+  display: grid; grid-template-columns: 1fr minmax(260px, 360px); gap: 44px;
+  align-items: start; padding: 30px 0; border-bottom: 1px solid var(--rule);
 }
-.qgrid h3 {
-  font-size: clamp(30px, 4.2vw, 48px); font-weight: 700;
-  letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 20px;
+.qtopic {
+  font-size: 25px; font-weight: 650; color: var(--ink);
+  letter-spacing: -0.03em; line-height: 1.25;
 }
-.qgrid p { font-size: 20px; line-height: 1.5; color: var(--mid); }
-@media (max-width: 900px) { .qgrid { grid-template-columns: 1fr; gap: 28px; } }
-
-.contact {
-  background-color: var(--card); border: 1px solid var(--rule);
-  border-radius: 16px; padding: 30px 32px;
-  display: flex; flex-direction: column; gap: 4px;
-}
-.c-name { font-size: 23px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; }
-.c-role { font-size: 23px; font-weight: 450; color: var(--light); letter-spacing: -0.02em; }
-.c-mail {
-  margin-top: 14px; font-size: 23px; font-weight: 450; letter-spacing: -0.02em;
+.qwho { display: flex; flex-direction: column; gap: 2px; }
+.q-name { font-size: 20px; font-weight: 650; color: var(--ink); letter-spacing: -0.02em; }
+.q-role { font-size: 20px; font-weight: 450; color: var(--light); letter-spacing: -0.02em; }
+.q-mail {
+  margin-top: 12px; font-size: 20px; font-weight: 450; letter-spacing: -0.02em;
   color: var(--accent); text-decoration: none;
   border-bottom: 1px solid var(--accent-line); align-self: flex-start;
 }
-.c-mail:hover { border-bottom-color: var(--accent); }
+.q-mail:hover { border-bottom-color: var(--accent); }
+@media (max-width: 760px) {
+  .qrow { grid-template-columns: 1fr; gap: 16px; padding: 26px 0; }
+  .qtopic { font-size: 22px; }
+}
 
 /* ═════════ RESPONSIVE ═════════ */
 @media (max-width: 900px) {
@@ -836,6 +839,10 @@ a.asset:hover .foot { background: var(--accent-line); }
 <!-- ───────── 01 THE DECISION FRAMEWORK ───────── -->
 <section id="s01" class="wrap section">
   <div class="section-inner">
+    <div class="note welcome">
+      <strong>Welcome to the Campminder Brand Architecture Playbook.</strong> This page covers everything you need to know about our company portfolio and the brands in it. You&rsquo;ll read about who our brands are for, what we think about when one of them changes, and how we share those changes once they&rsquo;re decided. Questions? Scroll to the bottom to see who to get in touch with.
+    </div>
+
     <div class="snum">01</div>
     <h2 class="section-label">The Decision Framework.</h2>
     <div class="section-body">
@@ -880,7 +887,8 @@ a.asset:hover .foot { background: var(--accent-line); }
       <a href="#s06"><span class="n">06</span> Narratives</a>
       <a href="#s07"><span class="n">07</span> Channels</a>
       <a href="#s08"><span class="n">08</span> Budget</a>
-      <a href="#s09"><span class="n">09</span> Questions</a>
+      <a href="#s09"><span class="n">09</span> The Playbook</a>
+      <a href="#s10"><span class="n">10</span> Questions?</a>
     </nav>
   </div>
 </section>
@@ -898,7 +906,7 @@ a.asset:hover .foot { background: var(--accent-line); }
 
     <div class="panel arch-panel">
       <h4>A House of Brands</h4>
-      <div class="arch-parent">Parent Co. &middot; to be named</div>
+      <div class="arch-parent">Parent Co.</div>
       <div class="arch-row">
         <div class="arch-col">
           <div class="arch-chip">Campminder<span class="arch-tier">Brand</span></div>
@@ -1464,16 +1472,68 @@ a.asset:hover .foot { background: var(--accent-line); }
       </div>
     </div>
 
-    <div class="subhead">
-      <div class="qgrid">
-        <div>
-          <h3>Questions?</h3>
-          <p>If you have a brand question and need to talk to someone, contact the team below.</p>
+  </div>
+</section>
+
+<!-- ───────── 10 QUESTIONS ───────── -->
+<section id="s10" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">10</div>
+    <h2 class="section-label">Questions?</h2>
+    <div class="section-body">
+      <p>Who to ask, and how to get answers.</p>
+      <p>Most brand questions are answered above. When you need a person, this is who owns what.</p>
+    </div>
+
+    <div class="stick" data-stick><span class="n">10</span><span class="s">Questions?</span><span class="sep">/</span><span class="sub"></span></div>
+
+    <div class="qlist">
+      <div class="qrow">
+        <div class="qtopic">Parent Co., the portfolio, and how it all fits together</div>
+        <div class="qwho">
+          <span class="q-name">Name</span>
+          <span class="q-role">Department and role</span>
+          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
         </div>
-        <div class="contact">
-          <span class="c-name">Name</span>
-          <span class="c-role">Department and Role</span>
-          <a class="c-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+      </div>
+      <div class="qrow">
+        <div class="qtopic">Campminder and Campanion</div>
+        <div class="qwho">
+          <span class="q-name">Name</span>
+          <span class="q-role">Department and role</span>
+          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+        </div>
+      </div>
+      <div class="qrow">
+        <div class="qtopic">UltraCamp</div>
+        <div class="qwho">
+          <span class="q-name">Name</span>
+          <span class="q-role">Department and role</span>
+          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+        </div>
+      </div>
+      <div class="qrow">
+        <div class="qtopic">Swimtopia</div>
+        <div class="qwho">
+          <span class="q-name">Name</span>
+          <span class="q-role">Department and role</span>
+          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+        </div>
+      </div>
+      <div class="qrow">
+        <div class="qtopic">Gazebo</div>
+        <div class="qwho">
+          <span class="q-name">Name</span>
+          <span class="q-role">Department and role</span>
+          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+        </div>
+      </div>
+      <div class="qrow">
+        <div class="qtopic">Not sure?</div>
+        <div class="qwho">
+          <span class="q-name">Name</span>
+          <span class="q-role">Department and role</span>
+          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
         </div>
       </div>
     </div>

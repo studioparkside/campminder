@@ -121,7 +121,7 @@ The entries in the table above from July 16 and August 3 predate this template a
 - **The inputs that mattered most:** Customers, since each brand serves an audience with real equity in its own name. Category, since camp, swim, and event management are different enough markets that one shared brand would blur the pitch to each of them.
 - **What almost changed the answer:** A single company-wide brand would have been simpler to build and market. That argument didn't hold once weighed against what each brand's customers would lose, and against the fact that the platforms underneath these brands were already converging into one codebase regardless of what the brands did. Shared technology tells us what a choice costs, not what the choice is.
 - **Reversibility:** Low. Undoing a house of brands after customers have built loyalty to individual names costs more than making the call carefully the first time.
-- **Communication:** Ran the full sequence in section 06, starting with leadership before anything reached a customer.
+- **Communication:** Ran the full sequence in section 05, starting with leadership before anything reached a customer.
 
 ---
 
@@ -162,7 +162,7 @@ Four shapes cover almost everything we would buy. Each runs the same inputs and 
 
 ### Sequence variants by shape
 
-The sequence in section 06 of the page runs for every change. The shape sets which steps carry weight and how far out it starts.
+The sequence in section 05 of the page runs for every change. The shape sets which steps carry weight and how far out it starts.
 
 - **A. Another camp brand.** All steps in full, with the top-accounts call running heaviest, because customers overlap and reps get asked about both names on one call. Starts about eight weeks out.
 - **B. Something our brands would use.** Board through brand leaders compress into about a week. Customer steps fold into normal product communication and the public step is a short announcement rather than a campaign. Starts three to four weeks out.
@@ -207,7 +207,7 @@ A brand's role gets looked at against the framework whenever something material 
 
 ### Narrative variants
 
-Six audience-specific versions of the same story live in section 05 of the page: our team, new employees, partners, industry events, new customers, and current customers. Same story, shaped for how each audience meets us. Use them as written rather than improvising a seventh.
+Six audience-specific versions of the same story live in section 06 of the page: our team, new employees, partners, industry events, new customers, and current customers. Same story, shaped for how each audience meets us. Use them as written rather than improvising a seventh.
 
 ---
 
@@ -252,7 +252,6 @@ The 10% marketing line sits just above the 8% B2B SaaS median, which keeps the c
 
 - **27 responses** across C-suite, product, engineering, sales, marketing, client success, operations, and Swimtopia leadership.
 - **67%** used "confusing," "unclear," or a close variation to describe how the brands are managed today.
-- Full findings live at `/architecture/survey/`, alongside this file.
 
 ---
 
@@ -267,8 +266,6 @@ Figures carried over from the July strategy work.
 
 ---
 
-## Where the rest of the thinking lives
+## Ownership
 
-`/architecture/strategy/` and `/architecture/survey/` both exist, and nothing on the playbook page links to either by design. A ten-minute overview shouldn't fork the reader partway through. Anyone who needs the longer thinking gets sent the URL directly.
-
-This file sits beside the page in the same folder, held by the team leading activation until ownership moves in-house to whoever owns marketing.
+This file lives in the `playbook` folder alongside the skill file, held by the team leading activation until ownership moves in-house to whoever owns marketing.

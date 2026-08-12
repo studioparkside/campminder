@@ -40,7 +40,7 @@ Run these in order. The order is a path, not a ranking, and no input carries a f
 6. **Land on one of four outcomes.** Keep, Absorb, Rebrand, or Retire. Anything else means the decision is not done. Keep is an answer, not a default, and it gets asked again whenever something material changes or at least once a year.
 7. **Run the checklist.** Section 04-03 of the playbook page carries it. Six items: customers, our team, other inputs, watchouts avoided, single answer, decision shared. In a meeting, someone reads them aloud and the room confirms each one. When an AI assistant is walking the decision, it asks about each item and names the ones that are not done. Either way, an empty box is work to complete, not a formality.
 8. **Record it.** Fill in the decision record template in `playbook.md` and add a one-line entry to the decisions table, in the same edit.
-9. **Queue the communication.** Concentric circles, inside first, per section 06 of the page. Board, brand leaders, all staff, top accounts, current customers, everyone else. The acquisition shape picks the variant and the lead time, and those variants live in `playbook.md` rather than on the page.
+9. **Queue the communication.** Concentric circles, inside first, per section 05 of the page. Board, brand leaders, all staff, top accounts, current customers, everyone else. The acquisition shape picks the variant and the lead time, and those variants live in `playbook.md` rather than on the page.
 
 ## What this skill will not do
 
