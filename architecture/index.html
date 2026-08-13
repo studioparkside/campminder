@@ -800,7 +800,11 @@ a.asset:hover .foot { background: var(--accent-line); }
   .subhead { margin-top: 52px; padding-top: 36px; }
   .navdd-menu { min-width: min(320px, 78vw); }
 }
-@media (max-width: 560px) { .conf-chip { display: none; } }
+@media (max-width: 560px) {
+  .conf-chip { display: none; }
+  .tmode { display: none; }
+  .cm-logo svg { height: 22px; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-snap-type: none; scroll-behavior: auto; }
 }

@@ -233,15 +233,6 @@ body {
 .wrole .rsub { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.42); letter-spacing: -0.015em; }
 .wrolehead .pill { align-self: center; }
 .wrole .bars { margin-top: 12px; }
-.wsuites { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 4px; }
-.wsuite {
-  border: 1px solid rgba(255,255,255,0.14); border-radius: 12px;
-  padding: 30px 26px 28px; background: rgba(255,255,255,0.03);
-  min-height: 340px; display: flex; flex-direction: column;
-}
-.wsuite h6 { font-size: 26px; font-weight: 700; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 8px; }
-.wsuite .pr { font-size: 34px; font-weight: 700; color: var(--dark-accent); letter-spacing: -0.035em; line-height: 1; font-variant-numeric: tabular-nums; }
-.wsuite p { font-size: 16px; color: var(--dark-mid); line-height: 1.45; margin-top: auto; padding-top: 28px; }
 .frame-note { font-size: 12px; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dark-low); padding: 13px 18px; background: var(--dark-2); text-align: right; border-top: 1px solid var(--dark-line); min-height: 45px; }
 .frame-tag { font-size: 12px; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dark-low); margin-left: auto; }
 
@@ -339,9 +330,6 @@ body {
   .ccards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .acards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .seqcols { grid-template-columns: 1fr; gap: 32px; }
-  .wsuites { grid-template-columns: 1fr; }
-  .wsuite { min-height: 0; }
-  .wsuite p { padding-top: 18px; }
   .wblock { min-height: 0; padding: 40px 30px; }
 }
 @media (max-width: 640px) {
@@ -387,10 +375,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
     <a href="#s03"><span class="n">03</span> Territory</a>
     <a href="#s04"><span class="n">04</span> Hierarchy</a>
     <a href="#s05"><span class="n">05</span> Layout</a>
-    <a href="#s06"><span class="n">06</span> What's open</a>
-    <a href="#s07"><span class="n">07</span> UX requests</a>
-    <a href="#s08"><span class="n">08</span> Guardrails</a>
-    <a href="#s09"><span class="n">09</span> Assets</a>
+    <a href="#s06"><span class="n">06</span> Art direction</a>
+    <a href="#s07"><span class="n">07</span> What's open</a>
+    <a href="#s08"><span class="n">08</span> UX requests</a>
+    <a href="#s09"><span class="n">09</span> Guardrails</a>
+    <a href="#s10"><span class="n">10</span> Assets</a>
   </nav>
 </header>
 
@@ -400,9 +389,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
     <div class="snum">01</div>
     <h2 class="section-label">Assignment.</h2>
     <div class="section-body">
-      <p>A new homepage for campminder.com, live the week of September 7, alongside the Registration release.</p>
+      <p>A new homepage for campminder.com, live alongside the Registration release. Registration ships to a select group on 9/7 and to everyone on 9/30, and Campminder is comfortable with the page going live inside that window.</p>
       <p>It works inside the existing site. Same shell, same navigation, same interior pages. One page, not a redesign.</p>
       <p>Everything named on the page has to be live the day it goes up. That's the one hard rule, and it comes from Campminder.</p>
+      <p>Specific copywriting is outside Studio Parkside's scope of work. Campminder is checking with Groundwrk on whether it sits in theirs.</p>
     </div>
   </div>
 </section>
@@ -415,7 +405,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 
     <p class="sub" style="margin-top:0;">02-01 Why now</p>
     <div class="section-body">
-      <p>The homepage hasn't meaningfully changed in five years, because there was never anything new enough to put on it. That changed this fall. Campminder ships more product between September and December than it has in three years, starting with Registration on September 1, then Campminder Intelligence, staffing, and Ask Camp, the assistant inside the Campanion parent app.</p>
+      <p>The homepage hasn't meaningfully changed in five years, because there was never anything new enough to put on it. That changed this fall. Campminder ships more product between September and December than it has in three years, starting with Registration in September, then Campminder Intelligence, staffing, and Ask Camp, the assistant inside the Campanion parent app.</p>
       <p><strong>Campminder Intelligence runs across the whole platform.</strong> Registration, staffing, health, and finance in one view. It isn't an enrollment report and it shouldn't be presented as one.</p>
     </div>
 
@@ -480,6 +470,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
       <h5>The tagline doesn't change.</h5>
       <p><strong>Unpack possible</strong> is the existing brand tagline. Same lockup every time. It sits next to the call to action, and it ends the page.</p>
     </div>
+
+    <div class="callout">
+      <h5>The hero support line is open.</h5>
+      <p><strong>One for all</strong> holds. The line under it repeats &ldquo;one&rdquo; and ends on a preposition, and both came up in review. The missing idea is trust. Around 1,700 camps run on Campminder, and two decades of that is the one thing an AI-native competitor cannot claim.</p>
+      <p>Campminder prefers peer trust phrasing over any self-declared industry leader claim. A direction under consideration: &ldquo;the trusted platform for everyone at your camp.&rdquo;</p>
+    </div>
   </div>
 </section>
 
@@ -510,7 +506,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <div class="use">The camp success section, and the tone everywhere else.</div>
         </div>
         <div class="block">
-          <span class="lbl">Structural Support</span>
+          <span class="lbl">Structural Support &middot; Name in progress</span>
           <div class="nm">Smart tools, real people</div>
           <div class="role">Features introduced by the person who does the work.</div>
           <div class="bdiv"></div>
@@ -518,6 +514,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <div class="use">How the role and feature blocks get built and labelled.</div>
         </div>
       </div>
+    </div>
+
+    <div class="callout">
+      <h5>The structural support name is in progress.</h5>
+      <p><strong>Smart tools, real people</strong> is being rethought. Paul finds &ldquo;tools&rdquo; utilitarian. Snug flagged &ldquo;smart&rdquo; as dated in an AI context. &ldquo;Intelligent technology&rdquo; was raised as a direction, and no replacement has been chosen.</p>
+      <p>The underlying idea holds either way: features are introduced by the people who built them, and nothing arrives anonymously.</p>
     </div>
   </div>
 </section>
@@ -529,7 +531,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
     <h2 class="section-label">Layout.</h2>
     <div class="section-body">
       <p>Structure and content order, block by block. The claim holds the top of the page and the proof arrives as you scroll. Everything under the hero is modular, so the order can change as we learn which features matter most.</p>
-      <p>Headlines here are direction, not final page copy. Read section 06 before treating any of it as fixed.</p>
+      <p>Headlines here are direction, not final page copy. Read section 07 before treating any of it as fixed.</p>
     </div>
 
     <div class="frame" style="margin-top:40px;">
@@ -550,18 +552,18 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <p class="wc">Registration, staffing, health, communication, and the business behind it all.</p>
           <div class="wctas"><span class="wcta">Book a demo</span><span class="wcta gh">See the platform</span></div>
           <div class="wviz">
-            <b>Visual</b>Camp photography running full bleed.
+            <b>Visual</b>Camp photography running full bleed. The support line under the headline is open. See the note in 03.
             <div class="bars"><div class="bar hero wide fill"></div></div>
           </div>
         </div>
 
         <div class="wblock">
-          <div class="wbar"><span class="wn">02</span><span class="wname">Intelligence</span><span class="pill dk">Animated</span></div>
+          <div class="wbar"><span class="wn">02</span><span class="wname">Intelligence</span><span class="pill dk">Animated and static</span></div>
           <h4>Intelligence you can trust.</h4>
           <p class="wsub">Campminder Intelligence, across the whole platform.</p>
           <p class="wc">Registration, staffing, health, and finance in one view, so you can see what your data has been telling you.</p>
           <div class="wviz">
-            <b>Visual</b>Multiple platform screens showing where Campminder Intelligence surfaces.
+            <b>Visual</b>Multiple platform screens showing where Campminder Intelligence surfaces. Static screens paired with an animation running alongside, so there is movement next to something the eye can rest on.
             <div class="bars"><div class="bar tall"></div><div class="bar tall"></div><div class="bar tall wide fill"></div></div>
           </div>
         </div>
@@ -572,7 +574,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <p class="wsub">Everything your camp runs on.</p>
           <p class="wc">Registration, staffing, health and medical, transportation, group and cabin assignment, billing and payments, communication, reporting, lead capture, and the off-season.</p>
           <div class="wviz">
-            <b>Visual</b>Platform visuals and typography set in dense tiles, each one contained. This is the dense moment in UX request 04.
+            <b>Visual</b>Platform visuals and typography set in dense, tight-set tiles or cards, each one contained. The full platform at once, and the volume is the message. This is the dense moment in UX request 04.
             <div class="bars"><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div></div>
             <div class="bars"><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div></div>
           </div>
@@ -584,7 +586,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <p class="wsub">Camp success. The team behind your platform.</p>
           <p class="wc">Reach a real person in the middle of your season or whenever you need them.</p>
           <div class="wviz">
-            <b>Visual</b>Individual portraits and photography of the Campminder team at work.
+            <b>Visual</b>Portraits of Campminder people first, plus candid photography of the team at work. The full team is on site in October with a photographer, so placeholder portraits get swapped then.
             <div class="bars"><div class="bar tall"></div><div class="bar tall"></div><div class="bar tall"></div><div class="bar tall"></div></div>
           </div>
         </div>
@@ -595,7 +597,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <p class="wsub">Every role on one platform.</p>
           <p class="wc">Directors, communications, business and finance, and everyone else who keeps a season running.</p>
           <div class="wviz">
-            <b>Visual</b>Three platform screens, one per role.
+            <b>Visual</b>Three platform screens, one per role. The split with 07 is deliberate. This block covers owner and director, communications and marketing, business and finance. 07 covers registrar, staff coordinator, and nurse, and builds to Campanion for families.
             <div class="wroles">
               <div class="wrole">
                 <div class="wrolehead"><span class="rname">Owner and Director</span></div>
@@ -614,12 +616,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
         </div>
 
         <div class="wblock">
-          <div class="wbar"><span class="wn">06</span><span class="wname">Ask Camp</span><span class="pill dk">Product screens</span></div>
+          <div class="wbar"><span class="wn">06</span><span class="wname">Ask Camp</span><span class="pill dk">Product screens</span><span class="pill dk">Animated</span></div>
           <h4>No handbook required.</h4>
           <p class="wsub">Ask Camp, built into Campanion.</p>
           <p class="wc">Packing lists, drop-off and pickup times, form status, and camp policies, answered for a parent without a call to the camp office.</p>
           <div class="wviz">
-            <b>Visual</b>Campanion screens showing a parent question and the answer it returns.
+            <b>Visual</b>Campanion screens showing a parent question and the answer it returns. An animation is wanted here: a parent types a question and the answer comes back. Drop-off time, answered with 7:45am.
             <div class="bars"><div class="bar tall"></div><div class="bar tall fill"></div><div class="bar tall"></div></div>
           </div>
         </div>
@@ -630,22 +632,22 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
           <p class="wsub">Built by people who know camp.</p>
           <p class="wc">Registration, staffing, health, and the families who use it every day.</p>
           <div class="wviz">
-            <b>Visual</b>Each block demonstrates how a specific role uses a platform feature. The Campanion block carries the App Store rating and review count.
+            <b>Visual</b>Each block demonstrates how a specific role uses a platform feature, with room in every block for one number that makes scale visible. The point is that the operation runs to millions, not dozens of camps. The figures below are placeholders, and Campminder owns supplying the confirmed numbers. The Campanion block also carries the App Store rating and review count.
             <div class="wroles">
               <div class="wrole">
-                <div class="wrolehead"><span class="rname">Registration</span><span class="rsub">Registrar</span></div>
+                <div class="wrolehead"><span class="rname">Registration</span><span class="rsub">Registrar</span><span class="pill dk">Camper applications processed</span></div>
                 <div class="bars"><div class="bar r3 fill"></div><div class="bar r3 fill"></div><div class="bar r3 fill"></div></div>
               </div>
               <div class="wrole">
-                <div class="wrolehead"><span class="rname">Staffing</span><span class="rsub">Staff Coordinator</span></div>
+                <div class="wrolehead"><span class="rname">Staffing</span><span class="rsub">Staff Coordinator</span><span class="pill dk">Staff hired</span></div>
                 <div class="bars"><div class="bar r3 fill"></div><div class="bar r3 fill"></div><div class="bar r3 fill"></div></div>
               </div>
               <div class="wrole">
-                <div class="wrolehead"><span class="rname">Health</span><span class="rsub">Camp Nurse</span></div>
+                <div class="wrolehead"><span class="rname">Health</span><span class="rsub">Camp Nurse</span><span class="pill dk">Health logs and medications administered</span></div>
                 <div class="bars"><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div></div>
               </div>
               <div class="wrole">
-                <div class="wrolehead"><span class="rname">Campanion</span><span class="rsub">Camp Families</span></div>
+                <div class="wrolehead"><span class="rname">Campanion</span><span class="rsub">Camp Families</span><span class="pill dk">App Store reviews and photos uploaded</span></div>
                 <div class="bars"><div class="bar r3"></div><div class="bar r3"></div><div class="bar r3"></div></div>
               </div>
             </div>
@@ -662,39 +664,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
         </div>
 
         <div class="wblock">
-          <div class="wbar"><span class="wn">09</span><span class="wname">Pricing</span><span class="pill dk">CTA</span></div>
-          <h4>Priced for your camp.</h4>
-          <p class="wsub">Pick the suite that fits how you operate.</p>
-          <p class="wc">Three suites. Built around how much of the season you run with us. Whether numbers appear here is still open on the Campminder side.</p>
-          <div class="wviz">
-            <div class="wsuites">
-              <div class="wsuite">
-                <h6>Classic</h6>
-                <div class="pr">$???</div>
-                <p>Smaller camps and teams new to camp management software.</p>
-              </div>
-              <div class="wsuite">
-                <h6>Deluxe</h6>
-                <div class="pr">$???</div>
-                <p>Growing camps ready for a modern parent experience.</p>
-              </div>
-              <div class="wsuite">
-                <h6>Professional</h6>
-                <div class="pr">$???</div>
-                <p>Enterprise camps and sophisticated operations.</p>
-              </div>
-            </div>
-          </div>
-          <div class="wctas"><span class="wcta">Talk to us</span></div>
-        </div>
-
-        <div class="wblock">
-          <div class="wbar"><span class="wn">10</span><span class="wname">Proof</span><span class="pill dk">Camp logos</span></div>
+          <div class="wbar"><span class="wn">10</span><span class="wname">Proof</span><span class="pill dk">Camp logos</span><span class="pill dk">Case study links</span></div>
           <h4>Partnerships built to last.</h4>
           <p class="wsub">Twenty-five years with the camps you already know.</p>
           <p class="wc">Leading camps trust us year after year because we&rsquo;re always there for them.</p>
           <div class="wviz">
-            <b>Visual</b>Logo wall.
+            <b>Visual</b>Logo wall, with a link or hover state from the wall into the case studies. The case studies are live today, buried in the hamburger nav and surfaced when sales or camp success sends them. The target is a recognizable camp with a personal story attached.
             <div class="bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
             <div class="bars"><div class="bar"></div><div class="bar"></div></div>
           </div>
@@ -711,6 +686,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
       </div>
       <div class="frame-note">Starting point &middot; not final</div>
     </div>
+
+    <div class="callout">
+      <h5>Pricing is off the page.</h5>
+      <p>Pricing scares prospects off, and the sales team wants room to have the conversation. The suites are out with it. The page now runs from the testimonial in 08 to the logo wall in 10 to the close.</p>
+      <p>Block numbers hold from the earlier draft, so 09 is retired rather than reused.</p>
+    </div>
   </div>
 </section>
 
@@ -718,6 +699,42 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 <section id="s06" class="wrap section">
   <div class="section-inner">
     <div class="snum">06</div>
+    <h2 class="section-label">Art direction.</h2>
+    <div class="section-body">
+      <p>The design concept in front of Groundwrk next. Direction for the fall campaign homepage at this stage, not a locked system.</p>
+    </div>
+
+    <div class="rail">
+      <div class="railrow">
+        <div class="rn">01</div>
+        <div>
+          <h5>Product screens carry the page.</h5>
+          <p>The concept leans more heavily on product screens, with fewer photos of people. Photography holds the hero and the team block. The product is the visual everywhere else.</p>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">02</div>
+        <div>
+          <h5>The hero is a full-bleed camp photo.</h5>
+          <p>One camp photograph, edge to edge. A/B or geolocated hero imagery for new versus returning visitors was raised. That call is open, not decided.</p>
+          <div class="rowpills"><span class="pill now">Open</span></div>
+        </div>
+      </div>
+      <div class="railrow">
+        <div class="rn">03</div>
+        <div>
+          <h5>A design concept, not a finished page.</h5>
+          <p>Studio Parkside delivers art direction set on one view. Groundwrk carries the system across the rest of the site.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section id="s07" class="wrap section">
+  <div class="section-inner">
+    <div class="snum">07</div>
     <h2 class="section-label">What's open.</h2>
     <div class="section-body">
       <p>The wireframe was built to give Campminder something concrete to react to. It did that. It isn't final and it isn't precious. If you think the order's wrong, say so. A proposal that moves things around and explains why is worth more to us than a faithful build of something that doesn't work.</p>
@@ -732,7 +749,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
         <ul class="aud">
           <li>The territory and hierarchy in 03 and 04</li>
           <li>The Unpack possible lockup</li>
-          <li>The guardrails in 08</li>
+          <li>The guardrails in 09</li>
           <li>Everything on the page is live at launch</li>
           <li>It works inside the current site shell</li>
           <li>Blocks come apart and reorder without a rebuild</li>
@@ -766,10 +783,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   </div>
 </section>
 
-<!-- 07 -->
-<section id="s07" class="wrap section">
+<!-- 08 -->
+<section id="s08" class="wrap section">
   <div class="section-inner">
-    <div class="snum">07</div>
+    <div class="snum">08</div>
     <h2 class="section-label">UX requests.</h2>
     <div class="section-body">
       <p>Behaviours, not a look. Where they conflict, the earlier one wins.</p>
@@ -829,10 +846,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   </div>
 </section>
 
-<!-- 08 -->
-<section id="s08" class="wrap section">
+<!-- 09 -->
+<section id="s09" class="wrap section">
   <div class="section-inner">
-    <div class="snum">08</div>
+    <div class="snum">09</div>
     <h2 class="section-label">Guardrails.</h2>
     <div class="section-body">
       <p>Set with Campminder's leadership, sales, product, and client success on August 3. Each one exists because of something that happened.</p>
@@ -878,10 +895,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   </div>
 </section>
 
-<!-- 09 -->
-<section id="s09" class="wrap section">
+<!-- 10 -->
+<section id="s10" class="wrap section">
   <div class="section-inner">
-    <div class="snum">09</div>
+    <div class="snum">10</div>
     <h2 class="section-label">Assets.</h2>
     <div class="section-body">
       <p>What Campminder is supplying, and roughly when. Design can start without all of it, but the hero and the team block need real photography before anything gets locked.</p>
@@ -889,34 +906,34 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 
     <div class="acards">
       <div class="acard">
-        <div class="atop"><span class="anum">09-01</span><span class="pill now">ASAP</span></div>
+        <div class="atop"><span class="anum">10-01</span><span class="pill now">ASAP</span></div>
         <h5>Product screens</h5>
         <p>Current screens for everything named in section 05, captured at launch state rather than today's build.</p>
       </div>
       <div class="acard">
-        <div class="atop"><span class="anum">09-02</span><span class="pill now">ASAP</span></div>
+        <div class="atop"><span class="anum">10-02</span><span class="pill now">ASAP</span></div>
         <h5>Camp photography</h5>
-        <p>Camp photos with usage rights cleared, for the hero and the team block.</p>
+        <p>Camp photos with usage rights cleared, for the hero and the team block. Rights are workable. Camps generally allow use with permissions and ownership stated, and shots from above or from behind are the norm for images with kids in them.</p>
       </div>
       <div class="acard">
-        <div class="atop"><span class="anum">09-03</span><span class="pill now">ASAP</span></div>
+        <div class="atop"><span class="anum">10-03</span><span class="pill now">ASAP</span></div>
         <h5>Team photography</h5>
-        <p>Individual portraits and working shots of actual Campminder staff. No stock, no headshot grid.</p>
+        <p>Individual portraits and working shots of actual Campminder staff. No stock, no headshot grid. The full team is on site in October with a photographer, so placeholders get swapped then.</p>
       </div>
       <div class="acard">
-        <div class="atop"><span class="anum">09-04</span><span class="pill soon">Soon</span></div>
+        <div class="atop"><span class="anum">10-04</span><span class="pill soon">Soon</span></div>
         <h5>Customer testimonials</h5>
         <p>On the record, from long-tenure camps. More than one, so there's a choice to make.</p>
       </div>
       <div class="acard">
-        <div class="atop"><span class="anum">09-05</span><span class="pill soon">Soon</span></div>
+        <div class="atop"><span class="anum">10-05</span><span class="pill soon">Soon</span></div>
         <h5>Camp logos</h5>
         <p>Cleared marks for the proof wall, at the count the block ends up needing.</p>
       </div>
       <div class="acard">
-        <div class="atop"><span class="anum">09-06</span><span class="pill soon">Soon</span></div>
-        <h5>The pricing decision</h5>
-        <p>Whether pricing goes on the page, and if so, a starting number per suite. Campminder's call, and better settled before design than after.</p>
+        <div class="atop"><span class="anum">10-06</span><span class="pill soon">Soon</span></div>
+        <h5>Scale numbers</h5>
+        <p>Confirmed figures for the proof stats in block 07: camper applications processed, staff hired, health logs and medications administered, App Store reviews and photos uploaded. Campminder owns supplying these. Placeholders until they land.</p>
       </div>
     </div>
   </div>
