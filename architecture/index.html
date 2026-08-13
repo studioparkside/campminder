@@ -222,6 +222,14 @@ strong { color: var(--ink); font-weight: 650; }
 .navdd-menu a:hover { background: var(--soft); color: var(--ink); }
 .navdd-menu a.on { color: var(--ink); font-weight: 700; background: var(--accent-soft); }
 .navdd-menu a.on .n { color: var(--accent); }
+/* theme row inside the menu. Hidden by default, shown only below 560px
+   where the header toggle is hidden, so the control exists once per width. */
+.navdd-theme {
+  display: none; align-items: center; justify-content: space-between;
+  margin-top: 8px; padding: 14px 14px 8px;
+  border-top: 1px solid var(--rule);
+}
+.navdd-theme .lbl { font-size: 15.5px; font-weight: 600; color: var(--mid); letter-spacing: -0.012em; }
 
 /* ── Theme toggle ───────────────────────────── */
 .tmode {
@@ -802,8 +810,9 @@ a.asset:hover .foot { background: var(--accent-line); }
 }
 @media (max-width: 560px) {
   .conf-chip { display: none; }
-  .tmode { display: none; }
+  .topbar-right > .tmode { display: none; }
   .cm-logo svg { height: 22px; }
+  .navdd-theme { display: flex; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-snap-type: none; scroll-behavior: auto; }
@@ -1566,7 +1575,7 @@ a.asset:hover .foot { background: var(--accent-line); }
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
   }
-  btns.forEach(function (b) {
+  function bindThemeBtn(b) {
     b.addEventListener('click', function () {
       var want = b.getAttribute('data-theme-set');
       try {
@@ -1575,7 +1584,8 @@ a.asset:hover .foot { background: var(--accent-line); }
       } catch (e) {}
       paint();
     });
-  });
+  }
+  btns.forEach(bindThemeBtn);
   if (mq) {
     var onChange = function () { if (!stored()) paint(); };
     if (mq.addEventListener) mq.addEventListener('change', onChange);
@@ -1618,6 +1628,22 @@ a.asset:hover .foot { background: var(--accent-line); }
            '<span class="t">' + esc(m.t) + '</span>' +
            '<span class="bar" aria-hidden="true"></span></a>';
   }).join('');
+
+  /* theme toggle inside the menu. CSS shows it only below 560px, where
+     the header toggle is hidden, so the control exists once per width. */
+  var mtheme = document.createElement('div');
+  mtheme.className = 'navdd-theme';
+  var mlbl = document.createElement('span');
+  mlbl.className = 'lbl';
+  mlbl.textContent = 'Theme';
+  mtheme.appendChild(mlbl);
+  var mtoggle = document.querySelector('.topbar-right .tmode').cloneNode(true);
+  mtheme.appendChild(mtoggle);
+  menu.appendChild(mtheme);
+  var mbtns = Array.prototype.slice.call(mtoggle.querySelectorAll('[data-theme-set]'));
+  mbtns.forEach(bindThemeBtn);
+  btns = btns.concat(mbtns);
+  paint();
 
   var menuLinks = Array.prototype.slice.call(menu.querySelectorAll('a'));
   var tickLinks = Array.prototype.slice.call(ticks.querySelectorAll('a'));
