@@ -68,6 +68,15 @@
                 radial-gradient(940px 640px at 94% 38%, rgba(119,61,189,0.05), rgba(119,61,189,0) 60%),
                 radial-gradient(900px 600px at 40% 104%, rgba(119,61,189,0.045), rgba(119,61,189,0) 62%);
   --grad-glow:  radial-gradient(820px 460px at 86% 4%, rgba(255,255,255,0.14), rgba(255,255,255,0) 62%);
+  /* the three framework steps sit on a brighter purple so they carry the section */
+  --step-bg:      #e9dcfa;
+  --step-line:    #c3a2ec;
+  --step-wash:    linear-gradient(160deg, rgba(119,61,189,0.10) 0%, rgba(119,61,189,0.02) 70%);
+  --step-ink:     #2b1650;
+  --step-body:    #4b3572;
+  --step-num:     #6a2fb2;
+  --step-go-bg:   rgba(255,255,255,0.78);
+  --step-go-hover:#ffffff;
   color-scheme: light;
 }
 
@@ -99,6 +108,14 @@
                 radial-gradient(940px 640px at 94% 38%, rgba(160,119,209,0.10), rgba(160,119,209,0) 60%),
                 radial-gradient(900px 600px at 40% 104%, rgba(160,119,209,0.09), rgba(160,119,209,0) 62%);
   --grad-glow:  radial-gradient(820px 460px at 86% 4%, rgba(255,255,255,0.07), rgba(255,255,255,0) 62%);
+  --step-bg:      rgba(160,119,209,0.20);
+  --step-line:    rgba(160,119,209,0.46);
+  --step-wash:    linear-gradient(160deg, rgba(160,119,209,0.16) 0%, rgba(160,119,209,0.03) 70%);
+  --step-ink:     #f5f2f9;
+  --step-body:    rgba(255,255,255,0.74);
+  --step-num:     #c7a9ea;
+  --step-go-bg:   rgba(255,255,255,0.10);
+  --step-go-hover:rgba(255,255,255,0.17);
   color-scheme: dark;
 }
 
@@ -117,6 +134,10 @@
     --panel: #2e2247; --panel-2: #3d2c60; --panel-ink: #ffffff;
     --panel-mid: rgba(255,255,255,0.68); --panel-line: rgba(255,255,255,0.18);
     --panel-accent: #bb9ce4;
+    --step-bg: rgba(160,119,209,0.20); --step-line: rgba(160,119,209,0.46);
+    --step-wash: linear-gradient(160deg, rgba(160,119,209,0.16) 0%, rgba(160,119,209,0.03) 70%);
+    --step-ink: #f5f2f9; --step-body: rgba(255,255,255,0.74); --step-num: #c7a9ea;
+    --step-go-bg: rgba(255,255,255,0.10); --step-go-hover: rgba(255,255,255,0.17);
     --grad-card: linear-gradient(152deg, rgba(160,119,209,0.095) 0%, rgba(160,119,209,0.022) 46%, rgba(160,119,209,0) 80%);
     --grad-page: radial-gradient(1200px 720px at 10% -6%, rgba(160,119,209,0.15), rgba(160,119,209,0) 62%),
                  radial-gradient(940px 640px at 94% 38%, rgba(160,119,209,0.10), rgba(160,119,209,0) 60%),
@@ -399,6 +420,7 @@ strong { color: var(--ink); font-weight: 650; }
 @media (max-width: 760px) { .note.welcome { margin-top: 36px; } }
 
 /* ═════════ GRIDS ═════════ */
+.g1 { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 34px; }
 .g2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 34px; }
 /* .gx — grids of expandable cards. A card that opens must not drag its
    neighbour taller. The neighbour keeps its own height and leaves space. */
@@ -428,11 +450,13 @@ strong { color: var(--ink); font-weight: 650; }
 /* the house diagram, on the panel */
 .arch-panel { min-height: 62vh; }
 .arch-parent {
-  border: 1.5px dashed var(--panel-line); color: var(--panel-accent);
-  background: rgba(255,255,255,0.07); border-radius: 14px;
-  padding: 24px 28px; text-align: left;
-  font-size: 22px; font-weight: 650; letter-spacing: -0.015em; margin-bottom: 18px;
+  border: 1px solid rgba(255,255,255,0.34); color: var(--panel);
+  background-image: linear-gradient(160deg, #e2d2f7 0%, var(--panel-accent) 100%);
+  border-radius: 14px;
+  padding: 30px 28px; text-align: left;
+  font-size: 29px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 18px;
 }
+.arch-parent .arch-tier { color: rgba(69,36,116,0.66); }
 .arch-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: start; }
 .arch-chip {
   background-image: linear-gradient(160deg, rgba(255,255,255,0.13), rgba(255,255,255,0.05) 70%);
@@ -518,6 +542,18 @@ strong { color: var(--ink); font-weight: 650; }
 .xcard[open] .x-plus::after { opacity: 0; }
 .x-body { padding: 0 30px 28px; }
 .x-body p { font-size: 18.5px; line-height: 1.5; color: var(--mid); }
+/* .lead — an input that carries more weight than the rest, so it runs
+   full width on its own row and sets its type a size up */
+.xcard.lead > summary { padding: 32px 34px; }
+.xcard.lead .x-title { font-size: 32px; }
+.xcard.lead .x-body { padding: 0 34px 32px; max-width: 72ch; }
+.xcard.lead .x-body p { font-size: 20px; }
+@media (max-width: 760px) {
+  .xcard.lead > summary { padding: 26px 24px; }
+  .xcard.lead .x-title { font-size: 26px; }
+  .xcard.lead .x-body { padding: 0 24px 26px; }
+  .xcard.lead .x-body p { font-size: 18px; }
+}
 .x-lbl {
   display: block; font-size: 14px; font-weight: 650; color: var(--accent);
   margin-bottom: 8px;
@@ -532,26 +568,38 @@ strong { color: var(--ink); font-weight: 650; }
 }
 
 /* ═════════ 01 — contents + the three steps ═════════ */
-.toc { margin-top: 40px; max-width: 760px; font-size: 18px; font-weight: 600; }
+.toc { margin-top: 40px; max-width: 900px; font-weight: 600; }
 .toc a {
-  display: flex; align-items: baseline; gap: 18px; padding: 13px 0;
+  display: grid; grid-template-columns: 34px minmax(0, 1fr) minmax(0, 1.15fr);
+  align-items: baseline; gap: 18px; padding: 16px 0;
   border-top: 1px solid var(--rule); color: var(--ink); text-decoration: none;
 }
 .toc a:last-child { border-bottom: 1px solid var(--rule); }
 .toc a:hover { color: var(--accent); }
-.toc .n { color: var(--accent); font-variant-numeric: tabular-nums; font-size: 15px; }
+.toc .n { color: var(--accent); font-variant-numeric: tabular-nums; font-size: 16px; }
+.toc .t { font-size: 25px; letter-spacing: -0.03em; line-height: 1.2; }
+.toc .d { font-size: 17px; font-weight: 500; color: var(--mid); line-height: 1.4; }
+.toc a:hover .d { color: var(--mid); }
+@media (max-width: 760px) {
+  .toc a { grid-template-columns: 30px minmax(0, 1fr); row-gap: 6px; padding: 15px 0; }
+  .toc .t { font-size: 22px; }
+  .toc .d { grid-column: 2; font-size: 16px; }
+}
 
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 34px; }
 .step {
-  position: relative; background-color: var(--card); border: 1px solid var(--rule);
+  position: relative; background-color: var(--step-bg); border: 1px solid var(--step-line);
+  background-image: var(--step-wash);
   border-radius: 16px; padding: 30px 30px 26px; display: flex; flex-direction: column;
 }
 .step .sn {
-  font-size: 15px; font-weight: 650; color: var(--accent);
+  font-size: 15px; font-weight: 650; color: var(--step-num);
   font-variant-numeric: tabular-nums; margin-bottom: 14px;
 }
-.step h5 { font-size: 25px; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 10px; }
-.step p { font-size: 18px; color: var(--mid); line-height: 1.5; margin-bottom: 22px; }
+.step h5 { font-size: 25px; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 10px; color: var(--step-ink); }
+.step p { font-size: 18px; color: var(--step-body); line-height: 1.5; margin-bottom: 22px; }
+.step .go { background: var(--step-go-bg); border-color: var(--step-line); color: var(--step-num); }
+.step .go:hover { background: var(--step-go-hover); }
 /* .go — the page's forward-pointer pill. Inside a step card it pins to the
    bottom. It is also used on its own to hand a reader to a later section. */
 .go {
@@ -741,9 +789,8 @@ strong { color: var(--ink); font-weight: 650; }
 .bud-card p { font-size: 18px; line-height: 1.5; color: var(--mid); }
 
 /* ═════════ 09 — the three pieces ═════════ */
-/* dashed edge, because nothing in this section is built yet */
 .asset {
-  background-color: var(--card); border: 1px dashed var(--rule); border-radius: 16px;
+  background-color: var(--card); border: 1px solid var(--rule); border-radius: 16px;
   padding: 34px 30px 0; display: flex; flex-direction: column; gap: 14px;
   text-decoration: none; color: inherit; transition: border-color .15s ease;
   overflow: hidden; min-height: 400px;
@@ -869,19 +916,19 @@ a.asset:hover .foot { background: var(--accent-line); }
         <div class="sn">Step 1</div>
         <h5>Do we need to use this Playbook?</h5>
         <p>We&rsquo;re acquiring a new brand, or there&rsquo;s a big change with one of our current brands.</p>
-        <a class="go" href="#s03">Inputs &rarr;</a>
+        <a class="go" href="#s02">Brand Portfolio &rarr;</a>
       </div>
       <div class="step">
         <div class="sn">Step 2</div>
-        <h5>Work the Inputs and select an Outcome</h5>
-        <p>Explore the inputs to answer the question, and land on one of four outcomes.</p>
-        <a class="go" href="#s04">Outcomes &rarr;</a>
+        <h5>Follow the Inputs</h5>
+        <p>Explore the inputs and watch outs to answer any question about branding.</p>
+        <a class="go" href="#s03">Inputs &rarr;</a>
       </div>
       <div class="step">
         <div class="sn">Step 3</div>
-        <h5>Decide and Share</h5>
-        <p>The answer for any brand question is Keep, Absorb, Rebrand, or Retire. The playbook files get updated and communications go out through the proper channels.</p>
-        <a class="go" href="#s05">Sequence &rarr;</a>
+        <h5>Decide on an Outcome</h5>
+        <p>Select one of the outcomes, follow the communication sequence, and put the word out through the proper channels.</p>
+        <a class="go" href="#s04">Outcomes &rarr;</a>
       </div>
     </div>
 
@@ -892,16 +939,16 @@ a.asset:hover .foot { background: var(--accent-line); }
     </div>
 
     <nav class="toc" aria-label="Contents">
-      <a href="#s01"><span class="n">01</span> Decision Framework</a>
-      <a href="#s02"><span class="n">02</span> Brand Portfolio</a>
-      <a href="#s03"><span class="n">03</span> Inputs</a>
-      <a href="#s04"><span class="n">04</span> Outcomes</a>
-      <a href="#s05"><span class="n">05</span> Sequence</a>
-      <a href="#s06"><span class="n">06</span> Narratives</a>
-      <a href="#s07"><span class="n">07</span> Channels</a>
-      <a href="#s08"><span class="n">08</span> Budget</a>
-      <a href="#s09"><span class="n">09</span> Formats</a>
-      <a href="#s10"><span class="n">10</span> Questions?</a>
+      <a href="#s01"><span class="n">01</span><span class="t">Decision Framework</span><span class="d">Three steps to use this document.</span></a>
+      <a href="#s02"><span class="n">02</span><span class="t">Brand Portfolio</span><span class="d">The brands we own and how they sit together.</span></a>
+      <a href="#s03"><span class="n">03</span><span class="t">Inputs</span><span class="d">What we weigh before a decision gets made.</span></a>
+      <a href="#s04"><span class="n">04</span><span class="t">Outcomes</span><span class="d">Keep, absorb, rebrand, or retire.</span></a>
+      <a href="#s05"><span class="n">05</span><span class="t">Sequence</span><span class="d">Who hears about a change, and in what order.</span></a>
+      <a href="#s06"><span class="n">06</span><span class="t">Narratives</span><span class="d">How we talk about a change once it is decided.</span></a>
+      <a href="#s07"><span class="n">07</span><span class="t">Channels</span><span class="d">Where the message goes, shaped for each place.</span></a>
+      <a href="#s08"><span class="n">08</span><span class="t">Budget</span><span class="d">What a brand change costs, as a share of spend.</span></a>
+      <a href="#s09"><span class="n">09</span><span class="t">Formats</span><span class="d">Three ways to use this playbook.</span></a>
+      <a href="#s10"><span class="n">10</span><span class="t">Questions?</span><span class="d">Who to ask if you need help.</span></a>
     </nav>
   </div>
 </section>
@@ -1076,12 +1123,12 @@ a.asset:hover .foot { background: var(--accent-line); }
         <p>Our customers are our most important inputs. What do the people who use this actually want, and what would they miss if it changed?</p>
       </div>
 
-      <div class="g2 gx">
-        <details class="xcard" open>
+      <div class="g1 gx">
+        <details class="xcard lead" open>
           <summary><span class="x-title">Customers</span><span class="x-plus" aria-hidden="true"></span></summary>
           <div class="x-body"><p>What do the people who use this actually want, and what would they miss if it changed? Everything else on this page is weighed underneath that one question.</p></div>
         </details>
-        <details class="xcard" open>
+        <details class="xcard lead" open>
           <summary><span class="x-title">Our Team</span><span class="x-plus" aria-hidden="true"></span></summary>
           <div class="x-body"><p>Did we talk to leadership and every department lead before the decision was framed? Each of them sees a side of this that nobody else in the room can see.</p></div>
         </details>
@@ -1460,10 +1507,6 @@ a.asset:hover .foot { background: var(--accent-line); }
 
     <div class="stick" data-stick><span class="n">09</span><span class="s">Formats</span><span class="sep">/</span><span class="sub"></span></div>
 
-    <div class="note accent">
-      <strong>Optional, pending approval.</strong> The downloadable MD files are built for use with an AI assistant. This section is provided as a preview of the finished product.
-    </div>
-
     <div class="g3">
       <div class="asset">
         <span class="kind">Reference</span>
@@ -1504,49 +1547,49 @@ a.asset:hover .foot { background: var(--accent-line); }
       <div class="qrow">
         <div class="qtopic">Parent Co.</div>
         <div class="qwho">
-          <span class="q-name">Name</span>
-          <span class="q-role">Department and role</span>
-          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+          <span class="q-name">Dan Konigsberg</span>
+          <span class="q-role">CEO</span>
+          <a class="q-mail" href="mailto:dan@campminder.com">dan@campminder.com</a>
         </div>
       </div>
       <div class="qrow">
         <div class="qtopic">Campminder and Campanion</div>
         <div class="qwho">
-          <span class="q-name">Name</span>
-          <span class="q-role">Department and role</span>
-          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+          <span class="q-name">Paul Berliner</span>
+          <span class="q-role">President</span>
+          <a class="q-mail" href="mailto:paul@campminder.com">paul@campminder.com</a>
         </div>
       </div>
       <div class="qrow">
         <div class="qtopic">UltraCamp</div>
         <div class="qwho">
-          <span class="q-name">Name</span>
-          <span class="q-role">Department and role</span>
-          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+          <span class="q-name">Derek Wright</span>
+          <span class="q-role">CEO</span>
+          <a class="q-mail" href="mailto:derek@ultracamp.com">derek@ultracamp.com</a>
         </div>
       </div>
       <div class="qrow">
         <div class="qtopic">Swimtopia</div>
         <div class="qwho">
-          <span class="q-name">Name</span>
-          <span class="q-role">Department and role</span>
-          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+          <span class="q-name">Alan Rice</span>
+          <span class="q-role">President</span>
+          <a class="q-mail" href="mailto:alan.rice@swimtopia.com">alan.rice@swimtopia.com</a>
         </div>
       </div>
       <div class="qrow">
         <div class="qtopic">Gazebo</div>
         <div class="qwho">
-          <span class="q-name">Name</span>
-          <span class="q-role">Department and role</span>
-          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+          <span class="q-name">Paul Berliner</span>
+          <span class="q-role">President</span>
+          <a class="q-mail" href="mailto:paul@campminder.com">paul@campminder.com</a>
         </div>
       </div>
       <div class="qrow">
         <div class="qtopic">Not sure?</div>
         <div class="qwho">
-          <span class="q-name">Name</span>
-          <span class="q-role">Department and role</span>
-          <a class="q-mail" href="mailto:name@campminder.com">name@campminder.com</a>
+          <span class="q-name">Snug Braker</span>
+          <span class="q-role">Senior Marketing Director</span>
+          <a class="q-mail" href="mailto:sarah@campminder.com">sarah@campminder.com</a>
         </div>
       </div>
     </div>
