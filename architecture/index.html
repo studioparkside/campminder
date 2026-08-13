@@ -815,6 +815,22 @@ a.asset:hover { border-color: var(--accent); }
 .asset .fn { font-family: var(--mono); font-size: 14px; color: var(--mid); font-weight: 500; }
 a.asset:hover .foot { background: var(--accent-line); }
 
+/* 09 — in-progress state. Remove this block when the files go live. */
+.wip {
+  margin-top: 30px; max-width: 760px;
+  border: 1px dashed var(--accent-line); border-radius: 14px;
+  background-color: var(--accent-soft);
+  padding: 18px 24px; font-size: 18px; line-height: 1.5; color: var(--mid);
+}
+.wip strong { color: var(--accent); font-weight: 650; }
+#s09 .asset {
+  border-style: dashed; background-image: none; background-color: var(--soft);
+}
+#s09 .asset .foot {
+  border-top: 1px dashed var(--accent-line); background: transparent; color: var(--light);
+}
+#s09 .asset .fn { color: var(--light); }
+
 /* ═════════ 10 — questions ═════════ */
 /* stacked rows on hairlines, so one entry and ten both sit right */
 .qlist { margin-top: 44px; border-top: 1px solid var(--rule); }
@@ -1505,6 +1521,8 @@ a.asset:hover .foot { background: var(--accent-line); }
       <p>A single source of truth. Three ways in.</p>
     </div>
 
+    <div class="wip"><strong>In progress.</strong> The formats below are placeholders. The playbook and skill file are scheduled for build.</div>
+
     <div class="stick" data-stick><span class="n">09</span><span class="s">Formats</span><span class="sep">/</span><span class="sub"></span></div>
 
     <div class="g3">
@@ -1512,19 +1530,19 @@ a.asset:hover .foot { background: var(--accent-line); }
         <span class="kind">Reference</span>
         <h5>This Page</h5>
         <p>The overview. Where the portfolio stands, how a decision gets made, and what happens after. Read it once, come back when something changes.</p>
-        <span class="foot"><span>Visit &rarr;</span><span class="fn">brands.parentco.com</span></span>
+        <span class="foot"><span>Link coming soon</span><span class="fn">brands.parentco.com</span></span>
       </div>
       <div class="asset">
         <span class="kind">Markdown</span>
         <h5>Playbook</h5>
         <p>The decision log. Every entry is dated and attributed, so the version history is the permanent record.</p>
-        <span class="foot"><span>Download markdown file &rarr;</span><span class="fn">playbook.md</span></span>
+        <span class="foot"><span>Download coming soon</span><span class="fn">playbook.md</span></span>
       </div>
       <div class="asset">
         <span class="kind">Skill</span>
         <h5>Skill file</h5>
         <p>The working tool. Give this file to an AI assistant along with the playbook markdown, describe the situation, and walk through the framework together.</p>
-        <span class="foot"><span>Download markdown file &rarr;</span><span class="fn">skill.md</span></span>
+        <span class="foot"><span>Download coming soon</span><span class="fn">skill.md</span></span>
       </div>
     </div>
 
