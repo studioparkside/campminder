@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Alternate E — Ruled Grid — Campminder Fall Campaign</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage Alternate E
+   RULED GRID. The grid is drawn, not implied. Twelve columns
+   of hairline rule run the full height of every section, edge
+   to edge. Space is made by leaving cells empty. Nothing is a
+   card: no radius, no shadow, no traffic lights, no pills.
+   Ground is the approved dark plum. Spezia Narrow display,
+   Spezia body. Studio Parkside, August 2026
+───────────────────────────────────────────── */
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg: #17112a;
+  --canvas: #0d0a16;
+  --card: #120e1f;
+  --ink: #ffffff;
+  --body: #e7e3f0;
+  --mid: #a79cbd;
+  --light: #786d92;
+  --rule: rgba(255,255,255,0.16);
+  --hair: rgba(255,255,255,0.085);
+  --accent: #773dbd;
+  --accent-2: #a87be0;
+  --accent-line: rgba(168,123,224,0.42);
+  --dark: #27065c;
+  --dark-2: #380f8c;
+  --dark-accent: #c9a9f2;
+  --dark-mid: rgba(255,255,255,0.66);
+  --dark-low: rgba(255,255,255,0.42);
+}
+html { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans);
+  color: var(--body);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px; font-weight: 500; line-height: 1.5; letter-spacing: -0.015em;
+}
+.wrap { max-width: 1520px; margin: 0 auto; padding: 18px 44px; }
+
+/* ── comp chrome ───────────────────────────── */
+.conf { border-bottom: 1px solid var(--rule); background: var(--bg); position: sticky; top: 0; z-index: 20; }
+.conf .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.sp-logo { display: block; height: 17px; width: auto; color: var(--ink); flex: none; }
+.tags { display: flex; align-items: center; gap: 8px; }
+.pill { font-size: 11px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent-2);
+  background: rgba(119,61,189,0.18); border: 1px solid var(--accent-line); border-radius: 100px; padding: 5px 12px; white-space: nowrap; }
+.pill.client { color: var(--mid); background: transparent; border-color: var(--rule); }
+.masthead { padding: 72px 0 40px; }
+.masthead .cm-name { display: block; font-size: 15px; font-weight: 650; color: var(--mid); margin-bottom: 18px; }
+.masthead .cm-name .sep { color: var(--accent-line); padding: 0 4px; }
+.masthead h1 { font-size: 64px; font-weight: 700; line-height: 1.0; letter-spacing: -0.045em; color: var(--ink); }
+.masthead h1 .accent { color: var(--accent-2); }
+.masthead .sub { margin-top: 18px; font-size: 19px; color: var(--mid); max-width: 66ch; line-height: 1.5; }
+.boardwrap { padding: 28px 0 60px; }
+.boardhead { max-width: 1440px; margin: 0 auto 12px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.boardhead h2 { font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; }
+.boardhead .bmeta { font-size: 14px; font-weight: 600; color: var(--light); margin-left: auto; }
+.board { width: 1440px; margin: 0 auto; background: var(--canvas); border: 1px solid var(--rule); overflow: hidden; }
+.boardnote { max-width: 1440px; margin: 14px auto 0; font-size: 14px; font-weight: 600; color: var(--light); line-height: 1.5; }
+@media (max-width: 1540px) { .boardwrap { overflow-x: auto; padding-left: 44px; padding-right: 44px; } .boardhead, .board, .boardnote { min-width: 1440px; } }
+
+/* ═════════════════════════════════════════════
+   THE PAGE
+═════════════════════════════════════════════ */
+.hp { font-size: 17px; color: var(--body); position: relative; }
+
+/* the drawn grid. twelve columns of hairline behind every row. */
+.row { position: relative; border-bottom: 1px solid var(--rule); }
+.lines { position: absolute; inset: 0; z-index: 0; display: grid; grid-template-columns: repeat(12, 1fr); pointer-events: none; }
+.lines span { border-left: 1px solid var(--hair); }
+.lines span:first-child { border-left: none; }
+.cells { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(12, 1fr); }
+.c { padding: 40px 26px; min-width: 0; }
+.c.pad0 { padding: 0; }
+.c.tight { padding: 26px 26px; }
+
+/* span helpers */
+.s1{grid-column:span 1}.s2{grid-column:span 2}.s3{grid-column:span 3}.s4{grid-column:span 4}
+.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}
+.s9{grid-column:span 9}.s10{grid-column:span 10}.s12{grid-column:span 12}
+.bot { display: flex; flex-direction: column; justify-content: flex-end; }
+.mid { display: flex; flex-direction: column; justify-content: center; }
+
+/* type */
+h1, h2, h3, h4, h5 { font-weight: 700; letter-spacing: -0.045em; line-height: 0.96; color: var(--ink); }
+.eyebrow { font-size: 14px; font-weight: 600; letter-spacing: -0.008em; color: var(--accent-2); line-height: 1.3; }
+.marg { font-size: 13px; font-weight: 600; color: var(--light); line-height: 1.4; }
+.marg b { color: var(--mid); font-weight: 700; }
+.dsp { font-size: 78px; }
+.dsp.big { font-size: 104px; letter-spacing: -0.05em; }
+.dsp.sm { font-size: 46px; letter-spacing: -0.038em; }
+.lede { font-size: 22px; font-weight: 600; letter-spacing: -0.022em; color: var(--ink); line-height: 1.28; }
+.txt { font-size: 16.5px; color: var(--mid); line-height: 1.5; }
+.txt b { color: var(--body); font-weight: 700; }
+
+/* nav — a ruled band, links sit in their own cells */
+.hp-nav { border-bottom: 1px solid var(--rule); position: relative; }
+.hp-nav .cells { align-items: center; min-height: 74px; }
+.hp-nav .c { padding: 0 22px; display: flex; align-items: center; height: 74px; }
+.cmlogo { display: block; height: 24px; width: auto; }
+.hp-nav a { font-size: 14.5px; font-weight: 600; color: var(--mid); text-decoration: none; }
+.hp-nav .cta { justify-content: flex-start; }
+
+/* buttons — rectangles and rules, never pills */
+.btn { display: inline-flex; align-items: center; justify-content: center; font-size: 14.5px; font-weight: 650;
+  letter-spacing: -0.008em; padding: 13px 24px; text-decoration: none; border: 1px solid transparent; white-space: nowrap; }
+.btn.solid { background: var(--ink); color: #14101f; }
+.btn.line { background: transparent; color: var(--ink); border-color: var(--rule); }
+.btn.acc { background: var(--accent); color: #fff; }
+.tlink { font-size: 16px; font-weight: 650; color: var(--accent-2); text-decoration: none; border-bottom: 1px solid var(--accent-line); padding-bottom: 3px; }
+
+/* flat product regions. no chrome, no radius, no shadow. */
+.flat { border: 1px solid var(--rule); background: var(--card); display: flex; flex-direction: column; }
+.flat .fbar { display: flex; align-items: baseline; gap: 10px; padding: 11px 14px; border-bottom: 1px solid var(--hair); }
+.flat .fbar .ft { font-size: 12px; font-weight: 700; color: var(--body); letter-spacing: -0.01em; }
+.flat .fbar .fs { font-size: 11px; font-weight: 600; color: var(--light); margin-left: auto; }
+.flat .fb { padding: 16px 14px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+.sk { display: block; background: #241d38; }
+.sk.line { height: 9px; }
+.sk.acc { background: var(--accent-line); }
+.bars { display: flex; align-items: flex-end; gap: 8px; flex: 1; min-height: 74px; padding-top: 6px; }
+.bars i { flex: 1; display: block; background: var(--accent); }
+.bars i.lt { background: var(--accent-line); }
+.axis { display: flex; gap: 8px; }
+.axis span { flex: 1; font-size: 10px; font-weight: 600; color: var(--light); text-align: center; }
+.rowline { display: flex; gap: 10px; align-items: center; }
+.rowline .av { width: 22px; height: 22px; background: var(--accent-line); flex: none; }
+.rowline .sk.line { flex: 1; }
+.rowline .tag { font-size: 10px; font-weight: 700; color: var(--accent-2); border: 1px solid var(--accent-line); padding: 2px 7px; }
+
+/* photo cells fill their cell edge to edge */
+.pic { background-size: cover; background-position: center; min-height: 100%; }
+.pic.tall { min-height: 420px; }
+
+/* hero */
+.hero .cells { min-height: 620px; }
+.heropic { background: url("hero.jpg") center 55% / cover no-repeat; min-height: 560px; }
+.herocap { position: relative; }
+.herocap .ic { position: absolute; left: 26px; right: 26px; bottom: 30px; z-index: 2; }
+
+/* module index — the platform, as a ruled table */
+.modrow { display: grid; grid-template-columns: 46px 260px minmax(0,1fr) 300px; gap: 0; border-top: 1px solid var(--hair); align-items: center; }
+.modrow:first-child { border-top: none; }
+.modrow > * { padding: 22px 20px; }
+.modrow .mi { font-size: 13px; font-weight: 600; color: var(--light); }
+.modrow .mn { font-size: 26px; font-weight: 700; color: var(--ink); letter-spacing: -0.032em; }
+.modrow .md { font-size: 15.5px; color: var(--mid); }
+.modrow .mg { padding: 14px 20px; }
+.modrow .mg .flat { border-color: var(--hair); }
+.modrow .mg .fb { min-height: 62px; padding: 12px; gap: 7px; }
+
+/* gradient field. full bleed, no radius, no inset panel. */
+.field { position: relative; }
+.field .gr { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; }
+.field .gr::after { content: ""; position: absolute; inset: 0; }
+.field .cells, .field .lines { position: relative; z-index: 2; }
+.field .lines { position: absolute; }
+.field.on-light .lines span { border-left-color: rgba(39,6,92,0.20); }
+.field.on-light { border-bottom-color: rgba(39,6,92,0.28); }
+.field.on-light h2, .field.on-light .dsp { color: var(--dark); }
+.field.on-light .eyebrow { color: rgba(39,6,92,0.78); }
+.field.on-light .lede { color: var(--dark); }
+.field.on-light .txt { color: rgba(39,6,92,0.72); }
+.field.on-light .marg { color: rgba(39,6,92,0.62); }
+
+/* portraits sit flush in their cells */
+.port { position: relative; min-height: 440px; background-size: cover; background-position: center 20%; display: flex; align-items: flex-end; }
+.port::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(14,10,24,0.80)); }
+.port .pin { position: relative; z-index: 2; padding: 20px; }
+.port .pn { display: block; font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.022em; }
+.port .pr { display: block; font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.74); margin-top: 3px; }
+.p1 { background-image: url("https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop"); }
+.p2 { background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"); }
+.p3 { background-image: url("https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop"); }
+.p4 { background-image: url("https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop"); }
+.gp { background-image: url("https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=900&auto=format&fit=crop"); }
+.go { background-image: url("https://images.unsplash.com/photo-1475483768296-6163e08872a1?q=80&w=900&auto=format&fit=crop"); }
+.gb { background-image: url("https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=900&auto=format&fit=crop"); }
+
+/* the phone keeps a radius. it is a device, not a container. */
+.phone { width: 300px; background: var(--card); border: 1px solid var(--rule); border-radius: 30px; padding: 16px 14px 22px; }
+.phone .notch { width: 96px; height: 20px; border-radius: 100px; background: rgba(255,255,255,0.9); margin: 0 auto 16px; }
+.phone .app { font-size: 11px; font-weight: 700; color: var(--accent-2); text-align: center; margin-bottom: 14px; letter-spacing: -0.005em; }
+.bub { max-width: 84%; border-radius: 14px; padding: 11px 13px; font-size: 13.5px; line-height: 1.42; margin-bottom: 9px; font-weight: 550; font-family: var(--sans); }
+.bub.q { margin-left: auto; background: var(--accent); color: #fff; border-bottom-right-radius: 4px; }
+.bub.a { background: #241d38; color: var(--body); border-bottom-left-radius: 4px; }
+.bub.typing { display: inline-flex; gap: 5px; align-items: center; padding: 13px 15px; }
+.bub.typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--light); display: block; }
+
+/* stats — a ruled strip of four, numbers only, no cards */
+.statcell { display: flex; flex-direction: column; justify-content: flex-end; padding: 44px 26px 40px; }
+.statcell .sv { font-size: 66px; font-weight: 700; color: var(--ink); letter-spacing: -0.05em; line-height: 0.92; }
+.statcell .sl { margin-top: 14px; font-size: 15px; color: var(--mid); line-height: 1.38; }
+
+/* quote */
+.qb { font-size: 50px; font-weight: 400; letter-spacing: -0.038em; line-height: 1.08; color: var(--ink); }
+.qb b { font-weight: 700; }
+.qb .qm { color: var(--accent-2); }
+.attr .an { font-size: 18px; font-weight: 700; color: var(--ink); letter-spacing: -0.022em; }
+.attr .ar { font-size: 14.5px; font-weight: 600; color: var(--mid); margin-top: 2px; }
+.attr .ac { font-size: 14px; font-weight: 650; color: var(--accent-2); margin-top: 2px; }
+
+/* logo wall — bare cells of the grid, nothing but the hairline */
+.lgcell { height: 108px; display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--hair); }
+.lgcell .lmark { width: 82px; height: 22px; background: rgba(255,255,255,0.16); }
+.lgcell.on { position: relative; }
+.lgcell.on .lmark { background: var(--accent-line); }
+.lgcell.on .story { position: absolute; bottom: 12px; left: 0; right: 0; text-align: center; font-size: 12px; font-weight: 650; color: var(--accent-2); }
+
+/* close */
+.close { position: relative; min-height: 660px; display: flex; align-items: flex-end;
+  background: linear-gradient(180deg, rgba(13,10,22,0.34), rgba(13,10,22,0.20) 40%, rgba(13,10,22,0.80)),
+  url("https://images.unsplash.com/photo-1758272960816-6126b6607596?q=80&w=2400&auto=format&fit=crop") center 42% / cover no-repeat; }
+.close .cells { width: 100%; }
+
+/* footer */
+.hp-foot .cells { min-height: 96px; align-items: center; }
+.hp-foot .c { padding: 30px 22px; display: flex; align-items: center; }
+.hp-foot a { font-size: 13.5px; font-weight: 600; color: var(--dark-mid); text-decoration: none; }
+.hp-foot .legal { font-size: 12.5px; color: var(--dark-low); font-weight: 600; }
+.hp-foot .cmlogo { height: 20px; }
+
+/* ── type program ── */
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display"), local("SF Pro Text"), local("Helvetica Neue"); font-weight:400; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Medium"), local("SFProDisplay-Medium"), local("SF Pro Text Medium"); font-weight:500; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Semibold"), local("SFProDisplay-Semibold"), local("SF Pro Text Semibold"); font-weight:600; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Bold"), local("SFProDisplay-Bold"), local("SF Pro Text Bold"); font-weight:700; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-display:block; }
+@font-face { font-family:"Spezia SemiMono"; src:url("fonts/SpeziaSemiMonoWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+.hp { font-family:"SF Sym", "Spezia Narrow", var(--sans); }
+.hp .lede, .hp .txt, .hp .btn, .hp .tlink, .hp-nav a, .hp .modrow .md, .hp .statcell .sl,
+.hp .attr .ar, .hp .attr .ac, .hp .port .pr, .hp-foot a, .hp .qb { font-family:"SF Sym", "Spezia", var(--sans); }
+/* the marginal apparatus runs semi-mono. it is the apparatus, not the voice. */
+.hp .marg, .hp .modrow .mi, .hp .axis span, .hp .flat .fbar .fs, .hp .lgcell .story,
+.hp .hp-foot .legal { font-family:"SF Sym", "Spezia SemiMono", var(--sans); letter-spacing: 0.01em; }
+.hp .flat, .hp .phone { font-family: var(--sans); }
+.hp .statcell .sv { font-variant-numeric: normal; }
+
+/* ── motion ── */
+@keyframes barpulse { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(0.84); } }
+@keyframes linegrow { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.86); } }
+@keyframes dotpulse { 0%,100% { opacity: 0.32; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
+.bars.anim i { transform-origin: 50% 100%; animation: barpulse 5.6s cubic-bezier(0.45,0,0.55,1) infinite; will-change: transform; }
+.bars.anim i:nth-child(1){animation-delay:0s}.bars.anim i:nth-child(2){animation-delay:.26s}
+.bars.anim i:nth-child(3){animation-delay:.52s}.bars.anim i:nth-child(4){animation-delay:.78s}
+.bars.anim i:nth-child(5){animation-delay:1.04s}.bars.anim i:nth-child(6){animation-delay:1.3s}
+.anim-lines .sk.line { transform-origin: 0% 50%; animation: linegrow 4.8s ease-in-out infinite; }
+.anim-lines .sk.line:nth-child(2){animation-delay:.5s}.anim-lines .sk.line:nth-child(3){animation-delay:1s}
+.bub.typing i { animation: dotpulse 1.5s ease-in-out infinite; }
+.bub.typing i:nth-child(2){animation-delay:.18s}.bub.typing i:nth-child(3){animation-delay:.36s}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="conf">
+  <div class="wrap">
+    <svg class="sp-logo" viewBox="0 0 1499.4 151" fill="currentColor" role="img" aria-label="Studio Parkside" xmlns="http://www.w3.org/2000/svg"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg>
+    <div class="tags">
+      <span class="pill client">Campminder</span>
+      <span class="pill">Confidential</span>
+    </div>
+  </div>
+</div>
+
+<header class="wrap masthead">
+  <span class="cm-name">Campminder <span class="sep">&middot;</span> Fall Campaign</span>
+  <h1>Alternate E <span class="accent">Ruled Grid</span></h1>
+  <p class="sub">Twelve columns of hairline rule run the full height of the page, edge to edge. Sections are rows of that grid rather than boxes floating inside it. Space is made by leaving cells empty. Nothing is a card: no corner radius, no drop shadow, no window chrome on the product regions, no pill buttons. The marginal apparatus runs in Spezia SemiMono so the reading voice stays in Spezia. Ground is the approved dark plum.</p>
+</header>
+
+<div class="boardwrap">
+  <div class="boardhead">
+    <h2>Homepage</h2>
+    <span class="bmeta">1440 &middot; desktop</span>
+  </div>
+  <div class="board">
+    <div class="hp">
+
+      <!-- nav -->
+      <nav class="hp-nav">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s3"><img class="cmlogo" src="campminder-logo-white.svg" alt="Campminder"></div>
+          <div class="c s1"><a href="#">Features</a></div>
+          <div class="c s1"><a href="#">Solutions</a></div>
+          <div class="c s1"><a href="#">Demo</a></div>
+          <div class="c s1"><a href="#">Company</a></div>
+          <div class="c s3"></div>
+          <div class="c s1"><a href="#">Log in</a></div>
+          <div class="c s1 cta pad0" style="padding:0"><span class="btn solid" style="width:100%;height:100%">Book a demo</span></div>
+        </div>
+      </nav>
+
+      <!-- hero: headline row, then the picture and the chart share the row below -->
+      <section class="row hero">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s2 bot tight"><span class="marg">Campminder<br>Est. 2000</span></div>
+          <div class="c s7 bot" style="padding-top:110px;padding-bottom:44px">
+            <h1 class="dsp big">One for all.</h1>
+          </div>
+          <div class="c s3 bot tight" style="padding-bottom:46px">
+            <p class="marg">The trusted platform for<br>everyone at your camp.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="row hero">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s7 pad0 herocap">
+            <div class="heropic"></div>
+          </div>
+          <div class="c s5 pad0" style="display:flex;flex-direction:column">
+            <div class="c s12" style="padding:36px 26px 26px">
+              <p class="lede" style="max-width:24ch">Registration, staffing, health, communication, and the business behind it all.</p>
+              <div style="margin-top:26px;display:flex;gap:10px">
+                <span class="btn solid">Book a demo</span>
+                <span class="btn line">See the platform</span>
+              </div>
+            </div>
+            <div style="flex:1;border-top:1px solid var(--hair);padding:24px 26px 30px;display:flex;flex-direction:column">
+              <div class="flat" style="flex:1">
+                <div class="fbar"><span class="ft">Enrollment</span><span class="fs">vs. this date last season</span></div>
+                <div class="fb">
+                  <div class="bars anim">
+                    <i style="height:44%"></i><i style="height:58%"></i><i style="height:72%"></i><i style="height:80%"></i><i style="height:96%"></i>
+                  </div>
+                  <div class="axis"><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- intelligence -->
+      <section class="row">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s2 tight" style="padding-top:56px"><span class="marg"><b>Intelligence</b><br>The whole season.<br>One look.</span></div>
+          <div class="c s6" style="padding-top:56px;padding-bottom:56px">
+            <h2 class="dsp" style="max-width:11ch">Intelligence you can trust.</h2>
+          </div>
+          <div class="c s4 bot" style="padding-top:56px;padding-bottom:60px">
+            <p class="lede" style="max-width:24ch">Campminder Intelligence, across the whole platform.</p>
+            <p class="txt" style="margin-top:14px;max-width:38ch">Enrollment is one view of it. Staffing, health, and the business side get the same read on what your data has been telling you.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="row">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s2 tight"><span class="marg">Three of them.</span></div>
+          <div class="c s3" style="padding-bottom:54px">
+            <span class="eyebrow">Staffing</span>
+            <p class="txt" style="margin-top:10px"><b>Hiring pace</b> against last season, by role.</p>
+            <div class="flat" style="margin-top:22px">
+              <div class="fbar"><span class="ft">Staffing</span><span class="fs">hiring pipeline</span></div>
+              <div class="fb">
+                <div class="bars anim"><i style="height:44%"></i><i style="height:62%"></i><i style="height:54%"></i><i style="height:78%"></i><i style="height:66%"></i><i style="height:94%"></i></div>
+                <div class="sk line acc" style="width:44%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="c s3" style="padding-bottom:54px">
+            <span class="eyebrow">Health</span>
+            <p class="txt" style="margin-top:10px"><b>Every med pass</b> logged, flagged when one runs late.</p>
+            <div class="flat" style="margin-top:22px">
+              <div class="fbar"><span class="ft">Health</span><span class="fs">daily med passes</span></div>
+              <div class="fb anim-lines">
+                <div class="sk line" style="width:82%"></div>
+                <div class="sk line acc" style="width:68%"></div>
+                <div class="sk line" style="width:56%"></div>
+                <div class="sk" style="height:44px;margin-top:4px"></div>
+              </div>
+            </div>
+          </div>
+          <div class="c s3" style="padding-bottom:54px">
+            <span class="eyebrow">Finance</span>
+            <p class="txt" style="margin-top:10px"><b>Billing and payments</b> rolled up as the season runs.</p>
+            <div class="flat" style="margin-top:22px">
+              <div class="fbar"><span class="ft">Finance</span><span class="fs">season revenue</span></div>
+              <div class="fb">
+                <div class="bars anim"><i style="height:40%"></i><i style="height:56%"></i><i style="height:72%"></i><i style="height:66%"></i><i style="height:88%"></i><i style="height:100%"></i></div>
+                <div class="sk line acc" style="width:38%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="c s1"></div>
+        </div>
+      </section>
+
+      <!-- the platform, as a ruled index rather than a bento grid -->
+      <section class="row">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s2 tight" style="padding-top:56px"><span class="marg"><b>The platform</b><br>One login.<br>All of it.</span></div>
+          <div class="c s7" style="padding-top:56px;padding-bottom:46px">
+            <h2 class="dsp" style="max-width:12ch">Your operation. All in one place.</h2>
+          </div>
+          <div class="c s3 bot" style="padding-bottom:50px">
+            <p class="lede">Everything your camp runs on.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="row">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s1"></div>
+          <div class="c s10 pad0" style="padding:0 6px 40px">
+            <div class="modrow">
+              <span class="mi">01</span><span class="mn">Registration</span><span class="md">Every kid, one pass.</span>
+              <span class="mg"><span class="flat"><span class="fb"><span class="bars anim"><i style="height:40%"></i><i style="height:62%"></i><i style="height:52%"></i><i style="height:80%"></i><i style="height:60%"></i><i style="height:98%"></i></span></span></span></span>
+            </div>
+            <div class="modrow">
+              <span class="mi">02</span><span class="mn">Staffing</span><span class="md">Hiring to onboarding.</span>
+              <span class="mg"><span class="flat"><span class="fb"><span class="sk line acc" style="width:46%"></span><span class="sk line" style="width:82%"></span><span class="sk line" style="width:64%"></span></span></span></span>
+            </div>
+            <div class="modrow">
+              <span class="mi">03</span><span class="mn">Health &amp; medical</span><span class="md">Records and daily logs.</span>
+              <span class="mg"><span class="flat"><span class="fb"><span class="sk line" style="width:70%"></span><span class="sk line acc" style="width:52%"></span><span class="sk line" style="width:60%"></span></span></span></span>
+            </div>
+            <div class="modrow">
+              <span class="mi">04</span><span class="mn">Transportation</span><span class="md">Routes and rosters.</span>
+              <span class="mg"><span class="flat"><span class="fb"><span class="sk" style="height:26px"></span><span class="sk line" style="width:58%"></span></span></span></span>
+            </div>
+            <div class="modrow">
+              <span class="mi">05</span><span class="mn">Groups &amp; cabins</span><span class="md">Assignments that work.</span>
+              <span class="mg"><span class="flat"><span class="fb"><span class="sk line" style="width:64%"></span><span class="sk line" style="width:78%"></span><span class="sk line acc" style="width:44%"></span></span></span></span>
+            </div>
+            <div class="modrow">
+              <span class="mi">06</span><span class="mn">Billing &amp; payments</span><span class="md">The business side.</span>
+              <span class="mg"><span class="flat"><span class="fb"><span class="bars"><i style="height:34%"></i><i style="height:48%"></i><i class="lt" style="height:40%"></i><i style="height:64%"></i></span></span></span></span>
+            </div>
+            <div class="modrow">
+              <span class="mi">07</span><span class="mn">Communication</span><span class="md">Families, kept close.</span>
+              <span class="mg"><span class="flat"><span class="fb anim-lines"><span class="sk line acc" style="width:38%"></span><span class="sk line" style="width:80%"></span><span class="sk line" style="width:66%"></span></span></span></span>
+            </div>
+            <div class="modrow">
+              <span class="mi">08</span><span class="mn">Reporting</span><span class="md">Answers on demand.</span>
+              <span class="mg"><span class="flat"><span class="fb"><span class="bars"><i class="lt" style="height:36%"></i><i style="height:52%"></i><i class="lt" style="height:44%"></i><i style="height:70%"></i><i style="height:58%"></i></span></span></span></span>
+            </div>
+            <div class="modrow">
+              <span class="mi">09</span><span class="mn">Lead capture</span><span class="md">Next season&rsquo;s families.</span>
+              <span class="mg"><span class="flat"><span class="fb"><span class="sk line" style="width:72%"></span><span class="sk line acc" style="width:50%"></span><span class="sk line" style="width:62%"></span></span></span></span>
+            </div>
+            <div class="modrow">
+              <span class="mi">10</span><span class="mn">The off-season</span><span class="md">Rentals and retreats.</span>
+              <span class="mg"><span class="flat"><span class="fb"><span class="sk" style="height:26px"></span><span class="sk line" style="width:56%"></span></span></span></span>
+            </div>
+            <div style="padding:30px 20px 0"><a class="tlink" href="#">See it in action with a camp&rsquo;s story &rarr;</a></div>
+          </div>
+          <div class="c s1"></div>
+        </div>
+      </section>
+
+      <!-- team, on a full-bleed gradient field. the grid keeps running across it. -->
+      <section class="row field on-light">
+        <div class="gr" style="background-image:url('gradients/pan-dawn.jpg')"></div>
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s2 tight" style="padding-top:64px"><span class="marg"><b>The team</b><br>Real people.<br>All season.</span></div>
+          <div class="c s6" style="padding-top:64px;padding-bottom:40px">
+            <h2 class="dsp" style="max-width:11ch">We know your camp. Inside and out.</h2>
+          </div>
+          <div class="c s4 bot" style="padding-top:64px;padding-bottom:46px">
+            <p class="lede">The team behind your platform.</p>
+            <p class="txt" style="margin-top:12px;max-width:36ch">Reach a person who knows your camp in the middle of your season, or whenever you need them.</p>
+          </div>
+        </div>
+        <div class="cells" style="border-top:1px solid rgba(39,6,92,0.24)">
+          <div class="c s2 tight" style="padding-top:26px"><span class="marg">Four of them.</span></div>
+          <div class="c s10 pad0" style="display:grid;grid-template-columns:repeat(4,1fr)">
+            <div class="port p1" style="border-left:1px solid rgba(39,6,92,0.24)"><div class="pin"><span class="pn">Camp Success</span><span class="pr">Your point person</span></div></div>
+            <div class="port p2" style="border-left:1px solid rgba(39,6,92,0.24)"><div class="pin"><span class="pn">Onboarding</span><span class="pr">Runs setup with you</span></div></div>
+            <div class="port p3" style="border-left:1px solid rgba(39,6,92,0.24)"><div class="pin"><span class="pn">Support</span><span class="pr">Picks up in July</span></div></div>
+            <div class="port p4" style="border-left:1px solid rgba(39,6,92,0.24)"><div class="pin"><span class="pn">Product</span><span class="pr">Builds what camps ask for</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- roles -->
+      <section class="row">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s2 tight" style="padding-top:56px"><span class="marg"><b>Roles</b><br>Your job.<br>Your view.</span></div>
+          <div class="c s6" style="padding-top:56px;padding-bottom:44px">
+            <h2 class="dsp" style="max-width:12ch">Built for everyone at your camp.</h2>
+          </div>
+          <div class="c s4 bot" style="padding-bottom:48px"><p class="lede">Every role on one platform.</p></div>
+        </div>
+      </section>
+
+      <section class="row">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells" style="border-bottom:1px solid var(--hair)">
+          <div class="c s2 tight" style="padding-top:30px"><span class="marg">01</span></div>
+          <div class="c s3" style="padding-top:30px;padding-bottom:30px">
+            <h3 class="dsp sm" style="font-size:30px">Owner &amp; Director</h3>
+            <p class="txt" style="margin-top:8px">The whole season in one view.</p>
+          </div>
+          <div class="c s2 pad0"><div class="pic gp" style="min-height:230px"></div></div>
+          <div class="c s5 pad0" style="padding:22px 26px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <div class="flat"><div class="fbar"><span class="ft">Season view</span></div><div class="fb"><div class="sk line acc" style="width:55%"></div><div class="sk line" style="width:88%"></div><div class="sk line" style="width:74%"></div><div class="sk" style="height:38px"></div></div></div>
+            <div class="flat"><div class="fbar"><span class="ft">Reporting</span></div><div class="fb"><div class="sk" style="height:46px"></div><div class="sk line" style="width:68%"></div><div class="sk line acc" style="width:40%"></div></div></div>
+          </div>
+        </div>
+        <div class="cells" style="border-bottom:1px solid var(--hair)">
+          <div class="c s2 tight" style="padding-top:30px"><span class="marg">02</span></div>
+          <div class="c s3" style="padding-top:30px;padding-bottom:30px">
+            <h3 class="dsp sm" style="font-size:30px">Communications &amp; Marketing</h3>
+            <p class="txt" style="margin-top:8px">Every family, one thread.</p>
+          </div>
+          <div class="c s2 pad0"><div class="pic go" style="min-height:230px"></div></div>
+          <div class="c s4 pad0" style="padding:22px 26px">
+            <div class="flat" style="height:100%"><div class="fbar"><span class="ft">Broadcasts</span><span class="fs">all families</span></div><div class="fb anim-lines"><div class="sk line acc" style="width:42%"></div><div class="sk line" style="width:80%"></div><div class="sk line" style="width:66%"></div><div class="sk" style="height:44px"></div></div></div>
+          </div>
+          <div class="c s1"></div>
+        </div>
+        <div class="cells">
+          <div class="c s2 tight" style="padding-top:30px;padding-bottom:40px"><span class="marg">03</span></div>
+          <div class="c s3" style="padding-top:30px;padding-bottom:40px">
+            <h3 class="dsp sm" style="font-size:30px">Business &amp; Finance</h3>
+            <p class="txt" style="margin-top:8px">Billing that closes itself out.</p>
+          </div>
+          <div class="c s2 pad0"><div class="pic gb" style="min-height:230px"></div></div>
+          <div class="c s5 pad0" style="padding:22px 26px 40px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <div class="flat"><div class="fbar"><span class="ft">Ledger</span></div><div class="fb"><div class="sk line acc" style="width:48%"></div><div class="sk line" style="width:84%"></div><div class="sk line" style="width:70%"></div><div class="sk" style="height:38px"></div></div></div>
+            <div class="flat"><div class="fbar"><span class="ft">Payments</span></div><div class="fb"><div class="sk" style="height:46px"></div><div class="sk line" style="width:60%"></div><div class="sk line acc" style="width:36%"></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ask camp, on a gradient field -->
+      <section class="row field">
+        <div class="gr" style="background-image:linear-gradient(180deg,rgba(18,13,30,0.72),rgba(18,13,30,0.50) 50%,rgba(18,13,30,0.84)),url('gradients/pan-lilac.jpg')"></div>
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s2 tight" style="padding-top:64px"><span class="marg"><b>Ask Camp</b><br>Ask the app.</span></div>
+          <div class="c s5" style="padding-top:64px;padding-bottom:56px">
+            <h2 class="dsp" style="max-width:9ch">No handbook required.</h2>
+            <p class="lede" style="margin-top:26px;max-width:22ch">Ask Camp, built into Campanion.</p>
+            <p class="txt" style="margin-top:12px;max-width:40ch;color:rgba(255,255,255,0.68)">Packing lists, drop-off and pickup times, form status, and camp policies, answered for a parent without a call to the camp office.</p>
+          </div>
+          <div class="c s2" style="padding-top:64px;padding-bottom:56px;display:flex;flex-direction:column;justify-content:center;gap:14px">
+            <div class="flat" style="background:rgba(16,11,28,0.42);border-color:rgba(255,255,255,0.20)"><div class="fbar" style="border-bottom-color:rgba(255,255,255,0.16)"><span class="ft">Packing list</span></div><div class="fb"><div class="sk line acc" style="width:44%"></div><div class="sk line" style="width:78%;background:rgba(255,255,255,0.16)"></div><div class="sk line" style="width:62%;background:rgba(255,255,255,0.16)"></div></div></div>
+            <div class="flat" style="background:rgba(16,11,28,0.42);border-color:rgba(255,255,255,0.20)"><div class="fbar" style="border-bottom-color:rgba(255,255,255,0.16)"><span class="ft">Form status</span></div><div class="fb"><div class="sk line" style="width:70%;background:rgba(255,255,255,0.16)"></div><div class="sk line acc" style="width:48%"></div><div class="sk line" style="width:58%;background:rgba(255,255,255,0.16)"></div></div></div>
+            <div class="flat" style="background:rgba(16,11,28,0.42);border-color:rgba(255,255,255,0.20)"><div class="fbar" style="border-bottom-color:rgba(255,255,255,0.16)"><span class="ft">Pickup times</span></div><div class="fb"><div class="sk line" style="width:64%;background:rgba(255,255,255,0.16)"></div><div class="sk line" style="width:74%;background:rgba(255,255,255,0.16)"></div><div class="sk line acc" style="width:40%"></div></div></div>
+          </div>
+          <div class="c s3" style="padding-top:64px;padding-bottom:56px;display:flex;align-items:center;justify-content:center">
+            <div class="phone">
+              <div class="notch"></div>
+              <div class="app">Campanion &middot; Ask Camp</div>
+              <div class="bub q">What time is drop-off on Monday?</div>
+              <div class="bub a">Drop-off is 7:45am at the main lodge. Gates open at 7:30am.</div>
+              <div class="bub q">Is her allergy form in?</div>
+              <div class="bub typing"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- claims -->
+      <section class="row">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s2 tight" style="padding-top:56px"><span class="marg"><b>The record</b><br>25 summers.<br>Built in.</span></div>
+          <div class="c s6" style="padding-top:56px;padding-bottom:44px">
+            <h2 class="dsp" style="max-width:12ch">People and technology unite.</h2>
+          </div>
+          <div class="c s4 bot" style="padding-bottom:48px"><p class="lede">Built by people who know camp, for the people who run one.</p></div>
+        </div>
+        <div class="cells" style="border-top:1px solid var(--hair)">
+          <div class="c s1"></div>
+          <div class="c s5" style="border-right:1px solid var(--hair);padding-bottom:36px">
+            <h3 style="font-size:30px">Every kid, registered in one pass.</h3>
+            <p class="txt" style="margin-top:12px;max-width:40ch">The new registration experience. A family signs up every camper in one sitting, and the office watches sessions fill.</p>
+            <div class="flat" style="margin-top:26px">
+              <div class="fbar"><span class="ft">Registration</span></div>
+              <div class="fb">
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:60%"></div><span class="tag">Enrolled</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:52%"></div><span class="tag">Enrolled</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:66%"></div><span class="tag">Waitlist</span></div>
+                <div class="sk" style="height:70px;margin-top:6px"></div>
+              </div>
+            </div>
+          </div>
+          <div class="c s5" style="padding-bottom:36px">
+            <h3 style="font-size:30px">Hired, onboarded, and ready for day one.</h3>
+            <p class="txt" style="margin-top:12px;max-width:40ch">Hiring and onboarding in one place, so staff show up already knowing the plan.</p>
+            <div class="flat" style="margin-top:26px">
+              <div class="fbar"><span class="ft">Staffing</span></div>
+              <div class="fb">
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:56%"></div><span class="tag">Hired</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:64%"></div><span class="tag">Offer out</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:48%"></div><span class="tag">Interview</span></div>
+                <div class="sk" style="height:70px;margin-top:6px"></div>
+              </div>
+            </div>
+          </div>
+          <div class="c s1"></div>
+        </div>
+        <div class="cells" style="border-top:1px solid var(--hair)">
+          <div class="c s1"></div>
+          <div class="c s5" style="border-right:1px solid var(--hair);padding-bottom:44px">
+            <h3 style="font-size:30px">Every med, on time, on record.</h3>
+            <p class="txt" style="margin-top:12px;max-width:40ch">Health records, daily logs, and med passes the nurse can run from one screen.</p>
+            <div class="flat" style="margin-top:26px">
+              <div class="fbar"><span class="ft">Health</span></div>
+              <div class="fb">
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:58%"></div><span class="tag">8:00am</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:50%"></div><span class="tag">12:00pm</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:62%"></div><span class="tag">6:00pm</span></div>
+                <div class="sk" style="height:70px;margin-top:6px"></div>
+              </div>
+            </div>
+          </div>
+          <div class="c s5" style="padding-bottom:44px">
+            <h3 style="font-size:30px">The side of camp a family sees.</h3>
+            <p class="txt" style="margin-top:12px;max-width:40ch">Photos, forms, and answers in one app. Rated <b>4.8</b> on the App Store across <b>37,000</b> reviews.</p>
+            <div class="flat" style="margin-top:26px">
+              <div class="fbar"><span class="ft">Campanion</span></div>
+              <div class="fb">
+                <div class="sk" style="height:92px"></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:70%"></div></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:54%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="c s1"></div>
+        </div>
+      </section>
+
+      <!-- the four numbers, a ruled strip. no cards, no gradient tiles. -->
+      <section class="row">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s3 statcell"><span class="sv">4.2M</span><span class="sl">camper applications processed</span></div>
+          <div class="c s3 statcell"><span class="sv">86K</span><span class="sl">staff hired through the platform</span></div>
+          <div class="c s3 statcell"><span class="sv">1.8M</span><span class="sl">medications administered last summer</span></div>
+          <div class="c s3 statcell"><span class="sv">32M</span><span class="sl">photos shared with families</span></div>
+        </div>
+      </section>
+
+      <!-- quote and camps -->
+      <section class="row">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s2 tight" style="padding-top:64px"><span class="marg"><b>Camps</b><br>Camps you know.</span></div>
+          <div class="c s8" style="padding-top:64px;padding-bottom:44px">
+            <p class="qb"><span class="qm">&ldquo;</span>The only platform where the support team <b>knows our camp inside and out.</b><span class="qm">&rdquo;</span></p>
+          </div>
+          <div class="c s2"></div>
+        </div>
+        <div class="cells" style="border-top:1px solid var(--hair)">
+          <div class="c s2 tight"><span class="marg">Attributed</span></div>
+          <div class="c s3 attr">
+            <div class="an">Sarah Ellison</div>
+            <div class="ar">Camp Director</div>
+            <div class="ac">Camp Cedarwood &middot; 18 seasons on Campminder</div>
+          </div>
+          <div class="c s2 pad0"><div class="pic" style="min-height:150px;background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=400&auto=format&fit=crop');background-position:center 25%"></div></div>
+          <div class="c s5 bot"><p class="marg">Camp logo to be supplied.</p></div>
+        </div>
+        <div class="cells" style="border-top:1px solid var(--hair)">
+          <div class="c s2 tight" style="padding-top:44px"><span class="marg"><b>Partnerships</b><br>built to last.</span></div>
+          <div class="c s10 bot" style="padding-top:44px;padding-bottom:20px"><p class="lede">Twenty-five years with the camps you already know.</p></div>
+        </div>
+        <div class="cells">
+          <div class="lgcell s2"><span class="lmark"></span></div>
+          <div class="lgcell s2"><span class="lmark"></span></div>
+          <div class="lgcell s2 on"><span class="lmark"></span><span class="story">Read their story &rarr;</span></div>
+          <div class="lgcell s2"><span class="lmark"></span></div>
+          <div class="lgcell s2"><span class="lmark"></span></div>
+          <div class="lgcell s2"><span class="lmark"></span></div>
+          <div class="lgcell s2"><span class="lmark"></span></div>
+          <div class="lgcell s2"><span class="lmark"></span></div>
+          <div class="lgcell s2"><span class="lmark"></span></div>
+          <div class="lgcell s2"><span class="lmark"></span></div>
+          <div class="lgcell s2"><span class="lmark"></span></div>
+          <div class="lgcell s2"><span class="lmark"></span></div>
+        </div>
+      </section>
+
+      <!-- close -->
+      <section class="row close">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s2 bot tight" style="padding-bottom:54px"><span class="marg">Unpack possible.</span></div>
+          <div class="c s7 bot" style="padding-bottom:48px">
+            <h2 class="dsp big" style="color:#fff">Unpack possible.</h2>
+          </div>
+          <div class="c s3 bot" style="padding-bottom:52px">
+            <p class="lede" style="color:rgba(255,255,255,0.92)">The trusted platform for everyone at your camp.</p>
+            <p class="txt" style="margin-top:10px;color:rgba(255,255,255,0.62)">See what a season on Campminder looks like.</p>
+            <span class="btn solid" style="margin-top:24px">Book a demo</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- footer -->
+      <footer class="hp-foot" style="border-top:1px solid var(--rule)">
+        <div class="lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cells">
+          <div class="c s3"><img class="cmlogo" src="campminder-logo-white.svg" alt="Campminder"></div>
+          <div class="c s2"><a href="#">Features</a></div>
+          <div class="c s2"><a href="#">Solutions</a></div>
+          <div class="c s2"><a href="#">Company</a></div>
+          <div class="c s2"><a href="#">Support</a></div>
+          <div class="c s1"><span class="legal">&copy; 2026</span></div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+  <p class="boardnote">The grid is the design. Every rule you see runs the full height of its section and never stops at a card edge, so the empty cells read as deliberate rather than as leftover space. Product regions are bounded by the same hairline as everything else, which stops them from reading as floating app windows.</p>
+</div>
+
+</body>
+</html>

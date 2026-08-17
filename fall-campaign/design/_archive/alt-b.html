@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Homepage Layout Alt B — Color Field — Campminder Fall Campaign</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage Layout Alt B
+   "Color field." Dark ground, rounded color cards, an arched hero
+   photograph, and content carried by tinted color blocks.
+   Colors from the Campminder brand manual. Core purple #773DBD unchanged.
+   Studio Parkside, August 2026
+───────────────────────────────────────────── */
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg: #17112a;
+  --canvas: #0d0a16;
+  --mid-d: #a79cbd;
+  --light-d: #786d92;
+  --rule-d: #2f2549;
+  --accent-2: #a87be0;
+  --accent-soft: rgba(119,61,189,0.18);
+  --accent-line: rgba(168,123,224,0.42);
+  /* page-local, dark ground */
+  --cream: #0d0a16;
+  --card: #191329;
+  --ink: #ffffff;
+  --gray: #a79cbd;
+  --hairline: #2b2244;
+  --purple: #773dbd;
+  --deep: #27065c;
+  --lav: rgba(119,61,189,0.20);
+  --peach: rgba(255,166,30,0.13);
+  --mint: rgba(0,170,71,0.13);
+  --sky: rgba(61,165,217,0.13);
+  --orange: #ffa61e;
+  --green: #00aa47;
+  --blue: #3da5d9;
+  --r: 24px;
+}
+html { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); color: #e7e3f0; background: var(--canvas); -webkit-font-smoothing: antialiased; font-size: 18px; font-weight: 500; line-height: 1.5; letter-spacing: -0.015em; }
+.wrap { max-width: 1520px; margin: 0 auto; padding: 18px 44px; }
+
+.conf { border-bottom: 1px solid var(--rule-d); background: var(--bg); position: sticky; top: 0; z-index: 20; }
+.conf .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.sp-logo { display: block; height: 17px; width: auto; color: #fff; flex: none; }
+.tags { display: flex; align-items: center; gap: 8px; }
+.pill { font-size: 11px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent-2); background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: 100px; padding: 5px 12px; white-space: nowrap; }
+.pill.client { color: var(--mid-d); background: transparent; border-color: var(--rule-d); }
+.masthead { padding: 72px 0 40px; }
+.masthead .cm-name { display: block; font-size: 15px; font-weight: 650; color: var(--mid-d); margin-bottom: 18px; }
+.masthead .cm-name .sep { color: var(--accent-line); padding: 0 4px; }
+.masthead h1 { font-size: 64px; font-weight: 700; line-height: 1.0; letter-spacing: -0.045em; color: #fff; }
+.masthead h1 .accent { color: var(--accent-2); }
+.masthead .sub { margin-top: 18px; font-size: 19px; color: var(--mid-d); max-width: 60ch; line-height: 1.5; }
+.boardwrap { padding: 28px 0 72px; }
+.boardhead { max-width: 1440px; margin: 0 auto 12px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.boardhead .bn { font-size: 14px; font-weight: 700; color: var(--accent-2); letter-spacing: 0.04em; }
+.boardhead h2 { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.025em; }
+.boardhead .bmeta { font-size: 14px; font-weight: 600; color: var(--light-d); margin-left: auto; }
+.board { width: 1440px; margin: 0 auto; background: var(--cream); border: 1px solid var(--rule-d); border-radius: 6px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 18px 50px rgba(0,0,0,0.5); }
+@media (max-width: 1540px) { .boardwrap { overflow-x: auto; padding-left: 44px; padding-right: 44px; } .boardhead, .board { min-width: 1440px; } }
+
+/* ═══ the page ═══ */
+.hp { font-size: 17px; color: #e7e3f0; }
+.hp .in { max-width: 1240px; margin: 0 auto; padding: 0 60px; }
+
+.hp-nav { background: var(--cream); }
+.hp-nav .in { display: flex; align-items: center; gap: 36px; height: 80px; }
+.cmlogo { display: block; height: 24px; width: auto; }
+.hp-nav a { font-size: 15px; font-weight: 600; color: var(--gray); text-decoration: none; }
+.hp-nav .navlinks { display: flex; gap: 8px; margin-left: 12px; }
+.hp-nav .navlinks a { padding: 8px 16px; border-radius: 100px; }
+.hp-nav .navlinks a.on { background: var(--card); color: #fff; }
+.hp-nav .navright { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+.btn { display: inline-block; font-size: 15px; font-weight: 650; letter-spacing: -0.01em; color: #fff; background: var(--purple); border-radius: 100px; padding: 12px 26px; text-decoration: none; white-space: nowrap; }
+.btn.sm { font-size: 14px; padding: 10px 22px; }
+.btn.ink { background: #fff; color: #16121e; }
+.btn.white { background: #fff; color: #16121e; }
+
+.sec { padding: 110px 0; min-height: 860px; display: flex; align-items: center; }
+.sec .in { width: 100%; }
+.kicker { display: inline-block; font-size: 13px; font-weight: 650; color: #a87be0; background: var(--lav); border-radius: 100px; padding: 6px 16px; margin-bottom: 22px; }
+.sec h2 { font-size: 58px; font-weight: 700; line-height: 1.02; letter-spacing: -0.045em; color: var(--ink); max-width: 20ch; }
+.sec .ssub { margin-top: 14px; font-size: 20px; font-weight: 600; color: var(--gray); max-width: 46ch; line-height: 1.4; }
+.center { text-align: center; }
+.center h2, .center .ssub { margin-left: auto; margin-right: auto; }
+
+/* hero — headline left, arched photo right */
+.hero { padding: 90px 0 40px; }
+.hero .in { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); gap: 70px; align-items: center; }
+.hero h1 { font-size: 88px; font-weight: 700; line-height: 0.96; letter-spacing: -0.05em; color: var(--ink); }
+.hero h1 .hl { color: #a87be0; }
+.hero .hsub { margin-top: 22px; font-size: 21px; font-weight: 600; color: var(--gray); max-width: 30ch; line-height: 1.4; }
+.hero .hctas { margin-top: 30px; display: flex; gap: 12px; }
+.archwrap { position: relative; }
+.arch { border-radius: 260px 260px var(--r) var(--r); background: url("hero.jpg") center 55% / cover no-repeat; min-height: 560px; }
+.archchip { position: absolute; left: -34px; bottom: 44px; background: rgba(16,10,28,0.55); border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(10px); border-radius: 16px; padding: 16px 20px; box-shadow: 0 18px 50px rgba(0,0,0,0.4); }
+.archchip .n { font-size: 30px; font-weight: 700; letter-spacing: -0.04em; color: #a87be0; line-height: 1; }
+.archchip .u { display: block; margin-top: 4px; font-size: 13px; font-weight: 650; color: rgba(255,255,255,0.75); }
+.logostrip { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
+.logostrip .lm { width: 110px; height: 24px; border-radius: 6px; background: #2b2342; }
+
+/* intelligence — purple field card */
+.field { border-radius: var(--r); background: linear-gradient(180deg, rgba(13,10,22,0.45), rgba(13,10,22,0.75)), url("gradients/pan-dusk.jpg") center / cover no-repeat; color: #fff; padding: 72px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); gap: 70px; align-items: center; }
+.field .kicker { color: #fff; background: rgba(255,255,255,0.16); }
+.field h2 { color: #fff; }
+.field .ssub { color: rgba(255,255,255,0.8); }
+.screen { background: var(--card); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+.screen .sbar { display: flex; gap: 7px; padding: 12px 16px; border-bottom: 1px solid var(--hairline); background: #211a35; }
+.screen .sbar .d { width: 8px; height: 8px; border-radius: 50%; background: #2b2342; }
+.screen .body { padding: 22px; display: flex; flex-direction: column; gap: 11px; }
+.sk { border-radius: 6px; background: #2b2342; }
+.sk.line { height: 10px; }
+.sk.acc { background: rgba(168,123,224,0.42); }
+.gbars { display: flex; align-items: flex-end; gap: 12px; padding-top: 8px; }
+.gbars i { flex: 1; display: block; border-radius: 5px 5px 2px 2px; background: var(--purple); }
+.gbars i.lt { background: rgba(168,123,224,0.28); }
+
+/* operation — colored tile collage */
+.tiles { margin-top: 60px; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+.tile { border-radius: 20px; padding: 26px; min-height: 210px; display: flex; flex-direction: column; }
+.tile h5 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+.tile p { font-size: 14.5px; color: var(--gray); margin-top: 4px; }
+.tile .mark { margin-top: auto; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.16); position: relative; }
+.tile .mark::after { content: "→"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: var(--ink); }
+.tile.lav { background: var(--lav); } .tile.peach { background: var(--peach); }
+.tile.mint { background: var(--mint); } .tile.sky { background: var(--sky); }
+.tile.white { background: var(--card); border: 1px solid var(--hairline); } .tile.purple { background: var(--purple); }
+.tile.purple h5, .tile.purple p { color: #fff; }
+.tile.purple p { color: rgba(255,255,255,0.75); }
+.tile.purple .mark { background: rgba(255,255,255,0.22); }
+.tile.purple .mark::after { color: #fff; }
+.tile.grad { background: url("gradients/sq-orb.jpg") center / cover; }
+.tile.grad h5 { color: #fff; } .tile.grad p { color: rgba(255,255,255,0.8); }
+.tile.wide { grid-column: span 2; }
+
+/* roles — three pillar cards */
+.pillars { margin-top: 60px; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+.pillar { border-radius: var(--r); padding: 34px 30px; min-height: 460px; display: flex; flex-direction: column; }
+.pillar.lav { background: var(--lav); } .pillar.peach { background: var(--peach); } .pillar.mint { background: var(--mint); }
+.pillar .ptop { border-radius: 140px 140px 14px 14px; min-height: 150px; margin-bottom: 26px; }
+.pillar.lav .ptop { background: url("gradients/sq-wave.jpg") center / cover; }
+.pillar.peach .ptop { background: url("gradients/sq-orb.jpg") center / cover; }
+.pillar.mint .ptop { background: url("gradients/sq-indigo.jpg") center / cover; }
+.pillar h5 { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); }
+.pillar p { font-size: 15px; color: var(--gray); margin-top: 6px; }
+.pillar ul { list-style: none; margin-top: 20px; }
+.pillar li { font-size: 15px; font-weight: 600; color: var(--ink); padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.14); }
+.pillar li span { color: var(--gray); font-weight: 550; }
+.pillar .btn { margin-top: auto; align-self: flex-start; }
+
+/* ask camp — split card */
+.split { border-radius: var(--r); overflow: hidden; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+.split .copy { background: var(--card); border: 1px solid var(--hairline); border-right: none; border-radius: var(--r) 0 0 var(--r); padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; }
+.split .copy .kicker { background: rgba(255,166,30,0.16); color: #ffc766; }
+.split .copy h2 { font-size: 52px; }
+.split .phoneside { background: url("gradients/sq-magenta.jpg") center / cover; display: flex; align-items: center; justify-content: center; padding: 56px 0; }
+.phone { width: 320px; background: var(--card); border: 1px solid var(--hairline); border-radius: 38px; padding: 18px 16px 24px; box-shadow: 0 26px 70px rgba(0,0,0,0.5); }
+.phone .notch { width: 110px; height: 22px; border-radius: 100px; background: #000; margin: 0 auto 18px; }
+.phone .app { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #a87be0; text-align: center; margin-bottom: 16px; }
+.bub { max-width: 82%; border-radius: 16px; padding: 12px 15px; font-size: 14.5px; line-height: 1.45; margin-bottom: 10px; font-weight: 550; }
+.bub.q { margin-left: auto; background: var(--purple); color: #fff; border-bottom-right-radius: 5px; }
+.bub.a { background: #2b2342; color: #e7e3f0; border-bottom-left-radius: 5px; }
+
+/* numbers + testimonial */
+.numcards { margin-top: 60px; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+.numcard { border-radius: 20px; padding: 30px 26px; min-height: 190px; display: flex; flex-direction: column; justify-content: flex-end; }
+.numcard .n { font-size: 52px; font-weight: 700; letter-spacing: -0.045em; line-height: 1; color: var(--ink); }
+.numcard .u { margin-top: 8px; font-size: 14.5px; font-weight: 600; color: var(--gray); }
+.numcard.purple { background: var(--purple); }
+.numcard.purple .n, .numcard.purple .u { color: #fff; }
+.numcard.purple .u { color: rgba(255,255,255,0.75); }
+.numcard.white { background: var(--card); border: 1px solid var(--hairline); } .numcard.lav { background: var(--lav); } .numcard.sky { background: var(--sky); }
+.quotecard { margin-top: 16px; border-radius: var(--r); background: var(--card); border: 1px solid var(--hairline); padding: 64px; display: flex; gap: 44px; align-items: center; }
+.quotecard .mark { width: 130px; height: 130px; border-radius: 50%; background: url("gradients/sq-night.jpg") center / cover; flex: none; }
+.quotecard blockquote { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; color: var(--ink); }
+.quotecard .who { margin-top: 16px; font-size: 15px; font-weight: 600; color: var(--gray); }
+.quotecard .who b { color: var(--ink); }
+.quotecard .clogo { margin-left: auto; flex: none; width: 140px; height: 84px; border: 1px dashed var(--hairline); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--gray); }
+
+/* close */
+.closecard { border-radius: var(--r); background: linear-gradient(180deg, rgba(13,10,22,0.5), rgba(13,10,22,0.85)), url("hero.jpg") center 40% / cover no-repeat; color: #fff; text-align: center; padding: 130px 60px; }
+.closecard h2 { font-size: 84px; font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: #fff; }
+.closecard .csub { margin-top: 16px; font-size: 21px; font-weight: 600; color: rgba(255,255,255,0.88); }
+.closecard .btn { margin-top: 30px; background: #fff; color: #16121e; }
+
+.hp-foot { background: var(--cream); border-top: 1px solid var(--hairline); }
+.hp-foot .in { display: flex; align-items: center; gap: 32px; padding-top: 44px; padding-bottom: 44px; }
+.hp-foot .cmlogo { height: 20px; }
+.hp-foot a { font-size: 14px; font-weight: 600; color: var(--gray); text-decoration: none; }
+.hp-foot .legal { margin-left: auto; font-size: 13px; color: var(--gray); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="conf">
+  <div class="wrap">
+    <svg class="sp-logo" viewBox="0 0 1499.4 151" fill="currentColor" role="img" aria-label="Studio Parkside" xmlns="http://www.w3.org/2000/svg"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg>
+    <div class="tags">
+      <span class="pill client">Campminder</span>
+      <span class="pill">Confidential</span>
+    </div>
+  </div>
+</div>
+
+<header class="wrap masthead">
+  <span class="cm-name">Campminder <span class="sep">&middot;</span> Fall Campaign</span>
+  <h1>Homepage Layout <span class="accent">Alt B</span></h1>
+  <p class="sub">Color field. Dark ground with rounded color cards doing the work: an arched hero photograph, a gradient Intelligence field, tinted capability tiles, and three role pillars. Friendlier and more consumer than the main comp.</p>
+</header>
+
+<div class="boardwrap">
+  <div class="boardhead">
+    <span class="bn">ALT B</span>
+    <h2>Color field</h2>
+    <span class="bmeta">1440 &middot; desktop</span>
+  </div>
+  <div class="board">
+    <div class="hp">
+
+      <nav class="hp-nav">
+        <div class="in">
+          <img class="cmlogo" src="campminder-logo-white.svg" alt="Campminder">
+          <div class="navlinks">
+            <a class="on" href="#">Home</a><a href="#">Features</a><a href="#">Solutions</a><a href="#">Company</a>
+          </div>
+          <div class="navright"><a href="#">Log in</a><span class="btn sm ink">Book a demo</span></div>
+        </div>
+      </nav>
+
+      <!-- hero -->
+      <div class="hero">
+        <div class="in">
+          <div>
+            <h1>One for all<span class="hl">.</span></h1>
+            <p class="hsub">The trusted platform for everyone at your camp.</p>
+            <div class="hctas">
+              <span class="btn">Book a demo</span>
+              <span class="btn white">See the platform</span>
+            </div>
+          </div>
+          <div class="archwrap">
+            <div class="arch"></div>
+            <div class="archchip"><span class="n">4.2M</span><span class="u">camper applications processed</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="in logostrip">
+        <span class="lm"></span><span class="lm"></span><span class="lm"></span><span class="lm"></span><span class="lm"></span>
+      </div>
+
+      <!-- intelligence field -->
+      <section class="sec">
+        <div class="in">
+          <div class="field">
+            <div>
+              <span class="kicker">The whole season. One look.</span>
+              <h2>Intelligence you can trust.</h2>
+              <p class="ssub">Enrollment, staffing, health, and the business side, read from twenty-five years of camp data.</p>
+            </div>
+            <div class="screen">
+              <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+              <div class="body">
+                <div class="sk line acc" style="width:34%"></div>
+                <div class="sk line" style="width:70%"></div>
+                <div class="gbars">
+                  <i class="lt" style="height:44px"></i><i style="height:64px"></i>
+                  <i class="lt" style="height:58px"></i><i style="height:84px"></i>
+                  <i class="lt" style="height:66px"></i><i style="height:104px"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- operation tiles -->
+      <section class="sec" style="padding-top:0;">
+        <div class="in center">
+          <span class="kicker">One login. All of it.</span>
+          <h2>Your operation. All in one place.</h2>
+          <div class="tiles" style="text-align:left;">
+            <div class="tile purple wide"><h5>Registration</h5><p>Every kid, one pass.</p><span class="mark"></span></div>
+            <div class="tile peach"><h5>Staffing</h5><p>Hiring to onboarding.</p><span class="mark"></span></div>
+            <div class="tile mint"><h5>Health &amp; medical</h5><p>Records and daily logs.</p><span class="mark"></span></div>
+            <div class="tile sky"><h5>Transportation</h5><p>Routes and rosters.</p><span class="mark"></span></div>
+            <div class="tile white"><h5>Groups &amp; cabins</h5><p>Assignments that work.</p><span class="mark"></span></div>
+            <div class="tile lav wide"><h5>Billing &amp; payments</h5><p>The business side of camp, closed out clean.</p><span class="mark"></span></div>
+            <div class="tile grad wide"><h5>Communication</h5><p>Families, kept close.</p><span class="mark"></span></div>
+            <div class="tile white"><h5>Reporting</h5><p>Answers on demand.</p><span class="mark"></span></div>
+            <div class="tile peach"><h5>The off-season</h5><p>Rentals and retreats.</p><span class="mark"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- roles pillars -->
+      <section class="sec" style="padding-top:0;">
+        <div class="in center">
+          <span class="kicker">Your job. Your view.</span>
+          <h2>Built for everyone at your camp.</h2>
+          <div class="pillars" style="text-align:left;">
+            <div class="pillar lav">
+              <div class="ptop"></div>
+              <h5>Owner &amp; Director</h5>
+              <p>The whole season in one view.</p>
+              <ul>
+                <li>Enrollment pace <span>&middot; live</span></li>
+                <li>Staff readiness <span>&middot; live</span></li>
+                <li>Season revenue <span>&middot; live</span></li>
+              </ul>
+              <span class="btn ink sm" style="margin-top:26px;">See the view</span>
+            </div>
+            <div class="pillar peach">
+              <div class="ptop"></div>
+              <h5>Communications &amp; Marketing</h5>
+              <p>Every family, one thread.</p>
+              <ul>
+                <li>Campaigns <span>&middot; email and app</span></li>
+                <li>Photo sharing <span>&middot; Campanion</span></li>
+                <li>Lead capture <span>&middot; next season</span></li>
+              </ul>
+              <span class="btn ink sm" style="margin-top:26px;">See the view</span>
+            </div>
+            <div class="pillar mint">
+              <div class="ptop"></div>
+              <h5>Business &amp; Finance</h5>
+              <p>Billing that closes itself out.</p>
+              <ul>
+                <li>Payments <span>&middot; automated</span></li>
+                <li>Reporting <span>&middot; on demand</span></li>
+                <li>The off-season <span>&middot; rentals</span></li>
+              </ul>
+              <span class="btn ink sm" style="margin-top:26px;">See the view</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ask camp split -->
+      <section class="sec" style="padding-top:0;">
+        <div class="in">
+          <div class="split">
+            <div class="copy">
+              <span class="kicker">Ask the app.</span>
+              <h2>No handbook required.</h2>
+              <p class="ssub">Packing lists, drop-off times, form status, and camp policies, answered for a parent without a call to the camp office.</p>
+            </div>
+            <div class="phoneside">
+              <div class="phone">
+                <div class="notch"></div>
+                <div class="app">Campanion &middot; Ask Camp</div>
+                <div class="bub q">What time is drop-off on Monday?</div>
+                <div class="bub a">Drop-off is 7:45am at the main lodge. Gates open at 7:30am.</div>
+                <div class="bub q">Is her allergy form in?</div>
+                <div class="bub a">Submitted and approved on July 2.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- numbers + quote -->
+      <section class="sec" style="padding-top:0;">
+        <div class="in center">
+          <span class="kicker">25 summers. Built in.</span>
+          <h2>People and technology unite.</h2>
+          <div class="numcards" style="text-align:left;">
+            <div class="numcard purple"><span class="n">4.2M</span><span class="u">camper applications processed</span></div>
+            <div class="numcard white"><span class="n">86K</span><span class="u">staff hired through the platform</span></div>
+            <div class="numcard lav"><span class="n">1.8M</span><span class="u">medications administered last summer</span></div>
+            <div class="numcard sky"><span class="n">32M</span><span class="u">photos shared with families</span></div>
+          </div>
+          <div class="quotecard" style="text-align:left;">
+            <span class="mark"></span>
+            <div>
+              <blockquote>&ldquo;The only platform where the support team knows our camp inside and out.&rdquo;</blockquote>
+              <p class="who"><b>Sarah Ellison</b> &middot; Camp Director &middot; Camp Cedarwood &middot; 18 seasons on Campminder</p>
+            </div>
+            <span class="clogo">Camp logo</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- close -->
+      <section class="sec" style="padding-top:0; min-height:0;">
+        <div class="in">
+          <div class="closecard">
+            <h2>Unpack possible.</h2>
+            <p class="csub">The trusted platform for everyone at your camp.</p>
+            <span class="btn">Book a demo</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="hp-foot">
+        <div class="in">
+          <img class="cmlogo" src="campminder-logo-white.svg" alt="Campminder">
+          <a href="#">Features</a><a href="#">Solutions</a><a href="#">Company</a><a href="#">Support</a>
+          <span class="legal">&copy; 2026 Campminder</span>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

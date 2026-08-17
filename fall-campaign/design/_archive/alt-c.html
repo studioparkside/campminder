@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Homepage Layout Alt C — Framed — Campminder Fall Campaign</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage Layout Alt C
+   "Framed." Dark canvas, every section its own rounded card inside
+   a page gutter. Split hero: purple panel beside the photograph,
+   glass chips on the photo, numbered section labels.
+   Colors from the Campminder brand manual. Core purple #773DBD unchanged.
+   Studio Parkside, August 2026
+───────────────────────────────────────────── */
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg: #17112a;
+  --canvas: #0d0a16;
+  --mid-d: #a79cbd;
+  --light-d: #786d92;
+  --rule-d: #2f2549;
+  --accent-2: #a87be0;
+  --accent-soft: rgba(119,61,189,0.18);
+  --accent-line: rgba(168,123,224,0.42);
+  --purple: #773dbd;
+  --deep: #27065c;
+  --medium: #380f8c;
+  --ink: #ffffff;
+  --body-t: rgba(255,255,255,0.82);
+  --mid-t: rgba(255,255,255,0.6);
+  --low-t: rgba(255,255,255,0.38);
+  --card: #191329;
+  --card-2: #211a35;
+  --hair: rgba(255,255,255,0.1);
+  --r: 26px;
+}
+html { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); color: #e7e3f0; background: var(--canvas); -webkit-font-smoothing: antialiased; font-size: 18px; font-weight: 500; line-height: 1.5; letter-spacing: -0.015em; }
+.wrap { max-width: 1520px; margin: 0 auto; padding: 18px 44px; }
+
+.conf { border-bottom: 1px solid var(--rule-d); background: var(--bg); position: sticky; top: 0; z-index: 20; }
+.conf .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.sp-logo { display: block; height: 17px; width: auto; color: #fff; flex: none; }
+.tags { display: flex; align-items: center; gap: 8px; }
+.pill { font-size: 11px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent-2); background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: 100px; padding: 5px 12px; white-space: nowrap; }
+.pill.client { color: var(--mid-d); background: transparent; border-color: var(--rule-d); }
+.masthead { padding: 72px 0 40px; }
+.masthead .cm-name { display: block; font-size: 15px; font-weight: 650; color: var(--mid-d); margin-bottom: 18px; }
+.masthead .cm-name .sep { color: var(--accent-line); padding: 0 4px; }
+.masthead h1 { font-size: 64px; font-weight: 700; line-height: 1.0; letter-spacing: -0.045em; color: #fff; }
+.masthead h1 .accent { color: var(--accent-2); }
+.masthead .sub { margin-top: 18px; font-size: 19px; color: var(--mid-d); max-width: 60ch; line-height: 1.5; }
+.boardwrap { padding: 28px 0 72px; }
+.boardhead { max-width: 1440px; margin: 0 auto 12px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.boardhead .bn { font-size: 14px; font-weight: 700; color: var(--accent-2); letter-spacing: 0.04em; }
+.boardhead h2 { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.025em; }
+.boardhead .bmeta { font-size: 14px; font-weight: 600; color: var(--light-d); margin-left: auto; }
+.board { width: 1440px; margin: 0 auto; background: #0b0812; border: 1px solid var(--rule-d); border-radius: 6px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 18px 50px rgba(0,0,0,0.5); }
+@media (max-width: 1540px) { .boardwrap { overflow-x: auto; padding-left: 44px; padding-right: 44px; } .boardhead, .board { min-width: 1440px; } }
+
+/* ═══ the page — everything lives inside a gutter ═══ */
+.hp { font-size: 17px; color: var(--body-t); padding: 20px; }
+.card { border-radius: var(--r); overflow: hidden; margin-bottom: 20px; }
+.pad { padding: 90px 80px; }
+
+.hp-nav { display: flex; align-items: center; gap: 36px; height: 84px; padding: 0 34px; background: var(--card); border-radius: var(--r); margin-bottom: 20px; }
+.cmlogo { display: block; height: 24px; width: auto; }
+.hp-nav a { font-size: 15px; font-weight: 600; color: var(--mid-t); text-decoration: none; }
+.hp-nav .navlinks { display: flex; gap: 28px; margin-left: 12px; }
+.hp-nav .navright { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+.btn { display: inline-block; font-size: 15px; font-weight: 650; letter-spacing: -0.01em; color: #fff; background: var(--purple); border-radius: 100px; padding: 12px 26px; text-decoration: none; white-space: nowrap; }
+.btn.sm { font-size: 14px; padding: 10px 22px; }
+.btn.white { background: #fff; color: var(--deep); }
+.btn.glass { background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(6px); }
+
+.seclab { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 24px; }
+.seclab i { font-style: normal; color: var(--low-t); }
+h2.big { font-size: 58px; font-weight: 700; line-height: 1.02; letter-spacing: -0.045em; color: var(--ink); max-width: 18ch; }
+.ssub { margin-top: 16px; font-size: 20px; font-weight: 600; color: var(--mid-t); max-width: 50ch; line-height: 1.45; }
+
+/* hero — split panels inside the frame */
+.hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.25fr); gap: 20px; margin-bottom: 20px; }
+.heropanel { border-radius: var(--r); background: linear-gradient(200deg, rgba(168,123,224,0.35), rgba(119,61,189,0) 40%), var(--purple); padding: 70px 56px; display: flex; flex-direction: column; min-height: 780px; color: #fff; }
+.heropanel h1 { font-size: 92px; font-weight: 700; line-height: 0.94; letter-spacing: -0.05em; }
+.heropanel .hsub { margin-top: 22px; font-size: 22px; font-weight: 650; letter-spacing: -0.02em; color: rgba(255,255,255,0.92); max-width: 22ch; line-height: 1.3; }
+.heropanel .hline { margin-top: 12px; font-size: 16.5px; color: rgba(255,255,255,0.75); max-width: 36ch; line-height: 1.5; }
+.heropanel .hctas { margin-top: auto; display: flex; gap: 12px; padding-top: 40px; }
+.heropanel .btn { background: #fff; color: var(--deep); }
+.heropanel .btn.glass { background: rgba(255,255,255,0.16); color: #fff; border: 1px solid rgba(255,255,255,0.35); }
+.herophoto { border-radius: var(--r); background: url("hero.jpg") center 55% / cover no-repeat; position: relative; min-height: 780px; overflow: hidden; }
+.chip { position: absolute; background: rgba(16,10,28,0.45); border: 1px solid rgba(255,255,255,0.28); backdrop-filter: blur(8px); color: #fff; border-radius: 100px; padding: 10px 18px; font-size: 14px; font-weight: 650; }
+.chip b { color: #fff; }
+.chip.c1 { top: 26px; left: 26px; }
+.chip.c2 { top: 26px; right: 26px; }
+.chip.c3 { bottom: 120px; right: 26px; }
+.glasscard { position: absolute; left: 26px; right: auto; bottom: 26px; width: 380px; background: rgba(16,10,28,0.5); border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(12px); border-radius: 18px; padding: 24px; color: #fff; }
+.glasscard .gt { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-2); }
+.glasscard p { margin-top: 8px; font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+
+/* stat cards row */
+.statrow { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 20px; margin-bottom: 20px; }
+.statcard { border-radius: 20px; background: var(--card); padding: 34px 30px; min-height: 200px; display: flex; flex-direction: column; justify-content: flex-end; }
+.statcard.hl { background: linear-gradient(200deg, rgba(13,10,22,0.55), rgba(13,10,22,0.85)), url("gradients/sq-indigo.jpg") center / cover; }
+.statcard .n { font-size: 54px; font-weight: 700; letter-spacing: -0.045em; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.statcard .u { margin-top: 10px; font-size: 14.5px; font-weight: 600; color: var(--mid-t); }
+
+/* intelligence card */
+.intel { background: linear-gradient(180deg, rgba(13,10,22,0.86), rgba(13,10,22,0.68) 55%, rgba(13,10,22,0.88)), url("gradients/pan-dusk.jpg") center / cover no-repeat; }
+.intel .grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); gap: 70px; align-items: center; }
+.screen { background: var(--card); border: 1px solid var(--hair); border-radius: 14px; overflow: hidden; box-shadow: 0 30px 80px rgba(5,2,12,0.5); }
+.screen .sbar { display: flex; gap: 7px; padding: 12px 16px; border-bottom: 1px solid var(--hair); background: var(--card-2); }
+.screen .sbar .d { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.14); }
+.screen .body { padding: 22px; display: flex; flex-direction: column; gap: 11px; }
+.sk { border-radius: 6px; background: #2b2342; }
+.sk.line { height: 10px; }
+.sk.acc { background: var(--accent-line); }
+.gbars { display: flex; align-items: flex-end; gap: 12px; padding-top: 8px; }
+.gbars i { flex: 1; display: block; border-radius: 5px 5px 2px 2px; background: var(--purple); }
+.gbars i.lt { background: rgba(168,123,224,0.3); }
+
+/* operation — dark tiles inside a card */
+.op { background: var(--card); }
+.optiles { margin-top: 56px; display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 14px; }
+.optile { border: 1px solid var(--hair); border-radius: 16px; background: var(--card-2); padding: 24px 22px; min-height: 150px; display: flex; flex-direction: column; }
+.optile .oi { font-size: 12px; font-weight: 700; color: var(--low-t); font-variant-numeric: tabular-nums; margin-bottom: auto; }
+.optile h5 { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; margin-top: 16px; }
+.optile p { font-size: 13.5px; color: var(--mid-t); margin-top: 4px; }
+
+/* photo band with numbered captions (red5 style) */
+.photoband { background: linear-gradient(180deg, rgba(11,8,18,0.35), rgba(11,8,18,0.75)), url("https://images.unsplash.com/photo-1758272960816-6126b6607596?q=80&w=2400&auto=format&fit=crop") center 45% / cover no-repeat; min-height: 640px; display: flex; align-items: flex-end; }
+.photoband .inner { padding: 70px 80px; width: 100%; display: grid; grid-template-columns: minmax(0,1fr) 380px; gap: 60px; align-items: end; color: #fff; }
+.photoband h2 { font-size: 54px; font-weight: 700; letter-spacing: -0.045em; line-height: 1.05; color: #fff; max-width: 16ch; }
+.photoband .team { display: grid; gap: 0; }
+.photoband .trow { display: flex; align-items: baseline; gap: 14px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,0.25); }
+.photoband .trow .ti { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.55); }
+.photoband .trow .tn { font-size: 18px; font-weight: 700; color: #fff; }
+.photoband .trow .tr { margin-left: auto; font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.65); }
+
+/* roles — numbered rows in a card */
+.roles { background: var(--card); }
+.rolerow { display: grid; grid-template-columns: 60px 300px minmax(0,1fr); gap: 40px; align-items: center; padding: 40px 0; border-bottom: 1px solid var(--hair); }
+.rolerow .ci { font-size: 14px; font-weight: 700; color: var(--low-t); }
+.rolerow h5 { font-size: 26px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); }
+.rolerow p { font-size: 15px; color: var(--mid-t); margin-top: 6px; }
+.rolemedia { display: grid; grid-template-columns: 180px minmax(0,1fr); gap: 14px; }
+.rolemedia .photo { border-radius: 12px; min-height: 148px; }
+.photo.gp { background: url("gradients/sq-wave.jpg") center / cover; }
+.photo.go { background: url("gradients/sq-orb.jpg") center / cover; }
+.photo.gb { background: url("gradients/sq-night.jpg") center / cover; }
+.rolemedia .screen { border-radius: 12px; }
+.rolemedia .screen .body { padding: 16px; min-height: 100px; }
+
+/* ask camp — glass on gradient */
+.ask { background: linear-gradient(200deg, rgba(13,10,22,0.6), rgba(13,10,22,0.88)), url("gradients/sq-magenta.jpg") center / cover; }
+.ask .grid { display: grid; grid-template-columns: minmax(0,1fr) 400px; gap: 70px; align-items: center; }
+.phone { width: 330px; margin: 0 auto; background: var(--card); border: 1px solid var(--hair); border-radius: 38px; padding: 18px 16px 24px; box-shadow: 0 30px 80px rgba(5,2,12,0.5); }
+.phone .notch { width: 110px; height: 22px; border-radius: 100px; background: #000; margin: 0 auto 18px; }
+.phone .app { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-2); text-align: center; margin-bottom: 16px; }
+.bub { max-width: 82%; border-radius: 16px; padding: 12px 15px; font-size: 14.5px; line-height: 1.45; margin-bottom: 10px; font-weight: 550; }
+.bub.q { margin-left: auto; background: var(--purple); color: #fff; border-bottom-right-radius: 5px; }
+.bub.a { background: #2b2342; color: var(--body-t); border-bottom-left-radius: 5px; }
+
+/* quote + logos */
+.quotecard { background: var(--card); display: flex; gap: 44px; align-items: center; }
+.quotecard .mark { width: 120px; height: 120px; border-radius: 50%; background: url("gradients/sq-orb.jpg") center / cover; flex: none; }
+.quotecard blockquote { font-size: 34px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.18; color: var(--ink); max-width: 26ch; }
+.quotecard .who { margin-top: 16px; font-size: 15px; font-weight: 600; color: var(--mid-t); }
+.quotecard .who b { color: var(--ink); }
+.quotecard .clogo { margin-left: auto; flex: none; width: 140px; height: 84px; border: 1px dashed rgba(255,255,255,0.25); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--mid-t); }
+.logos { background: var(--card); }
+.logogrid { margin-top: 48px; display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 14px; }
+.lg { border: 1px solid var(--hair); border-radius: 14px; background: var(--card-2); height: 150px; display: flex; align-items: center; justify-content: center; }
+.lg .lmark { width: 92px; height: 26px; border-radius: 6px; background: #2b2342; }
+
+/* close */
+.close { background: linear-gradient(180deg, rgba(13,10,22,0.5), rgba(13,10,22,0.85)), url("gradients/pan-dusk.jpg") center / cover; text-align: center; color: #fff; padding: 140px 60px; }
+.close h2 { font-size: 88px; font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: #fff; }
+.close .csub { margin-top: 16px; font-size: 21px; font-weight: 600; color: rgba(255,255,255,0.88); }
+.close .btn { margin-top: 32px; background: #fff; color: var(--deep); }
+
+.hp-foot { display: flex; align-items: center; gap: 32px; padding: 34px; background: var(--card); border-radius: var(--r); }
+.hp-foot .cmlogo { height: 20px; }
+.hp-foot a { font-size: 14px; font-weight: 600; color: var(--mid-t); text-decoration: none; }
+.hp-foot .legal { margin-left: auto; font-size: 13px; color: var(--low-t); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="conf">
+  <div class="wrap">
+    <svg class="sp-logo" viewBox="0 0 1499.4 151" fill="currentColor" role="img" aria-label="Studio Parkside" xmlns="http://www.w3.org/2000/svg"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg>
+    <div class="tags">
+      <span class="pill client">Campminder</span>
+      <span class="pill">Confidential</span>
+    </div>
+  </div>
+</div>
+
+<header class="wrap masthead">
+  <span class="cm-name">Campminder <span class="sep">&middot;</span> Fall Campaign</span>
+  <h1>Homepage Layout <span class="accent">Alt C</span></h1>
+  <p class="sub">Framed. Every section is its own rounded card inside a page gutter. The hero splits into a purple panel beside the photograph with glass chips carrying the numbers. Closest to the main comp in mood, furthest in structure.</p>
+</header>
+
+<div class="boardwrap">
+  <div class="boardhead">
+    <span class="bn">ALT C</span>
+    <h2>Framed</h2>
+    <span class="bmeta">1440 &middot; desktop</span>
+  </div>
+  <div class="board">
+    <div class="hp">
+
+      <nav class="hp-nav">
+        <img class="cmlogo" src="campminder-logo-white.svg" alt="Campminder">
+        <div class="navlinks">
+          <a href="#">Features</a><a href="#">Solutions</a><a href="#">Demo</a><a href="#">Company</a>
+        </div>
+        <div class="navright"><a href="#">Log in</a><span class="btn sm">Book a demo</span></div>
+      </nav>
+
+      <!-- hero split -->
+      <div class="hero">
+        <div class="heropanel">
+          <h1>One for all.</h1>
+          <p class="hsub">The trusted platform for everyone at your camp.</p>
+          <p class="hline">Registration, staffing, health, communication, and the business behind it all.</p>
+          <div class="hctas">
+            <span class="btn">Book a demo</span>
+            <span class="btn glass">See the platform</span>
+          </div>
+        </div>
+        <div class="herophoto">
+          <span class="chip c1"><b>4.2M</b> camper applications</span>
+          <span class="chip c2"><b>25</b> summers</span>
+          <span class="chip c3"><b>32M</b> photos shared</span>
+          <div class="glasscard">
+            <span class="gt">Campminder Intelligence</span>
+            <p>Enrollment against last season, updating live as families sign up.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- stat cards -->
+      <div class="statrow">
+        <div class="statcard hl"><span class="n">4.2M</span><span class="u">camper applications processed</span></div>
+        <div class="statcard"><span class="n">86K</span><span class="u">staff hired through the platform</span></div>
+        <div class="statcard"><span class="n">1.8M</span><span class="u">medications administered last summer</span></div>
+        <div class="statcard"><span class="n">32M</span><span class="u">photos shared with families</span></div>
+      </div>
+
+      <!-- intelligence -->
+      <div class="card intel pad">
+        <div class="grid">
+          <div>
+            <span class="seclab"><i>(02)</i> Intelligence</span>
+            <h2 class="big">Intelligence you can trust.</h2>
+            <p class="ssub">Enrollment is one view of it. Staffing, health, and the business side get the same read on what your data has been telling you.</p>
+          </div>
+          <div class="screen">
+            <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+            <div class="body">
+              <div class="sk line acc" style="width:34%"></div>
+              <div class="sk line" style="width:70%"></div>
+              <div class="gbars">
+                <i class="lt" style="height:48px"></i><i style="height:68px"></i>
+                <i class="lt" style="height:62px"></i><i style="height:90px"></i>
+                <i class="lt" style="height:70px"></i><i style="height:112px"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- operation -->
+      <div class="card op pad">
+        <span class="seclab"><i>(03)</i> The platform</span>
+        <h2 class="big">Your operation. All in one place.</h2>
+        <div class="optiles">
+          <div class="optile"><span class="oi">01</span><h5>Registration</h5><p>Every kid, one pass.</p></div>
+          <div class="optile"><span class="oi">02</span><h5>Staffing</h5><p>Hiring to onboarding.</p></div>
+          <div class="optile"><span class="oi">03</span><h5>Health &amp; medical</h5><p>Records and daily logs.</p></div>
+          <div class="optile"><span class="oi">04</span><h5>Transportation</h5><p>Routes and rosters.</p></div>
+          <div class="optile"><span class="oi">05</span><h5>Groups &amp; cabins</h5><p>Assignments that work.</p></div>
+          <div class="optile"><span class="oi">06</span><h5>Billing &amp; payments</h5><p>The business side.</p></div>
+          <div class="optile"><span class="oi">07</span><h5>Communication</h5><p>Families, kept close.</p></div>
+          <div class="optile"><span class="oi">08</span><h5>Reporting</h5><p>Answers on demand.</p></div>
+          <div class="optile"><span class="oi">09</span><h5>Lead capture</h5><p>Next season's families.</p></div>
+          <div class="optile"><span class="oi">10</span><h5>The off-season</h5><p>Rentals and retreats.</p></div>
+        </div>
+      </div>
+
+      <!-- team photo band -->
+      <div class="card photoband">
+        <div class="inner">
+          <div>
+            <span class="seclab"><i>(04)</i> The team</span>
+            <h2>We know your camp. Inside and out.</h2>
+          </div>
+          <div class="team">
+            <div class="trow"><span class="ti">01</span><span class="tn">Camp Success</span><span class="tr">Your point person</span></div>
+            <div class="trow"><span class="ti">02</span><span class="tn">Onboarding</span><span class="tr">Runs setup with you</span></div>
+            <div class="trow"><span class="ti">03</span><span class="tn">Support</span><span class="tr">Picks up in July</span></div>
+            <div class="trow"><span class="ti">04</span><span class="tn">Product</span><span class="tr">Builds what camps ask for</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- roles -->
+      <div class="card roles pad">
+        <span class="seclab"><i>(05)</i> Roles</span>
+        <h2 class="big">Built for everyone at your camp.</h2>
+        <div style="margin-top:40px;">
+          <div class="rolerow" style="border-top:1px solid var(--hair);">
+            <span class="ci">A</span>
+            <div><h5>Owner &amp; Director</h5><p>The whole season in one view.</p></div>
+            <div class="rolemedia">
+              <div class="photo gp"></div>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk line acc" style="width:55%"></div><div class="sk line" style="width:88%"></div><div class="sk line" style="width:74%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="rolerow">
+            <span class="ci">B</span>
+            <div><h5>Communications &amp; Marketing</h5><p>Every family, one thread.</p></div>
+            <div class="rolemedia">
+              <div class="photo go"></div>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk line acc" style="width:42%"></div><div class="sk line" style="width:80%"></div><div class="sk line" style="width:66%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="rolerow" style="border-bottom:none;">
+            <span class="ci">C</span>
+            <div><h5>Business &amp; Finance</h5><p>Billing that closes itself out.</p></div>
+            <div class="rolemedia">
+              <div class="photo gb"></div>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk line acc" style="width:48%"></div><div class="sk line" style="width:84%"></div><div class="sk line" style="width:70%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ask camp -->
+      <div class="card ask pad">
+        <div class="grid">
+          <div>
+            <span class="seclab"><i>(06)</i> Campanion</span>
+            <h2 class="big">No handbook required.</h2>
+            <p class="ssub">Packing lists, drop-off and pickup times, form status, and camp policies, answered for a parent without a call to the camp office.</p>
+          </div>
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="app">Campanion &middot; Ask Camp</div>
+            <div class="bub q">What time is drop-off on Monday?</div>
+            <div class="bub a">Drop-off is 7:45am at the main lodge. Gates open at 7:30am.</div>
+            <div class="bub q">Is her allergy form in?</div>
+            <div class="bub a">Submitted and approved on July 2.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- quote -->
+      <div class="card quotecard pad">
+        <span class="mark"></span>
+        <div>
+          <blockquote>&ldquo;The only platform where the support team knows our camp inside and out.&rdquo;</blockquote>
+          <p class="who"><b>Sarah Ellison</b> &middot; Camp Director &middot; Camp Cedarwood &middot; 18 seasons on Campminder</p>
+        </div>
+        <span class="clogo">Camp logo</span>
+      </div>
+
+      <!-- logos -->
+      <div class="card logos pad">
+        <span class="seclab"><i>(08)</i> Partners</span>
+        <h2 class="big">Partnerships built to last.</h2>
+        <div class="logogrid">
+          <div class="lg"><span class="lmark"></span></div><div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div><div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div><div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div><div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div><div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div><div class="lg"><span class="lmark"></span></div>
+        </div>
+      </div>
+
+      <!-- close -->
+      <div class="card close">
+        <h2>Unpack possible.</h2>
+        <p class="csub">The trusted platform for everyone at your camp.</p>
+        <span class="btn">Book a demo</span>
+      </div>
+
+      <footer class="hp-foot">
+        <img class="cmlogo" src="campminder-logo-white.svg" alt="Campminder">
+        <a href="#">Features</a><a href="#">Solutions</a><a href="#">Company</a><a href="#">Support</a>
+        <span class="legal">&copy; 2026 Campminder</span>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

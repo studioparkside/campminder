@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Alternate G — Rail — Campminder Fall Campaign</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage Alternate G, v2
+   RAIL. A standing rail in deep purple runs the full height of
+   the page carrying the duration claim and the one CTA. No table
+   of contents. No section numbers anywhere.
+   The incumbency claim is structural: it lives in persistent
+   chrome and in a dated provenance line under every section head,
+   so it is distributed across the page rather than parked in one
+   testimonial. A competitor two years old can build the rail.
+   They cannot fill it.
+   Ground is the approved dark plum. Studio Parkside, August 2026
+   ⚠ EVERY DATE ON THIS PAGE IS A PLACEHOLDER pending Campminder.
+───────────────────────────────────────────── */
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg: #17112a;
+  --canvas: #0d0a16;
+  --card: #120e1f;
+  --ink: #ffffff;
+  --body: #e7e3f0;
+  --mid: #a79cbd;
+  --light: #786d92;
+  --rule: rgba(255,255,255,0.16);
+  --hair: rgba(255,255,255,0.10);
+  --accent: #773dbd;
+  --accent-2: #a87be0;
+  --accent-line: rgba(168,123,224,0.42);
+  --dark: #27065c;
+  --dark-2: #380f8c;
+  --dark-accent: #c9a9f2;
+  --dark-mid: rgba(255,255,255,0.66);
+  --dark-low: rgba(255,255,255,0.42);
+  --railw: 296px;
+}
+html { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans); color: var(--body); background: var(--canvas);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  font-size: 18px; font-weight: 500; line-height: 1.5; letter-spacing: -0.015em;
+}
+.wrap { max-width: 1520px; margin: 0 auto; padding: 18px 44px; }
+
+/* ── comp chrome ───────────────────────────── */
+.conf { border-bottom: 1px solid var(--rule); background: var(--bg); position: sticky; top: 0; z-index: 40; }
+.conf .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.sp-logo { display: block; height: 17px; width: auto; color: var(--ink); flex: none; }
+.tags { display: flex; align-items: center; gap: 8px; }
+.pill-c { font-size: 11px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent-2);
+  background: rgba(119,61,189,0.18); border: 1px solid var(--accent-line); padding: 5px 12px; white-space: nowrap; }
+.pill-c.client { color: var(--mid); background: transparent; border-color: var(--rule); }
+.pill-c.warn { color: #ffb84d; background: rgba(255,166,30,0.14); border-color: rgba(255,166,30,0.40); }
+.masthead { padding: 72px 0 40px; }
+.masthead .cm-name { display: block; font-size: 15px; font-weight: 650; color: var(--mid); margin-bottom: 18px; }
+.masthead .cm-name .sep { color: var(--accent-line); padding: 0 4px; }
+.masthead h1 { font-size: 64px; font-weight: 700; line-height: 1.0; letter-spacing: -0.045em; color: var(--ink); }
+.masthead h1 .accent { color: var(--accent-2); }
+.masthead .sub { margin-top: 18px; font-size: 19px; color: var(--mid); max-width: 68ch; line-height: 1.5; }
+.masthead .flag { margin-top: 20px; font-size: 15px; font-weight: 650; color: #ffb84d; max-width: 68ch; line-height: 1.5; }
+.boardwrap { padding: 34px 0 20px; }
+.boardhead { max-width: 1440px; margin: 0 auto 12px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.boardhead h2 { font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; }
+.boardhead .bmeta { font-size: 14px; font-weight: 600; color: var(--light); margin-left: auto; }
+/* no overflow clipping: the rail is sticky and clipping would kill it */
+.board { width: 1440px; margin: 0 auto; background: var(--canvas); border: 1px solid var(--rule); }
+.boardnote { max-width: 1440px; margin: 14px auto 0; font-size: 14px; font-weight: 600; color: var(--light); line-height: 1.55; }
+.boardnote b { color: var(--mid); }
+@media (max-width: 1540px) { .boardwrap { overflow-x: auto; padding-left: 44px; padding-right: 44px; } .boardhead, .board, .boardnote { min-width: 1440px; } }
+
+/* ═════════════════════════════════════════════
+   THE PAGE
+═════════════════════════════════════════════ */
+.hp { font-size: 17px; color: var(--body); display: grid; grid-template-columns: minmax(0,1fr) var(--railw); align-items: start; }
+.col { min-width: 0; border-right: 1px solid var(--rule); }
+
+/* ── the rail. a quiet colophon, not a table of contents. ── */
+.rail { position: sticky; top: 60px; background: var(--dark); color: #fff; min-height: 700px;
+  display: flex; flex-direction: column; padding: 28px 26px 26px; }
+.rail .rmark { display: block; height: 19px; width: auto; opacity: 0.92; }
+.rail .rlines { margin-top: auto; padding-bottom: 34px; }
+.rail .rline { display: block; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.16);
+  font-size: 15.5px; font-weight: 600; color: rgba(255,255,255,0.82); letter-spacing: -0.014em; line-height: 1.35; }
+.rail .rline:first-child { border-top: 1px solid rgba(255,255,255,0.16); }
+.rail .rfoot { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.22); }
+.rail .rtag { display: block; width: 132px; height: auto; opacity: 0.60; margin-bottom: 22px; }
+.rail .btn { width: 100%; }
+
+/* ── shared type ── */
+h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.045em; line-height: 0.94; color: var(--ink); }
+.huge { font-size: 150px; letter-spacing: -0.058em; line-height: 0.84; }
+.dsp { font-size: 76px; }
+.dsp.sm { font-size: 40px; letter-spacing: -0.036em; }
+.lede { font-size: 21px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1.3; }
+.txt { font-size: 16.5px; color: var(--mid); line-height: 1.52; }
+.txt b { color: var(--body); font-weight: 700; }
+
+/* pill labels. small, on data and status only, never above a headline. */
+.tagpill { display: inline-flex; align-items: center; font-size: 11.5px; font-weight: 650; letter-spacing: 0.01em;
+  color: var(--accent-2); border: 1px solid var(--accent-line); padding: 4px 11px; white-space: nowrap; }
+.tagpill.solid { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tagpill.plain { color: var(--mid); border-color: var(--rule); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; font-size: 14.5px; font-weight: 650;
+  letter-spacing: -0.008em; padding: 14px 26px; text-decoration: none; border: 1px solid transparent; white-space: nowrap; }
+.btn.solid { background: var(--ink); color: #14101f; }
+.btn.line { background: transparent; color: var(--ink); border-color: rgba(255,255,255,0.42); }
+.btn.railcta { background: #fff; color: var(--dark); }
+.tlink { font-size: 16px; font-weight: 650; color: var(--accent-2); text-decoration: none; border-bottom: 1px solid var(--accent-line); padding-bottom: 3px; }
+
+/* ── section heads. left rail carries the kicker, right column carries
+      the lede and the dated provenance line. no numbers. ── */
+.shead { display: grid; grid-template-columns: 186px minmax(0,1fr) 330px; border-bottom: 1px solid var(--rule); }
+.skick { border-right: 1px solid var(--hair); padding: 50px 24px 50px 34px; }
+.skick .k { font-size: 15px; font-weight: 600; color: var(--mid); letter-spacing: -0.012em; line-height: 1.35; }
+.sh-h { padding: 50px 44px 50px 40px; display: flex; align-items: flex-end; }
+.sh-h h2 { max-width: 13ch; }
+.sh-r { padding: 50px 34px 50px 0; display: flex; flex-direction: column; justify-content: flex-end; }
+.prov { margin-top: 24px; padding-top: 13px; border-top: 1px solid var(--hair); font-size: 12px; font-weight: 600;
+  color: var(--light); line-height: 1.45; letter-spacing: 0.02em; }
+.prov b { color: var(--accent-2); font-weight: 700; }
+
+/* stacked rows with hairline dividers */
+.stackrow { display: grid; grid-template-columns: 186px minmax(0,1fr); border-bottom: 1px solid var(--hair); }
+.stackrow .sk-lab { border-right: 1px solid var(--hair); padding: 34px 24px 34px 34px; }
+.stackrow .sk-body { padding: 34px 34px 34px 40px; }
+.stackrow.last { border-bottom: 1px solid var(--rule); }
+
+/* flat product regions */
+.flat { border: 1px solid var(--rule); background: var(--card); display: flex; flex-direction: column; }
+.flat .fbar { display: flex; align-items: baseline; gap: 10px; padding: 11px 14px; border-bottom: 1px solid var(--hair); }
+.flat .fbar .ft { font-size: 12px; font-weight: 700; color: var(--body); letter-spacing: -0.01em; }
+.flat .fbar .fs { font-size: 11px; font-weight: 600; color: var(--light); margin-left: auto; }
+.flat .fb { padding: 16px 14px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+.sk { display: block; background: #241d38; }
+.sk.line { height: 9px; }
+.sk.acc { background: var(--accent-line); }
+.bars { display: flex; align-items: flex-end; gap: 8px; height: 96px; padding-top: 6px; }
+.bars i { flex: 1; display: block; background: var(--accent); }
+.bars i.lt { background: var(--accent-line); }
+.axis { display: flex; gap: 8px; }
+.axis span { flex: 1; font-size: 10px; font-weight: 600; color: var(--light); text-align: center; }
+.rowline { display: flex; gap: 10px; align-items: center; }
+.rowline .av { width: 22px; height: 22px; background: var(--accent-line); flex: none; }
+.rowline .sk.line { flex: 1; }
+
+/* ── hero. staggered overlap: the product panel starts in the type
+      field and descends halfway onto the photograph. ── */
+.hero { position: relative; height: 1010px; padding: 62px 34px 0; overflow: hidden; }
+.hero .hnote { position: absolute; top: 66px; right: 40px; z-index: 6; text-align: right;
+  font-size: 12.5px; font-weight: 600; color: var(--light); line-height: 1.5; letter-spacing: 0.02em; }
+/* the headline sits over the panel, so the descenders tuck across its top edge */
+.hero h1 { position: relative; z-index: 6; }
+.hero .l2 { margin-left: 96px; }
+.hero .hcopy { position: relative; z-index: 4; margin-top: 34px; max-width: 460px; }
+.heropic { position: absolute; left: 0; right: 0; top: 508px; height: 502px; z-index: 1;
+  background: url("hero.jpg") center 55% / cover no-repeat; }
+.heropic::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(13,10,22,0.28), rgba(13,10,22,0.05) 32%, rgba(13,10,22,0.52)); }
+.heroui { position: absolute; right: 48px; top: 300px; width: 512px; z-index: 5;
+  box-shadow: 0 24px 80px rgba(8,5,16,0.55); }
+.herocta { position: absolute; left: 34px; top: 872px; z-index: 5; display: flex; gap: 12px; }
+
+/* full-bleed picture rows */
+.bleed { position: relative; border-bottom: 1px solid var(--rule); }
+.pic { background-size: cover; background-position: center; }
+.gp { background-image: url("https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=1400&auto=format&fit=crop"); }
+.go { background-image: url("https://images.unsplash.com/photo-1475483768296-6163e08872a1?q=80&w=1400&auto=format&fit=crop"); }
+.gb { background-image: url("https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=1400&auto=format&fit=crop"); }
+.port { position: relative; min-height: 400px; background-size: cover; background-position: center 20%; display: flex; align-items: flex-end; }
+.port::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 48%, rgba(14,10,24,0.82)); }
+.port .pin { position: relative; z-index: 2; padding: 20px; }
+.port .pn { display: block; font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.022em; }
+.port .pr { display: block; font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.74); margin-top: 3px; }
+.port .py { display: block; margin-top: 8px; font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.56); letter-spacing: 0.02em; }
+.p1 { background-image: url("https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop"); }
+.p2 { background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"); }
+.p3 { background-image: url("https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop"); }
+.p4 { background-image: url("https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop"); }
+
+/* gradient field */
+.field { position: relative; border-bottom: 1px solid var(--rule); }
+.field > .gr { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; }
+.field > .inner { position: relative; z-index: 2; }
+.field.on-light .skick { border-right-color: rgba(39,6,92,0.22); }
+.field.on-light .shead { border-bottom-color: rgba(39,6,92,0.26); }
+.field.on-light h2 { color: var(--dark); }
+.field.on-light .skick .k { color: rgba(39,6,92,0.74); }
+.field.on-light .lede { color: var(--dark); }
+.field.on-light .txt { color: rgba(39,6,92,0.72); }
+.field.on-light .prov { color: rgba(39,6,92,0.62); border-top-color: rgba(39,6,92,0.22); }
+.field.on-light .prov b { color: rgba(39,6,92,0.88); }
+
+/* ask camp: no phone frame, no notch, no white. a bounded panel like every
+   other product region on the page. */
+.askpanel { border: 1px solid rgba(255,255,255,0.22); background: rgba(14,9,26,0.46);
+  backdrop-filter: blur(18px) saturate(130%); -webkit-backdrop-filter: blur(18px) saturate(130%); }
+.askpanel .abar { display: flex; align-items: baseline; gap: 10px; padding: 13px 16px; border-bottom: 1px solid rgba(255,255,255,0.16); }
+.askpanel .abar .at { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.92); letter-spacing: -0.01em; }
+.askpanel .abar .as { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.50); margin-left: auto; letter-spacing: 0.02em; }
+.askpanel .abody { padding: 20px 18px; display: flex; flex-direction: column; }
+.bub { max-width: 82%; padding: 12px 14px; font-size: 14px; line-height: 1.45; margin-bottom: 10px; font-weight: 550; font-family: var(--sans); }
+.bub.q { margin-left: auto; background: var(--accent); color: #fff; }
+.bub.a { background: rgba(255,255,255,0.11); color: rgba(255,255,255,0.90); border: 1px solid rgba(255,255,255,0.12); }
+.bub.typing { display: inline-flex; gap: 5px; align-items: center; padding: 15px 16px; }
+.bub.typing i { width: 6px; height: 6px; background: rgba(255,255,255,0.62); display: block; }
+.askfield { margin-top: 6px; border: 1px solid rgba(255,255,255,0.18); padding: 12px 14px;
+  font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.42); }
+
+/* numbers strip */
+.numstrip { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--rule); }
+.numcell { padding: 46px 30px 42px; border-left: 1px solid var(--hair); }
+.numcell:first-child { border-left: none; }
+.numcell .sv { display: block; font-size: 62px; font-weight: 700; color: var(--ink); letter-spacing: -0.05em; line-height: 0.92; }
+.numcell .sl { display: block; margin-top: 12px; font-size: 14.5px; color: var(--mid); line-height: 1.4; }
+
+
+/* logo wall */
+.logogrid { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1px solid var(--rule); }
+.lgc { height: 116px; display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--hair); border-top: 1px solid var(--hair); position: relative; }
+.lgc:nth-child(6n+1) { border-left: none; }
+.lgc .lmark { width: 80px; height: 22px; background: rgba(255,255,255,0.16); }
+.lgc.on .lmark { background: var(--accent-line); }
+.lgc.on .story { position: absolute; bottom: 12px; left: 0; right: 0; text-align: center; font-size: 11.5px; font-weight: 650; color: var(--accent-2); }
+
+/* close */
+.close { position: relative; min-height: 660px; display: flex; align-items: flex-end; border-bottom: 1px solid var(--rule);
+  background: linear-gradient(180deg, rgba(13,10,22,0.34), rgba(13,10,22,0.20) 40%, rgba(13,10,22,0.82)),
+  url("https://images.unsplash.com/photo-1758272960816-6126b6607596?q=80&w=2400&auto=format&fit=crop") center 42% / cover no-repeat; }
+
+/* footer */
+.hp-foot { display: flex; align-items: center; gap: 30px; padding: 40px 34px; }
+.hp-foot a { font-size: 13.5px; font-weight: 600; color: var(--dark-mid); text-decoration: none; }
+.hp-foot .legal { margin-left: auto; font-size: 12.5px; color: var(--dark-low); font-weight: 600; }
+.hp-foot .cmlogo { height: 20px; }
+
+/* nav */
+.hp-nav { display: flex; align-items: center; gap: 32px; padding: 0 34px; height: 78px; border-bottom: 1px solid var(--rule); }
+.cmlogo { display: block; height: 25px; width: auto; }
+.hp-nav a { font-size: 14.5px; font-weight: 600; color: var(--mid); text-decoration: none; }
+.hp-nav .nspace { flex: 1; }
+
+
+/* ── type program ── */
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display"), local("SF Pro Text"), local("Helvetica Neue"); font-weight:400; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Medium"), local("SFProDisplay-Medium"), local("SF Pro Text Medium"); font-weight:500; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Semibold"), local("SFProDisplay-Semibold"), local("SF Pro Text Semibold"); font-weight:600; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Bold"), local("SFProDisplay-Bold"), local("SF Pro Text Bold"); font-weight:700; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Regular.woff2") format("woff2"); font-weight:400; font-display:swap; }
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Medium.woff2") format("woff2"); font-weight:500; font-display:swap; }
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Semibold.woff2") format("woff2"); font-weight:600; font-display:swap; }
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Bold.woff2") format("woff2"); font-weight:700; font-display:swap; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-display:block; }
+@font-face { font-family:"Spezia SemiMono"; src:url("fonts/SpeziaSemiMonoWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-display:block; }
+@font-face { font-family:"Spezia SemiMono"; src:url("fonts/SpeziaSemiMonoWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+@font-face { font-family:"Spezia Condensed"; src:url("fonts/SpeziaCondensedWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-display:block; }
+.hp { font-family:"SF Sym", "Spezia Narrow", var(--sans); }
+.hp .lede, .hp .txt, .hp .btn, .hp .tlink, .hp-nav a, .hp .numcell .sl, .hp .port .pr,
+.hp .skick .k, .hp-foot a, .hp .qb { font-family:"SF Sym", "Spezia", var(--sans); }
+/* apparatus: provenance lines, counters, axes, colophon, year marks */
+.hp .prov, .hp .axis span, .hp .flat .fbar .fs, .hp .tagpill, .hp .lgc .story, .hp-foot .legal,
+.hp .hero .hnote, .hp .rail .rline, .hp .port .py,
+.hp .askpanel .abar .as, .hp .askfield {
+  font-family:"SF Sym", "Spezia SemiMono", var(--sans); }
+/* product UI runs General Sans. Erica is licensing it, and it is a real
+   grotesque rather than Inter. */
+.hp .flat, .hp .askpanel .bub, .hp .askfield { font-family:"General Sans", var(--sans); }
+.hp .numcell .sv { font-variant-numeric: normal; }
+
+/* ── motion ── */
+@keyframes barpulse { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(0.84); } }
+@keyframes linegrow { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.86); } }
+@keyframes dotpulse { 0%,100% { opacity: 0.32; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
+.bars.anim i { transform-origin: 50% 100%; animation: barpulse 5.6s cubic-bezier(0.45,0,0.55,1) infinite; will-change: transform; }
+.bars.anim i:nth-child(1){animation-delay:0s}.bars.anim i:nth-child(2){animation-delay:.26s}
+.bars.anim i:nth-child(3){animation-delay:.52s}.bars.anim i:nth-child(4){animation-delay:.78s}
+.bars.anim i:nth-child(5){animation-delay:1.04s}.bars.anim i:nth-child(6){animation-delay:1.3s}
+.anim-lines .sk.line { transform-origin: 0% 50%; animation: linegrow 4.8s ease-in-out infinite; }
+.anim-lines .sk.line:nth-child(2){animation-delay:.5s}.anim-lines .sk.line:nth-child(3){animation-delay:1s}
+.bub.typing i { animation: dotpulse 1.5s ease-in-out infinite; }
+.bub.typing i:nth-child(2){animation-delay:.18s}.bub.typing i:nth-child(3){animation-delay:.36s}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="conf">
+  <div class="wrap">
+    <svg class="sp-logo" viewBox="0 0 1499.4 151" fill="currentColor" role="img" aria-label="Studio Parkside" xmlns="http://www.w3.org/2000/svg"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg>
+    <div class="tags">
+      <span class="pill-c client">Campminder</span>
+      <span class="pill-c warn">Placeholder dates</span>
+      <span class="pill-c">Confidential</span>
+    </div>
+  </div>
+</div>
+
+<header class="wrap masthead">
+  <span class="cm-name">Campminder <span class="sep">&middot;</span> Fall Campaign</span>
+  <h1>Alternate G <span class="accent">Rail</span></h1>
+  <p class="sub">The rail is a quiet colophon: two plain lines, the Unpack possible mark, and the one call to action, none of which ever scrolls away. The incumbency argument is structural rather than decorative, carried by a dated provenance line under every section head. The hero staggers, with the product panel starting in the type field and descending halfway onto the photograph. Product UI runs General Sans, headlines Spezia Narrow, reading copy Spezia, apparatus Spezia SemiMono. No rounded corners anywhere on the page. Ground is the approved dark plum.</p>
+  <p class="flag">Every year and date on this page is a placeholder. Nothing here was retrieved from Campminder and none of it should ship without their confirmation.</p>
+</header>
+
+<div class="boardwrap">
+  <div class="boardhead">
+    <h2>Homepage</h2>
+    <span class="bmeta">1440 &middot; desktop</span>
+  </div>
+  <div class="board">
+    <div class="hp">
+
+      <!-- ═══ MAIN COLUMN ═══ -->
+      <div class="col">
+
+        <nav class="hp-nav">
+          <img class="cmlogo" src="campminder-logo-white.svg" alt="Campminder">
+          <a href="#">Features</a><a href="#">Solutions</a><a href="#">Demo</a><a href="#">Company</a>
+          <span class="nspace"></span>
+          <a href="#">Log in</a>
+        </nav>
+
+        <!-- hero, staggered -->
+        <div class="hero">
+          <p class="hnote">Est. 2000<br>Boulder, Colorado</p>
+          <h1 class="huge">One</h1>
+          <h1 class="huge l2">for all.</h1>
+          <div class="hcopy">
+            <p class="lede" style="max-width:24ch">The trusted platform for everyone at your camp.</p>
+            <p class="txt" style="margin-top:12px;max-width:42ch">Registration, staffing, health, communication, and the business behind it all.</p>
+          </div>
+
+          <div class="heropic"></div>
+
+          <div class="flat heroui">
+            <div class="fbar"><span class="ft">Enrollment</span><span class="fs">vs. this date last season</span></div>
+            <div class="fb" style="padding:18px 16px">
+              <div style="display:flex;gap:7px;margin-bottom:6px"><span class="tagpill solid">This season</span><span class="tagpill plain">Last season</span></div>
+              <div class="bars anim" style="height:186px"><i style="height:44%"></i><i style="height:58%"></i><i style="height:72%"></i><i style="height:80%"></i><i style="height:96%"></i></div>
+              <div class="axis"><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div>
+            </div>
+          </div>
+
+          <div class="herocta">
+            <span class="btn solid">Book a demo</span>
+            <span class="btn line">See the platform</span>
+          </div>
+        </div>
+
+        <!-- intelligence -->
+        <div class="shead">
+          <div class="skick"><span class="k">The whole season. One look.</span></div>
+          <div class="sh-h"><h2 class="dsp">Intelligence you can trust.</h2></div>
+          <div class="sh-r">
+            <p class="lede">Campminder Intelligence, across the whole platform.</p>
+            <p class="txt" style="margin-top:12px">Enrollment is one view of it. Staffing, health, and the business side get the same read on what your data has been telling you.</p>
+            <p class="prov">Reading camp data since <b>2009</b>.</p>
+          </div>
+        </div>
+        <div class="stackrow">
+          <div class="sk-lab"><span class="tagpill">Staffing</span></div>
+          <div class="sk-body" style="display:grid;grid-template-columns:300px minmax(0,1fr);gap:50px;align-items:center">
+            <p class="txt"><b>Hiring pace</b> against last season, by role.</p>
+            <div class="flat">
+              <div class="fbar"><span class="ft">Staffing</span><span class="fs">hiring pipeline</span></div>
+              <div class="fb"><div class="bars anim"><i style="height:44%"></i><i style="height:62%"></i><i style="height:54%"></i><i style="height:78%"></i><i style="height:66%"></i><i style="height:94%"></i></div><div class="sk line acc" style="width:44%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="stackrow">
+          <div class="sk-lab"><span class="tagpill">Health</span></div>
+          <div class="sk-body" style="display:grid;grid-template-columns:300px minmax(0,1fr);gap:50px;align-items:center">
+            <p class="txt"><b>Every med pass</b> logged, flagged when one runs late.</p>
+            <div class="flat">
+              <div class="fbar"><span class="ft">Health</span><span class="fs">daily med passes</span></div>
+              <div class="fb anim-lines"><div class="sk line" style="width:82%"></div><div class="sk line acc" style="width:68%"></div><div class="sk line" style="width:56%"></div><div class="sk" style="height:40px;margin-top:4px"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="stackrow last">
+          <div class="sk-lab"><span class="tagpill">Finance</span></div>
+          <div class="sk-body" style="display:grid;grid-template-columns:300px minmax(0,1fr);gap:50px;align-items:center">
+            <p class="txt"><b>Billing and payments</b> rolled up as the season runs.</p>
+            <div class="flat">
+              <div class="fbar"><span class="ft">Finance</span><span class="fs">season revenue</span></div>
+              <div class="fb"><div class="bars anim"><i style="height:40%"></i><i style="height:56%"></i><i style="height:72%"></i><i style="height:66%"></i><i style="height:88%"></i><i style="height:100%"></i></div><div class="sk line acc" style="width:38%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- the platform -->
+        <div class="shead">
+          <div class="skick"><span class="k">One login. All of it.</span></div>
+          <div class="sh-h"><h2 class="dsp">Your operation. All in one place.</h2></div>
+          <div class="sh-r">
+            <p class="lede">Everything your camp runs on.</p>
+            <p class="prov">Every part of it has run a full summer. The newest since <b>2023</b>.</p>
+          </div>
+        </div>
+        <div class="stackrow"><div class="sk-lab"><span class="tagpill plain">Family &amp; office</span></div><div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr) 130px;gap:40px;align-items:center"><h3 class="dsp sm" style="font-size:31px">Registration</h3><p class="txt">Every kid, one pass.</p><span class="prov" style="margin:0;padding:0;border:none;text-align:right">since 2000</span></div></div>
+        <div class="stackrow"><div class="sk-lab"><span class="tagpill plain">Office</span></div><div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr) 130px;gap:40px;align-items:center"><h3 class="dsp sm" style="font-size:31px">Staffing</h3><p class="txt">Hiring to onboarding.</p><span class="prov" style="margin:0;padding:0;border:none;text-align:right">since 2007</span></div></div>
+        <div class="stackrow"><div class="sk-lab"><span class="tagpill plain">Health center</span></div><div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr) 130px;gap:40px;align-items:center"><h3 class="dsp sm" style="font-size:31px">Health &amp; medical</h3><p class="txt">Records and daily logs.</p><span class="prov" style="margin:0;padding:0;border:none;text-align:right">since 2004</span></div></div>
+        <div class="stackrow"><div class="sk-lab"><span class="tagpill plain">Office</span></div><div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr) 130px;gap:40px;align-items:center"><h3 class="dsp sm" style="font-size:31px">Transportation</h3><p class="txt">Routes and rosters.</p><span class="prov" style="margin:0;padding:0;border:none;text-align:right">since 2011</span></div></div>
+        <div class="stackrow"><div class="sk-lab"><span class="tagpill plain">On site</span></div><div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr) 130px;gap:40px;align-items:center"><h3 class="dsp sm" style="font-size:31px">Groups &amp; cabins</h3><p class="txt">Assignments that work.</p><span class="prov" style="margin:0;padding:0;border:none;text-align:right">since 2003</span></div></div>
+        <div class="stackrow"><div class="sk-lab"><span class="tagpill plain">Finance</span></div><div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr) 130px;gap:40px;align-items:center"><h3 class="dsp sm" style="font-size:31px">Billing &amp; payments</h3><p class="txt">The business side.</p><span class="prov" style="margin:0;padding:0;border:none;text-align:right">since 2001</span></div></div>
+        <div class="stackrow"><div class="sk-lab"><span class="tagpill plain">Family</span></div><div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr) 130px;gap:40px;align-items:center"><h3 class="dsp sm" style="font-size:31px">Communication</h3><p class="txt">Families, kept close.</p><span class="prov" style="margin:0;padding:0;border:none;text-align:right">since 2002</span></div></div>
+        <div class="stackrow"><div class="sk-lab"><span class="tagpill plain">Leadership</span></div><div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr) 130px;gap:40px;align-items:center"><h3 class="dsp sm" style="font-size:31px">Reporting</h3><p class="txt">Answers on demand.</p><span class="prov" style="margin:0;padding:0;border:none;text-align:right">since 2005</span></div></div>
+        <div class="stackrow"><div class="sk-lab"><span class="tagpill plain">Marketing</span></div><div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr) 130px;gap:40px;align-items:center"><h3 class="dsp sm" style="font-size:31px">Lead capture</h3><p class="txt">Next season&rsquo;s families.</p><span class="prov" style="margin:0;padding:0;border:none;text-align:right">since 2014</span></div></div>
+        <div class="stackrow"><div class="sk-lab"><span class="tagpill plain">Year round</span></div><div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr) 130px;gap:40px;align-items:center"><h3 class="dsp sm" style="font-size:31px">The off-season</h3><p class="txt">Rentals and retreats.</p><span class="prov" style="margin:0;padding:0;border:none;text-align:right">since 2018</span></div></div>
+        <div class="stackrow last">
+          <div class="sk-lab"></div>
+          <div class="sk-body"><a class="tlink" href="#">See it in action with a camp&rsquo;s story &rarr;</a></div>
+        </div>
+
+        <!-- the team, on the one light field -->
+        <div class="field on-light">
+          <div class="gr" style="background-image:url('gradients/pan-dawn.jpg')"></div>
+          <div class="inner">
+            <div class="shead">
+              <div class="skick"><span class="k">Real people. All season.</span></div>
+              <div class="sh-h"><h2 class="dsp">We know your camp. Inside and out.</h2></div>
+              <div class="sh-r">
+                <p class="lede">The team behind your platform.</p>
+                <p class="txt" style="margin-top:12px">Reach a person who knows your camp in the middle of your season, or whenever you need them.</p>
+                <p class="prov">Answering camps every July since <b>2000</b>.</p>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+              <div class="port p1"><div class="pin"><span class="pn">Camp Success</span><span class="pr">Your point person</span><span class="py">Average tenure 9 years</span></div></div>
+              <div class="port p2"><div class="pin"><span class="pn">Onboarding</span><span class="pr">Runs setup with you</span><span class="py">Average tenure 6 years</span></div></div>
+              <div class="port p3"><div class="pin"><span class="pn">Support</span><span class="pr">Picks up in July</span><span class="py">Average tenure 11 years</span></div></div>
+              <div class="port p4"><div class="pin"><span class="pn">Product</span><span class="pr">Builds what camps ask for</span><span class="py">Average tenure 8 years</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- every role -->
+        <div class="shead">
+          <div class="skick"><span class="k">Your job. Your view.</span></div>
+          <div class="sh-h"><h2 class="dsp">Built for everyone at your camp.</h2></div>
+          <div class="sh-r">
+            <p class="lede">Every role on one platform.</p>
+            <p class="prov">Built alongside camp directors since <b>2000</b>.</p>
+          </div>
+        </div>
+        <div class="bleed" style="height:300px"><div class="pic gp" style="position:absolute;inset:0"></div></div>
+        <div class="stackrow">
+          <div class="sk-lab"><span class="tagpill plain">Leadership</span></div>
+          <div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr);gap:50px;align-items:center">
+            <div>
+              <h3 class="dsp sm">Owner &amp; Director</h3>
+              <p class="txt" style="margin-top:10px">The whole season in one view.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="flat"><div class="fbar"><span class="ft">Season view</span></div><div class="fb"><div class="sk line acc" style="width:55%"></div><div class="sk line" style="width:88%"></div><div class="sk line" style="width:74%"></div><div class="sk" style="height:36px"></div></div></div>
+              <div class="flat"><div class="fbar"><span class="ft">Reporting</span></div><div class="fb"><div class="sk" style="height:44px"></div><div class="sk line" style="width:68%"></div><div class="sk line acc" style="width:40%"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="bleed" style="height:300px"><div class="pic go" style="position:absolute;inset:0"></div></div>
+        <div class="stackrow">
+          <div class="sk-lab"><span class="tagpill plain">Comms</span></div>
+          <div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr);gap:50px;align-items:center">
+            <div>
+              <h3 class="dsp sm">Communications &amp; Marketing</h3>
+              <p class="txt" style="margin-top:10px">Every family, one thread.</p>
+            </div>
+            <div class="flat" style="max-width:520px">
+              <div class="fbar"><span class="ft">Broadcasts</span><span class="fs">all families</span></div>
+              <div class="fb anim-lines"><div class="sk line acc" style="width:42%"></div><div class="sk line" style="width:80%"></div><div class="sk line" style="width:66%"></div><div class="sk" style="height:40px"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="bleed" style="height:300px"><div class="pic gb" style="position:absolute;inset:0"></div></div>
+        <div class="stackrow last">
+          <div class="sk-lab"><span class="tagpill plain">Finance</span></div>
+          <div class="sk-body" style="display:grid;grid-template-columns:340px minmax(0,1fr);gap:50px;align-items:center">
+            <div>
+              <h3 class="dsp sm">Business &amp; Finance</h3>
+              <p class="txt" style="margin-top:10px">Billing that closes itself out.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="flat"><div class="fbar"><span class="ft">Ledger</span></div><div class="fb"><div class="sk line acc" style="width:48%"></div><div class="sk line" style="width:84%"></div><div class="sk line" style="width:70%"></div><div class="sk" style="height:36px"></div></div></div>
+              <div class="flat"><div class="fbar"><span class="ft">Payments</span></div><div class="fb"><div class="sk" style="height:44px"></div><div class="sk line" style="width:60%"></div><div class="sk line acc" style="width:36%"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ask camp -->
+        <div class="field">
+          <div class="gr" style="background-image:linear-gradient(180deg,rgba(18,13,30,0.78),rgba(18,13,30,0.56) 50%,rgba(18,13,30,0.90)),url('gradients/pan-lilac.jpg')"></div>
+          <div class="inner">
+            <div class="shead" style="border-bottom-color:rgba(255,255,255,0.16)">
+              <div class="skick" style="border-right-color:rgba(255,255,255,0.16)"><span class="k" style="color:rgba(255,255,255,0.72)">Ask the app.</span></div>
+              <div class="sh-h"><h2 class="dsp">No handbook required.</h2></div>
+              <div class="sh-r">
+                <p class="lede">Ask Camp, built into Campanion.</p>
+                <p class="txt" style="margin-top:12px;color:rgba(255,255,255,0.68)">Packing lists, drop-off and pickup times, form status, and camp policies, answered for a parent without a call to the camp office.</p>
+                <p class="prov" style="border-top-color:rgba(255,255,255,0.16);color:rgba(255,255,255,0.50)">Answering from a camp&rsquo;s own content since <b style="color:var(--dark-accent)">2023</b>.</p>
+              </div>
+            </div>
+            <div class="stackrow last" style="border-bottom-color:rgba(255,255,255,0.16)">
+              <div class="sk-lab" style="border-right-color:rgba(255,255,255,0.16)"><span class="tagpill">Campanion</span></div>
+              <div class="sk-body" style="display:grid;grid-template-columns:400px minmax(0,1fr);gap:56px;align-items:stretch;padding-top:50px;padding-bottom:50px">
+                <div class="askpanel">
+                  <div class="abar"><span class="at">Campanion &middot; Ask Camp</span><span class="as">parent view</span></div>
+                  <div class="abody">
+                    <span class="bub q">What time is drop-off on Monday?</span>
+                    <span class="bub a">Drop-off is 7:45am at the main lodge. Gates open at 7:30am.</span>
+                    <span class="bub q">Is her allergy form in?</span>
+                    <span class="bub a typing"><i></i><i></i><i></i></span>
+                    <span class="askfield">Ask anything about camp&hellip;</span>
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-rows:repeat(3,1fr);gap:16px">
+                  <div class="askpanel"><div class="abar"><span class="at">Packing list</span><span class="as">answered</span></div><div class="abody" style="padding:16px 18px;gap:9px"><span class="sk line acc" style="width:44%"></span><span class="sk line" style="width:78%;background:rgba(255,255,255,0.16)"></span><span class="sk line" style="width:62%;background:rgba(255,255,255,0.16)"></span></div></div>
+                  <div class="askpanel"><div class="abar"><span class="at">Form status</span><span class="as">answered</span></div><div class="abody" style="padding:16px 18px;gap:9px"><span class="sk line" style="width:70%;background:rgba(255,255,255,0.16)"></span><span class="sk line acc" style="width:48%"></span><span class="sk line" style="width:58%;background:rgba(255,255,255,0.16)"></span></div></div>
+                  <div class="askpanel"><div class="abar"><span class="at">Pickup times</span><span class="as">answered</span></div><div class="abody" style="padding:16px 18px;gap:9px"><span class="sk line" style="width:64%;background:rgba(255,255,255,0.16)"></span><span class="sk line" style="width:74%;background:rgba(255,255,255,0.16)"></span><span class="sk line acc" style="width:40%"></span></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- the record -->
+        <div class="shead">
+          <div class="skick"><span class="k">25 summers. Built in.</span></div>
+          <div class="sh-h"><h2 class="dsp">People and technology unite.</h2></div>
+          <div class="sh-r">
+            <p class="lede">Built by people who know camp, for the people who run one.</p>
+            <p class="prov">Twenty-five years of it, and counting.</p>
+          </div>
+        </div>
+        <div class="stackrow">
+          <div class="sk-lab"><span class="tagpill plain">Registration</span></div>
+          <div class="sk-body" style="display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:50px;align-items:center">
+            <div>
+              <h3 class="dsp sm">Every kid, registered in one pass.</h3>
+              <p class="txt" style="margin-top:12px;max-width:44ch">The new registration experience. A family signs up every camper in one sitting, and the office watches sessions fill.</p>
+            </div>
+            <div class="flat">
+              <div class="fbar"><span class="ft">Registration</span></div>
+              <div class="fb">
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:60%"></div><span class="tagpill">Enrolled</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:52%"></div><span class="tagpill">Enrolled</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:66%"></div><span class="tagpill plain">Waitlist</span></div>
+                <div class="sk" style="height:56px;margin-top:4px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stackrow">
+          <div class="sk-lab"><span class="tagpill plain">Staffing</span></div>
+          <div class="sk-body" style="display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:50px;align-items:center">
+            <div>
+              <h3 class="dsp sm">Hired, onboarded, and ready for day one.</h3>
+              <p class="txt" style="margin-top:12px;max-width:44ch">Hiring and onboarding in one place, so staff show up already knowing the plan.</p>
+            </div>
+            <div class="flat">
+              <div class="fbar"><span class="ft">Staffing</span></div>
+              <div class="fb">
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:56%"></div><span class="tagpill">Hired</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:64%"></div><span class="tagpill plain">Offer out</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:48%"></div><span class="tagpill plain">Interview</span></div>
+                <div class="sk" style="height:56px;margin-top:4px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stackrow">
+          <div class="sk-lab"><span class="tagpill plain">Health</span></div>
+          <div class="sk-body" style="display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:50px;align-items:center">
+            <div>
+              <h3 class="dsp sm">Every med, on time, on record.</h3>
+              <p class="txt" style="margin-top:12px;max-width:44ch">Health records, daily logs, and med passes the nurse can run from one screen.</p>
+            </div>
+            <div class="flat">
+              <div class="fbar"><span class="ft">Health</span></div>
+              <div class="fb">
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:58%"></div><span class="tagpill plain">8:00am</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:50%"></div><span class="tagpill plain">12:00pm</span></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:62%"></div><span class="tagpill plain">6:00pm</span></div>
+                <div class="sk" style="height:56px;margin-top:4px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stackrow last">
+          <div class="sk-lab"><span class="tagpill plain">Campanion</span></div>
+          <div class="sk-body" style="display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:50px;align-items:center">
+            <div>
+              <h3 class="dsp sm">The side of camp a family sees.</h3>
+              <p class="txt" style="margin-top:12px;max-width:44ch">Photos, forms, and answers in one app. Rated <b>4.8</b> on the App Store across <b>37,000</b> reviews.</p>
+            </div>
+            <div class="flat">
+              <div class="fbar"><span class="ft">Campanion</span></div>
+              <div class="fb">
+                <div class="sk" style="height:76px"></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:70%"></div></div>
+                <div class="rowline"><span class="av"></span><div class="sk line" style="width:54%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="numstrip">
+          <div class="numcell"><span class="sv">4.2M</span><span class="sl">camper applications processed</span></div>
+          <div class="numcell"><span class="sv">86K</span><span class="sl">staff hired through the platform</span></div>
+          <div class="numcell"><span class="sv">1.8M</span><span class="sl">medications administered last summer</span></div>
+          <div class="numcell"><span class="sv">32M</span><span class="sl">photos shared with families</span></div>
+        </div>
+
+        <!-- camps you know -->
+        <div class="shead">
+          <div class="skick"><span class="k">Camps you know.</span></div>
+          <div class="sh-h">
+            <p class="qb" style="font-size:42px;font-weight:400;letter-spacing:-0.038em;line-height:1.12;color:var(--ink);max-width:24ch">
+              <span style="color:var(--accent-2)">&ldquo;</span>The only platform where the support team <b style="font-weight:700">knows our camp inside and out.</b><span style="color:var(--accent-2)">&rdquo;</span>
+            </p>
+          </div>
+          <div class="sh-r">
+            <p class="lede">Partnerships built to last.</p>
+            <p class="prov">First camp signed in <b>2000</b>. Still on the platform.</p>
+          </div>
+        </div>
+        <div class="stackrow last">
+          <div class="sk-lab"><span class="tagpill plain">Attributed</span></div>
+          <div class="sk-body" style="display:flex;align-items:center;gap:22px">
+            <span class="pic" style="width:64px;height:64px;background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=400&auto=format&fit=crop');background-position:center 25%;flex:none"></span>
+            <div>
+              <div style="font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-0.022em">Sarah Ellison</div>
+              <div class="txt" style="font-size:14.5px;margin-top:2px">Camp Director, Camp Cedarwood</div>
+            </div>
+            <span class="tagpill" style="margin-left:8px">On Campminder since 2008</span>
+            <span style="margin-left:auto" class="tagpill plain">Camp logo to be supplied</span>
+          </div>
+        </div>
+        <div class="logogrid">
+          <div class="lgc"><span class="lmark"></span></div>
+          <div class="lgc"><span class="lmark"></span></div>
+          <div class="lgc on"><span class="lmark"></span><span class="story">Read their story &rarr;</span></div>
+          <div class="lgc"><span class="lmark"></span></div>
+          <div class="lgc"><span class="lmark"></span></div>
+          <div class="lgc"><span class="lmark"></span></div>
+          <div class="lgc"><span class="lmark"></span></div>
+          <div class="lgc"><span class="lmark"></span></div>
+          <div class="lgc"><span class="lmark"></span></div>
+          <div class="lgc"><span class="lmark"></span></div>
+          <div class="lgc"><span class="lmark"></span></div>
+          <div class="lgc"><span class="lmark"></span></div>
+        </div>
+
+
+        <!-- close -->
+        <div class="close">
+          <div style="padding:0 34px 56px;width:100%">
+            <h2 class="huge" style="font-size:120px;color:#fff">Unpack<br>possible.</h2>
+            <div style="margin-top:34px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:60px;align-items:end">
+              <p class="lede" style="color:rgba(255,255,255,0.92);max-width:28ch">The trusted platform for everyone at your camp.</p>
+              <div>
+                <p class="txt" style="color:rgba(255,255,255,0.66)">See what a season on Campminder looks like.</p>
+                <span class="btn solid" style="margin-top:20px">Book a demo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="hp-foot">
+          <img class="cmlogo" src="campminder-logo-white.svg" alt="Campminder">
+          <a href="#">Features</a><a href="#">Solutions</a><a href="#">Company</a><a href="#">Support</a>
+          <span class="legal">&copy; 2026 Campminder &middot; Boulder, Colorado</span>
+        </footer>
+
+      </div>
+
+      <!-- ═══ THE RAIL ═══ -->
+      <aside class="rail">
+        <img class="rmark" src="campminder-logo-white.svg" alt="Campminder">
+        <div class="rlines">
+          <span class="rline">Serving camps since 2000</span>
+          <span class="rline">Built in Boulder, Colorado</span>
+        </div>
+        <div class="rfoot">
+          <img class="rtag" src="unpack-possible-white.svg" alt="Unpack possible">
+          <span class="btn railcta">Book a demo</span>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+  <p class="boardnote"><b>The structural claim.</b> The rail never scrolls away, so a statement of duration is present on every screen of the page. Under it, every section head carries a dated provenance line and the module list carries a since column. A competitor two years old can build this rail. They cannot fill it, and they cannot put a date under a single one of their section heads. <b>Every date is a placeholder</b> and needs Campminder to confirm or correct it before this goes anywhere.</p>
+</div>
+
+</body>
+</html>

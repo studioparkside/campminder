@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Layout C — Framed Color Block — Campminder Fall Campaign</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage Layout C
+   Framed color block. Inset photo hero with the headline
+   overlapping its bottom edge, color-blocked statement band,
+   bracket-numbered steps, photo feature cards, split CTA,
+   full-width wordmark footer. Spezia Narrow direction.
+   Studio Parkside, August 2026
+───────────────────────────────────────────── */
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg: #17112a;
+  --canvas: #0d0a16;
+  --card: #191329;
+  --surface-2: #211a35;
+  --ink: #ffffff;
+  --body: #e7e3f0;
+  --mid: #a79cbd;
+  --light: #786d92;
+  --rule: #2f2549;
+  --hair: #261e3c;
+  --accent: #773dbd;
+  --accent-2: #a87be0;
+  --accent-soft: rgba(119,61,189,0.18);
+  --accent-line: rgba(168,123,224,0.42);
+  --dark: #27065c;
+  --dark-2: #380f8c;
+  --dark-line: rgba(255,255,255,0.14);
+  --dark-mid: rgba(255,255,255,0.66);
+  --dark-low: rgba(255,255,255,0.42);
+  --dark-accent: #c9a9f2;
+}
+html { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans); color: var(--body); background: var(--canvas);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  font-size: 18px; font-weight: 500; line-height: 1.5; letter-spacing: -0.015em;
+}
+.wrap { max-width: 1520px; margin: 0 auto; padding: 18px 44px; }
+
+/* ── Confidential bar ───────────────────────── */
+.conf { border-bottom: 1px solid var(--rule); background: var(--bg); position: sticky; top: 0; z-index: 20; }
+.conf .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.sp-logo { display: block; height: 17px; width: auto; color: var(--ink); flex: none; }
+.tags { display: flex; align-items: center; gap: 8px; }
+.tag { font-size: 12px; font-weight: 650; color: var(--accent-2); white-space: nowrap; }
+.tag.client { color: var(--mid); }
+.tag .sep { color: var(--accent-line); padding: 0 6px; }
+
+/* ── Comp masthead ──────────────────────────── */
+.masthead { padding: 72px 0 40px; }
+.masthead .cm-name { display: block; font-size: 15px; font-weight: 650; color: var(--mid); margin-bottom: 18px; }
+.masthead .cm-name .sep { color: var(--accent-line); padding: 0 4px; }
+.masthead h1 { font-size: 64px; font-weight: 700; line-height: 1.0; letter-spacing: -0.045em; color: var(--ink); }
+.masthead h1 .accent { color: var(--accent-2); }
+.masthead .sub { margin-top: 18px; font-size: 19px; color: var(--mid); max-width: 60ch; line-height: 1.5; }
+
+/* ── Artboards ──────────────────────────────── */
+.boardwrap { padding: 28px 0 8px; }
+.boardhead { max-width: 1440px; margin: 0 auto 12px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.boardhead .bn { font-size: 14px; font-weight: 700; color: var(--accent-2); font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+.boardhead h2 { font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; }
+.boardhead .bmeta { font-size: 14px; font-weight: 600; color: var(--light); margin-left: auto; }
+.board {
+  width: 1440px; margin: 0 auto; background: var(--card);
+  border: 1px solid var(--rule); border-radius: 6px; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 18px 50px rgba(0,0,0,0.5);
+}
+.boardnote { max-width: 1440px; margin: 14px auto 0; font-size: 14px; font-weight: 600; color: var(--light); line-height: 1.5; }
+@media (max-width: 1540px) { .boardwrap { overflow-x: auto; padding-left: 44px; padding-right: 44px; } .boardhead, .board, .boardnote { min-width: 1440px; } }
+
+/* ═════════════════════════════════════════════
+   HOMEPAGE — Layout C
+═════════════════════════════════════════════ */
+.hp { font-size: 17px; color: var(--body); background: var(--canvas); }
+.hp .in { max-width: 1240px; margin: 0 auto; padding: 0 60px; }
+
+/* nav */
+.hp-nav { background: var(--canvas); }
+.hp-nav .in { display: flex; align-items: center; gap: 36px; height: 76px; }
+.cmlogo { display: block; height: 26px; width: auto; }
+.hp-nav a { font-size: 15px; font-weight: 600; color: var(--mid); text-decoration: none; }
+.hp-nav .navlinks { display: flex; gap: 28px; margin-left: 12px; }
+.hp-nav .navright { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+.btn {
+  display: inline-block; font-size: 15px; font-weight: 650; letter-spacing: -0.01em;
+  color: #ffffff; background: var(--accent); border-radius: 100px; padding: 12px 26px;
+  text-decoration: none; white-space: nowrap;
+}
+.btn.sm { font-size: 14px; padding: 10px 22px; }
+.btn.onphoto { color: #16121e; background: #ffffff; }
+.btn.ondark { color: var(--dark); background: var(--dark-accent); }
+.btn.glass {
+  color: var(--ink); background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.42);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+
+/* plain labels — bracket style, no pills */
+.lab { display: block; font-size: 15px; font-weight: 650; color: var(--accent-2); letter-spacing: 0; margin-bottom: 20px; }
+.lab .bk { color: var(--light); font-family: var(--sans); }
+
+/* section scaffolding */
+.sec { padding: 120px 0; min-height: 900px; display: flex; align-items: center; }
+.sec .in { width: 100%; }
+.sec h2 { font-size: 64px; font-weight: 700; line-height: 1.0; letter-spacing: -0.045em; color: var(--ink); max-width: 18ch; }
+.sec .ssub { margin-top: 18px; font-size: 23px; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); max-width: 34ch; line-height: 1.3; }
+.sec .sline { margin-top: 12px; font-size: 18px; color: var(--mid); max-width: 56ch; line-height: 1.55; }
+.sec.soft { background: rgba(119,61,189,0.10); }
+
+/* stylized screens */
+.screen {
+  background: var(--card); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25), 0 22px 60px rgba(0,0,0,0.35);
+}
+.screen .sbar { display: flex; align-items: center; gap: 7px; padding: 11px 16px; border-bottom: 1px solid var(--hair); background: var(--surface-2); }
+.screen .sbar .d { width: 8px; height: 8px; border-radius: 50%; background: var(--rule); }
+.screen .sbar .u { font-size: 11px; font-weight: 650; color: var(--light); margin-left: 6px; letter-spacing: 0.02em; }
+.sk { border-radius: 6px; background: #2b2342; }
+.sk.line { height: 10px; }
+.sk.acc { background: var(--accent-line); }
+
+/* dashboard */
+.dash { display: grid; grid-template-columns: 118px minmax(0, 1fr); min-height: 300px; }
+.dash .side { border-right: 1px solid var(--hair); padding: 16px 12px; display: flex; flex-direction: column; gap: 10px; background: var(--surface-2); }
+.dash .side .sk.line:first-child { background: var(--accent-line); }
+.dash .main { padding: 20px; display: flex; flex-direction: column; }
+.dash .dhead { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+.dash .dtitle { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.dash .dsub { font-size: 11px; font-weight: 600; color: var(--light); }
+.chips { display: flex; gap: 8px; margin: 10px 0 16px; }
+.chip { font-size: 11px; font-weight: 650; color: var(--mid); border: 1px solid var(--rule); border-radius: 100px; padding: 4px 10px; }
+.chip.on { color: #ffffff; background: var(--accent); border-color: var(--accent); }
+.graph { flex: 1; display: flex; align-items: flex-end; gap: 10px; padding-top: 10px; }
+.gcol { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 5px; }
+.gbar { border-radius: 5px 5px 2px 2px; background: var(--accent); transform-origin: bottom; }
+.gbar.last { background: var(--accent-line); }
+.glab { font-size: 10px; font-weight: 650; color: var(--light); text-align: center; margin-top: 8px; letter-spacing: 0.04em; }
+
+/* enrollment animation */
+.graph.live .gbar { animation: breathe 3.4s ease-in-out infinite alternate; }
+.graph.live .gcol:nth-child(1) .gbar { animation-delay: 0s; }
+.graph.live .gcol:nth-child(2) .gbar { animation-delay: 0.35s; }
+.graph.live .gcol:nth-child(3) .gbar { animation-delay: 0.7s; }
+.graph.live .gcol:nth-child(4) .gbar { animation-delay: 1.05s; }
+.graph.live .gcol:nth-child(5) .gbar { animation-delay: 1.4s; }
+@keyframes breathe { from { transform: scaleY(0.82); } to { transform: scaleY(1.0); } }
+@media (prefers-reduced-motion: reduce) { .graph.live .gbar { animation: none; } }
+
+/* ── hero: framed photo, headline overlaps the bottom edge ── */
+.heroC { padding: 20px 0 0; }
+.heroC .frame {
+  position: relative; margin: 0 40px; border-radius: 20px; overflow: hidden; min-height: 680px;
+  background:
+    linear-gradient(180deg, rgba(13,10,22,0.30), rgba(13,10,22,0.08) 35%, rgba(13,10,22,0.55)),
+    url("hero.jpg") center 55% / cover no-repeat;
+}
+.heroC .frame .hint { position: absolute; left: 40px; top: 34px; font-size: 16px; font-weight: 650; color: rgba(255,255,255,0.92); max-width: 30ch; line-height: 1.4; }
+.heroC .frame .float {
+  position: absolute; right: 36px; top: 34px; width: 430px;
+  background: rgba(20,15,33,0.72); border: 1px solid rgba(255,255,255,0.22); border-radius: 16px;
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); overflow: hidden;
+}
+.heroC .frame .float .screen { background: transparent; border: none; box-shadow: none; border-radius: 0; }
+.heroC .frame .float .sbar { background: rgba(255,255,255,0.06); border-bottom-color: rgba(255,255,255,0.10); }
+.heroC .frame .float .dash { min-height: 250px; }
+.heroC .frame .float .dash .side { background: rgba(255,255,255,0.05); border-right-color: rgba(255,255,255,0.10); }
+.heroC .hbottom { position: relative; margin-top: -128px; z-index: 3; }
+.heroC h1 { font-size: 190px; font-weight: 700; line-height: 0.9; letter-spacing: -0.05em; color: #ffffff; text-shadow: 0 8px 60px rgba(13,10,22,0.55); }
+.heroC .hrow { margin-top: 56px; display: flex; align-items: center; gap: 28px; }
+.heroC .hsub { font-size: 22px; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); max-width: 26ch; line-height: 1.3; }
+.heroC .hctas { display: flex; gap: 14px; margin-left: auto; }
+
+/* color-block statement band */
+.band {
+  margin-top: 110px; padding: 110px 0;
+  background:
+    linear-gradient(180deg, rgba(39,6,92,0.55), rgba(13,10,22,0.62)),
+    url("gradients/sq-night.jpg") center / cover no-repeat;
+}
+.band .bgrid { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 60px; align-items: start; }
+.band .bstate { font-size: 34px; font-weight: 650; letter-spacing: -0.025em; line-height: 1.25; color: rgba(255,255,255,0.94); max-width: 30ch; }
+.band .bstats { margin-top: 64px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; border-top: 1px solid rgba(255,255,255,0.18); padding-top: 44px; }
+.band .n { font-size: 58px; font-weight: 700; color: var(--dark-accent); letter-spacing: -0.04em; line-height: 1; }
+.band .u { display: block; margin-top: 10px; font-size: 15px; color: var(--dark-mid); line-height: 1.4; max-width: 20ch; }
+.band .lab { color: var(--dark-accent); }
+
+/* bracket-numbered steps */
+.steps { margin-top: 72px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.step { border-left: 1px solid var(--hair); padding: 8px 36px 8px 32px; min-height: 300px; display: flex; flex-direction: column; }
+.step:first-child { border-left: none; padding-left: 0; }
+.step .num { font-size: 15px; font-weight: 650; color: var(--accent-2); }
+.step .num .bk { color: var(--light); font-family: var(--sans); }
+.step h5 { margin-top: 16px; font-size: 30px; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; }
+.step p { margin-top: 12px; font-size: 16px; color: var(--mid); line-height: 1.5; max-width: 30ch; }
+.step .screen { margin-top: auto; }
+.step .screen .body { padding: 16px; display: flex; flex-direction: column; gap: 9px; min-height: 110px; }
+
+/* photo feature cards */
+.featcards { margin-top: 72px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.fcard { border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; background: var(--card); display: flex; flex-direction: column; }
+.fcard .fphoto { min-height: 260px; }
+.fcard .fbody { padding: 24px 24px 26px; }
+.fcard .fdate { font-size: 13px; font-weight: 650; color: var(--accent-2); }
+.fcard h5 { margin-top: 8px; font-size: 23px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; }
+.fcard p { margin-top: 8px; font-size: 15px; color: var(--mid); line-height: 1.5; }
+.fphoto.camp-cabin { background: url("https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=900&auto=format&fit=crop") center / cover no-repeat; }
+.fphoto.camp-tent { background: url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=900&auto=format&fit=crop") center / cover no-repeat; }
+.fphoto.camp-canoe { background: url("https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=900&auto=format&fit=crop") center / cover no-repeat; }
+.covfoot { margin-top: 40px; }
+.tlink { font-size: 17px; font-weight: 650; color: var(--accent-2); text-decoration: none; }
+
+/* team — portraits */
+.teamrow { margin-top: 64px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.port { border-radius: 16px; min-height: 380px; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
+.port .pin { position: relative; z-index: 2; padding: 22px; }
+.port .pn { font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: -0.02em; display: block; }
+.port .pr { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.78); margin-top: 3px; display: block; }
+.port::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 58%; background: linear-gradient(180deg, transparent, rgba(13,10,22,0.82)); }
+.port.p1 { background: url("https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+.port.p2 { background: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+.port.p3 { background: url("https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+.port.p4 { background: url("https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+
+/* ask camp */
+.askgrid { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 80px; align-items: center; }
+.phone {
+  width: 340px; margin: 0 auto; background: var(--card); border: 1px solid var(--rule);
+  border-radius: 38px; padding: 18px 16px 24px; box-shadow: 0 2px 6px rgba(0,0,0,0.25), 0 26px 70px rgba(0,0,0,0.4);
+  font-family: var(--sans);
+}
+.phone .notch { width: 110px; height: 22px; border-radius: 100px; background: var(--ink); margin: 0 auto 18px; }
+.phone .app { font-size: 12px; font-weight: 700; letter-spacing: 0.02em; color: var(--accent-2); text-align: center; margin-bottom: 16px; }
+.bub { max-width: 82%; border-radius: 16px; padding: 12px 15px; font-size: 14.5px; line-height: 1.45; margin-bottom: 10px; font-weight: 550; }
+.bub.q { margin-left: auto; background: var(--accent); color: #ffffff; border-bottom-right-radius: 5px; }
+.bub.a { background: var(--hair); color: var(--body); border-bottom-left-radius: 5px; }
+.bub.typing { display: inline-flex; gap: 5px; align-items: center; padding: 14px 16px; }
+.bub.typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--light); display: block; }
+
+/* testimonial — offset card on gradient */
+.quotesec { padding: 120px 0; }
+.quotegrid { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 16px; align-items: stretch; }
+.quotecard {
+  border-radius: 18px; padding: 54px 56px; display: flex; flex-direction: column; justify-content: space-between; min-height: 460px;
+  background:
+    linear-gradient(180deg, rgba(13,10,22,0.30), rgba(13,10,22,0.55)),
+    url("gradients/sq-wave.jpg") center / cover no-repeat;
+}
+.quotecard blockquote { font-size: 44px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.1; color: #ffffff; max-width: 22ch; }
+.quotecard blockquote .qm { color: var(--dark-accent); }
+.attr { margin-top: 36px; display: flex; align-items: center; gap: 18px; }
+.attr .mark { width: 72px; height: 72px; border-radius: 50%; flex: none; background: url("https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=400&auto=format&fit=crop") center 25% / cover no-repeat; border: 1px solid rgba(255,255,255,0.3); }
+.attr .an { font-size: 19px; font-weight: 700; color: #ffffff; }
+.attr .ar { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.72); margin-top: 2px; }
+.attr .ac { font-size: 14.5px; font-weight: 650; color: var(--dark-accent); margin-top: 2px; }
+.quotegrid .qphoto { border-radius: 18px; background: url("https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=1200&auto=format&fit=crop") center / cover no-repeat; }
+
+/* logo wall */
+.logogrid { margin-top: 64px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.lg {
+  border: 1px solid var(--rule); border-radius: 14px; background: var(--card); height: 172px;
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+.lg .lmark { width: 92px; height: 26px; border-radius: 6px; background: #2b2342; }
+.lg.hovered { border-color: var(--accent-line); box-shadow: 0 10px 30px rgba(119,61,189,0.16); }
+.lg.hovered .story {
+  position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%);
+  font-size: 12.5px; font-weight: 650; color: var(--accent-2); white-space: nowrap;
+}
+.lg.hovered .lmark { background: var(--accent-line); margin-bottom: 18px; }
+
+/* split CTA */
+.splitcta { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 640px; }
+.splitcta .ctext { padding: 100px 70px; display: flex; flex-direction: column; justify-content: center; background: rgba(119,61,189,0.10); }
+.splitcta .ctext h2 { font-size: 92px; font-weight: 700; letter-spacing: -0.05em; line-height: 0.95; color: var(--ink); }
+.splitcta .ctext .cline { margin-top: 22px; font-size: 19px; color: var(--mid); max-width: 36ch; line-height: 1.5; }
+.splitcta .ctext .btn { margin-top: 34px; align-self: flex-start; }
+.splitcta .cphoto { background: url("https://images.unsplash.com/photo-1475483768296-6163e08872a1?q=80&w=1600&auto=format&fit=crop") center / cover no-repeat; }
+
+/* footer — full-width wordmark */
+.hp-foot { background: var(--bg); border-top: 1px solid var(--dark-line); padding-bottom: 20px; }
+.hp-foot .links { display: flex; align-items: center; gap: 32px; padding: 44px 0 56px; }
+.hp-foot a { font-size: 14px; font-weight: 600; color: var(--dark-mid); text-decoration: none; }
+.hp-foot .legal { margin-left: auto; font-size: 13px; color: var(--dark-low); font-weight: 600; }
+.hp-foot .bigmark { display: block; width: 100%; height: auto; opacity: 0.92; }
+
+/* ── Spezia Narrow direction. Symbols fall back to SF Pro / system faces. ── */
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display"), local("SF Pro Text"), local("Helvetica Neue"), local("HelveticaNeue"), local("Arial"), local("ArialMT"), local("DejaVu Sans"); font-weight:400 500; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2026, U+2122, U+2190-2199; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Semibold"), local("SFProDisplay-Semibold"), local("SF Pro Text Semibold"), local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), local("Arial Bold"), local("Arial-BoldMT"), local("DejaVu Sans Bold"); font-weight:501 650; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2026, U+2122, U+2190-2199; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Bold"), local("SFProDisplay-Bold"), local("SF Pro Text Bold"), local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), local("Arial Bold"), local("Arial-BoldMT"), local("DejaVu Sans Bold"); font-weight:651 900; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2026, U+2122, U+2190-2199; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("fonts/SpeziaWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:block; }
+.hp { font-family:"SF Sym", "Spezia Narrow", var(--sans); }
+.hp .hint, .hp .hsub, .hp .ssub, .hp .sline, .hp .bstate, .hp .band .u, .hp .step p, .hp .fcard p, .hp .cline, .hp .attr, .hp .btn, .hp .lab, .hp .num {
+  font-family:"SF Sym", "Spezia", var(--sans);
+}
+.hp .screen, .hp .phone { font-family: var(--sans); }
+</style>
+</head>
+<body>
+
+<div class="conf">
+  <div class="wrap">
+    <svg class="sp-logo" viewBox="0 0 1499.4 151" fill="currentColor" role="img" aria-label="Studio Parkside" xmlns="http://www.w3.org/2000/svg"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg>
+    <div class="tags">
+      <span class="tag client">Campminder</span>
+      <span class="tag"><span class="sep">&middot;</span>Confidential</span>
+    </div>
+  </div>
+</div>
+
+<header class="wrap masthead">
+  <span class="cm-name">Campminder <span class="sep">&middot;</span> Fall Campaign</span>
+  <h1>Homepage <span class="accent">Layout C</span></h1>
+  <p class="sub">Framed color block. Inset photo hero with the headline overlapping its bottom edge, a color-blocked statement band, bracket-numbered steps, photo feature cards, and a split CTA. Spezia Narrow direction. Luzi test fonts, comp use only.</p>
+</header>
+
+<!-- ═══ HOMEPAGE ═══ -->
+<div class="boardwrap">
+  <div class="boardhead">
+    <span class="bn">01</span>
+    <h2>Homepage</h2>
+    <span class="bmeta">1440 &middot; desktop</span>
+  </div>
+  <div class="board">
+    <div class="hp">
+
+      <!-- nav -->
+      <nav class="hp-nav">
+        <div class="in">
+          <img class="cmlogo" src="campminder-logo-white.svg" alt="Campminder">
+          <div class="navlinks">
+            <a href="#">Features</a>
+            <a href="#">Solutions</a>
+            <a href="#">Demo</a>
+            <a href="#">Company</a>
+          </div>
+          <div class="navright">
+            <a href="#">Log in</a>
+            <span class="btn sm">Book a demo</span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 01 hero -->
+      <div class="heroC">
+        <div class="frame">
+          <p class="hint">Registration, staffing, health, communication, and the business behind it all.</p>
+          <div class="float">
+            <div class="screen">
+              <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">campminder.com/intelligence</span></div>
+              <div class="dash">
+                <div class="side">
+                  <div class="sk line acc" style="width:80%"></div>
+                  <div class="sk line" style="width:65%"></div>
+                  <div class="sk line" style="width:72%"></div>
+                  <div class="sk line" style="width:58%"></div>
+                </div>
+                <div class="main">
+                  <div class="dhead"><span class="dtitle">Enrollment</span><span class="dsub">vs. last season</span></div>
+                  <div class="chips"><span class="chip on">This season</span><span class="chip">Last season</span></div>
+                  <div class="graph live">
+                    <div class="gcol"><div class="gbar last" style="height:36px"></div><div class="gbar" style="height:50px"></div><span class="glab">MAY</span></div>
+                    <div class="gcol"><div class="gbar last" style="height:52px"></div><div class="gbar" style="height:68px"></div><span class="glab">JUN</span></div>
+                    <div class="gcol"><div class="gbar last" style="height:64px"></div><div class="gbar" style="height:84px"></div><span class="glab">JUL</span></div>
+                    <div class="gcol"><div class="gbar last" style="height:55px"></div><div class="gbar" style="height:93px"></div><span class="glab">AUG</span></div>
+                    <div class="gcol"><div class="gbar last" style="height:44px"></div><div class="gbar" style="height:105px"></div><span class="glab">SEP</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="in hbottom">
+          <h1>One for all.</h1>
+          <div class="hrow">
+            <p class="hsub">The trusted platform for everyone at your camp.</p>
+            <div class="hctas">
+              <span class="btn">Book a demo</span>
+              <span class="btn glass">See the platform</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 statement band -->
+      <div class="band">
+        <div class="in">
+          <div class="bgrid">
+            <span class="lab"><span class="bk">[</span> 25 summers <span class="bk">]</span></span>
+            <p class="bstate">Built by people who know camp. Twenty-five years of seasons, and a platform that carries registration, staffing, health, communication, and the business behind it all.</p>
+          </div>
+          <div class="bstats">
+            <div><span class="n">4.2M</span><span class="u">camper applications processed</span></div>
+            <div><span class="n">86K</span><span class="u">staff hired through the platform</span></div>
+            <div><span class="n">1.8M</span><span class="u">medications administered last summer</span></div>
+            <div><span class="n">32M</span><span class="u">photos shared with families</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 steps -->
+      <section class="sec">
+        <div class="in">
+          <span class="lab"><span class="bk">[</span> One login. All of it. <span class="bk">]</span></span>
+          <h2>Your operation. All in one place.</h2>
+          <div class="steps">
+            <div class="step">
+              <span class="num"><span class="bk">[</span> 01 <span class="bk">]</span></span>
+              <h5>Enroll</h5>
+              <p>Every kid, one pass. A family signs up every camper in one sitting.</p>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk line acc" style="width:44%"></div><div class="sk line" style="width:78%"></div><div class="sk line" style="width:62%"></div></div>
+              </div>
+            </div>
+            <div class="step">
+              <span class="num"><span class="bk">[</span> 02 <span class="bk">]</span></span>
+              <h5>Staff up</h5>
+              <p>Hiring to onboarding, so staff show up already knowing the plan.</p>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk line" style="width:70%"></div><div class="sk line acc" style="width:48%"></div><div class="sk line" style="width:58%"></div></div>
+              </div>
+            </div>
+            <div class="step">
+              <span class="num"><span class="bk">[</span> 03 <span class="bk">]</span></span>
+              <h5>Run the season</h5>
+              <p>Health, communication, billing, and reporting, all from one login.</p>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk line" style="width:64%"></div><div class="sk line" style="width:74%"></div><div class="sk line acc" style="width:40%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 photo feature cards -->
+      <section class="sec">
+        <div class="in">
+          <span class="lab"><span class="bk">[</span> Your job. Your view. <span class="bk">]</span></span>
+          <h2>Built for everyone at your camp.</h2>
+          <p class="ssub">Every role on one platform.</p>
+          <div class="featcards">
+            <div class="fcard">
+              <div class="fphoto camp-cabin"></div>
+              <div class="fbody">
+                <span class="fdate">Owner &amp; Director</span>
+                <h5>The whole season in one view.</h5>
+                <p>Enrollment, staffing, and the business side, read at a glance.</p>
+              </div>
+            </div>
+            <div class="fcard">
+              <div class="fphoto camp-tent"></div>
+              <div class="fbody">
+                <span class="fdate">Communications &amp; Marketing</span>
+                <h5>Every family, one thread.</h5>
+                <p>Photos, updates, and answers that keep families close all season.</p>
+              </div>
+            </div>
+            <div class="fcard">
+              <div class="fphoto camp-canoe"></div>
+              <div class="fbody">
+                <span class="fdate">Business &amp; Finance</span>
+                <h5>Billing that closes itself out.</h5>
+                <p>Payments and reporting rolled up as the season runs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="covfoot">
+            <a class="tlink" href="#">See it in action with a camp&rsquo;s story &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 team -->
+      <section class="sec">
+        <div class="in">
+          <span class="lab"><span class="bk">[</span> Real people. All season. <span class="bk">]</span></span>
+          <h2>We know your camp. Inside and out.</h2>
+          <p class="ssub">The team behind your platform.</p>
+          <div class="teamrow">
+            <div class="port p1"><div class="pin"><span class="pn">Camp Success</span><span class="pr">Your point person</span></div></div>
+            <div class="port p2"><div class="pin"><span class="pn">Onboarding</span><span class="pr">Runs setup with you</span></div></div>
+            <div class="port p3"><div class="pin"><span class="pn">Support</span><span class="pr">Ready to jump in</span></div></div>
+            <div class="port p4"><div class="pin"><span class="pn">Product</span><span class="pr">Builds what you need</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 ask camp -->
+      <section class="sec soft">
+        <div class="in">
+          <div class="askgrid">
+            <div>
+              <span class="lab"><span class="bk">[</span> Ask the app. <span class="bk">]</span></span>
+              <h2>No handbook required.</h2>
+              <p class="ssub">Ask Camp, built into Campanion.</p>
+              <p class="sline">Packing lists, drop-off and pickup times, form status, and camp policies, answered for a parent without a call to the camp office.</p>
+            </div>
+            <div class="phone">
+              <div class="notch"></div>
+              <div class="app">Campanion &middot; Ask Camp</div>
+              <div class="bub q">What time is drop-off on Monday?</div>
+              <div class="bub a">Drop-off is 7:45am at the main lodge. Gates open at 7:30am.</div>
+              <div class="bub q">Is her allergy form in?</div>
+              <div class="bub typing"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 testimonial -->
+      <div class="quotesec">
+        <div class="in">
+          <div class="quotegrid">
+            <div class="quotecard">
+              <blockquote><span class="qm">&ldquo;</span>The only platform where the support team knows our camp inside and out.<span class="qm">&rdquo;</span></blockquote>
+              <div class="attr">
+                <span class="mark"></span>
+                <div>
+                  <div class="an">Sarah Ellison</div>
+                  <div class="ar">Camp Director</div>
+                  <div class="ac">Camp Cedarwood &middot; 18 seasons on Campminder</div>
+                </div>
+              </div>
+            </div>
+            <div class="qphoto"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 08 logo wall -->
+      <section class="sec">
+        <div class="in">
+          <span class="lab"><span class="bk">[</span> Camps you know. <span class="bk">]</span></span>
+          <h2>Partnerships built to last.</h2>
+          <p class="ssub">Twenty-five years with the camps you already know.</p>
+          <div class="logogrid">
+            <div class="lg"><span class="lmark"></span></div>
+            <div class="lg"><span class="lmark"></span></div>
+            <div class="lg hovered"><span class="lmark"></span><span class="story">Read their story &rarr;</span></div>
+            <div class="lg"><span class="lmark"></span></div>
+            <div class="lg"><span class="lmark"></span></div>
+            <div class="lg"><span class="lmark"></span></div>
+            <div class="lg"><span class="lmark"></span></div>
+            <div class="lg"><span class="lmark"></span></div>
+            <div class="lg"><span class="lmark"></span></div>
+            <div class="lg"><span class="lmark"></span></div>
+            <div class="lg"><span class="lmark"></span></div>
+            <div class="lg"><span class="lmark"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 split CTA -->
+      <div class="splitcta">
+        <div class="ctext">
+          <h2>Unpack possible.</h2>
+          <p class="cline">The trusted platform for everyone at your camp. See what a season on Campminder looks like.</p>
+          <span class="btn">Book a demo</span>
+        </div>
+        <div class="cphoto"></div>
+      </div>
+
+      <!-- footer -->
+      <footer class="hp-foot">
+        <div class="in">
+          <div class="links">
+            <a href="#">Features</a>
+            <a href="#">Solutions</a>
+            <a href="#">Company</a>
+            <a href="#">Support</a>
+            <span class="legal">&copy; 2026 Campminder</span>
+          </div>
+          <img class="bigmark" src="campminder-logo-white.svg" alt="Campminder">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

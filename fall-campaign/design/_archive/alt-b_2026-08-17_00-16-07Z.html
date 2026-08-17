@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Alternate B — Panel Editorial — Campminder Fall Campaign</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage Alternate B
+   Panel Editorial. 1440px artboard.
+   Ground is a warm plum slate. Not dark mode, not light mode.
+   Core purple #773DBD reserved for solid fills.
+   Studio Parkside, August 2026
+───────────────────────────────────────────── */
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* ground palette — Alternate B */
+  --page: #2c2639;            /* deep plum slate, warm, never black */
+  --panel: #342d44;           /* panel, one step lifted */
+  --raised: #3d3550;          /* raised surface inside a panel */
+  --ink: #f3eff8;
+  --body: #cfc7dc;
+  --muted: #9a90ae;
+  --hair: rgba(255,255,255,0.10);
+  --hair-2: rgba(255,255,255,0.16);
+  --accent: #c9a9f2;          /* accent tint on the dark ground */
+  --core: #773dbd;            /* Campminder core purple, solid fills only */
+  --core-soft: rgba(119,61,189,0.20);
+  --core-line: rgba(201,169,242,0.40);
+
+  /* scaffold, carried from the approved direction */
+  --bg: #241f30;
+  --canvas: #1d1928;
+  --card: var(--panel);
+  --surface-2: var(--raised);
+  --mid: var(--muted);
+  --light: #7d7394;
+  --rule: rgba(255,255,255,0.13);
+  --accent-2: var(--accent);
+  --accent-soft: var(--core-soft);
+  --accent-line: var(--core-line);
+  --dark-mid: rgba(255,255,255,0.66);
+  --dark-low: rgba(255,255,255,0.42);
+  --dark-accent: var(--accent);
+}
+html { color-scheme: dark; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans);
+  color: var(--body);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+.wrap { max-width: 1520px; margin: 0 auto; padding: 18px 44px; }
+
+/* ── Confidential bar ───────────────────────── */
+.conf { border-bottom: 1px solid var(--rule); background: var(--bg); position: sticky; top: 0; z-index: 20; }
+.conf .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.sp-logo { display: block; height: 17px; width: auto; color: var(--ink); flex: none; }
+.tags { display: flex; align-items: center; gap: 8px; }
+.pill {
+  font-size: 11px; font-weight: 650; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--accent-2);
+  background: var(--accent-soft); border: 1px solid var(--accent-line);
+  border-radius: 100px; padding: 5px 12px; white-space: nowrap;
+}
+.pill.client { color: var(--mid); background: transparent; border-color: var(--rule); }
+
+/* ── Comp masthead ──────────────────────────── */
+.masthead { padding: 72px 0 40px; }
+.masthead .cm-name { display: block; font-size: 15px; font-weight: 650; color: var(--mid); margin-bottom: 18px; }
+.masthead .cm-name .sep { color: var(--accent-line); padding: 0 4px; }
+.masthead h1 { font-size: 64px; font-weight: 700; line-height: 1.0; letter-spacing: -0.045em; color: var(--ink); }
+.masthead h1 .accent { color: var(--accent-2); }
+.masthead .sub { margin-top: 18px; font-size: 19px; color: var(--mid); max-width: 60ch; line-height: 1.5; }
+
+/* ── Artboards ──────────────────────────────── */
+.boardwrap { padding: 28px 0 8px; }
+.boardhead { max-width: 1440px; margin: 0 auto 12px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.boardhead .bn { font-size: 14px; font-weight: 700; color: var(--accent-2); font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+.boardhead h2 { font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; }
+.boardhead .bmeta { font-size: 14px; font-weight: 600; color: var(--light); margin-left: auto; }
+.board {
+  width: 1440px; margin: 0 auto; background: var(--card);
+  border: 1px solid var(--rule); border-radius: 6px; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(20,17,24,0.05), 0 18px 50px rgba(20,17,24,0.07);
+}
+.boardnote { max-width: 1440px; margin: 14px auto 0; font-size: 14px; font-weight: 600; color: var(--light); line-height: 1.5; }
+@media (max-width: 1540px) { .boardwrap { overflow-x: auto; padding-left: 44px; padding-right: 44px; } .boardhead, .board, .boardnote { min-width: 1440px; } }
+
+/* ═════════════════════════════════════════════
+   HOMEPAGE — Panel Editorial
+   Everything sits on one quiet ground. Sections that
+   need to be held sit inside large rounded panels.
+═════════════════════════════════════════════ */
+.hp { font-size: 17px; color: var(--body); background: var(--page); padding-bottom: 0; }
+.hp .in { max-width: 1240px; margin: 0 auto; padding: 0 60px; }
+
+/* nav — rides the page ground, no panel */
+.hp-nav { background: var(--page); padding-bottom: 14px; }
+.hp-nav .in { display: flex; align-items: center; gap: 36px; height: 92px; }
+.cmlogo { display: block; height: 26px; width: auto; }
+.hp-foot .cmlogo { height: 22px; }
+.hp-nav a { font-size: 15px; font-weight: 600; color: var(--body); text-decoration: none; }
+.hp-nav .navlinks { display: flex; gap: 28px; margin-left: 12px; }
+.hp-nav .navright { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+
+.btn {
+  display: inline-block; font-size: 15px; font-weight: 650; letter-spacing: -0.01em;
+  color: #ffffff; background: var(--core); border-radius: 100px; padding: 12px 26px;
+  text-decoration: none; white-space: nowrap;
+}
+.btn.sm { font-size: 14px; padding: 10px 22px; }
+.btn.onphoto { color: #241f30; background: #ffffff; }
+.btn.onphoto.ghost {
+  color: #ffffff; border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.28);
+}
+
+/* ── Panels ─────────────────────────────────── */
+.panel {
+  position: relative; margin: 0 60px 28px; border-radius: 20px;
+  background: var(--panel); padding: 96px 100px; min-height: 940px;
+  display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+}
+.panel > * { position: relative; z-index: 2; }
+.panel.grad::before { content: ""; position: absolute; inset: 0; z-index: 0; }
+.panel.g-deep::before {
+  background:
+    linear-gradient(180deg, rgba(44,38,57,0.70), rgba(44,38,57,0.50) 45%, rgba(44,38,57,0.88)),
+    url("../gradients/pan-deep.jpg") center / cover no-repeat;
+}
+.panel.g-lilac::before {
+  background:
+    linear-gradient(180deg, rgba(44,38,57,0.76), rgba(44,38,57,0.58) 50%, rgba(44,38,57,0.86)),
+    url("../gradients/pan-lilac.jpg") center / cover no-repeat;
+}
+.panel.g-halo::before {
+  background:
+    linear-gradient(180deg, rgba(44,38,57,0.80), rgba(44,38,57,0.62) 45%, rgba(44,38,57,0.90)),
+    url("../gradients/sq-halo.jpg") center / cover no-repeat;
+}
+
+/* sections that sit on the page ground, no panel */
+.sec { padding: 130px 0; min-height: 940px; display: flex; align-items: center; }
+.sec .in { width: 100%; }
+
+/* ── Section marker: (02) with the label under it ── */
+.pnum { margin-bottom: 64px; }
+.pnum .n { display: block; font-size: 14px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.pnum .lab { display: block; font-size: 14px; font-weight: 600; color: var(--muted); letter-spacing: -0.01em; margin-top: 2px; }
+
+/* ── Eyebrow: sentence case at reading size, long hairline rule ── */
+.kicker {
+  display: flex; align-items: center; gap: 20px;
+  font-size: 15px; font-weight: 600; letter-spacing: -0.012em; text-transform: none;
+  color: var(--accent); background: none; border: 0; border-radius: 0; padding: 0;
+  margin-bottom: 24px;
+}
+.kicker::after {
+  content: ""; flex: 1 1 auto; max-width: 300px; height: 1px;
+  background: currentColor; opacity: 0.5;
+}
+
+/* ── Type ───────────────────────────────────── */
+h2.big { font-size: 66px; font-weight: 700; line-height: 1.0; letter-spacing: -0.045em; color: var(--ink); max-width: 17ch; }
+/* mixed weight inside one sentence: light default, key phrase at 700 */
+h2.mx, h3.mx { font-weight: 400; }
+h2.mx b, h3.mx b { font-weight: 700; }
+.ssub { margin-top: 18px; font-size: 23px; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); max-width: 34ch; line-height: 1.3; }
+.sline { margin-top: 12px; font-size: 18px; color: var(--muted); max-width: 56ch; line-height: 1.55; }
+
+/* ── Buttons: outlined pill with a circular arrow badge ── */
+.pillbtn {
+  display: inline-flex; align-items: center; gap: 18px; text-decoration: none;
+  border: 1px solid var(--hair-2); border-radius: 100px; padding: 7px 7px 7px 28px;
+  font-size: 16px; font-weight: 650; letter-spacing: -0.015em; color: var(--ink);
+}
+.pillbtn .badge {
+  width: 40px; height: 40px; border-radius: 50%; background: var(--core);
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+}
+.pillbtn .badge svg { width: 15px; height: 15px; color: #ffffff; display: block; }
+.pillbtn.wide { display: flex; justify-content: space-between; padding: 9px 9px 9px 22px; font-size: 15px; }
+.pillbtn.wide .badge { width: 34px; height: 34px; background: transparent; border: 1px solid var(--hair-2); }
+.pillbtn.wide .badge svg { width: 11px; height: 11px; color: var(--ink); }
+
+/* quiet text link with a long arrow */
+.tlink { display: inline-flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 650; color: var(--accent); text-decoration: none; }
+.tlink .arrow { display: inline-flex; align-items: center; }
+.tlink .arrow i { display: block; width: 46px; height: 1px; background: currentColor; }
+.tlink .arrow svg { width: 9px; height: 9px; margin-left: -1px; color: currentColor; display: block; }
+
+/* small circular previous / next */
+.rnav { display: flex; gap: 10px; }
+.rnav button {
+  width: 42px; height: 42px; border-radius: 50%; background: transparent;
+  border: 1px solid var(--hair-2); color: var(--ink); cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; font: inherit;
+}
+.rnav button svg { width: 12px; height: 12px; display: block; }
+.rnav button.off { color: var(--muted); border-color: var(--hair); }
+
+/* ── Stylized product screens ───────────────── */
+.screen {
+  background: var(--raised); border: 1px solid var(--hair); border-radius: 12px; overflow: hidden;
+  box-shadow: 0 2px 6px rgba(15,12,22,0.18), 0 22px 60px rgba(15,12,22,0.26);
+}
+.screen .sbar { display: flex; align-items: center; gap: 7px; padding: 11px 16px; border-bottom: 1px solid var(--hair); background: rgba(255,255,255,0.04); }
+.screen .sbar .d { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+.screen .sbar .u { font-size: 11px; font-weight: 650; color: var(--muted); margin-left: 6px; }
+.sk { border-radius: 6px; background: rgba(255,255,255,0.10); }
+.sk.line { height: 10px; }
+.sk.acc { background: var(--core-line); }
+.chips { display: flex; gap: 8px; margin: 14px 0 22px; }
+.chip { font-size: 12px; font-weight: 650; color: var(--muted); border: 1px solid var(--hair-2); border-radius: 100px; padding: 5px 12px; }
+.chip.on { color: #ffffff; background: var(--core); border-color: var(--core); }
+.covbars { display: flex; align-items: flex-end; gap: 8px; flex: 1; padding-top: 6px; }
+.covbars i { flex: 1; display: block; border-radius: 4px 4px 2px 2px; background: var(--core); }
+.minibars { display: flex; align-items: flex-end; gap: 9px; flex: 1; padding-top: 8px; }
+.minibars .mb { flex: 1; border-radius: 4px 4px 2px 2px; background: var(--core); }
+.graph { flex: 1; display: flex; align-items: flex-end; gap: 14px; padding-top: 10px; }
+.gcol { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 5px; }
+.gbar { border-radius: 5px 5px 2px 2px; background: var(--core); }
+.glab { font-size: 11px; font-weight: 600; color: var(--muted); text-align: center; margin-top: 8px; letter-spacing: 0; }
+
+/* ═══ 01 hero panel ═══ */
+.herotop { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 80px; align-items: start; }
+.herotop h1 { font-size: 104px; font-weight: 700; line-height: 0.92; letter-spacing: -0.05em; color: var(--ink); }
+.herotop .hsub { margin-top: 26px; font-size: 30px; font-weight: 400; letter-spacing: -0.026em; color: var(--ink); max-width: 19ch; line-height: 1.16; }
+.herotop .hsub b { font-weight: 700; }
+.herotop .hline { margin-top: 16px; font-size: 18px; color: var(--body); max-width: 40ch; line-height: 1.5; }
+.hctas { margin-top: 40px; display: flex; gap: 14px; }
+
+/* stepped role list, right aligned, each step quieter */
+.steplist { list-style: none; text-align: right; padding-top: 10px; }
+.steplist li { font-size: 27px; font-weight: 650; letter-spacing: -0.032em; color: var(--ink); line-height: 1.42; }
+.steplist li:nth-child(1) { opacity: 1; }
+.steplist li:nth-child(2) { opacity: 0.74; }
+.steplist li:nth-child(3) { opacity: 0.54; }
+.steplist li:nth-child(4) { opacity: 0.38; }
+.steplist li:nth-child(5) { opacity: 0.26; }
+
+/* the row that bleeds off the right edge of the panel */
+.bleed { margin: 76px -100px 0 0; display: flex; gap: 16px; }
+.bcard {
+  flex: none; width: 340px; height: 268px; border-radius: 12px; overflow: hidden;
+  position: relative; background: var(--raised); border: 1px solid var(--hair);
+  display: flex; flex-direction: column;
+}
+.bcard.fill-cobalt { background: url("../gradients/sq-cobalt.jpg") center / cover no-repeat; border-color: transparent; }
+.bcard.fill-halo { background: url("../gradients/sq-halo.jpg") center / cover no-repeat; border-color: transparent; }
+.bcard.fill-lilac { background: url("../gradients/pan-lilac.jpg") center / cover no-repeat; border-color: transparent; }
+.bcard .bhead { padding: 20px 22px 0; }
+.bcard .bt { font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; }
+.bcard .bd { font-size: 14px; color: var(--body); margin-top: 3px; }
+.bcard .bbody { margin: 16px 22px 0; flex: 1; display: flex; flex-direction: column; gap: 9px; }
+.bcard .bshot { margin: 16px 0 0 22px; flex: 1; border-radius: 10px 0 0 0; border-bottom: none; border-right: none; box-shadow: none; }
+.bcard .bshot .body { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; height: 100%; }
+.bcard.onfill .bt, .bcard.onfill .bd { color: #ffffff; }
+.bcard.onfill .bd { color: rgba(255,255,255,0.82); }
+.bcard .bnum { margin-top: auto; padding: 0 22px 20px; font-size: 40px; font-weight: 700; color: #ffffff; letter-spacing: -0.04em; line-height: 1; }
+.bcard .bnu { display: block; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.82); letter-spacing: -0.01em; margin-top: 8px; }
+
+.bfoot { margin-top: 28px; display: flex; align-items: center; gap: 40px; }
+.bcap { font-size: 15px; font-weight: 600; color: var(--body); }
+.bcap b { color: var(--ink); font-weight: 700; }
+.bfoot .rnav { margin-left: 0; }
+.bfoot .tlink { margin-left: auto; }
+
+/* ═══ 02 split statement: mixed weight left, note and button right ═══ */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 100px; align-items: end; }
+.split h2 { font-size: 68px; line-height: 1.02; letter-spacing: -0.045em; color: var(--ink); max-width: 15ch; }
+.split .rightcol p { font-size: 17px; color: var(--body); line-height: 1.6; }
+.split .rightcol .pillbtn { margin-top: 28px; }
+
+.minis { margin-top: 72px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.mini .screen .body { padding: 20px; display: flex; flex-direction: column; gap: 10px; min-height: 250px; }
+.mini .mtitle { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+.mini .mt { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.mini .ms { font-size: 12px; font-weight: 600; color: var(--muted); }
+.mini .caption { margin-top: 14px; font-size: 15px; font-weight: 600; color: var(--body); line-height: 1.45; }
+.mini .caption b { color: var(--ink); font-weight: 700; }
+
+/* ═══ 03 coverage grid ═══ */
+.covgrid { margin-top: 64px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 120px; grid-auto-flow: dense; gap: 16px; }
+.cov { border: 1px solid var(--hair); border-radius: 16px; padding: 24px 24px 0; background: var(--raised); display: flex; flex-direction: column; overflow: hidden; position: relative; }
+.cov.w2 { grid-column: span 2; } .cov.w3 { grid-column: span 3; } .cov.w4 { grid-column: span 4; }
+.cov.h2 { grid-row: span 2; } .cov.h3 { grid-row: span 3; }
+.cov h5 { font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; }
+.cov p { font-size: 14px; color: var(--body); line-height: 1.4; margin-top: 4px; }
+.cov .screen { margin-top: 18px; flex: 1; border-radius: 10px 10px 0 0; border-bottom: none; box-shadow: none; background: rgba(255,255,255,0.05); }
+.cov .screen .body { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; height: 100%; }
+.cov.oncobalt { background: url("../gradients/sq-cobalt.jpg") center / cover no-repeat; border-color: transparent; }
+.cov.onhalo { background: url("../gradients/sq-halo.jpg") center / cover no-repeat; border-color: transparent; }
+.cov.onfill h5 { color: #ffffff; }
+.cov.onfill p { color: rgba(255,255,255,0.82); }
+.cov .cnum { margin-top: auto; padding-bottom: 24px; font-size: 46px; font-weight: 700; color: #ffffff; letter-spacing: -0.04em; line-height: 1; }
+.cov .cnu { display: block; margin-top: 10px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.85); }
+.covfoot { margin-top: 34px; display: flex; align-items: center; gap: 20px; }
+
+/* ═══ 04 photo cards: one wide, three narrow ═══ */
+.pcards { margin-top: 68px; display: grid; grid-template-columns: 1.9fr 1fr 1fr 1fr; gap: 16px; }
+.pcard { border-radius: 16px; overflow: hidden; background: var(--panel); border: 1px solid var(--hair); display: flex; flex-direction: column; }
+.pcard .img { position: relative; min-height: 400px; flex: 1; }
+.pcard .img::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 62%; background: linear-gradient(180deg, transparent, rgba(24,20,33,0.80)); }
+.pcard .ptags { position: absolute; z-index: 3; top: 16px; right: 16px; display: flex; gap: 7px; }
+.pcard .ptag {
+  font-size: 12px; font-weight: 600; letter-spacing: -0.01em; color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.42);
+  border-radius: 100px; padding: 4px 12px; white-space: nowrap;
+  backdrop-filter: blur(10px) saturate(140%); -webkit-backdrop-filter: blur(10px) saturate(140%);
+}
+.pcard .over { position: absolute; z-index: 3; left: 22px; right: 22px; bottom: 20px; }
+.pcard .over .t { font-size: 21px; font-weight: 700; color: #ffffff; letter-spacing: -0.028em; }
+.pcard .over .d { font-size: 14.5px; color: rgba(255,255,255,0.80); margin-top: 4px; line-height: 1.4; }
+.pcard .cbtn { margin: 14px; }
+.pcard.p1 .img { background: url("https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop") center 20% / cover no-repeat; }
+.pcard.p2 .img { background: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+.pcard.p3 .img { background: url("https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+.pcard.p4 .img { background: url("https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+
+/* ═══ 05 roles ═══ */
+.rolerows { margin-top: 68px; border-top: 1px solid var(--hair-2); }
+.rolerow { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 60px; padding: 44px 0; border-bottom: 1px solid var(--hair); align-items: center; }
+.rolerow h5 { font-size: 27px; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; }
+.rolerow p { font-size: 15.5px; color: var(--body); line-height: 1.45; margin-top: 8px; }
+.rolemedia { display: grid; grid-template-columns: 220px minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: stretch; }
+.rolemedia.two { grid-template-columns: 220px minmax(0, 1fr); }
+.rolemedia .photo { border-radius: 12px; min-height: 182px; }
+.rolemedia .screen .body { padding: 16px; display: flex; flex-direction: column; gap: 9px; min-height: 148px; }
+.photo.gp { background: url("https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=900&auto=format&fit=crop") center / cover no-repeat; }
+.photo.go { background: url("https://images.unsplash.com/photo-1475483768296-6163e08872a1?q=80&w=900&auto=format&fit=crop") center / cover no-repeat; }
+.photo.gb { background: url("https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=900&auto=format&fit=crop") center / cover no-repeat; }
+.photo.gr { background: url("../gradients/sq-cobalt.jpg") center / cover no-repeat; }
+
+/* ═══ 06 ask camp ═══ */
+.askgrid { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 80px; align-items: center; }
+.phone {
+  width: 340px; margin: 0 auto; background: var(--raised); border: 1px solid var(--hair-2);
+  border-radius: 38px; padding: 18px 16px 24px; box-shadow: 0 6px 18px rgba(15,12,22,0.24), 0 34px 90px rgba(15,12,22,0.40);
+}
+.phone .notch { width: 110px; height: 22px; border-radius: 100px; background: rgba(255,255,255,0.14); margin: 0 auto 18px; }
+.phone .app { font-size: 13px; font-weight: 650; letter-spacing: -0.01em; color: var(--accent); text-align: center; margin-bottom: 16px; }
+.bub { max-width: 82%; border-radius: 16px; padding: 12px 15px; font-size: 14.5px; line-height: 1.45; margin-bottom: 10px; font-weight: 550; }
+.bub.q { margin-left: auto; background: var(--core); color: #ffffff; border-bottom-right-radius: 5px; }
+.bub.a { background: rgba(255,255,255,0.10); color: var(--body); border-bottom-left-radius: 5px; }
+.bub.typing { display: inline-flex; gap: 5px; align-items: center; padding: 14px 16px; background: rgba(255,255,255,0.10); border-bottom-left-radius: 5px; }
+.bub.typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); display: block; }
+.askshots { margin-top: 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.askshots .screen .body { padding: 16px; display: flex; flex-direction: column; gap: 9px; min-height: 132px; }
+
+/* ═══ 07 features and numbers ═══ */
+.featrows { margin-top: 76px; border-top: 1px solid var(--hair-2); }
+.featrow { display: grid; grid-template-columns: minmax(0, 1fr) 560px; gap: 80px; padding: 68px 0; border-bottom: 1px solid var(--hair); align-items: center; }
+.featrow.flip { grid-template-columns: 560px minmax(0, 1fr); }
+.featrow .rolepill { display: flex; align-items: center; gap: 18px; font-size: 15px; font-weight: 600; letter-spacing: -0.012em; text-transform: none; color: var(--accent); background: none; border: 0; border-radius: 0; padding: 0; margin-bottom: 18px; }
+.featrow .rolepill::after { content: ""; flex: 1 1 auto; max-width: 220px; height: 1px; background: currentColor; opacity: 0.5; }
+.featrow h3 { font-size: 40px; font-weight: 400; color: var(--ink); letter-spacing: -0.035em; line-height: 1.06; }
+.featrow h3 b { font-weight: 700; }
+.featrow .fline { margin-top: 12px; font-size: 17px; color: var(--body); max-width: 44ch; line-height: 1.5; }
+.numcard { margin-top: 30px; border-radius: 16px; padding: 26px 28px; max-width: 420px; }
+.numcard.n1 { background: url("../gradients/sq-cobalt.jpg") center / cover no-repeat; }
+.numcard.n2 { background: url("../gradients/sq-halo.jpg") center / cover no-repeat; }
+.numcard.n3 { background: url("../gradients/pan-deep.jpg") center 30% / cover no-repeat; }
+.numcard.n4 { background: url("../gradients/pan-lilac.jpg") center / cover no-repeat; }
+.numcard .n { font-size: 62px; font-weight: 700; color: #ffffff; letter-spacing: -0.045em; line-height: 1; }
+.numcard .u { display: block; margin-top: 10px; font-size: 16px; font-weight: 650; color: rgba(255,255,255,0.90); letter-spacing: -0.015em; }
+.featshot .screen .body { padding: 22px; display: flex; flex-direction: column; gap: 11px; min-height: 300px; }
+.featshot .rowline { display: flex; gap: 10px; align-items: center; }
+.featshot .rowline .av { width: 26px; height: 26px; border-radius: 50%; background: var(--core-line); flex: none; }
+.featshot .rowline .sk.line { flex: 1; }
+.featshot .rowline .tag { font-size: 12px; font-weight: 600; letter-spacing: -0.01em; color: var(--accent); background: var(--core-soft); border-radius: 100px; padding: 3px 11px; white-space: nowrap; }
+
+/* ═══ 08 testimonial and camps ═══ */
+.quote { max-width: 1000px; }
+.quote blockquote { font-size: 54px; font-weight: 400; letter-spacing: -0.04em; line-height: 1.1; color: var(--ink); }
+.quote blockquote b { font-weight: 700; }
+.quote blockquote .qm { color: var(--accent); font-weight: 400; }
+.attr { margin-top: 44px; display: flex; align-items: center; gap: 24px; }
+.attr .mark { width: 120px; height: 120px; border-radius: 50%; background: url("https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=400&auto=format&fit=crop") center 25% / cover no-repeat; flex: none; }
+.attr .an { font-size: 20px; font-weight: 700; color: var(--ink); }
+.attr .ar { font-size: 15.5px; font-weight: 600; color: var(--body); margin-top: 3px; }
+.attr .ac { font-size: 15px; font-weight: 650; color: var(--accent); margin-top: 3px; }
+.attr .clogo { margin-left: auto; width: 160px; height: 92px; border: 1px dashed var(--hair-2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: var(--muted); flex: none; }
+.logohead { margin-top: 90px; padding-top: 44px; border-top: 1px solid var(--hair); display: flex; align-items: baseline; gap: 24px; }
+.logohead .lh { font-size: 27px; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; }
+.logohead .ls { font-size: 16px; color: var(--body); }
+.logogrid { margin-top: 32px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.lg { border: 1px solid var(--hair); border-radius: 16px; background: var(--raised); height: 150px; display: flex; align-items: center; justify-content: center; position: relative; }
+.lg .lmark { width: 92px; height: 26px; border-radius: 6px; background: rgba(255,255,255,0.12); }
+.lg.hovered { border-color: var(--core-line); box-shadow: 0 10px 30px rgba(119,61,189,0.24); }
+.lg.hovered .story { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); font-size: 12.5px; font-weight: 650; color: var(--accent); white-space: nowrap; }
+.lg.hovered .lmark { background: var(--core-line); margin-bottom: 18px; }
+
+/* ═══ close ═══ */
+.close {
+  position: relative; min-height: 940px; display: flex; align-items: center;
+  background:
+    linear-gradient(180deg, rgba(44,38,57,0.58), rgba(44,38,57,0.34) 40%, rgba(44,38,57,0.74) 88%),
+    url("../gradients/pan-deep.jpg") center / cover no-repeat;
+}
+.close .in { position: relative; z-index: 2; width: 100%; }
+.close h2 { font-size: 110px; font-weight: 400; letter-spacing: -0.05em; line-height: 0.98; color: #ffffff; max-width: 14ch; }
+.close h2 b { font-weight: 700; }
+.close .csub { margin-top: 26px; font-size: 26px; font-weight: 650; color: rgba(255,255,255,0.92); letter-spacing: -0.022em; }
+.close .cline { margin-top: 10px; font-size: 18px; color: rgba(255,255,255,0.72); }
+.close .cctas { margin-top: 40px; display: flex; gap: 14px; }
+
+/* ═══ footer ═══ */
+.hp-foot { background: var(--page); border-top: 1px solid var(--hair); }
+.hp-foot .in { display: flex; align-items: center; gap: 32px; padding-top: 44px; padding-bottom: 44px; }
+.hp-foot a { font-size: 14px; font-weight: 600; color: var(--body); text-decoration: none; }
+.hp-foot .legal { margin-left: auto; font-size: 13px; color: var(--muted); font-weight: 600; }
+
+/* ── Board shadow on the dark ground ── */
+.board { box-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 18px 50px rgba(0,0,0,0.5); }
+
+/* ── Spezia Narrow direction: Narrow display, Spezia normal width body copy and CTAs, SF Pro product UI. Test font placeholder symbols fall to SF Pro. ── */
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display"), local("SF Pro Text"), local("Helvetica Neue"); font-weight:400; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Medium"), local("SFProDisplay-Medium"), local("SF Pro Text Medium"), local("Helvetica Neue Medium"); font-weight:500; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Semibold"), local("SFProDisplay-Semibold"), local("SF Pro Text Semibold"); font-weight:600; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Bold"), local("SFProDisplay-Bold"), local("SF Pro Text Bold"), local("Helvetica Neue Bold"); font-weight:700; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"Spezia Narrow"; src:url("../fonts/SpeziaNarrowWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("../fonts/SpeziaNarrowWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("../fonts/SpeziaNarrowWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("../fonts/SpeziaNarrowWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("../fonts/SpeziaWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("../fonts/SpeziaWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("../fonts/SpeziaWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("../fonts/SpeziaWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Wide"; src:url("../fonts/SpeziaWideWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:100 690; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Wide"; src:url("../fonts/SpeziaWideWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:691 900; font-style:normal; font-display:block; }
+
+/* headlines, nav, and labels in Spezia Narrow */
+.hp { font-family:"SF Sym", "Spezia Narrow", var(--sans); }
+/* body copy and CTAs: Spezia, normal width */
+.hp .herotop .hsub, .hp .herotop .hline, .hp .ssub, .hp .sline, .hp .fline, .hp .cov p, .hp .bcard .bd,
+.hp .rolerow p, .hp .mini .caption, .hp .split .rightcol p, .hp .pcard .over .d, .hp .bcap,
+.hp .close .csub, .hp .close .cline, .hp .numcard .u, .hp .bcard .bnu, .hp .cov .cnu, .hp .attr,
+.hp .logohead .ls, .hp .btn, .hp .pillbtn, .hp .tlink, .hp-nav a, .hp-foot a {
+  font-family:"SF Sym", "Spezia", var(--sans);
+}
+/* eyebrows and section markers */
+.hp .kicker, .hp .featrow .rolepill, .hp .pnum { font-family:"SF Sym", "Spezia", var(--sans); }
+/* product UI stays SF Pro: stylized screens and the Campanion phone */
+.hp .screen, .hp .phone { font-family: var(--sans); }
+/* test font stubs the tabular figure alternates, so stat numbers use default figures */
+.hp .numcard .n, .hp .bcard .bnum, .hp .cov .cnum { font-variant-numeric: normal; }
+
+/* ═════════════════════════════════════════════
+   MOTION — small, slow, and always subordinate to the type
+═════════════════════════════════════════════ */
+@keyframes barpulse { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.84); } }
+@keyframes linepulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.42; } }
+@keyframes linegrow { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(0.86); } }
+@keyframes dotpulse { 0%, 100% { opacity: 0.32; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
+@keyframes chipglow { 0%, 100% { opacity: 1; } 50% { opacity: 0.72; } }
+@keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+/* bar charts breathe */
+.graph.anim .gbar,
+.covbars.anim i,
+.minibars.anim .mb {
+  transform-origin: 50% 100%;
+  animation: barpulse 5.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  will-change: transform;
+}
+.graph.anim .gcol:nth-child(1) .gbar { animation-delay: 0s; }
+.graph.anim .gcol:nth-child(2) .gbar { animation-delay: 0.28s; }
+.graph.anim .gcol:nth-child(3) .gbar { animation-delay: 0.56s; }
+.graph.anim .gcol:nth-child(4) .gbar { animation-delay: 0.84s; }
+.graph.anim .gcol:nth-child(5) .gbar { animation-delay: 1.12s; }
+.covbars.anim i:nth-child(1), .minibars.anim .mb:nth-child(1) { animation-delay: 0s; }
+.covbars.anim i:nth-child(2), .minibars.anim .mb:nth-child(2) { animation-delay: 0.24s; }
+.covbars.anim i:nth-child(3), .minibars.anim .mb:nth-child(3) { animation-delay: 0.48s; }
+.covbars.anim i:nth-child(4), .minibars.anim .mb:nth-child(4) { animation-delay: 0.72s; }
+.covbars.anim i:nth-child(5), .minibars.anim .mb:nth-child(5) { animation-delay: 0.96s; }
+.covbars.anim i:nth-child(6), .minibars.anim .mb:nth-child(6) { animation-delay: 1.2s; }
+
+/* message rows arrive one after another */
+.anim-lines .sk.line { transform-origin: 0% 50%; animation: linepulse 4.8s ease-in-out infinite; }
+.anim-lines .sk.line:nth-child(2) { animation-delay: 0.5s; animation-name: linegrow; }
+.anim-lines .sk.line:nth-child(3) { animation-delay: 1s; animation-name: linegrow; }
+
+/* the toggle reads as live */
+.hp .chip.on { animation: chipglow 5.6s ease-in-out infinite; }
+
+/* Campanion is waiting on an answer */
+.bub.typing i { animation: dotpulse 1.5s ease-in-out infinite; }
+.bub.typing i:nth-child(2) { animation-delay: 0.18s; }
+.bub.typing i:nth-child(3) { animation-delay: 0.36s; }
+
+/* one gradient card in the bleeding row rides a little higher than the rest */
+.bcard.floats { animation: drift 9.5s ease-in-out infinite; will-change: transform; }
+/* the accent rule under the eyebrow breathes with the bars */
+.kicker.anim::after { animation: linepulse 6.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="conf">
+  <div class="wrap">
+    <svg class="sp-logo" viewBox="0 0 1499.4 151" fill="currentColor" role="img" aria-label="Studio Parkside" xmlns="http://www.w3.org/2000/svg"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg>
+    <div class="tags">
+      <span class="pill client">Campminder</span>
+      <span class="pill">Confidential</span>
+    </div>
+  </div>
+</div>
+
+<header class="wrap masthead">
+  <span class="cm-name">Campminder <span class="sep">&middot;</span> Fall Campaign</span>
+  <h1>Homepage <span class="accent">Alternate B</span></h1>
+  <p class="sub">Panel editorial. The page runs on one quiet plum ground and the sections that need holding sit inside large rounded panels, each opened by a section number with its label under it. Gradients carry the color as panel grounds and card fills. Spezia Narrow display, Spezia body, SF Pro product UI. Luzi test fonts, comp use only.</p>
+</header>
+
+<!-- ═══ HOMEPAGE ═══ -->
+<div class="boardwrap">
+  <div class="boardhead">
+    <span class="bn">01</span>
+    <h2>Homepage</h2>
+    <span class="bmeta">1440 &middot; desktop</span>
+  </div>
+  <div class="board">
+    <div class="hp">
+
+      <!-- nav -->
+      <nav class="hp-nav">
+        <div class="in">
+          <img class="cmlogo" src="../campminder-logo-white.svg" alt="Campminder">
+          <div class="navlinks">
+            <a href="#">Features</a>
+            <a href="#">Solutions</a>
+            <a href="#">Demo</a>
+            <a href="#">Company</a>
+          </div>
+          <div class="navright">
+            <a href="#">Log in</a>
+            <span class="btn sm">Book a demo</span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ═══ (01) hero panel ═══ -->
+      <section class="panel grad g-deep">
+        <div class="pnum"><span class="n">(01)</span><span class="lab">The platform</span></div>
+
+        <div class="herotop">
+          <div>
+            <h1>One for all.</h1>
+            <p class="hsub">The trusted platform for <b>everyone at your camp.</b></p>
+            <p class="hline">Registration, staffing, health, communication, and the business behind it all.</p>
+            <div class="hctas">
+              <span class="btn onphoto">Book a demo</span>
+              <span class="btn onphoto ghost">See the platform</span>
+            </div>
+          </div>
+          <ul class="steplist">
+            <li>Owner and Director</li>
+            <li>Communications and Marketing</li>
+            <li>Business and Finance</li>
+            <li>Health</li>
+            <li>Staffing</li>
+          </ul>
+        </div>
+
+        <!-- coverage row, bleeding off the right edge of the panel -->
+        <div class="bleed">
+          <div class="bcard">
+            <div class="bhead"><span class="bt">Registration</span><span class="bd">Every kid, one pass.</span></div>
+            <div class="screen bshot">
+              <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Registration</span></div>
+              <div class="body">
+                <div class="sk line acc" style="width:34%"></div>
+                <div class="sk line" style="width:76%"></div>
+                <div class="covbars anim">
+                  <i style="height:44px"></i><i style="height:62px"></i><i style="height:52px"></i><i style="height:78px"></i><i style="height:58px"></i><i style="height:92px"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bcard fill-cobalt onfill floats">
+            <div class="bhead"><span class="bt">Registration</span></div>
+            <div class="bnum">4.2M<span class="bnu">camper applications processed</span></div>
+          </div>
+
+          <div class="bcard">
+            <div class="bhead"><span class="bt">Staffing</span><span class="bd">Hiring to onboarding.</span></div>
+            <div class="screen bshot">
+              <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Staffing</span></div>
+              <div class="body">
+                <div class="sk line acc" style="width:46%"></div>
+                <div class="sk line" style="width:82%"></div>
+                <div class="sk line" style="width:64%"></div>
+                <div class="sk" style="height:46px"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bcard fill-halo onfill">
+            <div class="bhead"><span class="bt">Health</span><span class="bd">Nothing missed.</span></div>
+            <div class="bnum">1.8M<span class="bnu">medications administered last summer</span></div>
+          </div>
+
+
+          <div class="bcard">
+            <div class="bhead"><span class="bt">Communication</span><span class="bd">Families, kept close.</span></div>
+            <div class="screen bshot">
+              <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Campanion</span></div>
+              <div class="body anim-lines">
+                <div class="sk line acc" style="width:38%"></div>
+                <div class="sk line" style="width:80%"></div>
+                <div class="sk line" style="width:66%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bcard fill-lilac onfill">
+            <div class="bhead"><span class="bt">Billing and payments</span><span class="bd">The business side.</span></div>
+          </div>
+        </div>
+
+        <div class="bfoot">
+          <span class="bcap"><b>Registration.</b> Every kid, one pass.</span>
+          <div class="rnav">
+            <button type="button" class="off" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 8 12l7 7"/></svg></button>
+            <button type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
+          </div>
+          <a class="tlink" href="#">See all<span class="arrow"><i></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span></a>
+        </div>
+      </section>
+
+      <!-- ═══ (02) intelligence — on the page ground ═══ -->
+      <section class="sec">
+        <div class="in">
+          <div class="pnum"><span class="n">(02)</span><span class="lab">Intelligence</span></div>
+          <span class="kicker anim">The whole season. One look.</span>
+          <div class="split">
+            <h2 class="mx">Intelligence you can <b>trust.</b></h2>
+            <div class="rightcol">
+              <p>Campminder Intelligence, across the whole platform. Enrollment is one view of it. Staffing, health, and the business side get the same read on what your data has been telling you.</p>
+              <a class="pillbtn" href="#">See the platform
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+              </a>
+            </div>
+          </div>
+          <div class="minis">
+            <div class="mini">
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body">
+                  <div class="mtitle"><span class="mt">Staffing</span><span class="ms">hiring pipeline</span></div>
+                  <div class="minibars anim">
+                    <div class="mb" style="height:52px"></div><div class="mb" style="height:74px"></div>
+                    <div class="mb" style="height:64px"></div><div class="mb" style="height:92px"></div>
+                    <div class="mb" style="height:58px"></div><div class="mb" style="height:104px"></div>
+                  </div>
+                  <div class="sk line acc" style="width:44%"></div>
+                </div>
+              </div>
+              <p class="caption"><b>Hiring pace</b> against last season, by role.</p>
+            </div>
+            <div class="mini">
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body">
+                  <div class="mtitle"><span class="mt">Health</span><span class="ms">daily med passes</span></div>
+                  <div class="sk line" style="width:82%"></div>
+                  <div class="sk line" style="width:68%"></div>
+                  <div class="sk line acc" style="width:74%"></div>
+                  <div class="sk line" style="width:56%"></div>
+                  <div class="sk" style="height:72px; margin-top:6px;"></div>
+                </div>
+              </div>
+              <p class="caption"><b>Every med pass</b> logged, flagged when one runs late.</p>
+            </div>
+            <div class="mini">
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">campminder.com/intelligence</span></div>
+                <div class="body">
+                  <div class="mtitle"><span class="mt">Enrollment</span><span class="ms">vs. this date last season</span></div>
+                  <div class="chips"><span class="chip on">This season</span><span class="chip">Last season</span></div>
+                  <div class="graph anim">
+                    <div class="gcol"><div class="gbar" style="height:44px"></div><span class="glab">May</span></div>
+                    <div class="gcol"><div class="gbar" style="height:60px"></div><span class="glab">Jun</span></div>
+                    <div class="gcol"><div class="gbar" style="height:76px"></div><span class="glab">Jul</span></div>
+                    <div class="gcol"><div class="gbar" style="height:88px"></div><span class="glab">Aug</span></div>
+                    <div class="gcol"><div class="gbar" style="height:102px"></div><span class="glab">Sep</span></div>
+                  </div>
+                </div>
+              </div>
+              <p class="caption"><b>Billing and payments</b> rolled up as the season runs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ (03) everything included — panel ═══ -->
+      <section class="panel">
+        <div class="pnum"><span class="n">(03)</span><span class="lab">Everything included</span></div>
+        <span class="kicker">One login. All of it.</span>
+        <h2 class="big">Your operation. All in one place.</h2>
+        <p class="ssub">Everything your camp runs on.</p>
+
+        <div class="covgrid">
+          <div class="cov w4 h3">
+            <h5>Registration</h5><p>Every kid, one pass.</p>
+            <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Registration</span></div>
+              <div class="body">
+                <div class="sk line acc" style="width:34%"></div>
+                <div class="sk line" style="width:76%"></div>
+                <div class="covbars anim">
+                  <i style="height:50px"></i><i style="height:70px"></i><i style="height:58px"></i><i style="height:88px"></i><i style="height:66px"></i><i style="height:106px"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cov w2 h3">
+            <h5>Staffing</h5><p>Hiring to onboarding.</p>
+            <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+              <div class="body"><div class="sk line acc" style="width:46%"></div><div class="sk line" style="width:82%"></div><div class="sk line" style="width:64%"></div><div class="sk" style="height:72px"></div><div class="sk line" style="width:54%"></div></div>
+            </div>
+          </div>
+          <div class="cov w2 h2">
+            <h5>Health &amp; medical</h5><p>Records and daily logs.</p>
+            <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+              <div class="body"><div class="sk line" style="width:70%"></div><div class="sk line acc" style="width:52%"></div><div class="sk line" style="width:60%"></div></div>
+            </div>
+          </div>
+          <div class="cov w2 h2 oncobalt onfill">
+            <h5>Transportation</h5><p>Routes and rosters.</p>
+            <div class="cnum">86K<span class="cnu">staff hired through the platform</span></div>
+          </div>
+          <div class="cov w2 h2">
+            <h5>Groups &amp; cabins</h5><p>Assignments that work.</p>
+            <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+              <div class="body"><div class="sk line" style="width:64%"></div><div class="sk line" style="width:78%"></div><div class="sk line acc" style="width:44%"></div></div>
+            </div>
+          </div>
+          <div class="cov w3 h2">
+            <h5>Billing &amp; payments</h5><p>The business side.</p>
+            <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+              <div class="body"><div class="covbars anim"><i style="height:34px"></i><i style="height:48px"></i><i style="height:40px"></i><i style="height:58px"></i></div></div>
+            </div>
+          </div>
+          <div class="cov w3 h2">
+            <h5>Communication</h5><p>Families, kept close.</p>
+            <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+              <div class="body anim-lines"><div class="sk line acc" style="width:38%"></div><div class="sk line" style="width:80%"></div><div class="sk line" style="width:66%"></div></div>
+            </div>
+          </div>
+          <div class="cov w2 h2">
+            <h5>Reporting</h5><p>Answers on demand.</p>
+            <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+              <div class="body"><div class="covbars"><i style="height:36px"></i><i style="height:52px"></i><i style="height:44px"></i><i style="height:64px"></i><i style="height:56px"></i></div></div>
+            </div>
+          </div>
+          <div class="cov w2 h2 onhalo onfill">
+            <h5>Lead capture</h5><p>Next season&rsquo;s families.</p>
+            <div class="cnum">32M<span class="cnu">photos shared with families</span></div>
+          </div>
+          <div class="cov w2 h2">
+            <h5>The off-season</h5><p>Rentals and retreats.</p>
+            <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+              <div class="body"><div class="sk" style="height:44px"></div><div class="sk line" style="width:56%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="covfoot">
+          <a class="tlink" href="#">See it in action with a camp&rsquo;s story<span class="arrow"><i></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span></a>
+        </div>
+      </section>
+
+      <!-- ═══ (04) the team — photo cards on the page ground ═══ -->
+      <section class="sec">
+        <div class="in">
+          <div class="pnum"><span class="n">(04)</span><span class="lab">The team</span></div>
+          <span class="kicker">Real people. All season.</span>
+          <div class="split">
+            <h2 class="mx">We know your camp. <b>Inside and out.</b></h2>
+            <div class="rightcol">
+              <p>The team behind your platform. Reach a person who knows your camp in the middle of your season, or whenever you need them.</p>
+              <a class="pillbtn" href="#">Meet the team
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="pcards">
+            <div class="pcard p1">
+              <div class="img">
+                <div class="ptags"><span class="ptag">Your point person</span><span class="ptag">All season</span></div>
+                <div class="over"><div class="t">Camp Success</div><div class="d">Your point person.</div></div>
+              </div>
+              <a class="pillbtn wide cbtn" href="#">Camp Success
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+              </a>
+            </div>
+            <div class="pcard p2">
+              <div class="img">
+                <div class="over"><div class="t">Onboarding</div><div class="d">Runs setup with you.</div></div>
+              </div>
+              <a class="pillbtn wide cbtn" href="#">Onboarding
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+              </a>
+            </div>
+            <div class="pcard p3">
+              <div class="img">
+                <div class="over"><div class="t">Support</div><div class="d">Picks up in July.</div></div>
+              </div>
+              <a class="pillbtn wide cbtn" href="#">Support
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+              </a>
+            </div>
+            <div class="pcard p4">
+              <div class="img">
+                <div class="over"><div class="t">Product</div><div class="d">Builds what camps ask for.</div></div>
+              </div>
+              <a class="pillbtn wide cbtn" href="#">Product
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ (05) every role — panel ═══ -->
+      <section class="panel">
+        <div class="pnum"><span class="n">(05)</span><span class="lab">Every role</span></div>
+        <span class="kicker">Your job. Your view.</span>
+        <h2 class="big">Built for everyone at your camp.</h2>
+        <p class="ssub">Every role on one platform.</p>
+        <div class="rolerows">
+          <div class="rolerow">
+            <div>
+              <h5>Owner &amp; Director</h5>
+              <p>The whole season in one view.</p>
+            </div>
+            <div class="rolemedia">
+              <div class="photo gp"></div>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk line acc" style="width:55%"></div><div class="sk line" style="width:88%"></div><div class="sk line" style="width:74%"></div><div class="sk" style="height:44px"></div></div>
+              </div>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk" style="height:52px"></div><div class="sk line" style="width:68%"></div><div class="sk line acc" style="width:40%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="rolerow">
+            <div>
+              <h5>Communications &amp; Marketing</h5>
+              <p>Every family, one thread.</p>
+            </div>
+            <div class="rolemedia two">
+              <div class="photo go"></div>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body anim-lines"><div class="sk line acc" style="width:42%"></div><div class="sk line" style="width:80%"></div><div class="sk line" style="width:66%"></div><div class="sk" style="height:44px"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="rolerow">
+            <div>
+              <h5>Business &amp; Finance</h5>
+              <p>Billing that closes itself out.</p>
+            </div>
+            <div class="rolemedia">
+              <div class="photo gb"></div>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk line acc" style="width:48%"></div><div class="sk line" style="width:84%"></div><div class="sk line" style="width:70%"></div><div class="sk" style="height:44px"></div></div>
+              </div>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="covbars anim"><i style="height:30px"></i><i style="height:44px"></i><i style="height:36px"></i><i style="height:54px"></i></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="rolerow">
+            <div>
+              <h5>Health</h5>
+              <p>Every med, on time, on record.</p>
+            </div>
+            <div class="rolemedia two">
+              <div class="photo gr"></div>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk line" style="width:76%"></div><div class="sk line acc" style="width:50%"></div><div class="sk line" style="width:64%"></div><div class="sk" style="height:44px"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="rolerow" style="border-bottom:none;">
+            <div>
+              <h5>Staffing</h5>
+              <p>Hired, onboarded, ready for day one.</p>
+            </div>
+            <div class="rolemedia two">
+              <div class="photo go" style="background-position: center 70%;"></div>
+              <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                <div class="body"><div class="sk line acc" style="width:44%"></div><div class="sk line" style="width:78%"></div><div class="sk" style="height:52px"></div><div class="sk line" style="width:58%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ (06) ask camp — panel on lilac ═══ -->
+      <section class="panel grad g-lilac">
+        <div class="pnum"><span class="n">(06)</span><span class="lab">Campanion</span></div>
+        <div class="askgrid">
+          <div>
+            <span class="kicker">Ask the app.</span>
+            <h2 class="big">No handbook required.</h2>
+            <p class="ssub">Ask Camp, built into Campanion.</p>
+            <p class="sline">Packing lists, drop-off and pickup times, form status, and camp policies, answered for a parent without a call to the camp office.</p>
+          </div>
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="app">Campanion &middot; Ask Camp</div>
+            <div class="bub q">What time is drop-off on Monday?</div>
+            <div class="bub a">Drop-off is 7:45am at the main lodge. Gates open at 7:30am.</div>
+            <div class="bub q">Is her allergy form in?</div>
+            <div class="bub typing"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="askshots">
+          <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Packing list</span></div>
+            <div class="body"><div class="sk line acc" style="width:44%"></div><div class="sk line" style="width:78%"></div><div class="sk line" style="width:62%"></div></div>
+          </div>
+          <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Form status</span></div>
+            <div class="body"><div class="sk line" style="width:70%"></div><div class="sk line acc" style="width:48%"></div><div class="sk line" style="width:58%"></div></div>
+          </div>
+          <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Pickup times</span></div>
+            <div class="body"><div class="sk line" style="width:64%"></div><div class="sk line" style="width:74%"></div><div class="sk line acc" style="width:40%"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ (07) features and numbers — page ground ═══ -->
+      <section class="sec">
+        <div class="in">
+          <div class="pnum"><span class="n">(07)</span><span class="lab">Built for camp</span></div>
+          <span class="kicker">25 summers. Built in.</span>
+          <div class="split">
+            <h2 class="mx">People and technology <b>unite.</b></h2>
+            <div class="rightcol">
+              <p>Built by people who know camp.</p>
+              <a class="pillbtn" href="#">Book a demo
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="featrows">
+
+            <div class="featrow">
+              <div>
+                <span class="rolepill">One pass.</span>
+                <h3 class="mx">Every kid, registered in <b>one pass.</b></h3>
+                <p class="fline">The new registration experience. A family signs up every camper in one sitting, and the office watches sessions fill.</p>
+                <div class="numcard n1"><span class="n">4.2M</span><span class="u">camper applications processed</span></div>
+              </div>
+              <div class="featshot">
+                <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Registration</span></div>
+                  <div class="body">
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:60%"></div><span class="tag">Enrolled</span></div>
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:52%"></div><span class="tag">Enrolled</span></div>
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:66%"></div><span class="tag">Waitlist</span></div>
+                    <div class="sk" style="height:110px; margin-top:8px;"></div>
+                    <div class="sk line acc" style="width:34%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="featrow flip">
+              <div class="featshot">
+                <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Staffing</span></div>
+                  <div class="body">
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:56%"></div><span class="tag">Hired</span></div>
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:64%"></div><span class="tag">Offer out</span></div>
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:48%"></div><span class="tag">Interview</span></div>
+                    <div class="sk" style="height:110px; margin-top:8px;"></div>
+                    <div class="sk line acc" style="width:40%"></div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span class="rolepill">Ready day one.</span>
+                <h3 class="mx">Hired, onboarded, and <b>ready for day one.</b></h3>
+                <p class="fline">Hiring and onboarding in one place, so staff show up already knowing the plan.</p>
+                <div class="numcard n2"><span class="n">86K</span><span class="u">staff hired through the platform</span></div>
+              </div>
+            </div>
+
+            <div class="featrow">
+              <div>
+                <span class="rolepill">Nothing missed.</span>
+                <h3 class="mx">Every med, <b>on time, on record.</b></h3>
+                <p class="fline">Health records, daily logs, and med passes the nurse can run from one screen.</p>
+                <div class="numcard n3"><span class="n">1.8M</span><span class="u">medications administered last summer</span></div>
+              </div>
+              <div class="featshot">
+                <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Health</span></div>
+                  <div class="body">
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:58%"></div><span class="tag">8:00am</span></div>
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:50%"></div><span class="tag">12:00pm</span></div>
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:62%"></div><span class="tag">6:00pm</span></div>
+                    <div class="sk" style="height:110px; margin-top:8px;"></div>
+                    <div class="sk line acc" style="width:30%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="featrow flip" style="border-bottom:none;">
+              <div class="featshot">
+                <div class="screen"><div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Campanion</span></div>
+                  <div class="body">
+                    <div class="sk" style="height:140px;"></div>
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:70%"></div></div>
+                    <div class="rowline"><span class="av"></span><div class="sk line" style="width:54%"></div></div>
+                    <div class="sk line acc" style="width:38%"></div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span class="rolepill">In their pocket.</span>
+                <h3 class="mx">The side of camp <b>a family sees.</b></h3>
+                <p class="fline">Photos, forms, and answers in one app. Rated 4.8 on the App Store across 37,000 reviews.</p>
+                <div class="numcard n4"><span class="n">32M</span><span class="u">photos shared with families</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ (08) camps — panel on halo ═══ -->
+      <section class="panel grad g-halo">
+        <div class="pnum"><span class="n">(08)</span><span class="lab">Camps</span></div>
+        <span class="kicker">Camps you know.</span>
+        <div class="quote">
+          <blockquote class="mx"><span class="qm">&ldquo;</span>The only platform where the support team <b>knows our camp inside and out.</b><span class="qm">&rdquo;</span></blockquote>
+          <div class="attr">
+            <span class="mark"></span>
+            <div>
+              <div class="an">Sarah Ellison</div>
+              <div class="ar">Camp Director</div>
+              <div class="ac">Camp Cedarwood &middot; 18 seasons on Campminder</div>
+            </div>
+            <div class="clogo">Camp logo</div>
+          </div>
+        </div>
+
+        <div class="logohead">
+          <span class="lh">Partnerships built to last.</span>
+          <span class="ls">Twenty-five years with the camps you already know.</span>
+        </div>
+        <div class="logogrid">
+          <div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div>
+          <div class="lg hovered"><span class="lmark"></span><span class="story">Read their story &rarr;</span></div>
+          <div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div>
+          <div class="lg"><span class="lmark"></span></div>
+        </div>
+      </section>
+
+      <!-- ═══ close ═══ -->
+      <div class="close">
+        <div class="in">
+          <h2 class="mx">Unpack <b>possible.</b></h2>
+          <p class="csub">The trusted platform for everyone at your camp.</p>
+          <p class="cline">See what a season on Campminder looks like.</p>
+          <div class="cctas">
+            <span class="btn onphoto">Book a demo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <footer class="hp-foot">
+        <div class="in">
+          <img class="cmlogo" src="../campminder-logo-white.svg" alt="Campminder">
+          <a href="#">Features</a>
+          <a href="#">Solutions</a>
+          <a href="#">Company</a>
+          <a href="#">Support</a>
+          <span class="legal">&copy; 2026 Campminder</span>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+  <div class="boardnote">Panel editorial. Section numbers sit at the top left of each section as plain markers, with the label under the numeral. Eyebrows keep the hairline rule. Panels are inset 60px from the artboard edge at a 20px radius, and the coverage row bleeds off the right edge of panel one.</div>
+</div>
+
+</body>
+</html>

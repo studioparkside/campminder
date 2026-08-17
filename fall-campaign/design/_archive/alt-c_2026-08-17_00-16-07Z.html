@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Alternate C — Full Bleed Bands — Campminder Fall Campaign</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage Alternate C
+   Full bleed bands. 1440px artboard.
+   Ground palette: sand E7E2D9, cool haze DCDDE2, dusk lilac CFC9D6.
+   Accent: Campminder core purple #773DBD.
+   Studio Parkside, August 2026
+───────────────────────────────────────────── */
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg: #17112a;
+  --canvas: #0d0a16;
+  --card: #191329;
+  --surface-2: #211a35;
+  --ink: #ffffff;
+  --body: #e7e3f0;
+  --mid: #a79cbd;
+  --light: #786d92;
+  --rule: #2f2549;
+  --hair: #261e3c;
+  --accent: #773dbd;          /* Campminder core purple — unchanged */
+  --accent-2: #a87be0;        /* tint of the core purple for small type on dark */
+  --accent-soft: rgba(119,61,189,0.18);
+  --accent-line: rgba(168,123,224,0.42);
+  --green: #00aa47;
+  --orange: #ffa61e;
+  --blue: #3da5d9;
+  --dark: #27065c;            /* deep purple */
+  --dark-2: #380f8c;          /* medium purple */
+  --dark-line: rgba(255,255,255,0.14);
+  --dark-mid: rgba(255,255,255,0.66);
+  --dark-low: rgba(255,255,255,0.42);
+  --dark-accent: #c9a9f2;
+}
+html { color-scheme: dark; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans);
+  color: var(--body);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+.wrap { max-width: 1520px; margin: 0 auto; padding: 18px 44px; }
+
+/* ── Confidential bar ───────────────────────── */
+.conf { border-bottom: 1px solid var(--rule); background: var(--bg); position: sticky; top: 0; z-index: 20; }
+.conf .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.sp-logo { display: block; height: 17px; width: auto; color: var(--ink); flex: none; }
+.tags { display: flex; align-items: center; gap: 8px; }
+.pill {
+  font-size: 11px; font-weight: 650; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--accent-2);
+  background: var(--accent-soft); border: 1px solid var(--accent-line);
+  border-radius: 100px; padding: 5px 12px; white-space: nowrap;
+}
+.pill.client { color: var(--mid); background: transparent; border-color: var(--rule); }
+
+/* ── Comp masthead ──────────────────────────── */
+.masthead { padding: 72px 0 40px; }
+.masthead .cm-name { display: block; font-size: 15px; font-weight: 650; color: var(--mid); margin-bottom: 18px; }
+.masthead .cm-name .sep { color: var(--accent-line); padding: 0 4px; }
+.masthead h1 { font-size: 64px; font-weight: 700; line-height: 1.0; letter-spacing: -0.045em; color: var(--ink); }
+.masthead h1 .accent { color: var(--accent-2); }
+.masthead .sub { margin-top: 18px; font-size: 19px; color: var(--mid); max-width: 60ch; line-height: 1.5; }
+
+/* ── Artboards ──────────────────────────────── */
+.boardwrap { padding: 28px 0 8px; }
+.boardhead { max-width: 1440px; margin: 0 auto 12px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.boardhead .bn { font-size: 14px; font-weight: 700; color: var(--accent-2); font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+.boardhead h2 { font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.025em; }
+.boardhead .bmeta { font-size: 14px; font-weight: 600; color: var(--light); margin-left: auto; }
+.board {
+  width: 1440px; margin: 0 auto; background: var(--card);
+  border: 1px solid var(--rule); border-radius: 6px; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 18px 50px rgba(0,0,0,0.5);
+}
+.boardnote { max-width: 1440px; margin: 14px auto 0; font-size: 14px; font-weight: 600; color: var(--light); line-height: 1.5; }
+@media (max-width: 1540px) { .boardwrap { overflow-x: auto; padding-left: 44px; padding-right: 44px; } .boardhead, .board, .boardnote { min-width: 1440px; } }
+
+/* ═════════════════════════════════════════════
+   ALTERNATE C — full bleed bands
+   Every ground is a mid-tone tinted surface. Gradients carry the colour.
+═════════════════════════════════════════════ */
+.hp {
+  --gA: #e7e2d9;                       /* sand */
+  --gB: #dcdde2;                       /* cool haze */
+  --gC: #cfc9d6;                       /* dusk lilac, deepest neutral */
+  --ink: #241e33;
+  --body: #4c4460;
+  --muted: #7e7590;
+  --hairC: rgba(36,30,51,0.14);
+  --hairD: rgba(36,30,51,0.26);
+  --accent: #773dbd;
+  --tint: #c9a9f2;
+  --deep: #27065c;
+  --dark2: #380f8c;
+  font-size: 17px;
+  color: var(--body);
+  background: var(--gA);
+}
+.hp .in { max-width: 1240px; margin: 0 auto; padding: 0 60px; }
+
+/* ── Bands. Edge to edge, square corners, no container. ── */
+.band {
+  position: relative;
+  min-height: 940px;
+  padding: 40px 0 96px;
+  display: flex; flex-direction: column;
+  border-radius: 0;
+  background: var(--gA);
+}
+.band > .in { flex: 1; width: 100%; display: flex; flex-direction: column; }
+.band.gA { background: var(--gA); }
+.band.gB { background: var(--gB); }
+.band.gC { background: var(--gC); }
+
+/* corner labels: a short word top left, an index top right */
+.btop { display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
+        font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--muted); }
+.band.ondark .btop { color: rgba(255,255,255,0.74); }
+
+/* the head: very large headline flush left, very small copy in a narrow column */
+.bhead { margin-top: 96px; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 96px; align-items: start; }
+.band h2 { font-size: 104px; font-weight: 700; line-height: 0.92; letter-spacing: -0.05em; color: var(--ink); max-width: 13ch; }
+.band.ondark h2 { color: #ffffff; }
+.bnote { padding-top: 16px; }
+.bnote .ssub { font-size: 19px; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); line-height: 1.3; }
+.bnote .sline { margin-top: 14px; font-size: 15px; color: var(--body); line-height: 1.6; }
+.band.ondark .bnote .ssub { color: #ffffff; }
+.band.ondark .bnote .sline { color: rgba(255,255,255,0.72); }
+
+/* eyebrow: sentence case at reading size, followed by a long hairline rule */
+.kicker {
+  display: flex; align-items: center; gap: 20px;
+  font-size: 15px; font-weight: 600; letter-spacing: -0.012em; text-transform: none;
+  color: var(--accent); background: none; border: 0; border-radius: 0; padding: 0;
+  margin-bottom: 26px;
+}
+.kicker::after {
+  content: ""; flex: 1 1 auto; max-width: 300px; height: 1px;
+  background: currentColor; opacity: 0.5;
+}
+.band.ondark .kicker { color: var(--tint); }
+
+/* the empty field under the headline, then the content sitting low in the band */
+.bbody { margin-top: auto; padding-top: 104px; }
+.bbody.mid { margin-top: auto; margin-bottom: auto; padding-top: 0; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-block; font-size: 15px; font-weight: 650; letter-spacing: -0.01em;
+  color: #ffffff; background: var(--accent); border-radius: 100px; padding: 13px 28px;
+  text-decoration: none; white-space: nowrap;
+}
+.btn.sm { font-size: 14px; padding: 10px 22px; }
+.btn.onphoto { color: #241e33; background: #ffffff; }
+.btn.onphoto.ghost {
+  color: #ffffff; border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.28);
+}
+/* on a light ground the same idea, inverted: dark translucent fill */
+.btn.onlight.ghost {
+  color: var(--ink); border: 1px solid rgba(36,30,51,0.30);
+  background: rgba(36,30,51,0.08);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+}
+.tlink { font-size: 16px; font-weight: 650; color: var(--accent); text-decoration: none; }
+.tlink.small { font-size: 14px; }
+.band.ondark .tlink { color: var(--tint); }
+.tlink .ar { letter-spacing: 0; }
+
+/* ── Stylized product screens. Square corners throughout this alternate. ── */
+.screen { background: #f5f2ee; border: 1px solid var(--hairC); border-radius: 0; overflow: hidden; }
+.screen .sbar { display: flex; align-items: center; gap: 7px; padding: 11px 16px; border-bottom: 1px solid var(--hairC); background: rgba(36,30,51,0.05); }
+.screen .sbar .d { width: 8px; height: 8px; border-radius: 50%; background: rgba(36,30,51,0.20); }
+.screen .sbar .u { font-size: 11px; font-weight: 650; color: var(--muted); margin-left: 6px; letter-spacing: 0.02em; }
+.screen .body { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.sk { border-radius: 0; background: rgba(36,30,51,0.13); }
+.sk.line { height: 10px; }
+.sk.acc { background: rgba(119,61,189,0.40); }
+.covbars { display: flex; align-items: flex-end; gap: 9px; flex: 1; padding-top: 8px; }
+.covbars i { flex: 1; display: block; border-radius: 0; background: var(--accent); }
+.minibars { display: flex; align-items: flex-end; gap: 9px; flex: 1; padding-top: 8px; }
+.minibars .mb { flex: 1; border-radius: 0; background: var(--accent); }
+
+/* ── Nav band ── */
+.hp-nav { background: var(--gA); border-bottom: 1px solid var(--hairC); }
+.hp-nav .in { display: flex; align-items: center; gap: 36px; height: 78px; }
+.cmlogo { display: block; height: 26px; width: auto; }
+.hp-nav a { font-size: 15px; font-weight: 600; color: var(--body); text-decoration: none; }
+.hp-nav .navlinks { display: flex; gap: 28px; margin-left: 12px; }
+.hp-nav .navright { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+
+/* ── 01 Hero band. hero.jpg full bleed, glass dashboard low right. ── */
+.heroC {
+  min-height: 980px; padding-bottom: 84px;
+  background:
+    linear-gradient(104deg, rgba(24,18,38,0.62), rgba(24,18,38,0.30) 40%, rgba(24,18,38,0.04) 66%),
+    linear-gradient(180deg, rgba(24,18,38,0.18), rgba(24,18,38,0.00) 34%, rgba(24,18,38,0.30)),
+    url("../hero.jpg") center 55% / cover no-repeat;
+}
+.heroC .hgrid { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 470px; grid-template-rows: auto 1fr; column-gap: 60px; margin-top: 78px; }
+.heroC .hcopy { grid-column: 1; grid-row: 1; max-width: 620px; }
+.heroC h1 { font-size: 132px; font-weight: 700; line-height: 0.88; letter-spacing: -0.055em; color: #ffffff; }
+.heroC .hsub { margin-top: 26px; font-size: 27px; font-weight: 650; letter-spacing: -0.024em; color: rgba(255,255,255,0.94); max-width: 22ch; line-height: 1.24; }
+.heroC .hfoot { grid-column: 1; grid-row: 2; align-self: end; max-width: 520px; }
+.heroC .hline { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.6; max-width: 42ch; }
+.heroC .hctas { margin-top: 26px; display: flex; gap: 14px; }
+.heroC .hero-card { grid-column: 2; grid-row: 2; align-self: end; animation: drift 13s ease-in-out infinite; }
+
+/* glass card */
+.hero-card {
+  background: linear-gradient(150deg, rgba(30,22,52,0.60), rgba(20,14,36,0.52));
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid rgba(255,255,255,0.42);
+  border-radius: 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.30), 0 30px 84px rgba(16,12,28,0.38);
+}
+.hero-card .sbar { background: rgba(255,255,255,0.12); border-bottom-color: rgba(255,255,255,0.28); }
+.hero-card .sbar .d { background: rgba(255,255,255,0.52); }
+.hero-card .sbar .u { color: rgba(255,255,255,0.82); }
+.hero-card .dash { display: grid; grid-template-columns: 124px minmax(0, 1fr); min-height: 306px; }
+.hero-card .side { border-right: 1px solid rgba(255,255,255,0.24); padding: 16px 14px; display: flex; flex-direction: column; gap: 11px; }
+.hero-card .sk { background: rgba(255,255,255,0.34); }
+.hero-card .sk.acc { background: rgba(255,255,255,0.78); }
+.hero-card .main { padding: 20px; display: flex; flex-direction: column; }
+.hero-card .dhead { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+.hero-card .dtitle { font-size: 17px; font-weight: 700; color: #ffffff; letter-spacing: -0.02em; }
+.hero-card .dsub { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.72); }
+.hero-card .chips { display: flex; gap: 8px; margin: 12px 0 18px; }
+.hero-card .chip { font-size: 11px; font-weight: 650; color: rgba(255,255,255,0.88); border: 1px solid rgba(255,255,255,0.42); border-radius: 100px; padding: 4px 11px; }
+.hero-card .chip.on { background: #ffffff; color: var(--deep); border-color: #ffffff; }
+.hero-card .graph { flex: 1; display: flex; align-items: flex-end; gap: 12px; padding-top: 8px; }
+.hero-card .gcol { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; }
+.hero-card .gbar { background: rgba(255,255,255,0.94); border-radius: 0; }
+.hero-card .glab { font-size: 10.5px; font-weight: 650; color: rgba(255,255,255,0.78); text-align: center; margin-top: 6px; letter-spacing: 0; }
+
+/* ── 02 Intelligence. Gradient tiles carry the product screens. ── */
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.tile { padding: 26px; display: flex; flex-direction: column; }
+.tile.t1 { background: url("../gradients/pan-mist.jpg") center / cover no-repeat; }
+.tile.t2 { background: url("../gradients/sq-pale.jpg") center / cover no-repeat; }
+.tile.t3 { background: url("../gradients/pan-bloom.jpg") center / cover no-repeat; }
+.tile .screen { flex: 1; display: flex; flex-direction: column; background: rgba(255,255,255,0.68); border-color: rgba(255,255,255,0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.tile .screen .sbar { background: rgba(255,255,255,0.30); border-bottom-color: rgba(36,30,51,0.10); }
+.tile .screen .body { flex: 1; min-height: 216px; }
+.tile .mtitle { display: flex; align-items: baseline; gap: 10px; margin-bottom: 2px; }
+.tile .mt { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.tile .ms { font-size: 12px; font-weight: 600; color: var(--muted); }
+.tile .caption { margin-top: 18px; font-size: 14px; color: rgba(36,30,51,0.70); line-height: 1.55; }
+.tile .caption b { color: var(--ink); font-weight: 700; }
+
+/* ── 03 Platform. Numbered index, hairline dividers, one row expanded. ── */
+.fogband { min-height: 1000px; background: url("../gradients/pan-fog.jpg") center / cover no-repeat; }
+.idx { border-top: 1px solid var(--hairD); }
+.idxrow {
+  display: grid; grid-template-columns: 92px minmax(0, 1fr) 280px;
+  gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--hairC); align-items: baseline;
+}
+.idxrow .num { font-size: 15px; font-weight: 600; color: var(--muted); }
+.idxrow .t { font-size: 36px; font-weight: 700; letter-spacing: -0.038em; color: var(--ink); line-height: 1.05; }
+.idxrow .rl { font-size: 15px; font-weight: 600; color: var(--muted); text-align: right; }
+.idxrow.open { padding-bottom: 34px; }
+.idxopen { grid-column: 2 / -1; align-self: start; display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 40px; margin-top: 24px; align-items: start; }
+.idxopen .screen .body { min-height: 170px; }
+.idxopen p { font-size: 15px; color: var(--body); line-height: 1.6; max-width: 42ch; }
+.idxfoot { margin-top: 30px; display: flex; align-items: baseline; justify-content: space-between; gap: 40px; }
+.idxfoot .also { font-size: 14px; font-weight: 600; color: var(--muted); text-align: right; }
+
+/* ── 04 Roles ── */
+.rrows { border-top: 1px solid var(--hairD); }
+.rrow { display: grid; grid-template-columns: 220px 300px minmax(0, 1fr); gap: 44px; padding: 34px 0; border-bottom: 1px solid var(--hairC); align-items: center; }
+.rrow .photo { height: 180px; }
+.rrow h5 { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.032em; line-height: 1.08; }
+.rrow p { font-size: 15px; color: var(--body); line-height: 1.5; margin-top: 8px; }
+.rrow .screen .body { min-height: 142px; }
+.photo.gp { background: url("https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=900&auto=format&fit=crop") center / cover no-repeat; }
+.photo.go { background: url("https://images.unsplash.com/photo-1475483768296-6163e08872a1?q=80&w=900&auto=format&fit=crop") center / cover no-repeat; }
+.photo.gb { background: url("https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=900&auto=format&fit=crop") center / cover no-repeat; }
+
+/* ── 05 Ask Camp. Split band: gradient half, copy half. ── */
+.splitband { padding: 0; min-height: 940px; display: block; position: relative; }
+.splitlabels { position: absolute; top: 40px; left: 0; right: 0; z-index: 3; }
+.splitlabels .in { max-width: 1240px; margin: 0 auto; padding: 0 60px; }
+.split { display: grid; grid-template-columns: 1fr 1fr; min-height: 940px; }
+.split .half { display: flex; align-items: center; }
+.split .half.field { background: url("../gradients/sq-meadow.jpg") center / cover no-repeat; justify-content: center; padding: 120px 40px; }
+.split .half.copy { background: var(--gC); padding: 120px 160px 120px 92px; }
+.split .half.copy .inner { width: 100%; }
+.split h2 { font-size: 76px; max-width: 12ch; }
+.split .ssub { margin-top: 22px; font-size: 21px; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); line-height: 1.3; }
+.split .sline { margin-top: 16px; font-size: 15px; color: var(--body); line-height: 1.6; max-width: 40ch; }
+.split .tlink { display: inline-block; margin-top: 40px; }
+.phone {
+  width: 336px; background: #f5f2ee; border: 1px solid rgba(36,30,51,0.16);
+  border-radius: 38px; padding: 18px 16px 24px; box-shadow: 0 26px 70px rgba(36,30,51,0.20);
+}
+.phone .notch { width: 110px; height: 22px; border-radius: 100px; background: var(--ink); margin: 0 auto 18px; }
+.phone .app { font-size: 13px; font-weight: 650; letter-spacing: -0.01em; text-transform: none; color: var(--accent); text-align: center; margin-bottom: 16px; }
+.bub { max-width: 82%; border-radius: 16px; padding: 12px 15px; font-size: 14.5px; line-height: 1.45; margin-bottom: 10px; font-weight: 550; }
+.bub.q { margin-left: auto; background: var(--accent); color: #ffffff; border-bottom-right-radius: 5px; }
+.bub.a { background: rgba(36,30,51,0.09); color: var(--ink); border-bottom-left-radius: 5px; }
+.bub.typing { display: inline-flex; gap: 5px; align-items: center; padding: 14px 16px; }
+.bub.typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); display: block; }
+
+/* ── 06 Numbers. Four numbers set very large on a gradient band. ── */
+.numband {
+  background: url("../gradients/pan-dawn.jpg") center / cover no-repeat;
+  min-height: 900px;
+}
+.numgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(36,30,51,0.28); }
+.numcell { padding: 34px 26px 0 0; }
+.numcell + .numcell { border-left: 1px solid rgba(36,30,51,0.20); padding-left: 26px; }
+.numcell .n { display: block; font-size: 98px; font-weight: 700; line-height: 0.88; letter-spacing: -0.055em; color: var(--deep); }
+.numcell .u { display: block; margin-top: 18px; font-size: 15.5px; font-weight: 650; letter-spacing: -0.015em; color: var(--ink); line-height: 1.3; }
+.numcell .l { margin-top: 12px; font-size: 13.5px; color: rgba(36,30,51,0.74); line-height: 1.55; }
+
+/* ── 07 Team ── */
+.teamrow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.port { height: 400px; position: relative; display: flex; align-items: flex-end; }
+.port .pin { position: relative; z-index: 2; padding: 22px; }
+.port .pn { display: block; font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: -0.02em; }
+.port .pr { display: block; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.78); margin-top: 3px; }
+.port::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 55%; background: linear-gradient(180deg, transparent, rgba(24,18,38,0.74)); }
+.port.p1 { background: url("https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+.port.p2 { background: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+.port.p3 { background: url("https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+.port.p4 { background: url("https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop") center 20% / cover no-repeat; }
+
+/* ── 08 Directors. Centred statement over a gradient, nothing else. ── */
+.stmtband {
+  background: url("../gradients/pan-lilac.jpg") center / cover no-repeat;
+  min-height: 900px;
+}
+.stmt { max-width: 1000px; margin: 0 auto; text-align: center; }
+.stmt blockquote { font-size: 66px; font-weight: 700; line-height: 1.08; letter-spacing: -0.045em; color: var(--ink); }
+.stmt blockquote .qm { color: rgba(36,30,51,0.42); }
+.attr { margin-top: 64px; display: flex; align-items: center; justify-content: center; gap: 18px; }
+.attr .mark { width: 62px; height: 62px; border-radius: 50%; background: url("https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=400&auto=format&fit=crop") center 25% / cover no-repeat; flex: none; }
+.attr .atext { text-align: left; }
+.attr .an { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.015em; }
+.attr .ar { font-size: 14px; font-weight: 600; color: rgba(36,30,51,0.80); margin-top: 2px; }
+.attr .ac { font-size: 14px; font-weight: 600; color: rgba(36,30,51,0.80); }
+
+/* ── 09 Camps. Hairline grid, no cards. ── */
+.logogrid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid var(--hairC); border-left: 1px solid var(--hairC); }
+.lg { height: 148px; display: flex; align-items: center; justify-content: center; position: relative; border-right: 1px solid var(--hairC); border-bottom: 1px solid var(--hairC); }
+.lg .lmark { width: 88px; height: 24px; background: rgba(36,30,51,0.15); }
+.lg.hovered { background: rgba(119,61,189,0.08); }
+.lg.hovered .lmark { background: rgba(119,61,189,0.42); margin-bottom: 22px; }
+.lg.hovered .story { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); font-size: 12.5px; font-weight: 650; color: var(--accent); white-space: nowrap; }
+
+/* ── 10 Demo. A quiet form row on one baseline. ── */
+.formband {
+  min-height: 420px; padding: 40px 0 56px;
+  background: url("../gradients/pan-petal.jpg") center / cover no-repeat;
+}
+.formrow { display: flex; align-items: baseline; gap: 36px; }
+.formrow .fcopy { font-size: 27px; font-weight: 650; letter-spacing: -0.026em; color: var(--ink); flex: none; max-width: 22ch; line-height: 1.2; }
+.formrow .finput { flex: 1; border-bottom: 1px solid rgba(36,30,51,0.42); padding-bottom: 12px; font-size: 16px; font-weight: 600; color: rgba(36,30,51,0.62); }
+.formrow .btn { flex: none; }
+
+/* ── 11 Close. Large gradient band, oversized type, small contact column. ── */
+.closeband {
+  min-height: 960px;
+  background:
+    linear-gradient(180deg, rgba(26,18,44,0.36), rgba(26,18,44,0.30) 46%, rgba(26,18,44,0.62)),
+    url("../gradients/pan-deep.jpg") center / cover no-repeat;
+}
+.closegrid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 96px; align-items: end; }
+.closeband h2 { font-size: 148px; line-height: 0.86; letter-spacing: -0.055em; color: #ffffff; max-width: none; }
+.contactcol .csub { font-size: 20px; font-weight: 650; letter-spacing: -0.02em; color: #ffffff; line-height: 1.3; }
+.contactcol .cline { margin-top: 12px; font-size: 15px; color: rgba(255,255,255,0.76); line-height: 1.6; }
+.contactcol .cctas { margin-top: 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+
+/* ── Footer band ── */
+.hp-foot { background: var(--gC); border-top: 1px solid var(--hairC); }
+.hp-foot .in { display: flex; align-items: center; gap: 32px; padding-top: 44px; padding-bottom: 44px; }
+.hp-foot .cmlogo { height: 22px; }
+.hp-foot a { font-size: 14px; font-weight: 600; color: var(--body); text-decoration: none; }
+.hp-foot .legal { margin-left: auto; font-size: 13px; color: var(--muted); font-weight: 600; }
+
+/* ── Small type sitting straight on a gradient ground needs a darker muted. ── */
+.fogband .btop, .fogband .idxrow .num, .fogband .idxrow .rl, .fogband .idxfoot .also,
+.numband .btop, .stmtband .btop, .formband .btop, .splitband .btop { color: rgba(36,30,51,0.78); }
+.numband .kicker, .formband .kicker { color: var(--deep); }
+
+/* ── Spezia Narrow direction: Narrow display, Spezia normal width body copy and CTAs, SF Pro product UI. Test font placeholder symbols fall to SF Pro. ── */
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display"), local("SF Pro Text"), local("Helvetica Neue"); font-weight:400; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Medium"), local("SFProDisplay-Medium"), local("SF Pro Text Medium"), local("Helvetica Neue Medium"); font-weight:500; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Semibold"), local("SFProDisplay-Semibold"), local("SF Pro Text Semibold"); font-weight:600; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"SF Sym"; src:local("SF Pro Display Bold"), local("SFProDisplay-Bold"), local("SF Pro Text Bold"), local("Helvetica Neue Bold"); font-weight:700; unicode-range:U+0024-0026, U+0028-0029, U+002B, U+002F, U+003C-003E, U+005B, U+005D, U+00A9, U+00AE, U+00B0, U+00B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2122, U+2192; }
+@font-face { font-family:"Spezia Narrow"; src:url("../fonts/SpeziaNarrowWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("../fonts/SpeziaNarrowWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("../fonts/SpeziaNarrowWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("../fonts/SpeziaNarrowWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("../fonts/SpeziaWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("../fonts/SpeziaWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("../fonts/SpeziaWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia"; src:url("../fonts/SpeziaWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Wide"; src:url("../fonts/SpeziaWideWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:100 690; font-style:normal; font-display:block; }
+@font-face { font-family:"Spezia Wide"; src:url("../fonts/SpeziaWideWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:691 900; font-style:normal; font-display:block; }
+/* headlines, nav, and labels: Spezia Narrow */
+.hp { font-family:"SF Sym", "Spezia Narrow", var(--sans); }
+/* body copy and CTAs: Spezia, normal width */
+.hp .hsub, .hp .hline, .hp .bnote .ssub, .hp .bnote .sline, .hp .split .ssub, .hp .split .sline,
+.hp .tile .caption, .hp .idxopen p, .hp .rrow p, .hp .numcell .u, .hp .numcell .l,
+.hp .attr, .hp .formrow .fcopy, .hp .formrow .finput, .hp .contactcol .csub, .hp .contactcol .cline,
+.hp .btn, .hp .tlink, .hp-nav a, .hp .kicker {
+  font-family:"SF Sym", "Spezia", var(--sans);
+}
+/* product UI stays SF Pro: stylized screens, the glass hero card, and the Campanion phone */
+.hp .screen, .hp .hero-card, .hp .phone { font-family: var(--sans); }
+/* test font stubs the tabular figure alternates, so stat numbers use default figures */
+.hp .numcell .n { font-variant-numeric: normal; }
+
+/* ═════════════════════════════════════════════
+   MOTION — small, slow, and always subordinate to the type
+═════════════════════════════════════════════ */
+@keyframes barpulse { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.84); } }
+@keyframes linepulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.42; } }
+@keyframes linegrow { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(0.86); } }
+@keyframes dotpulse { 0%, 100% { opacity: 0.32; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
+@keyframes chipglow { 0%, 100% { opacity: 1; } 50% { opacity: 0.72; } }
+@keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+/* bar charts breathe */
+.graph.anim .gbar,
+.covbars.anim i,
+.minibars.anim .mb {
+  transform-origin: 50% 100%;
+  animation: barpulse 5.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  will-change: transform;
+}
+.graph.anim .gcol:nth-child(1) .gbar { animation-delay: 0s; }
+.graph.anim .gcol:nth-child(2) .gbar { animation-delay: 0.28s; }
+.graph.anim .gcol:nth-child(3) .gbar { animation-delay: 0.56s; }
+.graph.anim .gcol:nth-child(4) .gbar { animation-delay: 0.84s; }
+.graph.anim .gcol:nth-child(5) .gbar { animation-delay: 1.12s; }
+.covbars.anim i:nth-child(1), .minibars.anim .mb:nth-child(1) { animation-delay: 0s; }
+.covbars.anim i:nth-child(2), .minibars.anim .mb:nth-child(2) { animation-delay: 0.24s; }
+.covbars.anim i:nth-child(3), .minibars.anim .mb:nth-child(3) { animation-delay: 0.48s; }
+.covbars.anim i:nth-child(4), .minibars.anim .mb:nth-child(4) { animation-delay: 0.72s; }
+.covbars.anim i:nth-child(5), .minibars.anim .mb:nth-child(5) { animation-delay: 0.96s; }
+.covbars.anim i:nth-child(6), .minibars.anim .mb:nth-child(6) { animation-delay: 1.2s; }
+
+/* message rows arrive one after another */
+.anim-lines .sk.line { transform-origin: 0% 50%; animation: linepulse 4.8s ease-in-out infinite; }
+.anim-lines .sk.line:nth-child(2) { animation-delay: 0.5s; animation-name: linegrow; }
+.anim-lines .sk.line:nth-child(3) { animation-delay: 1s; animation-name: linegrow; }
+
+/* the hero toggle reads as live */
+.heroC .chip.on { animation: chipglow 5.6s ease-in-out infinite; }
+
+/* Campanion is waiting on an answer */
+.bub.typing i { animation: dotpulse 1.5s ease-in-out infinite; }
+.bub.typing i:nth-child(2) { animation-delay: 0.18s; }
+.bub.typing i:nth-child(3) { animation-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="conf">
+  <div class="wrap">
+    <svg class="sp-logo" viewBox="0 0 1499.4 151" fill="currentColor" role="img" aria-label="Studio Parkside" xmlns="http://www.w3.org/2000/svg"><g><path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"/><path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"/><path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"/><path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"/><rect x="468.5" width="33.6" height="26.5"/><rect x="469.1" y="44.3" width="32.4" height="104.4"/><path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/></g><g><path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"/><path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"/><path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"/><path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"/><path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"/><rect x="1219.3" y="44.3" width="32.4" height="104.4"/><path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"/><path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"/><rect x="1218.6" width="33.6" height="26.5"/></g></svg>
+    <div class="tags">
+      <span class="pill client">Campminder</span>
+      <span class="pill">Confidential</span>
+    </div>
+  </div>
+</div>
+
+<header class="wrap masthead">
+  <span class="cm-name">Campminder <span class="sep">&middot;</span> Fall Campaign</span>
+  <h1>Homepage <span class="accent">Alternate C</span></h1>
+  <p class="sub">Full bleed bands. The page is a stack of edge to edge bands with no side margin and no rounded corners, alternating between quiet tinted neutrals and gradient or image fields. Headlines run very large flush left with an empty field under them, and labels and running copy stay very small in the corners and in a narrow column.</p>
+</header>
+
+<!-- ═══ HOMEPAGE ═══ -->
+<div class="boardwrap">
+  <div class="boardhead">
+    <span class="bn">01</span>
+    <h2>Homepage</h2>
+    <span class="bmeta">1440 &middot; desktop</span>
+  </div>
+  <div class="board">
+    <div class="hp">
+
+      <!-- nav -->
+      <nav class="hp-nav">
+        <div class="in">
+          <img class="cmlogo" src="../campminder-logo-black.svg" alt="Campminder">
+          <div class="navlinks">
+            <a href="#">Features</a>
+            <a href="#">Solutions</a>
+            <a href="#">Demo</a>
+            <a href="#">Company</a>
+          </div>
+          <div class="navright">
+            <a href="#">Log in</a>
+            <span class="btn sm">Book a demo</span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 01 hero band -->
+      <section class="band heroC ondark">
+        <div class="in">
+          <div class="btop"><span>Overview</span><span>01</span></div>
+          <div class="hgrid">
+            <div class="hcopy">
+              <h1>One for all.</h1>
+              <p class="hsub">The trusted platform for everyone at your camp.</p>
+            </div>
+            <div class="hfoot">
+              <p class="hline">Registration, staffing, health, communication, and the business behind it all.</p>
+              <div class="hctas">
+                <span class="btn onphoto">Book a demo</span>
+                <span class="btn onphoto ghost">See the platform</span>
+              </div>
+            </div>
+            <div class="hero-card">
+              <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">campminder.com/intelligence</span></div>
+              <div class="dash">
+                <div class="side">
+                  <div class="sk line acc" style="width:80%"></div>
+                  <div class="sk line" style="width:65%"></div>
+                  <div class="sk line" style="width:72%"></div>
+                  <div class="sk line" style="width:58%"></div>
+                </div>
+                <div class="main">
+                  <div class="dhead"><span class="dtitle">Enrollment</span><span class="dsub">vs. this date last season</span></div>
+                  <div class="chips"><span class="chip on">This season</span><span class="chip">Last season</span></div>
+                  <div class="graph anim">
+                    <div class="gcol"><div class="gbar" style="height:72px"></div><span class="glab">May</span></div>
+                    <div class="gcol"><div class="gbar" style="height:96px"></div><span class="glab">Jun</span></div>
+                    <div class="gcol"><div class="gbar" style="height:118px"></div><span class="glab">Jul</span></div>
+                    <div class="gcol"><div class="gbar" style="height:130px"></div><span class="glab">Aug</span></div>
+                    <div class="gcol"><div class="gbar" style="height:146px"></div><span class="glab">Sep</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 intelligence band -->
+      <section class="band gB">
+        <div class="in">
+          <div class="btop"><span>Intelligence</span><span>02</span></div>
+          <div class="bhead">
+            <div>
+              <span class="kicker">The whole season. One look.</span>
+              <h2>Intelligence you can trust.</h2>
+            </div>
+            <div class="bnote">
+              <p class="ssub">Campminder Intelligence, across the whole platform.</p>
+              <p class="sline">Enrollment is one view of it. Staffing, health, and the business side get the same read on what your data has been telling you.</p>
+            </div>
+          </div>
+          <div class="bbody">
+            <div class="tiles">
+              <div class="tile t1">
+                <div class="screen">
+                  <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                  <div class="body">
+                    <div class="mtitle"><span class="mt">Staffing</span><span class="ms">hiring pipeline</span></div>
+                    <div class="minibars anim">
+                      <div class="mb" style="height:52px"></div><div class="mb" style="height:74px"></div>
+                      <div class="mb" style="height:64px"></div><div class="mb" style="height:92px"></div>
+                      <div class="mb" style="height:58px"></div><div class="mb" style="height:104px"></div>
+                    </div>
+                    <div class="sk line acc" style="width:44%"></div>
+                  </div>
+                </div>
+                <p class="caption"><b>Hiring pace</b> against last season, by role.</p>
+              </div>
+              <div class="tile t2">
+                <div class="screen">
+                  <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                  <div class="body">
+                    <div class="mtitle"><span class="mt">Health</span><span class="ms">daily med passes</span></div>
+                    <div class="sk line" style="width:82%"></div>
+                    <div class="sk line" style="width:68%"></div>
+                    <div class="sk line acc" style="width:74%"></div>
+                    <div class="sk line" style="width:56%"></div>
+                    <div class="sk" style="height:64px; margin-top:4px;"></div>
+                  </div>
+                </div>
+                <p class="caption"><b>Every med pass</b> logged, flagged when one runs late.</p>
+              </div>
+              <div class="tile t3">
+                <div class="screen">
+                  <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                  <div class="body">
+                    <div class="mtitle"><span class="mt">Finance</span><span class="ms">season revenue</span></div>
+                    <div class="minibars anim">
+                      <div class="mb" style="height:46px"></div><div class="mb" style="height:62px"></div>
+                      <div class="mb" style="height:84px"></div><div class="mb" style="height:78px"></div>
+                      <div class="mb" style="height:102px"></div><div class="mb" style="height:118px"></div>
+                    </div>
+                    <div class="sk line acc" style="width:38%"></div>
+                  </div>
+                </div>
+                <p class="caption"><b>Billing and payments</b> rolled up as the season runs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 platform band, numbered index -->
+      <section class="band fogband">
+        <div class="in">
+          <div class="btop"><span>Platform</span><span>03</span></div>
+          <div class="bhead">
+            <div>
+              <span class="kicker">One login. All of it.</span>
+              <h2>Your operation. All in one place.</h2>
+            </div>
+            <div class="bnote">
+              <p class="ssub">Everything your camp runs on.</p>
+            </div>
+          </div>
+          <div class="bbody">
+            <div class="idx">
+
+              <div class="idxrow open">
+                <span class="num">01</span>
+                <span class="t">Registration</span>
+                <span class="rl">Every kid, one pass.</span>
+                <div class="idxopen">
+                  <div class="screen">
+                    <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Registration</span></div>
+                    <div class="body">
+                      <div class="sk line acc" style="width:34%"></div>
+                      <div class="sk line" style="width:76%"></div>
+                      <div class="covbars anim">
+                        <i style="height:44px"></i><i style="height:62px"></i><i style="height:52px"></i><i style="height:80px"></i><i style="height:60px"></i><i style="height:96px"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p>The new registration experience. A family signs up every camper in one sitting, and the office watches sessions fill.</p>
+                </div>
+              </div>
+
+              <div class="idxrow">
+                <span class="num">02</span>
+                <span class="t">Staffing</span>
+                <span class="rl">Hiring to onboarding.</span>
+              </div>
+
+              <div class="idxrow">
+                <span class="num">03</span>
+                <span class="t">Health &amp; medical</span>
+                <span class="rl">Records and daily logs.</span>
+              </div>
+
+              <div class="idxrow">
+                <span class="num">04</span>
+                <span class="t">Groups &amp; cabins</span>
+                <span class="rl">Assignments that work.</span>
+              </div>
+
+              <div class="idxrow">
+                <span class="num">05</span>
+                <span class="t">Billing &amp; payments</span>
+                <span class="rl">The business side.</span>
+              </div>
+
+              <div class="idxrow">
+                <span class="num">06</span>
+                <span class="t">Communication</span>
+                <span class="rl">Families, kept close.</span>
+              </div>
+
+            </div>
+            <div class="idxfoot">
+              <a class="tlink" href="#">See it in action with a camp&rsquo;s story <span class="ar">&rarr;</span></a>
+              <span class="also">Transportation &middot; Reporting &middot; Lead capture &middot; The off-season</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 roles band -->
+      <section class="band gA">
+        <div class="in">
+          <div class="btop"><span>Roles</span><span>04</span></div>
+          <div class="bhead">
+            <div>
+              <span class="kicker">Your job. Your view.</span>
+              <h2>Built for everyone at your camp.</h2>
+            </div>
+            <div class="bnote">
+              <p class="ssub">Every role on one platform.</p>
+            </div>
+          </div>
+          <div class="bbody">
+            <div class="rrows">
+
+              <div class="rrow">
+                <div class="photo gp"></div>
+                <div>
+                  <h5>Owner &amp; Director</h5>
+                  <p>The whole season in one view.</p>
+                </div>
+                <div class="screen">
+                  <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                  <div class="body"><div class="sk line acc" style="width:55%"></div><div class="sk line" style="width:88%"></div><div class="sk line" style="width:74%"></div><div class="sk" style="height:44px"></div></div>
+                </div>
+              </div>
+
+              <div class="rrow">
+                <div class="photo go"></div>
+                <div>
+                  <h5>Communications &amp; Marketing</h5>
+                  <p>Every family, one thread.</p>
+                </div>
+                <div class="screen">
+                  <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                  <div class="body anim-lines"><div class="sk line acc" style="width:42%"></div><div class="sk line" style="width:80%"></div><div class="sk line" style="width:66%"></div><div class="sk" style="height:44px"></div></div>
+                </div>
+              </div>
+
+              <div class="rrow" style="border-bottom:none;">
+                <div class="photo gb"></div>
+                <div>
+                  <h5>Business &amp; Finance</h5>
+                  <p>Billing that closes itself out.</p>
+                </div>
+                <div class="screen">
+                  <div class="sbar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+                  <div class="body"><div class="sk line acc" style="width:48%"></div><div class="sk line" style="width:84%"></div><div class="sk line" style="width:70%"></div><div class="sk" style="height:44px"></div></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 ask camp band, split -->
+      <section class="band splitband">
+        <div class="splitlabels">
+          <div class="in">
+            <div class="btop"><span>Ask Camp</span><span>05</span></div>
+          </div>
+        </div>
+        <div class="split">
+          <div class="half field">
+            <div class="phone">
+              <div class="notch"></div>
+              <div class="app">Campanion &middot; Ask Camp</div>
+              <div class="bub q">What time is drop-off on Monday?</div>
+              <div class="bub a">Drop-off is 7:45am at the main lodge. Gates open at 7:30am.</div>
+              <div class="bub q">Is her allergy form in?</div>
+              <div class="bub typing"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="half copy">
+            <div class="inner">
+              <span class="kicker">Ask the app.</span>
+              <h2>No handbook required.</h2>
+              <p class="ssub">Ask Camp, built into Campanion.</p>
+              <p class="sline">Packing lists, drop-off and pickup times, form status, and camp policies, answered for a parent without a call to the camp office.</p>
+              <a class="tlink small" href="#">Read more <span class="ar">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 numbers band -->
+      <section class="band numband">
+        <div class="in">
+          <div class="btop"><span>Numbers</span><span>06</span></div>
+          <div class="bhead">
+            <div>
+              <span class="kicker">25 summers. Built in.</span>
+              <h2>People and technology unite.</h2>
+            </div>
+            <div class="bnote">
+              <p class="ssub">Built by people who know camp.</p>
+            </div>
+          </div>
+          <div class="bbody">
+            <div class="numgrid">
+              <div class="numcell">
+                <span class="n">4.2M</span>
+                <span class="u">camper applications processed</span>
+                <p class="l">The new registration experience. A family signs up every camper in one sitting, and the office watches sessions fill.</p>
+              </div>
+              <div class="numcell">
+                <span class="n">86K</span>
+                <span class="u">staff hired through the platform</span>
+                <p class="l">Hiring and onboarding in one place, so staff show up already knowing the plan.</p>
+              </div>
+              <div class="numcell">
+                <span class="n">1.8M</span>
+                <span class="u">medications administered last summer</span>
+                <p class="l">Health records, daily logs, and med passes the nurse can run from one screen.</p>
+              </div>
+              <div class="numcell">
+                <span class="n">32M</span>
+                <span class="u">photos shared with families</span>
+                <p class="l">Photos, forms, and answers in one app. Rated 4.8 on the App Store across 37,000 reviews.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 team band -->
+      <section class="band gB">
+        <div class="in">
+          <div class="btop"><span>Team</span><span>07</span></div>
+          <div class="bhead">
+            <div>
+              <span class="kicker">Real people. All season.</span>
+              <h2>We know your camp. Inside and out.</h2>
+            </div>
+            <div class="bnote">
+              <p class="ssub">The team behind your platform.</p>
+              <p class="sline">Reach a person who knows your camp in the middle of your season, or whenever you need them.</p>
+            </div>
+          </div>
+          <div class="bbody">
+            <div class="teamrow">
+              <div class="port p1"><div class="pin"><span class="pn">Camp Success</span><span class="pr">Your point person</span></div></div>
+              <div class="port p2"><div class="pin"><span class="pn">Onboarding</span><span class="pr">Runs setup with you</span></div></div>
+              <div class="port p3"><div class="pin"><span class="pn">Support</span><span class="pr">Picks up in July</span></div></div>
+              <div class="port p4"><div class="pin"><span class="pn">Product</span><span class="pr">Builds what camps ask for</span></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 directors band, centred statement -->
+      <section class="band stmtband">
+        <div class="in">
+          <div class="btop"><span>Directors</span><span>08</span></div>
+          <div class="bbody mid">
+            <div class="stmt">
+              <blockquote><span class="qm">&ldquo;</span>The only platform where the support team knows our camp inside and out.<span class="qm">&rdquo;</span></blockquote>
+              <div class="attr">
+                <span class="mark"></span>
+                <div class="atext">
+                  <div class="an">Sarah Ellison</div>
+                  <div class="ar">Camp Director</div>
+                  <div class="ac">Camp Cedarwood &middot; 18 seasons on Campminder</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 camps band -->
+      <section class="band gA">
+        <div class="in">
+          <div class="btop"><span>Camps</span><span>09</span></div>
+          <div class="bhead">
+            <div>
+              <span class="kicker">Camps you know.</span>
+              <h2>Partnerships built to last.</h2>
+            </div>
+            <div class="bnote">
+              <p class="ssub">Twenty-five years with the camps you already know.</p>
+            </div>
+          </div>
+          <div class="bbody">
+            <div class="logogrid">
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg hovered"><span class="lmark"></span><span class="story">Read their story &rarr;</span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+              <div class="lg"><span class="lmark"></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 demo band, quiet form row -->
+      <section class="band formband">
+        <div class="in">
+          <div class="btop"><span>Demo</span><span>10</span></div>
+          <div class="bbody mid">
+            <div class="formrow">
+              <span class="fcopy">See what a season on Campminder looks like.</span>
+              <span class="finput">Work email</span>
+              <span class="btn">Book a demo</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 close band -->
+      <section class="band closeband ondark">
+        <div class="in">
+          <div class="btop"><span>Get started</span><span>11</span></div>
+          <div class="bbody">
+            <div class="closegrid">
+              <h2>Unpack possible.</h2>
+              <div class="contactcol">
+                <p class="csub">The trusted platform for everyone at your camp.</p>
+                <p class="cline">Registration, staffing, health, communication, and the business behind it all.</p>
+                <div class="cctas">
+                  <span class="btn onphoto">Book a demo</span>
+                  <span class="btn onphoto ghost">See the platform</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- footer -->
+      <footer class="hp-foot">
+        <div class="in">
+          <img class="cmlogo" src="../campminder-logo-black.svg" alt="Campminder">
+          <a href="#">Features</a>
+          <a href="#">Solutions</a>
+          <a href="#">Company</a>
+          <a href="#">Support</a>
+          <span class="legal">&copy; 2026 Campminder</span>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+  <p class="boardnote">Alternate C. A stack of full bleed bands, no cards and no rounded corners. Grounds alternate between sand, cool haze, and dusk lilac, with seven gradient fields carrying the colour. Bands 03, 06, 08, 10, and 11 run a gradient edge to edge, band 05 splits into a gradient half and a neutral half, and the intelligence tiles in band 02 sit on gradient fills behind the product screens.</p>
+</div>
+
+</body>
+</html>
