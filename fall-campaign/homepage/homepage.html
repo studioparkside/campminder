@@ -248,15 +248,23 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
   color: rgba(255,255,255,0.76); }
 
 /* ═══════════ 08 ROLES ═══════════ */
-.band { height: 300px; overflow: hidden; position: relative; border-bottom: 1px solid var(--hair); }
+.band { height: 232px; overflow: hidden; position: relative; border-bottom: 1px solid var(--hair); }
 .band img { width: 100%; height: 100%; object-fit: cover; }
 .rolerow { display: grid; grid-template-columns: var(--kcol) minmax(0,1fr); border-bottom: 1px solid var(--rule); }
-.rolerow .tcol { border-right: 1px solid var(--hair); padding: 34px 24px 34px var(--pad); }
-.rolerow .rbody { display: grid; grid-template-columns: 390px minmax(0,1fr); gap: 0;
-  padding: 34px var(--rgut) 34px 40px; align-items: center; }
+.rolerow .tcol { border-right: 1px solid var(--hair); padding: 62px 24px 62px var(--pad); }
+.rolerow .rbody { display: grid; grid-template-columns: 348px minmax(0,1fr); gap: 0;
+  padding: 62px var(--rgut) 62px 40px; align-items: center; }
 .rolerow h3 { font-size: 40px; line-height: 0.95; letter-spacing: -0.036em; max-width: 340px; }
 .rolerow .rsub { margin-top: 10px; max-width: 340px; font-size: 16.5px; line-height: 1.58; color: var(--mid); }
 .rolerow .panels { display: flex; gap: 16px; align-items: flex-start; justify-content: flex-end; }
+.rolerow .ui .ubar { height: 44px; padding: 0 18px; }
+.rolerow .ui .ubar .ut { font-size: 13.5px; }
+.rolerow .ui .ubar .us { font-size: 12px; }
+.rolerow .ui .ub { padding: 20px 18px; gap: 11px; }
+.rolerow .ui .sk.line { height: 10px; }
+/* the blocks take the extra height so the card fills instead of pooling
+   white at the bottom. */
+.rolerow .ui .ub .sk:not(.line) { flex: 1; height: auto; min-height: 36px; }
 
 /* ═══════════ 09 ASK CAMP ═══════════ */
 .askcamp { position: relative; background: url("img/grad-askcamp.jpg") center / cover no-repeat;
@@ -722,7 +730,7 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
           <p class="rsub">See your whole season in one view.</p>
         </div>
         <div class="panels">
-          <div class="ui" style="width:254px;height:161px">
+          <div class="ui" style="width:275px;height:212px">
             <div class="ubar"><span class="ut">Season view</span></div>
             <div class="ub anim-lines">
               <span class="sk line acc" style="width:67%"></span>
@@ -731,7 +739,7 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
               <span class="sk" style="height:36px"></span>
             </div>
           </div>
-          <div class="ui" style="width:254px;height:151px">
+          <div class="ui" style="width:275px;height:198px">
             <div class="ubar"><span class="ut">Reporting</span></div>
             <div class="ub">
               <span class="sk" style="height:44px"></span>
@@ -752,7 +760,7 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
           <p class="rsub">Every family. One thread.</p>
         </div>
         <div class="panels">
-          <div class="ui" style="width:524px;height:165px">
+          <div class="ui" style="width:566px;height:216px">
             <div class="ubar"><span class="ut">Broadcasts</span><span class="us">all families</span></div>
             <div class="ub anim-lines">
               <span class="sk line acc" style="width:38%"></span>
@@ -774,7 +782,7 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
           <p class="rsub">Billing that closes itself out.</p>
         </div>
         <div class="panels">
-          <div class="ui" style="width:254px;height:161px">
+          <div class="ui" style="width:275px;height:212px">
             <div class="ubar"><span class="ut">Ledger</span></div>
             <div class="ub anim-lines">
               <span class="sk line acc" style="width:58%"></span>
@@ -783,7 +791,7 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
               <span class="sk" style="height:36px"></span>
             </div>
           </div>
-          <div class="ui" style="width:254px;height:151px">
+          <div class="ui" style="width:275px;height:198px">
             <div class="ubar"><span class="ut">Payments</span></div>
             <div class="ub">
               <span class="sk" style="height:44px"></span>
