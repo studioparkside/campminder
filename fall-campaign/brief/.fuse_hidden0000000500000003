@@ -539,13 +539,13 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
         <div class="label"><span class="lnum">01-02</span>Context</div>
         <p>The homepage has stayed static for a while. This fall, Campminder is shipping a host of new product features, including a new Registration flow, Campminder Intelligence, and the Ask Camp assistant inside Campanion.</p>
 
-        <div class="label"><span class="lnum">01-03</span>Pressure</div>
+        <div class="label"><span class="lnum">01-02</span>Pressure</div>
         <div class="rows">
-          <div class="row"><div class="row-num">01-03-A</div><div class="row-text"><strong>Momentum.</strong> Campfront is a newer competitor that publishes constantly and reads as software built for a younger generation of camp directors.</div></div>
-          <div class="row"><div class="row-num">01-03-B</div><div class="row-text"><strong>Trust.</strong> Around 1,700 camps run on Campminder, most of them for years. That record is the strongest asset the page has and the hardest one for a newer platform to answer. We're only including content about live features that can be accessed today. We don't want to make any promises about future updates that haven't materialized.</div></div>
+          <div class="row"><div class="row-num">01-02-A</div><div class="row-text"><strong>Momentum.</strong> Campfront is a newer competitor that publishes constantly and reads as software built for a younger generation of camp directors.</div></div>
+          <div class="row"><div class="row-num">01-02-B</div><div class="row-text"><strong>Trust.</strong> Around 1,700 camps run on Campminder, most of them for years. That record is the strongest asset the page has and the hardest one for a newer platform to answer. We're only including content about live features that can be accessed today. We don't want to make any promises about future updates that haven't materialized.</div></div>
         </div>
 
-        <div class="label"><span class="lnum">01-04</span>Audience</div>
+        <div class="label"><span class="lnum">01-03</span>Audience</div>
         <p>Visitors to the Campminder website are typically camps shopping for a platform, and existing customers on their way to log in. The page works for both or it doesn’t work.</p>
       </div>
     </div>

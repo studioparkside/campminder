@@ -360,10 +360,8 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
 .note strong { color: var(--ink); font-weight: 650; }
 
 /* ---------- Hierarchy ---------- */
-/* The lead runs full width on its own row. The two support blocks split the
-   row beneath it, so the tier is read before the detail. */
-.hier { display: grid; gap: 12px; margin: 26px 0; }
-.hier-side { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: stretch; }
+.hier { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: stretch; margin: 26px 0; }
+.hier-side { display: grid; grid-template-rows: 1fr 1fr; gap: 12px; }
 .block {
   background: var(--card-bright);
   border: 1px solid var(--outline);
@@ -380,25 +378,17 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
 .block ul.use { list-style: none; margin: 0; padding: 0; color: var(--ink-soft); font-size: 17px; line-height: 1.45; }
 .block ul.use li { padding: 8px 0; border-top: 1px solid var(--hairline); }
 .block ul.use li:first-child { border-top: 0; }
-/* The lead sits full width, so it splits internally: the name on the left,
-   where it is implemented on the right, hung off a hairline. */
 .block.leadblock {
   background: var(--ink);
   border-color: var(--ink);
   color: var(--paper);
+  justify-content: center;
   padding: 46px 40px;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  column-gap: 64px;
-  align-items: start;
 }
 .block.leadblock .brole { color: rgba(255, 255, 255, 0.62); }
 .block.leadblock .nm { color: var(--paper); font-size: clamp(38px, 5.4vw, 62px); letter-spacing: -0.038em; line-height: 1.0; }
 .block.leadblock .role { color: rgba(255, 255, 255, 0.82); font-size: 23px; margin-top: 18px; max-width: 26ch; line-height: 1.35; }
-.block.leadblock .lead-b {
-  border-top: 1px solid rgba(255, 255, 255, 0.26);
-  padding-top: 20px;
-}
+.block.leadblock .bdiv { border-color: rgba(255, 255, 255, 0.26); margin: 34px 0 20px; }
 .block.leadblock .use-l { color: var(--paper); }
 .block.leadblock ul.use { color: rgba(255, 255, 255, 0.82); font-size: 19px; max-width: 32ch; line-height: 1.4; }
 .block.leadblock ul.use li { border-color: rgba(255, 255, 255, 0.22); padding: 10px 0; }
@@ -454,11 +444,10 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
   .panel { padding: 28px 24px 30px; }
   .copycard { padding: 34px 26px 30px; }
   .note { padding: 24px 22px 26px; }
-  .hier { gap: 8px; }
-  .hier-side { grid-template-columns: 1fr; gap: 8px; }
+  .hier { grid-template-columns: 1fr; gap: 8px; }
+  .hier-side { grid-template-rows: none; gap: 8px; }
   .block { padding: 28px 24px 30px; }
-  .block.leadblock { padding: 34px 26px; grid-template-columns: 1fr; }
-  .block.leadblock .lead-b { margin-top: 30px; }
+  .block.leadblock { padding: 34px 26px; }
 }
 a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
 </style>
@@ -513,7 +502,7 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
       <nav class="toc" aria-label="Contents">
         <a href="#s01"><span class="toc-num">01</span> Fall Campaign</a>
         <a href="#s02"><span class="toc-num">02</span> Territory</a>
-        <a href="#s03"><span class="toc-num">03</span> Homepage</a>
+        <a href="#s03"><span class="toc-num">03</span> Layout</a>
         <a href="#s04"><span class="toc-num">04</span> UX requests</a>
         <a href="#s05"><span class="toc-num">05</span> Guardrails</a>
         <a href="#s06"><span class="toc-num">06</span> Assets</a>
@@ -532,20 +521,16 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
         <p>The presentation concept is designed to mostly work inside the existing site. Same shell, same navigation, same interior pages.</p>
         <p>The page presentation isn’t final. We're open to your perspective and want to produce the best homepage possible, even if it looks and feels different from this concept.</p>
 
-        <div class="label"><span class="lnum">01-01</span>The handoff</div>
-        <p>I took Campminder through strategy to set the direction for the fall campaign. That work produced the working session, the territory, a homepage wireframe, and the design concept in 03.</p>
-        <p>The campaign covers more than the homepage. Groundwrk takes the page from here, and I'll be in the meetings as a consultant to Campminder.</p>
-
-        <div class="label"><span class="lnum">01-02</span>Context</div>
+        <div class="label"><span class="lnum">01-01</span>Context</div>
         <p>The homepage has stayed static for a while. This fall, Campminder is shipping a host of new product features, including a new Registration flow, Campminder Intelligence, and the Ask Camp assistant inside Campanion.</p>
 
-        <div class="label"><span class="lnum">01-03</span>Pressure</div>
+        <div class="label"><span class="lnum">01-02</span>Pressure</div>
         <div class="rows">
-          <div class="row"><div class="row-num">01-03-A</div><div class="row-text"><strong>Momentum.</strong> Campfront is a newer competitor that publishes constantly and reads as software built for a younger generation of camp directors.</div></div>
-          <div class="row"><div class="row-num">01-03-B</div><div class="row-text"><strong>Trust.</strong> Around 1,700 camps run on Campminder, most of them for years. That record is the strongest asset the page has and the hardest one for a newer platform to answer. We're only including content about live features that can be accessed today. We don't want to make any promises about future updates that haven't materialized.</div></div>
+          <div class="row"><div class="row-num">01-02-A</div><div class="row-text"><strong>Momentum.</strong> Campfront is a newer competitor that publishes constantly and reads as software built for a younger generation of camp directors.</div></div>
+          <div class="row"><div class="row-num">01-02-B</div><div class="row-text"><strong>Trust.</strong> Around 1,700 camps run on Campminder, most of them for years. That record is the strongest asset the page has and the hardest one for a newer platform to answer. We're only including content about live features that can be accessed today. We don't want to make any promises about future updates that haven't materialized.</div></div>
         </div>
 
-        <div class="label"><span class="lnum">01-04</span>Audience</div>
+        <div class="label"><span class="lnum">01-03</span>Audience</div>
         <p>Visitors to the Campminder website are typically camps shopping for a platform, and existing customers on their way to log in. The page works for both or it doesn’t work.</p>
       </div>
     </div>
@@ -574,18 +559,15 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
 
         <div class="hier">
           <div class="block leadblock">
-            <div class="lead-a">
-              <div class="brole">Conceptual lead</div>
-              <div class="nm">One for all</div>
-              <div class="role">One platform, every role at camp.</div>
-            </div>
-            <div class="lead-b">
-              <span class="use-l">Implemented</span>
-              <ul class="use">
-                <li>Homepage hero</li>
-                <li>Conceptual foundation for email, social, sales</li>
-              </ul>
-            </div>
+            <div class="brole">Conceptual lead</div>
+            <div class="nm">One for all</div>
+            <div class="role">One platform, every role at camp.</div>
+            <div class="bdiv"></div>
+            <span class="use-l">Implemented</span>
+            <ul class="use">
+              <li>Homepage hero</li>
+              <li>Conceptual foundation for email, social, sales</li>
+            </ul>
           </div>
           <div class="hier-side">
             <div class="block">
@@ -622,7 +604,7 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
     <div class="section-grid">
       <div class="rail-number">03</div>
       <div class="section-body">
-        <h2>Homepage</h2>
+        <h2>Layout</h2>
         <p>Everything under the hero is modular, so the order can change as we learn which features matter most.</p>
 
         <div class="frame">
@@ -643,11 +625,11 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
         <p>Set in working sessions with Campminder.</p>
 
         <div class="rows">
-          <div class="row"><div class="row-num">04-01</div><div class="row-text"><strong>A class of its own.</strong> The generic AI/SaaS look sits on every other technology site, and Campminder shouldn't read that way. There's room for an editorial, trustworthy page that quietly says quality and longevity rather than vibe-coded modernity.</div></div>
+          <div class="row"><div class="row-num">04-01</div><div class="row-text"><strong>A class of its own.</strong> Campfront has a corner on the AI/SaaS look that you see on every other technology site. There's room for an editorial, trustworthy page that quietly reads as quality and longevity rather than vibe-coded modernity.</div></div>
           <div class="row"><div class="row-num">04-02</div><div class="row-text"><strong>Show the product.</strong> Real screens, current at launch. Ideally, every claim has something visible sitting next to it. The concept leans on product screens, with photography primarily in the hero and the team block.</div></div>
           <div class="row"><div class="row-num">04-03</div><div class="row-text"><strong>Motion where a task completes.</strong> A form filling, a dashboard assembling. Anywhere where we can show work getting done on the Campminder platform.</div></div>
-          <div class="row"><div class="row-num">04-04</div><div class="row-text"><strong>Real people, real camps.</strong> Customer camps and actual Campminder staff. Nothing clearly stock or fake. These customers know each other and spot anything staged.</div></div>
-          <div class="row"><div class="row-num">04-05</div><div class="row-text"><strong>Plain language.</strong> No acronyms, nothing to decode. This audience is proud of being camp people rather than technology people.</div></div>
+          <div class="row"><div class="row-num">04-03</div><div class="row-text"><strong>Real people, real camps.</strong> Customer camps and actual Campminder staff. Nothing clearly stock or fake. These customers know each other and spot anything staged.</div></div>
+          <div class="row"><div class="row-num">04-04</div><div class="row-text"><strong>Plain language.</strong> No acronyms, nothing to decode. This audience is proud of being camp people rather than technology people.</div></div>
         </div>
       </div>
     </div>
