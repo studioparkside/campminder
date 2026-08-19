@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Campminder Fall Campaign Homepage</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage concept
+   Neutral Parkside shell, matched to the homepage brief.
+   The homepage itself is index.html, running live in the window
+   card below at 1440 and scrolling inside its own frame.
+   Studio Parkside, August 2026
+───────────────────────────────────────────── */
+:root {
+  --ground: #F0F1F2;
+  --card: #FFFFFF;
+  --ink: #000000;
+  --ink-soft: #5B5D5F;
+  --paper: #FFFFFF;
+  --outline: #E2E4E6;
+  --hairline: #E9EAEC;
+  --hairline-light: rgba(255, 255, 255, 0.3);
+  --muted: #A3A6A9;
+  --accent: #773DBD;
+  --accent-line: #DCC9F2;
+  --radius: 28px;
+  --header-h: 96px;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--ground); color: var(--ink); font-family: var(--font);
+  font-size: 19px; line-height: 1.62; font-weight: 400;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  padding: 12px; padding-top: calc(var(--header-h) + 12px);
+}
+a { color: var(--ink); text-underline-offset: 3px; }
+
+.stack { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+/* ---------- Fixed glass header ---------- */
+.siteheader {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 60; height: var(--header-h);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 34px;
+  background: rgba(240, 241, 242, 0.62);
+  -webkit-backdrop-filter: blur(26px) saturate(165%); backdrop-filter: blur(26px) saturate(165%);
+  border-bottom: 1px solid var(--outline);
+}
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .siteheader { background: rgba(240, 241, 242, 0.96); }
+}
+.siteheader .logo { height: 19px; }
+
+/* ---------- Cards ---------- */
+.card { background: var(--card); border: 1px solid var(--outline); border-radius: var(--radius); padding: 64px 72px; }
+.card.dark { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.card.dark p { color: rgba(255, 255, 255, 0.74); }
+
+.logo { display: block; height: 17px; width: auto; aspect-ratio: 1499.4 / 151; fill: var(--ink); }
+.pill-group { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.pill {
+  display: inline-block; font-size: 14px; font-weight: 600; letter-spacing: -0.004em;
+  padding: 7px 16px 6px; border: 1px solid var(--ink); border-radius: 999px; white-space: nowrap;
+}
+.pill.filled { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.pill.light { border-color: var(--outline); color: var(--ink-soft); font-weight: 500; }
+
+.botbar {
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  padding: 28px 16px 40px; font-size: 14.5px; color: var(--ink-soft);
+}
+
+/* ---------- Hero ---------- */
+.hero { padding: 88px 72px 80px; }
+.hero .eyebrow { font-size: 14.5px; font-weight: 600; letter-spacing: -0.004em;
+  color: rgba(255, 255, 255, 0.5); margin-bottom: 26px; }
+h1 { font-size: clamp(40px, 5vw, 68px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 650; max-width: 24ch; }
+.card.dark.hero .lede { margin-top: 32px; font-size: 20px; color: rgba(255, 255, 255, 0.74);
+  letter-spacing: -0.012em; max-width: 62ch; }
+
+/* ---------- The window card ----------
+   A browser window inset in a card. The homepage runs live inside it at
+   its true 1440 width, scaled to the card, and scrolls in its own frame.
+   Scrolling inside the frame is what pins the square rail. */
+.windowcard { padding: 20px; }
+.window { border: 1px solid var(--outline); border-radius: 10px; overflow: hidden; background: #0d0a16; }
+.chrome {
+  height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 14px;
+  background: #F6F7F8; border-bottom: 1px solid var(--outline);
+}
+.chrome .dots { display: flex; gap: 7px; }
+.chrome .dots i { width: 10px; height: 10px; border-radius: 50%; background: #DDE0E3; display: block; }
+.chrome .url {
+  margin: 0 auto; font-size: 12.5px; font-weight: 500; color: var(--ink-soft); letter-spacing: -0.004em;
+  background: var(--paper); border: 1px solid var(--outline); border-radius: 999px; padding: 4px 18px 3px;
+}
+.chrome .spacer { width: 47px; }
+.viewport { position: relative; overflow: hidden; background: #0d0a16; }
+.viewport iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0;
+  transform-origin: top left; }
+.windowfoot { display: flex; justify-content: flex-end; padding: 16px 6px 2px; font-size: 14px; }
+.windowfoot a { color: var(--ink); font-weight: 600; }
+
+/* ---------- Notes ---------- */
+.notes { padding: 52px 72px 56px; }
+.notes h2 { font-size: 30px; font-weight: 600; letter-spacing: -0.022em; line-height: 1.1; margin-bottom: 26px; }
+.rows { margin: 0; }
+.row { display: grid; grid-template-columns: 88px 1fr; gap: 26px; padding: 19px 0; }
+.row + .row { border-top: 1px solid var(--hairline); }
+.row-num { font-size: 14.5px; font-weight: 600; letter-spacing: 0.02em; color: var(--muted);
+  font-variant-numeric: tabular-nums; }
+.row-text { font-size: 18px; line-height: 1.55; }
+.row-text strong { font-weight: 650; }
+
+/* ---------- Project sequence ---------- */
+.seq { padding: 60px 72px 66px; }
+.seq h2 { font-size: 30px; font-weight: 600; letter-spacing: -0.026em; line-height: 1.1; margin-bottom: 16px; }
+.seqkey { display: flex; flex-wrap: wrap; gap: 22px; margin-bottom: 38px; }
+.seqkey span { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600;
+  color: var(--muted); letter-spacing: -0.01em; }
+.seqcols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.seqcol h3 { font-size: 12px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--muted); padding-bottom: 12px; border-bottom: 1px solid var(--outline); margin-bottom: 4px; }
+.seqcol ul { list-style: none; margin: 0; padding: 0; }
+.seqcol li {
+  display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px;
+  align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--hairline);
+  font-size: 17px; font-weight: 600; letter-spacing: -0.02em;
+}
+.mk { font-size: 16px; line-height: 1.4; }
+.seqcol li.done { color: var(--muted); }
+.seqcol li.done .mk { color: var(--outline); }
+.seqcol li.now { color: var(--ink); }
+.seqcol li.now .mk { color: var(--accent); }
+.seqcol li.ahead { color: var(--ink-soft); }
+.ring {
+  display: inline-block; width: 11px; height: 11px; border-radius: 50%;
+  border: 1.5px solid var(--accent-line); background: transparent; position: relative; top: -1px;
+}
+
+@media (max-width: 900px) {
+  body { padding: 8px; padding-top: calc(var(--header-h) + 8px); }
+  .stack { gap: 8px; }
+  .siteheader { padding: 0 18px; }
+  .card { padding: 36px 24px; }
+  .hero { padding: 44px 24px 40px; }
+  .notes { padding: 36px 24px 40px; }
+  .seq { padding: 36px 24px 40px; }
+  .seqcols { grid-template-columns: 1fr; gap: 32px; }
+  .windowcard { padding: 10px; }
+  .row { grid-template-columns: 1fr; gap: 6px; }
+  .botbar { flex-direction: column; gap: 10px; align-items: flex-start; padding: 20px 8px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Studio Parkside logo, defined once and reused below -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sp-logo" viewBox="0 0 1499.4 151">
+    <g>
+      <path d="M150.6,23.6v19.5c0,.7-.6,1.2-1.2,1.2h-15.8v10.7h15.8c.7,0,1.2.6,1.2,1.2v66.6c0,19.2,8.2,26.1,31.5,26.1s17.3-.1,24.6-.4v-10.4h-10.3c-8.8,0-13.6-2.3-13.6-14.3l.2-67.6c0-.7.6-1.2,1.2-1.2h22.5v-10.7h-22.5c-.7,0-1.2-.6-1.2-1.2V11.7l-32.4,11.8Z"></path>
+      <path d="M320.9,148.7V44.3h-32.4v53.1c0,24.5-8.1,39.1-21.6,39.1s-16.2-3-16.2-22.9V44.3h-32.4v65.5c0,26,13.4,41,36.8,41s26.6-6.5,32.7-18.2c.3-.5.8-.8,1.4-.6.6.1,1,.6,1,1.2v15.6h30.7Z"></path>
+      <path d="M0,106.9c3.5,27.9,26.8,43.9,64.1,43.9s61.5-24.2,61.5-46.6-22.5-37-46.7-42.9l-18.3-4.4c-16.8-4-24.3-10.7-24.3-21.8s11.8-22.9,28.1-22.9,25.8,9.6,27,27.1h32.1C120.4,15.7,97.9,1.1,64.5,1.1S6.4,24.8,6.4,47.1s12.5,33.3,44.6,41.4l15.8,4c13.8,3.5,27.8,9.1,27.8,24.7s-12.2,22.5-30.4,22.5-30.2-11.6-31.4-32.8H0Z"></path>
+      <path d="M575,151c34.4,0,58.4-22.6,58.4-55s-24.6-54.2-58.4-54.2-58.4,18.6-58.4,54.2,24,55,58.4,55ZM575,51.5c20.7,0,23.1,25.4,23.1,44.5s-2.6,45.4-23.1,45.4-23.1-25.9-23.1-45.4,2.6-44.5,23.1-44.5Z"></path>
+      <rect x="468.5" width="33.6" height="26.5"></rect>
+      <rect x="469.1" y="44.3" width="32.4" height="104.4"></rect>
+      <path d="M414.3,56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7V0h-32.4v56.1ZM390.6,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"></path>
+    </g>
+    <g>
+      <path d="M1170.7,84.4l-10.9-2.7c-13.4-3.4-20.7-6.8-20.7-15.3s7.5-14.9,19.1-14.9,17.2,6.7,18.2,19.3h28.9c-2.5-17.9-20.4-29-47.1-29s-46.2,13.9-46.2,33.8,9.5,25.4,32.9,30.9l10.7,2.5c16.4,3.9,23.4,9.1,23.4,17.4s-8.1,15.1-21.2,15.1-19.7-8.3-20.5-22.9h-29.5c2.6,20.9,20.3,32.4,50.1,32.4s49.2-10.8,49.2-35.1-13.9-26-36.2-31.6Z"></path>
+      <path d="M955.2,92c0-15.8,6.5-23.5,19.9-23.5s9.9.5,15.8,1.3v-25.6c-2-.2-4.1-.3-5.9-.3-9.8,0-17,3.9-22.5,12.2-2.9,4.3-5.1,8.9-6.3,13.5-.2.6-.7,1-1.4.9-.6,0-1.1-.6-1.1-1.2v-25h-30.9v104.4h32.4v-56.7Z"></path>
+      <path d="M876.8,131.7c.5.1.9.6.9,1.1l.8,15.8h29.4l-.4-8.5c-.3-6.6-.6-10.6-.6-13.3l.2-42.6c0-12.7-3.4-22.7-10.3-29.7-8.2-8.3-21.4-12.5-39-12.5-26.2,0-46.2,13.4-49.2,32.8h29.9c.9-15,7.7-23.3,19.2-23.3s18,7.8,18,24.6v6.1c0,.6-.4,1.1-1,1.2l-19.7,3.4c-37.2,6.4-50.4,15.6-50.4,34.9s19.5,29.2,36.1,29.2,27.4-6.4,34.6-18.5c.3-.5.8-.7,1.4-.6ZM853.8,136.1c-10.3,0-17-7-17-17.8s11.6-21.4,37.7-23.7c.3,0,.7,0,1,.3.3.2.4.6.4.9v9.4c0,21.2-11.4,30.9-22,30.9Z"></path>
+      <path d="M1483.2,117c-4,13.3-14.8,21.2-29.1,21.2s-29.4-15.2-29.4-40.7.6-1.2,1.2-1.2h73.5v-3.2c0-30.1-22.4-51-54.4-51s-55,19-55,54.2,29.3,54.8,58.4,54.8,45.1-12.7,50.7-34h-16ZM1445,51.7c5,0,9.1,1.6,12.2,4.7,5.1,5.1,7.5,14.2,7.4,27.8,0,.7-.6,1.2-1.2,1.2h-37.4c-.3,0-.7-.1-.9-.4-.2-.2-.4-.6-.4-.9.4-21.6,7.3-32.5,20.4-32.5Z"></path>
+      <path d="M736.8,4.2h-50.8v144.5h35.1v-55.5c0-.7.6-1.2,1.2-1.2h14.5c30.7,0,67.2-7.7,67.2-44.5s-22.6-43.3-67.2-43.3ZM735.2,80.2h-12.8c-.7,0-1.2-.6-1.2-1.2V17.2c0-.7.6-1.2,1.2-1.2h12.8c20.1,0,31.7,11.6,31.7,31.7s-11.3,32.5-31.7,32.5Z"></path>
+      <rect x="1219.3" y="44.3" width="32.4" height="104.4"></rect>
+      <path d="M1377.9,148.7V0h-32.4v56.1c0,.5-.4,1-.9,1.2-.5.2-1.1,0-1.4-.5-7-9.8-17.7-14.8-32-14.8-28.6,0-47.1,21.2-47.1,54s18.1,55,47.3,55,26.2-6.4,33.4-18.5c.3-.5.9-.7,1.4-.6.5.1.9.6.9,1.2v15.6h30.7ZM1321.8,136.9c-14.8,0-22.2-13.8-22.2-40.9s7.4-39.9,22-39.9,24.6,16.4,24.6,39.9-10.2,40.9-24.4,40.9Z"></path>
+      <path d="M999.9,0v148.7h32.4v-38c0-.3.1-.7.4-.9l13.9-13c.3-.3.7-.4,1.1-.3.4,0,.7.3.9.7l24.7,51.6h35.7l-36.3-75.3c-.2-.5-.1-1.1.3-1.5l29.4-27.7h-18.2l-49.6,47.3c-.4.3-.9.4-1.4.2-.5-.2-.8-.6-.8-1.1V0h-32.4Z"></path>
+      <rect x="1218.6" width="33.6" height="26.5"></rect>
+    </g>
+  </symbol>
+</svg>
+
+<header class="siteheader">
+  <svg class="logo" role="img" aria-label="Studio Parkside"><use href="#sp-logo"></use></svg>
+  <div class="pill-group">
+    <span class="pill filled">Campminder</span>
+    <span class="pill light">Confidential</span>
+    <span class="pill light">Shared 8/19</span>
+  </div>
+</header>
+
+<main>
+<div class="stack">
+
+  <section class="card dark hero">
+    <h1>Campminder Fall Campaign Homepage</h1>
+    <p class="lede">This homepage concept is built on the territory for the fall campaign. The language, design, layout, and everything on the page are starting points only. After we review it, I'll put together a project brief to go alongside it for Groundwrk to build from.</p>
+  </section>
+
+  <section class="card windowcard">
+    <div class="window">
+      <div class="chrome">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <span class="url">campminder.com</span>
+        <span class="spacer"></span>
+      </div>
+      <div class="viewport" id="vp">
+        <iframe id="fr" src="index.html" title="Campminder homepage" scrolling="yes"></iframe>
+      </div>
+    </div>
+    <div class="windowfoot">
+      <a href="index.html" target="_blank" rel="noopener">Open full size &rarr;</a>
+    </div>
+  </section>
+
+  <section class="card notes">
+    <h2>Notes.</h2>
+    <div class="rows">
+      <div class="row">
+        <div class="row-num">01</div>
+        <div class="row-text"><strong>The page design builds on an editorial structure,</strong> with oversized headlines, hairline rules, and product screens shown with square edges. From a design perspective, the brand reads as established and trustworthy.</div>
+      </div>
+      <div class="row">
+        <div class="row-num">02</div>
+        <div class="row-text"><strong>Modular layout.</strong> Everything under the hero is a self-contained section. The order can change as we learn what performs, and what's on the page can change as new features are revealed.</div>
+      </div>
+      <div class="row">
+        <div class="row-num">03</div>
+        <div class="row-text"><strong>Fonts.</strong> Spezia Narrow is the display typeface. General Sans is used for reading copy and the product screens. Small labels and dates are Spezia SemiMono. These need to be licensed before launch.</div>
+      </div>
+      <div class="row">
+        <div class="row-num">04</div>
+        <div class="row-text"><strong>All copy is placeholder.</strong> It's here to show structure and length. Every headline, number, and date needs Campminder to confirm or correct it.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card seq">
+    <h2>Project sequence.</h2>
+    <div class="seqkey">
+      <span><span class="mk" style="color:var(--outline)">&#10003;</span>Complete</span>
+      <span><span class="mk" style="color:var(--accent)">&rarr;</span>On this page</span>
+      <span><span class="ring"></span>Ahead</span>
+    </div>
+    <div class="seqcols">
+      <div class="seqcol">
+        <h3>Message</h3>
+        <ul>
+          <li class="done"><span class="mk">&#10003;</span><span>Kickoff meeting</span></li>
+          <li class="done"><span class="mk">&#10003;</span><span>Working session</span></li>
+          <li class="done"><span class="mk">&#10003;</span><span>Competitive review</span></li>
+          <li class="done"><span class="mk">&#10003;</span><span>Positioning directions and recommendation</span></li>
+          <li class="done"><span class="mk">&#10003;</span><span>Message hierarchy</span></li>
+          <li class="done"><span class="mk">&#10003;</span><span>Channel map</span></li>
+          <li class="done"><span class="mk">&#10003;</span><span>Message cadence</span></li>
+        </ul>
+      </div>
+      <div class="seqcol">
+        <h3>Direction</h3>
+        <ul>
+          <li class="done"><span class="mk">&#10003;</span><span>Homepage narrative and sections</span></li>
+          <li class="now"><span class="mk">&rarr;</span><span>Homepage design concept</span></li>
+          <li class="ahead"><span class="mk"><span class="ring"></span></span><span>Creative brief for Groundwrk</span></li>
+        </ul>
+      </div>
+      <div class="seqcol">
+        <h3>Launch</h3>
+        <ul>
+          <li class="ahead"><span class="mk"><span class="ring"></span></span><span>Homepage creative direction</span></li>
+          <li class="ahead"><span class="mk"><span class="ring"></span></span><span>Design and copy review</span></li>
+          <li class="ahead"><span class="mk"><span class="ring"></span></span><span>Direction for email and social comms</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="botbar">
+    <svg class="logo" role="img" aria-label="Studio Parkside"><use href="#sp-logo"></use></svg>
+    <span>Studio Parkside for Campminder &middot; Fall Campaign &middot; Direction phase &middot; 2026</span>
+  </footer>
+
+</div>
+</main>
+
+<script>
+/* The window shows a true 1440 x 900 viewport, scaled to whatever width
+   the card gives it. Everything inside the frame stays at full size. */
+(function () {
+  var vp = document.getElementById('vp');
+  var fr = document.getElementById('fr');
+  var W = 1440, H = 900;
+  function fit() {
+    var w = vp.clientWidth;
+    var s = w / W;
+    fr.style.transform = 'scale(' + s + ')';
+    vp.style.height = Math.round(H * s) + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(vp);
+})();
+</script>
+
+</body></html>
