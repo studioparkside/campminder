@@ -300,29 +300,6 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
 .brick .ui { margin-top: 18px; flex: 1; }
 .storylink { margin-top: 36px; }
 
-/* ═══ CROP v1 — real product UI, bled to the edge ═══
-   A crop window that clips a real screenshot at the brick edge, so the shot
-   reads as a window onto a larger product rather than a framed picture. No
-   device chrome, no shadow, no rounded card around the shot. The brick's own
-   overflow:hidden and border-radius do the clipping.
-
-   Each image is positioned in raw pixels: width sets the zoom, left and top
-   set the pan. Nudging a crop is a two number change and nothing else moves.
-   Negative margin is 25px, which is the brick's 24px padding plus its 1px
-   border, so the crop lands flush on the edge. */
-.crop { position: relative; overflow: hidden; flex: 1;
-  margin: 18px -25px -25px -25px; background: var(--ui-bg);
-  border-top: 1px solid var(--rule); }
-.crop img { position: absolute; display: block; max-width: none; border: 0; }
-
-/* Same crop window inside the record section, where the shot sits centered on
-   a card instead of bleeding. Fixed size, matching the retired .ui panel. */
-.shot .crop { flex: none; width: 443px; height: 274px; margin: 0;
-  border: 1px solid var(--rule); border-radius: 0; }
-
-/* Roles panels. Same window, sized inline to the panel it replaces. */
-.panels .crop { flex: none; margin: 0; border: 1px solid var(--rule); border-radius: 0; }
-
 /* ═══════════ 06 TEAM ═══════════ */
 .team { background: url("img/grad-team.jpg") center / cover no-repeat; border-bottom: 1px solid var(--rule); }
 .team .shead { border-bottom: 1px solid rgba(39,6,92,0.26); }
@@ -673,16 +650,30 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
         <h3>Registration</h3>
         <p class="bsub">Every kid, one pass.</p>
         <span class="since">since 2000</span>
-        <div class="crop">
-          <img src="img/erica/Registration-parent-desktop-1.png" style="width:1601px;left:-600px;top:-520px" alt="Adding returning campers to a summer 2027 registration">
+        <div class="ui">
+          <div class="ubar"><span class="ut">Registration</span><span class="us">sessions filling</span></div>
+          <div class="ub">
+            <span class="sk line acc" style="width:27%"></span>
+            <span class="sk line" style="width:64%"></span>
+            <div class="bars anim" style="min-height:198px">
+              <i style="height:48%"></i><i style="height:68%"></i><i style="height:56%"></i><i style="height:86%"></i><i style="height:64%"></i><i style="height:100%"></i>
+            </div>
+          </div>
         </div>
       </div>
       <div class="brick" style="width:388px;height:388px">
         <h3>Staffing</h3>
         <p class="bsub">Hiring to onboarding.</p>
         <span class="since">since 2007</span>
-        <div class="crop">
-          <img src="img/erica/Staffing-Hirning.png" style="width:911px;left:-56px;top:-288px" alt="Applicants moving through the staff hiring board">
+        <div class="ui">
+          <div class="ubar"><span class="ut">Staffing</span></div>
+          <div class="ub">
+            <span class="sk line acc" style="width:43%"></span>
+            <span class="sk line" style="width:75%"></span>
+            <span class="sk line" style="width:59%"></span>
+            <span class="sk" style="height:70px"></span>
+            <span class="sk line" style="width:50%"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -692,29 +683,38 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
         <h3>Health <span class="pl">+</span> medical</h3>
         <p class="bsub">Records and daily logs.</p>
         <span class="since">since 2004</span>
-        <!-- Health Center is the older UI generation. See the note in the
-             session log before this page goes to Campminder. -->
-        <div class="crop">
-          <img src="img/erica/Health%20Center%20Log@2x.png" style="width:790px;left:-23px;top:-58px" alt="A camper's health center log">
+        <div class="ui">
+          <div class="ubar"><span class="ut">Health</span></div>
+          <div class="ub anim-lines">
+            <span class="sk line" style="width:71%"></span>
+            <span class="sk line acc" style="width:53%"></span>
+            <span class="sk line" style="width:61%"></span>
+          </div>
         </div>
       </div>
       <div class="brick" style="width:389px;height:254px">
         <h3>Transportation</h3>
         <p class="bsub">Routes and rosters.</p>
         <span class="since">since 2011</span>
-        <div class="crop">
-          <img src="img/erica/Transportation-desktop@2x.png" style="width:667px;left:-218px;top:-121px" alt="Campers checked in by stop on the bus 2 route">
+        <div class="ui">
+          <div class="ubar"><span class="ut">Routes</span></div>
+          <div class="ub">
+            <span class="sk" style="height:50px"></span>
+            <span class="sk line" style="width:59%"></span>
+          </div>
         </div>
       </div>
       <div class="brick" style="width:390px;height:254px">
         <h3>Groups <span class="pl">+</span> cabins</h3>
         <p class="bsub">Assignments that work.</p>
         <span class="since">since 2003</span>
-        <!-- Nothing in Erica's set is camper cabins. This is the group fill
-             panel off the staff placement screen, which is the closest thing
-             she sent. Ask her for a cabin assignment screen. -->
-        <div class="crop">
-          <img src="img/erica/Staffing-Placement.png" style="width:1200px;left:-845px;top:-328px" alt="Groups filling toward their positions">
+        <div class="ui">
+          <div class="ubar"><span class="ut">Cabins</span></div>
+          <div class="ub anim-lines">
+            <span class="sk line" style="width:66%"></span>
+            <span class="sk line" style="width:80%"></span>
+            <span class="sk line acc" style="width:44%"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -724,16 +724,26 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
         <h3>Billing <span class="pl">+</span> payments</h3>
         <p class="bsub">The business side.</p>
         <span class="since">since 2001</span>
-        <div class="crop">
-          <img src="img/erica/Billing@2x.png" style="width:919px;left:-288px;top:-82px" alt="Creating invoices for a billing period">
+        <div class="ui">
+          <div class="ubar"><span class="ut">Ledger</span></div>
+          <div class="ub">
+            <div class="bars anim" style="min-height:100px">
+              <i style="height:54%"></i><i style="height:78%"></i><i class="lt" style="height:64%"></i><i style="height:100%"></i>
+            </div>
+          </div>
         </div>
       </div>
       <div class="brick" style="width:591px;height:254px">
         <h3>Communication</h3>
         <p class="bsub">Families, kept close.</p>
         <span class="since">since 2002</span>
-        <div class="crop">
-          <img src="img/erica/Broadcasts%20for%20comms@2x.png" style="width:1103px;left:-412px;top:-149px" alt="A text going out to families about a late bus">
+        <div class="ui">
+          <div class="ubar"><span class="ut">Broadcasts</span></div>
+          <div class="ub anim-lines">
+            <span class="sk line acc" style="width:34%"></span>
+            <span class="sk line" style="width:71%"></span>
+            <span class="sk line" style="width:58%"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -743,27 +753,38 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
         <h3>Reporting</h3>
         <p class="bsub">Answers on demand.</p>
         <span class="since">since 2005</span>
-        <div class="crop">
-          <img src="img/erica/Reporting-landing@2x.png" style="width:724px;left:-98px;top:-196px" alt="The report library, financial and accounts">
+        <div class="ui">
+          <div class="ubar"><span class="ut">Reports</span></div>
+          <div class="ub">
+            <div class="bars anim" style="min-height:100px">
+              <i class="lt" style="height:55%"></i><i style="height:80%"></i><i class="lt" style="height:66%"></i><i style="height:100%"></i><i style="height:86%"></i>
+            </div>
+          </div>
         </div>
       </div>
       <div class="brick" style="width:389px;height:254px">
         <h3>Lead capture</h3>
         <p class="bsub">Next season&rsquo;s families.</p>
         <span class="since">since 2014</span>
-        <div class="crop">
-          <img src="img/erica/Lead-Capture@2x.png" style="width:399px;left:-15px;top:-15px" alt="Next season's leads and where each one came from">
+        <div class="ui">
+          <div class="ubar"><span class="ut">Leads</span></div>
+          <div class="ub anim-lines">
+            <span class="sk line" style="width:75%"></span>
+            <span class="sk line acc" style="width:52%"></span>
+            <span class="sk line" style="width:64%"></span>
+          </div>
         </div>
       </div>
       <div class="brick" style="width:390px;height:254px">
         <h3>The off-season</h3>
         <p class="bsub">Rentals and retreats.</p>
         <span class="since">since 2018</span>
-        <!-- The rentals file is the Gazebo product and arrives inside a laptop
-             mockup. This crops inside the screen so no device shows, but the
-             chrome and the color are not Campminder's. -->
-        <div class="crop">
-          <img src="img/erica/Rentals@2x.png" style="width:820px;left:-369px;top:-146px" alt="Off-season rentals booked across the calendar">
+        <div class="ui">
+          <div class="ubar"><span class="ut">Rentals</span></div>
+          <div class="ub">
+            <span class="sk" style="height:42px"></span>
+            <span class="sk line" style="width:57%"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -831,11 +852,22 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
           <p class="rsub">See your whole season in one view.</p>
         </div>
         <div class="panels">
-          <div class="crop" style="width:275px;height:212px">
-            <img src="img/erica/Season%20View%20Reporting@2x.png" style="width:386px;left:-60px;top:-140px" alt="Five seasons of enrollment, side by side">
+          <div class="ui" style="width:275px;height:212px">
+            <div class="ubar"><span class="ut">Season view</span></div>
+            <div class="ub anim-lines">
+              <span class="sk line acc" style="width:67%"></span>
+              <span class="sk line" style="width:100%"></span>
+              <span class="sk line" style="width:89%"></span>
+              <span class="sk" style="height:36px"></span>
+            </div>
           </div>
-          <div class="crop" style="width:275px;height:198px">
-            <img src="img/erica/Reporting-details@2x.png" style="width:619px;left:-14px;top:-74px" alt="A report of the health forms still missing">
+          <div class="ui" style="width:275px;height:198px">
+            <div class="ubar"><span class="ut">Reporting</span></div>
+            <div class="ub">
+              <span class="sk" style="height:44px"></span>
+              <span class="sk line" style="width:83%"></span>
+              <span class="sk line acc" style="width:49%"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -850,10 +882,14 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
           <p class="rsub">Every family. One thread.</p>
         </div>
         <div class="panels">
-          <!-- Email here, text in the collage brick, so the two comms screens
-               do not repeat each other. -->
-          <div class="crop" style="width:566px;height:216px">
-            <img src="img/erica/Communication-Emails@2x.png" style="width:935px;left:-293px;top:-293px" alt="Building a camper pickup update for families">
+          <div class="ui" style="width:566px;height:216px">
+            <div class="ubar"><span class="ut">Broadcasts</span><span class="us">all families</span></div>
+            <div class="ub anim-lines">
+              <span class="sk line acc" style="width:38%"></span>
+              <span class="sk line" style="width:73%"></span>
+              <span class="sk line" style="width:61%"></span>
+              <span class="sk" style="height:40px"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -868,13 +904,22 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
           <p class="rsub">Billing that closes itself out.</p>
         </div>
         <div class="panels">
-          <!-- Both finance files are the older UI and carry seed data. These
-               crops avoid the rows named 2_test and 3_Test2. -->
-          <div class="crop" style="width:275px;height:212px">
-            <img src="img/erica/Ledger%20and%20Payment%20for%20finance-2@2x.png" style="width:631px;left:-230px;top:-262px" alt="A family ledger down to the balance">
+          <div class="ui" style="width:275px;height:212px">
+            <div class="ubar"><span class="ut">Ledger</span></div>
+            <div class="ub anim-lines">
+              <span class="sk line acc" style="width:58%"></span>
+              <span class="sk line" style="width:100%"></span>
+              <span class="sk line" style="width:85%"></span>
+              <span class="sk" style="height:36px"></span>
+            </div>
           </div>
-          <div class="crop" style="width:275px;height:198px">
-            <img src="img/erica/Ledger%20and%20Payment%20for%20finance-1@2x.png" style="width:777px;left:-82px;top:-413px" alt="Campers pulled into a batch transaction by session">
+          <div class="ui" style="width:275px;height:198px">
+            <div class="ubar"><span class="ut">Payments</span></div>
+            <div class="ub">
+              <span class="sk" style="height:44px"></span>
+              <span class="sk line" style="width:74%"></span>
+              <span class="sk line acc" style="width:45%"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -1175,18 +1220,28 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
         <div class="unit">Camper applications processed</div>
       </div>
       <div class="shot" style="height:463px">
-        <!-- The sessions step, not the Add Campers step, so this and the
-             collage brick do not read as the same picture twice. -->
-        <div class="crop">
-          <img src="img/erica/new-desktop-registration-parent-sessions@2x.png" style="width:884px;left:-378px;top:-295px" alt="Picking sessions and seeing the price as you go">
+        <div class="ui" style="height:274px">
+          <div class="ubar"><span class="ut">Registration</span><span class="us">Session A</span></div>
+          <div class="ub">
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag" style="color:var(--accent);border-color:rgba(119,61,189,0.34)">Enrolled</span></div>
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag" style="color:var(--accent);border-color:rgba(119,61,189,0.34)">Enrolled</span></div>
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag plain">Waitlist</span></div>
+            <span class="sk" style="flex:1;min-height:80px"></span>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="rpair">
       <div class="shot" style="height:437px">
-        <div class="crop">
-          <img src="img/erica/Staff-Pipelines@2x.png" style="width:833px;left:-59px;top:-159px" alt="Applicant counts across every hiring pipeline">
+        <div class="ui" style="height:274px">
+          <div class="ubar"><span class="ut">Staffing</span><span class="us">pipeline</span></div>
+          <div class="ub">
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag" style="color:var(--accent);border-color:rgba(119,61,189,0.34)">Hired</span></div>
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag plain">Offer out</span></div>
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag plain">Interview</span></div>
+            <span class="sk" style="flex:1;min-height:80px"></span>
+          </div>
         </div>
       </div>
       <div class="claim light" style="height:437px;background-image:url('img/rec-staff.jpg')">
@@ -1207,17 +1262,27 @@ h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink
         <div class="unit">Medications administered last summer</div>
       </div>
       <div class="shot" style="height:437px">
-        <!-- Older UI generation, same note as the Health brick in the collage. -->
-        <div class="crop">
-          <img src="img/erica/Health%20Center%20eMAR%20-%20all%20campers.png" style="width:503px;left:-30px;top:-133px" alt="The day's medications, camper by camper">
+        <div class="ui" style="height:274px">
+          <div class="ubar"><span class="ut">Health</span><span class="us">Today</span></div>
+          <div class="ub">
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag plain">8:00am</span></div>
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag plain">12:00pm</span></div>
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag plain">6:00pm</span></div>
+            <span class="sk" style="flex:1;min-height:80px"></span>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="rpair" style="margin-bottom:0">
       <div class="shot" style="height:437px">
-        <div class="crop">
-          <img src="img/erica/campanion-photos@2x.png" style="width:443px;left:0px;top:-236px" alt="Photos of one camper, found by face and tagged">
+        <div class="ui" style="height:263px">
+          <div class="ubar"><span class="ut">Campanion</span><span class="us">family view</span></div>
+          <div class="ub">
+            <span class="sk" style="flex:1;min-height:100px"></span>
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag" style="color:var(--accent);border-color:rgba(119,61,189,0.34)">Photos</span></div>
+            <div class="urow"><span class="av"></span><span class="sk line"></span><span class="tag plain">Forms</span></div>
+          </div>
         </div>
       </div>
       <div class="claim light" style="height:437px;background-image:url('img/rec-family.jpg')">

@@ -205,6 +205,23 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
 .section-body p:last-child { margin-bottom: 0; }
 .section-body p strong { font-weight: 650; }
 
+/* ---------- Opening statement, the letter treatment from the proposals.
+   Sits above the first label and hands off to it across a hairline. ---------- */
+.opening p {
+  font-size: clamp(21px, 2.2vw, 24px);
+  line-height: 1.55;
+  max-width: 52ch;
+  letter-spacing: -0.014em;
+}
+.sub-rule {
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  margin: 40px 0 32px;
+  max-width: 64ch;
+}
+/* The rule already sets the gap, so the label under it does not add its own. */
+.section-body .sub-rule + .label { margin-top: 0; }
+
 /* ---------- Label, sentence case at reading size ---------- */
 .label {
   font-size: 22px;
@@ -416,6 +433,34 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
   aspect-ratio: 16 / 11;
   min-height: 360px;
 }
+/* ---------- Homepage preview, the same window-card component used on
+   the homepage's own preview shell, so it looks the same in either
+   place. ---------- */
+.windowcard { padding: 0; }
+.window { border: 1px solid var(--outline); border-radius: 20px; overflow: hidden; background: #0d0a16; }
+.chrome {
+  height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 14px;
+  background: #F6F7F8; border-bottom: 1px solid var(--outline);
+}
+.chrome .dots { display: flex; gap: 7px; }
+.chrome .dots i { width: 10px; height: 10px; border-radius: 50%; background: #DDE0E3; display: block; }
+.chrome .url {
+  margin: 0 auto; font-size: 12.5px; font-weight: 500; color: var(--ink-soft); letter-spacing: -0.004em;
+  background: var(--paper); border: 1px solid var(--outline); border-radius: 999px; padding: 4px 18px 3px;
+}
+.chrome .spacer { width: 47px; }
+.viewport { position: relative; overflow: hidden; background: #0d0a16; min-height: 360px; }
+.viewport iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0;
+  transform-origin: top left; }
+.windowfoot { display: flex; justify-content: flex-end; padding: 16px 2px 0; font-size: 16.5px; }
+.windowfoot a {
+  display: inline-flex; align-items: center; gap: 8px; color: var(--ink); text-decoration: none;
+  font-weight: 600; letter-spacing: -0.006em; border-bottom: 1px solid var(--outline);
+  padding-bottom: 3px; transition: border-color 140ms ease;
+}
+.windowfoot a:hover { border-bottom-color: var(--ink); }
+.windowfoot svg { width: 12px; height: 12px; flex: none; transition: transform 140ms ease; }
+.windowfoot a:hover svg { transform: translate(2px, -2px); }
 .frame-note {
   font-size: 13.5px; font-weight: 600; color: var(--dark-low);
   padding: 14px 20px; background: var(--dark-2); text-align: right;
@@ -448,6 +493,8 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
     border-top: 1px solid var(--hairline-light);
   }
   .toc a { font-size: 13.5px; padding: 9px 0 8px; }
+  .opening p { font-size: 19.5px; }
+  .sub-rule { margin: 32px 0 26px; }
   .label { font-size: 19.5px; }
   .section-body .label { margin-top: 36px; }
   .duo { grid-template-columns: 1fr; gap: 8px; }
@@ -528,25 +575,27 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
       <div class="rail-number">01</div>
       <div class="section-body">
         <h2>Fall Campaign</h2>
-        <p>This is a communication brief for the new Campminder homepage at campminder.com.</p>
-        <p>The presentation concept is designed to mostly work inside the existing site. Same shell, same navigation, same interior pages.</p>
-        <p>The page presentation isn’t final. We're open to your perspective and want to produce the best homepage possible, even if it looks and feels different from this concept.</p>
+        <div class="opening">
+          <p>This is a communication brief for the new Campminder homepage at campminder.com.</p>
+          <p>The presentation concept is designed to mostly work inside the existing site. Same shell, same navigation, same interior pages.</p>
+          <p>The page presentation isn’t final. We're open to your perspective and want to produce the best homepage possible, even if it looks and feels different from this concept.</p>
+        </div>
 
-        <div class="label"><span class="lnum">01-01</span>The handoff</div>
-        <p>I took Campminder through strategy to set the direction for the fall campaign. That work produced the working session, the territory, a homepage wireframe, and the design concept in 03.</p>
+        <hr class="sub-rule">
+
+        <div class="label"><span class="lnum">01-01</span>Context</div>
+        <p>I took Campminder through strategy to set the direction for the fall campaign. That work produced the working session, the territory, a homepage wireframe, and the design concept in section 03.</p>
         <p>The campaign covers more than the homepage. Groundwrk takes the page from here, and I'll be in the meetings as a consultant to Campminder.</p>
 
-        <div class="label"><span class="lnum">01-02</span>Context</div>
+        <div class="label"><span class="lnum">01-02</span>Background</div>
         <p>The homepage has stayed static for a while. This fall, Campminder is shipping a host of new product features, including a new Registration flow, Campminder Intelligence, and the Ask Camp assistant inside Campanion.</p>
 
         <div class="label"><span class="lnum">01-03</span>Pressure</div>
-        <div class="rows">
-          <div class="row"><div class="row-num">01-03-A</div><div class="row-text"><strong>Momentum.</strong> Campfront is a newer competitor that publishes constantly and reads as software built for a younger generation of camp directors.</div></div>
-          <div class="row"><div class="row-num">01-03-B</div><div class="row-text"><strong>Trust.</strong> Around 1,700 camps run on Campminder, most of them for years. That record is the strongest asset the page has and the hardest one for a newer platform to answer. We're only including content about live features that can be accessed today. We don't want to make any promises about future updates that haven't materialized.</div></div>
-        </div>
+        <p><strong>Momentum.</strong> Campfront is a newer competitor that publishes constantly and reads as software built for a younger generation of camp directors.</p>
+        <p><strong>Trust.</strong> Around 1,700 camps run on Campminder, most of them for years. That record is the strongest asset the page has and the hardest one for a newer platform to answer. We're only including content about live features that can be accessed today. We don't want to make any promises about future updates that haven't materialized.</p>
 
         <div class="label"><span class="lnum">01-04</span>Audience</div>
-        <p>Visitors to the Campminder website are typically camps shopping for a platform, and existing customers on their way to log in. The page works for both or it doesn’t work.</p>
+        <p>Visitors to the Campminder website are typically camps shopping for a platform, and existing customers on their way to log in.</p>
       </div>
     </div>
   </section>
@@ -560,13 +609,14 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
 
         <p>The territory is the conceptual foundation for every piece of communication in the campaign. It extends through the homepage, the sales conversation, the emails, and the social posts, so all of them tell one story.</p>
         <p>This territory says that Campminder is one comprehensive platform covering every role at a camp, with the people and the intelligence behind it.</p>
+        <p>Unpack possible is the tagline for the campaign. Every claim and every statement should ladder up to that phrase.</p>
 
         <div class="copycard">
           <h3>One for all.</h3>
           <p class="cc-sub">One platform for everyone your camp connects to.</p>
           <p class="copy">Directors fill their camp. Staff get hired and show up ready. Parents register every kid in one pass. Registration, staffing, health, communication, and the business behind it all, with Campminder Intelligence running underneath and a camp success team that has your back.</p>
           <p class="cc-close">Take the tour, or we’ll walk you through it.</p>
-          <p class="cc-tagrow"><span class="tagline">Unpack possible.</span><span class="pill filled">Book a demo</span></p>
+          <p class="cc-tagrow"><span class="tagline">Unpack possible.</span></p>
         </div>
 
         <div class="label">Hierarchy</div>
@@ -625,10 +675,20 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
         <h2>Homepage</h2>
         <p>Everything under the hero is modular, so the order can change as we learn which features matter most.</p>
 
-        <div class="frame">
-          <div class="frame-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">campminder.com</span></div>
-          <div class="wire placeholder"></div>
-          <div class="frame-note">Concept only. Not final.</div>
+        <div class="windowcard">
+          <div class="window">
+            <div class="chrome">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <span class="url">campminder.com</span>
+              <span class="spacer"></span>
+            </div>
+            <div class="viewport" id="hpwrap">
+              <iframe id="hpframe" src="../homepage/index.html" title="Campminder homepage concept" scrolling="yes"></iframe>
+            </div>
+          </div>
+          <div class="windowfoot">
+            <a href="../homepage/index.html" target="_blank" rel="noopener">Open the homepage on its own <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
         </div>
       </div>
     </div>
@@ -756,6 +816,25 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
 </div>
 </main>
 
-
+<script>
+/* Scales the embedded homepage preview to the card width, same technique
+   as the old homepage review shell. The iframe holds a true 1440 x 900
+   viewport and scrolls inside its own frame. */
+(function () {
+  var wrap = document.getElementById('hpwrap');
+  var frame = document.getElementById('hpframe');
+  if (!wrap || !frame) return;
+  var W = 1440, H = 900;
+  function fit() {
+    var w = wrap.clientWidth;
+    var s = w / W;
+    frame.style.transform = 'scale(' + s + ')';
+    wrap.style.height = Math.round(H * s) + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(wrap);
+})();
+</script>
 
 </body></html>
