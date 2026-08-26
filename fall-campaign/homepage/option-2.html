@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Campminder Homepage — Option 2</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage, option 2
+   Gradient hero, platform first. The dashboard opens the page so the
+   range of the product is the first thing anyone sees.
+
+   Hero only. Everything below this section is the same page as
+   homepage.html, so it is not repeated here.
+
+   Fixed 1440 canvas, built to run inside the window card on index.html.
+   Studio Parkside, August 2026
+   ⚠ Every date and every number on the dashboard is product data from
+   the enrollment dashboard prototype, standing in for a screenshot.
+───────────────────────────────────────────── */
+
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Regular.woff2") format("woff2"); font-weight:400; font-display:block; }
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Semibold.woff2") format("woff2"); font-weight:600; font-display:block; }
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Bold.woff2") format("woff2"); font-weight:700; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-display:block; }
+
+:root {
+  --sans: "General Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --disp: "Spezia Narrow", "General Sans", sans-serif;
+  --canvas: #0d0a16;
+  --ink: #ffffff;
+  --body: #e7e3f0;
+  --mid: #a79cbd;
+  --hair: rgba(255,255,255,0.10);
+  --dark: #27065c;
+  --pad: 34px;
+  --rgut: 210px;
+  --radius: 20px;
+  --radius-pill: 999px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--canvas); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+img, svg { display: block; }
+a { text-decoration: none; color: inherit; }
+
+.hp { width: 1440px; margin: 0 auto; position: relative; background: var(--canvas);
+  font-family: var(--sans); color: var(--body); font-size: 16.5px; line-height: 1.58; }
+h1 { font-family: var(--disp); font-weight: 700; color: var(--ink); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; font-size: 14.5px;
+  font-weight: 500; letter-spacing: -0.005em; white-space: nowrap; border: 1px solid transparent;
+  border-radius: var(--radius-pill); }
+.btn.solid { background: #fff; color: #14101f; }
+.btn.line { background: rgba(255,255,255,0.10); color: #fff; border-color: rgba(255,255,255,0.46); }
+
+/* ═══════════ NAV ═══════════ */
+.nav { height: 70px; display: flex; align-items: center; padding: 0 24px 0 var(--pad);
+  border-bottom: 1px solid var(--hair); position: relative; z-index: 40; }
+.nav .mark { width: 135px; }
+.nav .links { display: flex; gap: 30px; margin-left: 30px; }
+.nav .links a, .nav .login { font-size: 14.5px; font-weight: 500; letter-spacing: -0.005em; color: var(--mid); }
+.nav .right { margin-left: auto; display: flex; align-items: center; gap: 30px; }
+.nav .btn { height: 39px; padding: 0 20px; }
+
+/* ═══════════ STICKY RAIL ═══════════
+   Same rail as the homepage. Sharp corners, on purpose. */
+.railgutter { position: absolute; top: 70px; right: 0; bottom: 0; width: var(--rgut);
+  z-index: 30; pointer-events: none; }
+.railsq { position: sticky; top: 0; pointer-events: auto; width: var(--rgut);
+  background: var(--dark); display: flex; flex-direction: column; align-items: stretch;
+  padding: 30px 20px 22px; gap: 22px; }
+.railsq .rtag { width: 132px; display: block; margin: 0 auto; }
+.railsq .rdemo { display: flex; align-items: center; justify-content: center; height: 44px;
+  margin-top: auto; background: #fff; color: var(--dark); font-size: 14px; font-weight: 600;
+  letter-spacing: -0.012em; border-radius: var(--radius-pill); }
+
+/* ═══════════ HERO ═══════════
+   The gradient runs indigo on the left into crimson at the top right,
+   then falls to the canvas about two thirds down, so the dashboard
+   crosses the edge between the two. */
+.hero2 { position: relative; height: 1710px; overflow: hidden; }
+.hero2 .g2 { position: absolute; left: 0; right: 0; top: 0; height: 1000px; z-index: 0;
+  background:
+    radial-gradient(118% 88% at 100% 0%,
+      rgba(162,2,50,0.98) 0%, rgba(118,1,52,0.60) 30%, rgba(62,1,58,0.12) 62%, rgba(30,1,60,0) 80%),
+    linear-gradient(180deg, #0a0148 0%, #16014f 22%, #1c0156 44%, #1d0157 58%,
+      #160143 78%, #050017 92%, #0d0a16 100%); }
+
+.hero2 h1 { position: absolute; left: 0; right: 0; top: 62px; z-index: 3; text-align: center;
+  font-size: 200px; line-height: 0.86; letter-spacing: -0.052em; }
+.hero2 .lede { position: absolute; left: 0; right: 0; top: 290px; z-index: 3; text-align: center;
+  font-size: 36px; font-weight: 700; line-height: 1.2; letter-spacing: -0.014em; color: #fff; }
+.hero2 .body { position: absolute; left: 0; right: 0; top: 429px; z-index: 3; text-align: center;
+  font-size: 24px; font-weight: 700; line-height: 1.34; color: rgba(255,255,255,0.90); }
+.hero2 .ctas { position: absolute; left: 0; right: 0; top: 527px; z-index: 3;
+  display: flex; gap: 12px; justify-content: center; }
+.hero2 .ctas .btn { height: 45px; padding: 0 26px; }
+
+/* The dashboard, at the width it was drawn. It sits half on the gradient
+   and half on the canvas. */
+/* No shadow, same as option 3. The card sits flat on the gradient. */
+.hero2 .dash { position: absolute; left: 105px; top: 639px; width: 1230px; z-index: 3;
+  border-radius: var(--radius); overflow: hidden; }
+.hero2 .dash img { width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<div class="hp">
+
+  <!-- ═══ the sticky rail ═══ -->
+  <div class="railgutter">
+    <aside class="railsq">
+      <img class="rtag" src="img/unpack-possible-white.svg" alt="Unpack possible">
+      <a class="rdemo" href="#">Book a demo</a>
+    </aside>
+  </div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav">
+    <img class="mark" src="img/campminder-logo-white.svg" alt="Campminder">
+    <div class="links">
+      <a href="#">Features</a><a href="#">Solutions</a><a href="#">Demo</a><a href="#">Company</a>
+    </div>
+    <div class="right">
+      <a class="login" href="#">Log in</a>
+      <a class="btn solid" href="#">Book a demo</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero2">
+    <div class="g2"></div>
+    <h1>One for all.</h1>
+    <p class="lede">The trusted platform for<br>everyone at your camp.</p>
+    <p class="body">Registration, staffing, health, communication,<br>and the business behind it all.</p>
+    <div class="ctas">
+      <a class="btn solid" href="#">Book a demo</a>
+      <a class="btn line" href="#">See the platform</a>
+    </div>
+    <div class="dash">
+      <img src="img/shot-enrollment-dashboard.png" alt="Enrollment dashboard, Campminder Intelligence">
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

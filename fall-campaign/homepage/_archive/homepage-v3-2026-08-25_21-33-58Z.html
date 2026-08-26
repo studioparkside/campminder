@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Homepage — Campminder Fall Campaign</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage, v3
+   Revised from the 8/20 review with Paul and Snug. v1 is archived at
+   _archive/homepage-v1-2026-08-23_14-24-57Z.html, v2 at
+   _archive/homepage-v2-pre-campanion-edits-2026-08-23_22-29-57Z.html.
+
+   What changed in v3:
+     1. Hero photo zoomed past the mountains. The crop starts below the
+        ridgeline, so the top of the frame is forest.
+     2. Hero product screen is smaller and pulled in off the bottom edge
+        and the rail. Both dashboard screenshots carry drop shadows.
+     3. The Intelligence screenshot sits inside a panel with padding
+        around it rather than running to the edge of its cell.
+     4. Campanion section is larger and built entirely from vertical
+        phone screens. The parent facing flows run five across, and the
+        Ask Camp answers below are phones too. See .phone.
+     5. The competitor comparison line is out of the Campanion copy.
+
+   What changed from v1:
+     1. Rounded corners on every inset card, panel, button, and tag.
+        Full-bleed sections (hero photo, team band, close, Campanion
+        background) stay edge to edge and square, on purpose.
+     2. The sticky rail keeps its sharp corners on purpose — Michael's
+        call to leave "the square" alone for now — but it's now a slim
+        column: no "Built in Boulder, Colorado" line, no Log in link,
+        sized to just fit the Unpack Possible lockup.
+     3. Campanion section reframed to lead with the app itself (trust
+        proof + features), Ask Camp comes after. Renamed .askcamp to
+        .companion throughout.
+     4. Intelligence section's right side is now a single Camper
+        Loyalty panel, standing in for the real dashboard screenshot,
+        in place of the old Staffing / Health / Finance three-up.
+     5. Hero product panel rebuilt to match the real Enrollment card
+        (stat + trend), not the old generic bar-chart skeleton.
+     6. Logos section headline reverts to "A few of our Campminded
+        friends." Right-side note rewritten toward decades-long
+        partnerships per Paul's note, not the single-camp trivia fact.
+     7. Footer unchanged — Snug liked it as it already was.
+     8. Campanion trust stat unified to Paul's language: 37,000 App
+        Store reviews, 4.9 stars.
+     9. A hero toggle (Photo / Gradient) is bolted on for this review
+        round only. See PARKSIDE HERO TOGGLE v1 below — strip this
+        whole block, and the .hero-gradient markup, once Michael and
+        Campminder pick one.
+
+   Two things Figma cannot carry, both preserved from Alternate I:
+     1. PARKSIDE MOTION LAYER v1, reattached to the product UI.
+     2. The square rail, sticky in the reserved right gutter for the
+        whole length of the page.
+
+   Fixed 1440 canvas. This page is designed to be viewed inside the
+   window card on the Parkside preview page, or on its own at 1440.
+
+   Studio Parkside, August 2026
+   ⚠ EVERY DATE AND EVERY NUMBER IS A PLACEHOLDER pending Campminder.
+   The Camper Loyalty and Enrollment panels reuse real figures from the
+   enrollment dashboard prototype (campminder-ui.vercel.app) as stand-
+   ins for the real screenshots landing 8/24 — those are the one
+   exception to "everything is invented," since they're a product
+   screenshot, not a marketing claim.
+───────────────────────────────────────────── */
+
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Regular.woff2") format("woff2"); font-weight:400; font-display:block; }
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Semibold.woff2") format("woff2"); font-weight:600; font-display:block; }
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Bold.woff2") format("woff2"); font-weight:700; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_SemiBold.woff2") format("woff2"); font-weight:600; font-display:block; }
+@font-face { font-family:"Spezia Narrow"; src:url("fonts/SpeziaNarrowWeb_TEST-FONT_Bold.woff2") format("woff2"); font-weight:700; font-display:block; }
+@font-face { font-family:"Spezia SemiMono"; src:url("fonts/SpeziaSemiMonoWeb_TEST-FONT_Regular.woff2") format("woff2"); font-weight:400; font-display:block; }
+@font-face { font-family:"Spezia SemiMono"; src:url("fonts/SpeziaSemiMonoWeb_TEST-FONT_Medium.woff2") format("woff2"); font-weight:500; font-display:block; }
+
+:root {
+  --sans: "General Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --disp: "Spezia Narrow", "General Sans", sans-serif;
+  --mono: "Spezia SemiMono", "General Sans", sans-serif;
+
+  --canvas: #0d0a16;
+  --card: #120e1f;
+  --card-2: #171227;
+  --ink: #ffffff;
+  --body: #e7e3f0;
+  --mid: #a79cbd;
+  --light: #786d92;
+  --rule: rgba(255,255,255,0.16);
+  --hair: rgba(255,255,255,0.10);
+  --accent: #773dbd;
+  --accent-2: #a87be0;
+  --accent-line: rgba(168,123,224,0.42);
+  --dark: #27065c;
+  --dark-accent: #c9a9f2;
+
+  /* light product UI */
+  --ui-bg: #ffffff;
+  --ui-bar: #f6f4fa;
+  --ui-line: #e5e1ee;
+  --ui-sk: #e9e6f2;
+  --ui-ink: #17121f;
+  --ui-mid: #6d6683;
+
+  --pad: 34px;      /* page inset */
+  --rgut: 210px;    /* gutter reserved for the sticky rail, slimmed in v2 */
+  --kcol: 186px;    /* kicker column on every section head */
+
+  /* v2: rounded corners. The rail keeps sharp corners on purpose —
+     everything else that reads as a card, panel, button, or tag rounds.
+     Full-bleed photo sections stay square. */
+  --radius: 20px;
+  --radius-sm: 12px;
+  --radius-pill: 999px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--canvas); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+img, svg { display: block; }
+a { text-decoration: none; color: inherit; }
+
+.hp {
+  width: 1440px; margin: 0 auto; position: relative; background: var(--canvas);
+  font-family: var(--sans); color: var(--body); font-size: 16.5px; line-height: 1.58;
+}
+
+/* ═══════════ SHARED ═══════════ */
+h1, h2, h3, .disp { font-family: var(--disp); font-weight: 700; color: var(--ink); }
+.mono { font-family: var(--mono); }
+/* The Spezia trial cut stamps a watermark over + and the quote marks.
+   Both use General Sans until the licensed cut lands. */
+.pl { font-family: var(--sans); font-weight: 600; font-size: 0.92em; }
+.qm { font-family: var(--sans); font-weight: 700; color: var(--accent-2); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; font-size: 14.5px;
+  font-weight: 500; letter-spacing: -0.005em; white-space: nowrap; border: 1px solid transparent;
+  border-radius: var(--radius-pill); }
+.btn.solid { background: #fff; color: #14101f; }
+.btn.line { background: rgba(255,255,255,0.10); color: #fff; border-color: rgba(255,255,255,0.46); }
+
+/* squared tags, now pilled per the rounded-corners decision. */
+.tag { display: inline-flex; align-items: center; font-family: var(--mono); font-size: 11px;
+  font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-2);
+  border: 1px solid var(--accent-line); padding: 4px 11px; white-space: nowrap; border-radius: var(--radius-pill); }
+.tag.plain { color: var(--ui-mid); border-color: var(--ui-line); }
+.tag.solid { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tag.lg { font-size: 14px; padding: 4px 11px; color: var(--mid); border-color: var(--rule); }
+
+.tlink { display: inline-block; font-size: 16px; font-weight: 500; color: var(--accent-2);
+  border-bottom: 1px solid var(--accent-line); padding-bottom: 3px; }
+
+/* ═══════════ LIGHT PRODUCT UI ═══════════
+   Every screen on the page is a light interface, rounded to match the
+   real platform UI and the enrollment dashboard prototype. */
+.ui { background: var(--ui-bg); color: var(--ui-ink); display: flex; flex-direction: column;
+  overflow: hidden; border-radius: var(--radius-sm); }
+.ui .ubar { display: flex; align-items: baseline; gap: 10px; height: 39px; padding: 0 15px;
+  background: var(--ui-bar); border-bottom: 1px solid var(--ui-line); flex: none; }
+.ui .ubar .ut { font-size: 12.5px; font-weight: 500; letter-spacing: -0.005em; align-self: center; }
+.ui .ubar .us { font-size: 11px; font-weight: 400; color: var(--ui-mid);
+  letter-spacing: 0.02em; margin-left: auto; align-self: center; }
+.ui .ub { padding: 16px 15px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+.sk { display: block; background: var(--ui-sk); border-radius: 4px; }
+.sk.line { height: 9px; }
+.sk.acc { background: rgba(119,61,189,0.34); }
+.bars { display: flex; align-items: flex-end; gap: 8px; flex: 1; min-height: 74px; }
+.bars i { flex: 1; display: block; background: var(--accent); border-radius: 3px 3px 0 0; }
+.bars i.lt { background: rgba(119,61,189,0.34); }
+.axis { display: flex; gap: 8px; }
+.axis span { flex: 1; font-size: 10px; font-weight: 500; color: var(--ui-mid); text-align: center;
+  letter-spacing: -0.01em; }
+.urow { display: flex; gap: 10px; align-items: center; }
+.urow .av { width: 22px; height: 22px; border-radius: 999px; background: rgba(119,61,189,0.28); flex: none; }
+.urow .sk.line { flex: 1; }
+.lift { box-shadow: 0 26px 80px rgba(6,4,12,0.55); }
+
+/* Real dashboard screenshots, cropped from the enrollment dashboard
+   prototype rather than recreated in CSS. Rounded to match everything
+   else, per the corner-radius decision. */
+.realshot { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top;
+  border-radius: var(--radius); border: 1px solid var(--rule);
+  box-shadow: 0 30px 76px rgba(6,4,12,0.62); }
+/* v3: the dashboard screenshot sits inside a panel with room around it
+   rather than running to the edge of its cell. */
+.shotframe { background: var(--card-2); border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: 28px; }
+/* white margin inside the card itself, so the chart is not jammed against
+   the card edge. The screenshots are crops and carry very little of their
+   own padding. */
+.shotpad { height: 100%; background: #fff; border-radius: var(--radius); padding: 26px;
+  border: 1px solid var(--rule); box-shadow: 0 30px 76px rgba(6,4,12,0.62); }
+.shotpad .realshot { border: 0; border-radius: 0; box-shadow: none; }
+.shotframe .shotpad { padding: 30px; box-shadow: none; border: 0; }
+
+/* ═══════════ 01 NAV ═══════════ */
+.nav { height: 70px; display: flex; align-items: center; padding: 0 24px 0 var(--pad);
+  border-bottom: 1px solid var(--hair); position: relative; z-index: 40; }
+.nav .mark { width: 135px; }
+.nav .links { display: flex; gap: 30px; margin-left: 30px; }
+.nav .links a, .nav .login { font-size: 14.5px; font-weight: 500; letter-spacing: -0.005em; color: var(--mid); }
+.nav .right { margin-left: auto; display: flex; align-items: center; gap: 30px; }
+.nav .btn { height: 39px; padding: 0 20px; }
+
+/* ═══════════ 02 HERO ═══════════ */
+.hero { position: relative; height: 906px; overflow: hidden; }
+/* v3: zoomed past the mountains. The peaks and sky sat in the top
+   quarter of the frame and fought the headline. The crop starts below
+   the ridgeline now, so the top of the hero is forest. */
+.hero .hpic { position: absolute; inset: 0; z-index: 0;
+  background: url("img/hero.jpg") center 88% / 126% no-repeat; }
+.hero .hpic::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,
+  rgba(11,8,18,0.66), rgba(11,8,18,0.30) 26%, rgba(11,8,18,0.12) 44%, rgba(11,8,18,0.52) 78%, rgba(11,8,18,0.74)); }
+/* gradient alternate — no camp photo, review-only until Michael and
+   Campminder pick a hero. See PARKSIDE HERO TOGGLE v1 below. */
+.hero .hgrad { position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(120% 100% at 12% 0%, #3c1670 0%, #200c3c 42%, #0d0a16 78%); }
+.hero h1 { position: absolute; left: var(--pad); top: 62px; z-index: 3;
+  font-size: 200px; line-height: 0.86; letter-spacing: -0.052em; }
+.hero .lede { position: absolute; left: var(--pad); top: 380px; z-index: 3; width: 440px;
+  font-size: 36px; font-weight: 700; line-height: 1.2; letter-spacing: -0.014em; color: #fff; }
+.hero .body { position: absolute; left: var(--pad); top: 507px; z-index: 3; width: 349px;
+  font-size: 24px; font-weight: 700; line-height: 1.34; color: rgba(255,255,255,0.90); }
+/* The calls to action sit inside the first 1440 x 900 view, so they are
+   present without scrolling. */
+.hero .ctas { position: absolute; left: var(--pad); top: 730px; z-index: 3; display: flex; gap: 12px; }
+.hero .ctas .btn { height: 45px; padding: 0 26px; }
+/* v3: smaller, and pulled in off the bottom and the rail. It was
+   sitting four pixels off the bottom edge of the hero. */
+.hero .heroui { position: absolute; left: 668px; top: 398px; z-index: 3; width: 412px; height: 404px; }
+
+/* ── the sticky rail. sharp corners, on purpose, per Michael's call. ──
+   Slimmed in v2: logo and the demo button only. No standing lines, no
+   Log in link, sized to just fit the Unpack Possible lockup. */
+.railgutter { position: absolute; top: 70px; right: 0; bottom: 0; width: var(--rgut);
+  z-index: 30; pointer-events: none; }
+.railsq { position: sticky; top: 0; pointer-events: auto; width: var(--rgut);
+  background: var(--dark); display: flex; flex-direction: column; align-items: stretch;
+  padding: 30px 20px 22px; gap: 22px; }
+.railsq .rtag { width: 132px; display: block; margin: 0 auto; }
+.railsq .rdemo { display: flex; align-items: center; justify-content: center; height: 44px;
+  margin-top: auto; background: #fff; color: var(--dark); font-size: 14px; font-weight: 600;
+  letter-spacing: -0.012em; border-radius: var(--radius-pill); }
+
+/* ═══════════ SECTION HEADS ═══════════ */
+.shead { display: grid; grid-template-columns: var(--kcol) minmax(0,1fr) var(--rgut);
+  border-bottom: 1px solid var(--rule); }
+.shead .kcol { border-right: 1px solid var(--hair); padding: 50px 24px 0 var(--pad); }
+.shead .kick { font-size: 17px; line-height: 1.6; letter-spacing: -0.008em; color: var(--mid); }
+.shead .krule { width: 124px; height: 1px; margin-top: 24px; background: var(--accent); }
+.shead .hcol { padding: 50px 40px 52px; }
+.shead h2 { font-size: 76px; line-height: 0.934; letter-spacing: -0.045em; max-width: 680px; }
+.shead .lede { margin-top: 26px; max-width: 560px; font-size: 21px; font-weight: 600;
+  line-height: 1.34; letter-spacing: -0.014em; color: var(--ink); }
+.shead .sbody { margin-top: 12px; max-width: 500px; font-size: 16.5px; line-height: 1.58; color: var(--mid); }
+.shead .prov { margin-top: 26px; max-width: 560px; padding-top: 13px; border-top: 1px solid var(--hair);
+  font-size: 16px; font-weight: 600; letter-spacing: -0.02em; color: var(--light); }
+/* v3: the standing lines under a section head are General Sans, same as
+   every other prov line. The Spezia SemiMono cut read as a different
+   voice on the page. */
+.shead .prov.mono { font-family: var(--sans); font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
+.shead .gut { border-left: 1px solid transparent; }
+
+/* ═══════════ 03 INTELLIGENCE ═══════════ */
+.intel { padding: 62px var(--rgut) 62px var(--pad); border-bottom: 1px solid var(--rule); }
+.pair2 { display: flex; gap: 20px; }
+.pair2 > * { width: 588px; height: 643px; }
+.blockg { position: relative; overflow: hidden; padding: 54px; display: flex; flex-direction: column;
+  background: url("img/grad-intel.jpg") center / cover no-repeat; border-radius: var(--radius); }
+.blockg::before { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(13,10,22,0.28), rgba(13,10,22,0.04) 48%, rgba(13,10,22,0.32)); }
+.blockg > * { position: relative; z-index: 1; }
+.kicker { display: flex; align-items: center; gap: 18px; font-size: 17px; letter-spacing: -0.008em;
+  color: var(--dark-accent); }
+.kicker::after { content: ""; flex: 1 1 auto; height: 1px; background: currentColor; }
+.blockg h2 { margin-top: 22px; max-width: 400px; font-size: 54px; line-height: 0.945; letter-spacing: -0.045em; }
+.blockg .lede { margin-top: 18px; max-width: 400px; font-size: 21px; font-weight: 600;
+  line-height: 1.34; letter-spacing: -0.014em; color: rgba(255,255,255,0.92); }
+.blockg .body { margin-top: 12px; max-width: 420px; font-size: 16.5px; line-height: 1.58;
+  color: rgba(255,255,255,0.80); }
+.blockg .prov { margin-top: 26px; max-width: 400px; padding-top: 13px;
+  border-top: 1px solid rgba(255,255,255,0.20); font-family: var(--sans); font-size: 16px;
+  font-weight: 600; letter-spacing: -0.02em; color: rgba(255,255,255,0.80); }
+/* v2: the old three-panel Staffing/Health/Finance block is retired.
+   The right side is now the real Camper Loyalty screenshot — see .realshot. */
+
+/* ═══════════ 05 PLATFORM COLLAGE ═══════════ */
+.collage { padding: 62px var(--pad); border-bottom: 1px solid var(--rule); }
+.brow { display: flex; gap: 14px; margin-bottom: 14px; }
+.brick { background: var(--card); border: 1px solid var(--rule); padding: 24px; overflow: hidden;
+  display: flex; flex-direction: column; position: relative; border-radius: var(--radius); }
+.brick h3 { font-size: 19px; line-height: 1.1; letter-spacing: -0.028em; }
+.brick .bsub { margin-top: 2px; font-size: 14px; line-height: 1.42; color: var(--mid); }
+.brick .since { position: absolute; right: 24px; top: 24px; font-family: var(--mono); font-size: 11px;
+  font-weight: 500; letter-spacing: -0.01em; color: var(--light); }
+.brick .ui { margin-top: 18px; flex: 1; }
+.storylink { margin-top: 36px; }
+
+/* ═══ CROP v1 — real product UI, bled to the edge ═══
+   A crop window that clips a real screenshot at the brick edge, so the shot
+   reads as a window onto a larger product rather than a framed picture. No
+   device chrome, no shadow, no rounded card around the shot. The brick's own
+   overflow:hidden and border-radius do the clipping.
+
+   Each image is positioned in raw pixels: width sets the zoom, left and top
+   set the pan. Nudging a crop is a two number change and nothing else moves.
+   Negative margin is 25px, which is the brick's 24px padding plus its 1px
+   border, so the crop lands flush on the edge. */
+.crop { position: relative; overflow: hidden; flex: 1;
+  margin: 18px -25px -25px -25px; background: var(--ui-bg);
+  border-top: 1px solid var(--rule); }
+.crop img { position: absolute; display: block; max-width: none; border: 0; }
+
+/* Same crop window inside the record section, where the shot sits centered on
+   a card instead of bleeding. Fixed size, matching the retired .ui panel. */
+.shot .crop { flex: none; width: 443px; height: 274px; margin: 0;
+  border: 1px solid var(--rule); border-radius: 0; }
+
+/* Roles panels. Same window, sized inline to the panel it replaces. */
+.panels .crop { flex: none; margin: 0; border: 1px solid var(--rule); border-radius: 0; }
+
+/* ═══════════ 06 TEAM ═══════════ */
+.team { background: url("img/grad-team.jpg") center / cover no-repeat; border-bottom: 1px solid var(--rule); }
+.team .shead { border-bottom: 1px solid rgba(39,6,92,0.26); }
+.team .shead .kcol { border-right-color: rgba(39,6,92,0.22); }
+.team .shead .kick { font-size: 15px; font-weight: 600; color: rgba(39,6,92,0.74); line-height: 1.4; }
+.team .shead h2, .team .shead .lede { color: var(--dark); }
+.team .shead .sbody { max-width: 494px; font-size: 16.5px; font-weight: 600; letter-spacing: -0.02em;
+  color: rgba(39,6,92,0.72); }
+.team .shead .prov { border-top-color: rgba(39,6,92,0.22); color: var(--dark); }
+/* Portraits stay square — a contiguous strip, not individual cards,
+   and the photography itself is unchanged for this round. */
+.portraits { display: grid; grid-template-columns: repeat(4, 1fr); }
+.portrait { position: relative; height: 400px; overflow: hidden;
+  border-left: 1px solid rgba(255,255,255,0.14); }
+.portrait:first-child { border-left: 0; }
+.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.portrait::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 220px;
+  background: linear-gradient(180deg, rgba(14,10,24,0), rgba(14,10,24,0.84)); }
+.portrait .plab { position: absolute; left: 20px; right: 20px; bottom: 24px; z-index: 2; }
+.portrait .pn { font-family: var(--mono); font-size: 17px; font-weight: 500; letter-spacing: -0.026em; color: #fff; }
+.portrait .ps { margin-top: 2px; font-size: 13.5px; font-weight: 500; line-height: 1.33;
+  color: rgba(255,255,255,0.76); }
+
+/* ═══════════ 08 ROLES ═══════════ */
+.band { height: 232px; overflow: hidden; position: relative; border-bottom: 1px solid var(--hair); }
+.band img { width: 100%; height: 100%; object-fit: cover; }
+.rolerow { display: grid; grid-template-columns: var(--kcol) minmax(0,1fr); border-bottom: 1px solid var(--rule); }
+.rolerow .tcol { border-right: 1px solid var(--hair); padding: 62px 24px 62px var(--pad); }
+.rolerow .rbody { display: grid; grid-template-columns: 348px minmax(0,1fr); gap: 0;
+  padding: 62px var(--rgut) 62px 40px; align-items: center; }
+.rolerow h3 { font-size: 40px; line-height: 0.95; letter-spacing: -0.036em; max-width: 340px; }
+.rolerow .rsub { margin-top: 10px; max-width: 340px; font-size: 16.5px; line-height: 1.58; color: var(--mid); }
+.rolerow .panels { display: flex; gap: 16px; align-items: flex-start; justify-content: flex-end; }
+.rolerow .ui .ubar { height: 44px; padding: 0 18px; }
+.rolerow .ui .ubar .ut { font-size: 13.5px; }
+.rolerow .ui .ubar .us { font-size: 12px; }
+.rolerow .ui .ub { padding: 20px 18px; gap: 11px; }
+.rolerow .ui .sk.line { height: 10px; }
+/* the blocks take the extra height so the card fills instead of pooling
+   white at the bottom. */
+.rolerow .ui .ub .sk:not(.line) { flex: 1; height: auto; min-height: 36px; }
+
+/* ═══════════ 09 COMPANION (was Ask Camp) ═══════════
+   v2: leads with the Campanion app and its trust proof. Ask Camp is a
+   feature inside it now, not the header. Renamed .askcamp → .companion. */
+.companion { position: relative; background: url("img/grad-askcamp.jpg") center / cover no-repeat;
+  border-bottom: 1px solid var(--rule); }
+.companion::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,
+  rgba(18,13,30,0.78), rgba(18,13,30,0.56) 50%, rgba(18,13,30,0.90)); }
+.companion > * { position: relative; z-index: 1; }
+.companion .shead { border-bottom: 1px solid var(--hair); }
+.companion .shead .kick { color: rgba(255,255,255,0.74); }
+.companion .shead .sbody { max-width: 560px; color: rgba(255,255,255,0.70); }
+.companion .shead .prov { color: rgba(255,255,255,0.52); }
+.camprow { display: grid; grid-template-columns: var(--kcol) minmax(0,1fr); }
+.camprow .tcol { border-right: 1px solid var(--hair); padding: 50px 24px 50px var(--pad); }
+/* v3: the section grew. Two stacked blocks of vertical phone screens
+   instead of one desktop card and three strips. */
+.camprow .cbody { display: flex; flex-direction: column; gap: 58px;
+  padding: 54px var(--rgut) 66px 40px; }
+.cblock .kicker { max-width: 620px; }
+.cblock .phones { margin-top: 30px; }
+.appicon { width: 120px; height: 120px; }
+.appname { width: 120px; margin-top: 14px; text-align: center; font-size: 13px; font-weight: 600;
+  letter-spacing: 0.14em; color: #fff; }
+.storebtns { margin-top: 26px; display: flex; flex-direction: column; gap: 8px; }
+.storebtn { width: 120px; height: 40px; background: #000; border: 1px solid #a6a6a6; border-radius: 6px;
+  display: flex; align-items: center; gap: 5px; padding: 0 8px 0 6px; }
+.storebtn svg { flex: none; }
+.storebtn .sbt { font-size: 8.5px; line-height: 1.2; color: #fff; letter-spacing: 0.01em; white-space: nowrap; }
+.storebtn .sbt b { display: block; font-size: 13px; font-weight: 600; letter-spacing: -0.012em; }
+.trustline { display: flex; align-items: center; gap: 12px; margin-top: 24px; }
+.trustline .stars { color: #f2c94c; font-size: 24px; letter-spacing: 3px; line-height: 1; }
+.trustline .tt { font-size: 16px; font-weight: 600; color: rgba(255,255,255,0.92); letter-spacing: -0.01em; }
+.bub { display: flex; }
+.bub span { max-width: 300px; padding: 12px 14px; font-size: 14px; line-height: 1.43; border-radius: var(--radius-sm); }
+.bub.q { justify-content: flex-end; }
+.bub.q span { background: var(--accent); color: #fff; }
+.bub.a span { background: var(--ui-sk); color: var(--ui-ink); }
+.bub.typing span { display: flex; gap: 5px; align-items: center; padding: 15px 16px; }
+.bub.typing i { width: 6px; height: 6px; border-radius: 999px; background: var(--ui-mid); display: block; }
+.askfield { margin-top: 6px; border: 1px solid var(--ui-line); padding: 12px 14px; font-size: 13px;
+  color: var(--ui-mid); border-radius: var(--radius-sm); }
+
+/* ── vertical phone screens, parent facing. v3. ──
+   Every screen a parent sees is a phone, so the comps are phones. Five
+   across the reserved measure, same size in both blocks. */
+.phones { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 36px; }
+.phone { display: flex; flex-direction: column; }
+.phone .screen { height: 372px; padding: 5px; background: #0e0a19; border-radius: 26px;
+  box-shadow: 0 24px 56px rgba(6,4,12,0.58), 0 0 0 1px rgba(255,255,255,0.13); }
+.phone .glass { height: 100%; background: var(--ui-bg); color: var(--ui-ink); border-radius: 21px;
+  overflow: hidden; display: flex; flex-direction: column; }
+.phone .pbar { position: relative; flex: none; height: 25px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 11px; background: var(--ui-bar);
+  border-bottom: 1px solid var(--ui-line); font-size: 9px; font-weight: 600; color: var(--ui-mid);
+  letter-spacing: -0.01em; }
+.phone .pbar::after { content: ""; position: absolute; left: 50%; top: 6px; transform: translateX(-50%);
+  width: 38px; height: 11px; border-radius: 999px; background: #0e0a19; }
+.phone .phead { flex: none; padding: 10px 11px 9px; border-bottom: 1px solid var(--ui-line); }
+.phone .phead .pt { font-size: 12px; font-weight: 600; letter-spacing: -0.016em; line-height: 1.2; }
+.phone .phead .pm { margin-top: 2px; font-size: 9.5px; line-height: 1.3; color: var(--ui-mid); }
+.phone .pbody { flex: 1; padding: 10px 11px 11px; display: flex; flex-direction: column; gap: 8px;
+  overflow: hidden; }
+.phone .pbody.pad0 { padding: 0; }
+.phone .plabel { margin-top: 16px; font-size: 15px; font-weight: 600; letter-spacing: -0.018em; color: #fff; }
+.phone .psub { margin-top: 3px; font-size: 13px; line-height: 1.4; color: rgba(255,255,255,0.60); }
+.phone .sk.line { height: 7px; }
+
+/* screen furniture */
+.pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.ptile { aspect-ratio: 1; border-radius: 5px; background: var(--ui-sk); }
+.ptile.acc { background: rgba(119,61,189,0.30); }
+.pchip { display: inline-flex; align-items: center; align-self: flex-start; gap: 5px; height: 20px;
+  padding: 0 9px; border-radius: 999px; font-size: 9.5px; font-weight: 600; letter-spacing: -0.008em;
+  background: rgba(119,61,189,0.12); color: var(--accent); }
+.pchip.plain { background: var(--ui-sk); color: var(--ui-mid); }
+.pchip i { width: 5px; height: 5px; border-radius: 999px; background: currentColor; display: block; }
+.facebox { position: relative; height: 104px; border-radius: 7px; background: var(--ui-sk); flex: none; }
+.facebox i { position: absolute; left: 31%; top: 20%; width: 38%; height: 42%; border-radius: 4px;
+  border: 2px solid var(--accent); box-shadow: 0 0 0 2px rgba(255,255,255,0.55); }
+.prow { display: flex; align-items: center; gap: 7px; }
+.prow .av { width: 20px; height: 20px; border-radius: 999px; background: rgba(119,61,189,0.24); flex: none; }
+.prow .sk.line { flex: 1; }
+.pcard { border: 1px solid var(--ui-line); border-radius: 8px; padding: 9px; display: flex;
+  flex-direction: column; gap: 7px; }
+.pcard .pct { font-size: 10.5px; font-weight: 600; letter-spacing: -0.012em; }
+.pcard .pcm { font-size: 9.5px; color: var(--ui-mid); }
+.pbtn { height: 28px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 10px;
+  font-weight: 600; letter-spacing: -0.006em; display: grid; place-items: center; flex: none; }
+.pbtn.ghost { background: transparent; color: var(--accent); border: 1px solid rgba(119,61,189,0.30); }
+.pcheck { display: flex; align-items: center; gap: 8px; }
+.pcheck .ck { width: 14px; height: 14px; border-radius: 4px; flex: none; border: 1.5px solid var(--ui-line); }
+.pcheck .ck.on { background: var(--accent); border-color: var(--accent); }
+.pcheck .sk.line { flex: 1; }
+.pprog { height: 5px; border-radius: 999px; background: var(--ui-sk); overflow: hidden; flex: none; }
+.pprog i { display: block; height: 100%; border-radius: 999px; background: var(--accent); }
+.pnum { font-family: var(--disp); font-weight: 700; font-size: 30px; line-height: 0.95;
+  letter-spacing: -0.04em; color: var(--ui-ink); }
+.pnum + .pnu { font-size: 9.5px; color: var(--ui-mid); }
+/* the chat phone reuses the Ask Camp bubbles at phone scale */
+.phone .bub span { max-width: 118px; padding: 8px 10px; font-size: 10.5px; line-height: 1.36;
+  border-radius: 11px; }
+.phone .bub.typing span { padding: 11px 12px; gap: 4px; }
+.phone .bub.typing i { width: 5px; height: 5px; }
+.phone .askfield { margin-top: auto; padding: 9px 10px; font-size: 9.5px; border-radius: 999px; }
+.pnote { padding-top: 4px; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.62); }
+
+/* ═══════════ 11 THE RECORD ═══════════ */
+.record { padding: 62px var(--rgut) 62px var(--pad); border-bottom: 1px solid var(--rule); }
+.rpair { display: flex; gap: 20px; margin-bottom: 20px; }
+.rpair > * { width: 588px; }
+.claim { background: var(--card); border: 1px solid var(--rule); padding: 54px 50px; border-radius: var(--radius); overflow: hidden; }
+.claim.light { border: 0; background-size: cover; background-position: center; }
+.claim .kicker, .quotesec .kicker { max-width: 360px; }
+.claim h3 { margin-top: 22px; max-width: 400px; font-size: 38px; line-height: 1.03;
+  letter-spacing: -0.04em; }
+.claim .cbody { margin-top: 12px; max-width: 420px; font-size: 16.5px; line-height: 1.58; color: var(--mid); }
+.claim .num { margin-top: 34px; font-family: var(--disp); font-weight: 700; font-size: 82px;
+  line-height: 0.94; letter-spacing: -0.055em; color: var(--accent-2); }
+.claim .unit { margin-top: 8px; font-size: 16.5px; font-weight: 600; letter-spacing: -0.012em; color: var(--ink); }
+.claim.light h3, .claim.light .num, .claim.light .unit { color: var(--dark); }
+.claim.light .cbody { color: rgba(39,6,92,0.74); font-weight: 600; }
+.claim.light .kicker { color: var(--dark); }
+.shot { background: var(--card-2); border: 1px solid var(--rule); display: grid; place-items: center; border-radius: var(--radius); }
+.shot .ui { width: 443px; }
+
+/* ═══════════ 12 QUOTE ═══════════ */
+.quotesec { display: grid; grid-template-columns: 520px minmax(0,1fr); height: 560px;
+  border-bottom: 1px solid var(--rule); }
+.quotesec .qpic { overflow: hidden; border-right: 1px solid var(--hair); }
+.quotesec .qpic img { width: 100%; height: 100%; object-fit: cover; }
+.quotesec .qbody { padding: 64px 60px; }
+.quotesec blockquote { margin-top: 26px; max-width: 560px; font-family: var(--disp); font-weight: 500;
+  font-size: 52px; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); }
+.quotesec blockquote b { font-weight: 700; }
+.quotesec blockquote i { font-style: normal; color: var(--accent-2); }
+.quotesec .attr { margin-top: 44px; max-width: 560px; padding-top: 22px; border-top: 1px solid var(--hair);
+  display: flex; align-items: flex-end; }
+.quotesec .an { font-family: var(--disp); font-weight: 700; font-size: 20px; letter-spacing: -0.026em; color: var(--ink); }
+.quotesec .ar { margin-top: 3px; font-size: 15px; color: var(--mid); }
+.quotesec .asince { margin-left: auto; font-size: 14px; letter-spacing: 0.03em; color: var(--light); }
+
+/* ═══════════ 13 CAMP LOGOS ═══════════ */
+.logos { padding: 62px var(--rgut) 62px var(--pad); border-bottom: 1px solid var(--rule); }
+.logohead { display: flex; align-items: flex-start; gap: 40px; }
+.logohead .lh { font-family: var(--disp); font-weight: 700; font-size: 34px; letter-spacing: -0.034em; color: var(--ink); }
+.logohead .lnote { margin-left: auto; width: 400px; text-align: right; font-size: 16.5px;
+  line-height: 1.58; color: var(--mid); }
+.logohead .lnote b { color: var(--ink); font-weight: 600; }
+.tiles { margin-top: 26px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.tile { height: 150px; background: var(--card-2); border: 1px solid var(--hair); border-radius: var(--radius-sm);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.tile .mk { width: 92px; height: 26px; background: #2b2342; border-radius: 4px; }
+.tile.hov { background: rgba(119,61,189,0.14); border-color: var(--accent-2); }
+.tile.hov .mk { background: rgba(168,123,224,0.42); }
+.tile .story { font-size: 11px; font-weight: 600; letter-spacing: 0.03em; color: var(--accent-2); }
+
+/* ═══════════ 14 CLOSE ═══════════ */
+.close { position: relative; height: 345px; overflow: hidden; border-bottom: 1px solid var(--rule); }
+.close .cpic { position: absolute; inset: 0; background: url("img/close.jpg") center center / cover no-repeat; }
+.close .cpic::after { content: ""; position: absolute; inset: 0; background: rgba(23,18,33,0.50); }
+.close .lockup { position: absolute; left: var(--pad); top: 34px; z-index: 2; width: 632px; }
+.close .cfoot { position: absolute; left: var(--pad); right: calc(var(--rgut) + var(--pad)); bottom: 56px; z-index: 2;
+  display: flex; align-items: flex-end; }
+.close .cline { max-width: 612px; font-size: 21px; font-weight: 600; letter-spacing: -0.014em;
+  color: rgba(255,255,255,0.92); }
+.close .cright { margin-left: auto; width: 400px; text-align: right; }
+.close .cright p { font-size: 16.5px; line-height: 1.58; color: rgba(255,255,255,0.68); }
+.close .cright .btn { margin-top: 18px; height: 45px; padding: 0 26px; }
+
+/* ═══════════ 15 FOOTER ═══════════
+   Unchanged in v2 — Snug liked it as it already was. */
+.hp-foot { height: 96px; display: flex; align-items: center; gap: 28px; padding: 0 var(--rgut) 0 var(--pad); }
+.hp-foot .mark { width: 113px; margin-right: 28px; }
+.hp-foot a { font-size: 13.5px; color: rgba(255,255,255,0.66); }
+.hp-foot .legal { margin-left: auto; font-size: 11px; letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.42); }
+
+/* PARKSIDE MOTION LAYER v1 — START
+   Everything that animates lives between these markers and nowhere else.
+   Figma cannot carry it. When a layout comes back from Figma, this block
+   is copied in verbatim and the hooks below are reattached.
+     .bars.anim        bar charts breathe            (hero, intelligence, collage)
+     .anim-lines       message rows arrive in turn   (health, communication, broadcasts)
+     .bub.typing i     Ask Camp is waiting on an answer
+*/
+@keyframes barpulse { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(0.84); } }
+@keyframes linegrow { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.86); } }
+@keyframes dotpulse { 0%,100% { opacity: 0.32; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
+.bars.anim i { transform-origin: 50% 100%; animation: barpulse 5.6s cubic-bezier(0.45,0,0.55,1) infinite; will-change: transform; }
+.bars.anim i:nth-child(1){animation-delay:0s}.bars.anim i:nth-child(2){animation-delay:.26s}
+.bars.anim i:nth-child(3){animation-delay:.52s}.bars.anim i:nth-child(4){animation-delay:.78s}
+.bars.anim i:nth-child(5){animation-delay:1.04s}.bars.anim i:nth-child(6){animation-delay:1.3s}
+.anim-lines .sk.line { transform-origin: 0% 50%; animation: linegrow 4.8s ease-in-out infinite; }
+.anim-lines .sk.line:nth-child(2){animation-delay:.5s}.anim-lines .sk.line:nth-child(3){animation-delay:1s}
+.anim-lines > *:nth-child(2) .sk.line { animation-delay: .5s; }
+.anim-lines > *:nth-child(3) .sk.line { animation-delay: 1s; }
+.anim-lines > *:nth-child(4) .sk.line { animation-delay: 1.5s; }
+.bub.typing i { animation: dotpulse 1.5s ease-in-out infinite; }
+.bub.typing i:nth-child(2){animation-delay:.18s}.bub.typing i:nth-child(3){animation-delay:.36s}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+/* PARKSIDE MOTION LAYER v1 — END */
+
+/* PARKSIDE HERO TOGGLE v1 — START
+   Review-only. Lets Michael show Paul and Snug the photo hero and the
+   gradient hero side by side without two files. Strip this whole block
+   and .hgrad, .herotoggle, and the toggle script once one is picked. */
+.herotoggle { position: fixed; top: 16px; right: 16px; z-index: 999; display: flex; gap: 2px;
+  background: rgba(13,10,22,0.86); border: 1px solid rgba(255,255,255,0.18); border-radius: var(--radius-pill);
+  padding: 3px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.03em; text-transform: uppercase;
+  backdrop-filter: blur(8px); }
+.herotoggle button { border: 0; background: transparent; color: rgba(255,255,255,0.55); padding: 7px 14px;
+  border-radius: var(--radius-pill); cursor: pointer; font-family: inherit; font-size: inherit; letter-spacing: inherit; }
+.herotoggle button.on { background: #fff; color: #14101f; }
+[data-hero="photo"] .hgrad { display: none; }
+[data-hero="gradient"] .hpic { display: none; }
+/* PARKSIDE HERO TOGGLE v1 — END */
+</style>
+</head>
+<body>
+<div class="hp" data-hero="photo">
+
+  <!-- PARKSIDE HERO TOGGLE v1 — review-only, strip before Groundwrk handoff -->
+  <div class="herotoggle">
+    <button type="button" data-set-hero="photo" class="on">Photo</button>
+    <button type="button" data-set-hero="gradient">Gradient</button>
+  </div>
+
+  <!-- ═══ the sticky rail. sharp corners, on purpose. lives outside every section so nothing clips it ═══ -->
+  <div class="railgutter">
+    <aside class="railsq">
+      <img class="rtag" src="img/unpack-possible-white.svg" alt="Unpack possible">
+      <a class="rdemo" href="#">Book a demo</a>
+    </aside>
+  </div>
+
+  <!-- ═══ 01 NAV ═══ -->
+  <nav class="nav">
+    <img class="mark" src="img/campminder-logo-white.svg" alt="Campminder">
+    <div class="links">
+      <a href="#">Features</a><a href="#">Solutions</a><a href="#">Demo</a><a href="#">Company</a>
+    </div>
+    <div class="right">
+      <a class="login" href="#">Log in</a>
+      <a class="btn solid" href="#">Book a demo</a>
+    </div>
+  </nav>
+
+  <!-- ═══ 02 HERO ═══ -->
+  <section class="hero">
+    <div class="hpic"></div>
+    <div class="hgrad"></div>
+    <h1>One for all.</h1>
+    <p class="lede">The trusted platform for everyone at your camp.</p>
+    <p class="body">Registration, staffing, health, communication, and the business behind it all.</p>
+    <div class="ctas">
+      <a class="btn solid" href="#">Book a demo</a>
+      <a class="btn line" href="#">See the platform</a>
+    </div>
+    <div class="heroui">
+      <div class="shotpad">
+        <img class="realshot" src="img/shot-year-over-year.png" alt="Year over year enrollment pace, Campminder Intelligence">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 03 INTELLIGENCE ═══ -->
+  <section class="intel">
+    <div class="pair2">
+      <div class="blockg">
+        <p class="kicker">See your entire season at a glance.</p>
+        <h2>Intelligence you can trust.</h2>
+        <p class="lede">Campminder Intelligence across the whole platform.</p>
+        <p class="body">From enrollment to staffing, health, and the business side of your camp. Now you can put years of camp insights to work and make even smarter decisions with the data you&rsquo;ve built up over time.</p>
+        <p class="prov">See what your camp&rsquo;s data adds up to. Campminder Intelligence, available on Pro.</p>
+      </div>
+      <!-- v2: single Camper Loyalty panel, standing in for the real
+           dashboard screenshot, replacing the old Staffing/Health/Finance
+           three-up. Paul's ask specifically. Real screenshot, not a
+           recreation, per Michael's note. -->
+      <div class="shotframe">
+        <div class="shotpad">
+          <img class="realshot" src="img/shot-camper-loyalty.png" alt="Camper loyalty and camper tenure, Campminder Intelligence">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 04 PLATFORM — HEAD ═══ -->
+  <section class="shead">
+    <div class="kcol">
+      <p class="kick">One login.<br>Everything<br>you need.</p>
+      <div class="krule"></div>
+    </div>
+    <div class="hcol">
+      <h2>Your entire operation.<br>All in one place.</h2>
+      <p class="lede">Everything your camp runs on.</p>
+      <p class="prov">Campminder is the platform that turns your camp data into decisions.</p>
+    </div>
+    <div class="gut"></div>
+  </section>
+
+  <!-- ═══ 05 PLATFORM — COLLAGE ═══ -->
+  <section class="collage">
+    <div class="brow">
+      <div class="brick" style="width:794px;height:388px">
+        <h3>Registration</h3>
+        <p class="bsub">Every kid, one pass.</p>
+        <span class="since">since 2000</span>
+        <div class="crop">
+          <img src="img/erica/Registration-parent-desktop-1.png" style="width:1601px;left:-600px;top:-520px" alt="Adding returning campers to a summer 2027 registration">
+        </div>
+      </div>
+      <div class="brick" style="width:388px;height:388px">
+        <h3>Staffing</h3>
+        <p class="bsub">Hiring to onboarding.</p>
+        <span class="since">since 2007</span>
+        <div class="crop">
+          <img src="img/erica/Staffing-Hirning.png" style="width:911px;left:-56px;top:-288px" alt="Applicants moving through the staff hiring board">
+        </div>
+      </div>
+    </div>
+
+    <div class="brow">
+      <div class="brick" style="width:389px;height:254px">
+        <h3>Health <span class="pl">+</span> medical</h3>
+        <p class="bsub">Records and daily logs.</p>
+        <span class="since">since 2004</span>
+        <!-- Health Center is the older UI generation. See the note in the
+             session log before this page goes to Campminder. -->
+        <div class="crop">
+          <img src="img/erica/Health%20Center%20Log@2x.png" style="width:790px;left:-23px;top:-58px" alt="A camper's health center log">
+        </div>
+      </div>
+      <div class="brick" style="width:389px;height:254px">
+        <h3>Transportation</h3>
+        <p class="bsub">Routes and rosters.</p>
+        <span class="since">since 2011</span>
+        <div class="crop">
+          <img src="img/erica/Transportation-desktop@2x.png" style="width:667px;left:-218px;top:-121px" alt="Campers checked in by stop on the bus 2 route">
+        </div>
+      </div>
+      <div class="brick" style="width:390px;height:254px">
+        <h3>Groups <span class="pl">+</span> cabins</h3>
+        <p class="bsub">Assignments that work.</p>
+        <span class="since">since 2003</span>
+        <!-- Nothing in Erica's set is camper cabins. This is the group fill
+             panel off the staff placement screen, which is the closest thing
+             she sent. Ask her for a cabin assignment screen. -->
+        <div class="crop">
+          <img src="img/erica/Staffing-Placement.png" style="width:1200px;left:-845px;top:-328px" alt="Groups filling toward their positions">
+        </div>
+      </div>
+    </div>
+
+    <div class="brow">
+      <div class="brick" style="width:591px;height:254px">
+        <h3>Billing <span class="pl">+</span> payments</h3>
+        <p class="bsub">The business side.</p>
+        <span class="since">since 2001</span>
+        <div class="crop">
+          <img src="img/erica/Billing@2x.png" style="width:919px;left:-288px;top:-82px" alt="Creating invoices for a billing period">
+        </div>
+      </div>
+      <div class="brick" style="width:591px;height:254px">
+        <h3>Communication</h3>
+        <p class="bsub">Families, kept close.</p>
+        <span class="since">since 2002</span>
+        <div class="crop">
+          <img src="img/erica/Broadcasts%20for%20comms@2x.png" style="width:1103px;left:-412px;top:-149px" alt="A text going out to families about a late bus">
+        </div>
+      </div>
+    </div>
+
+    <div class="brow" style="margin-bottom:0">
+      <div class="brick" style="width:389px;height:254px">
+        <h3>Reporting</h3>
+        <p class="bsub">Answers on demand.</p>
+        <span class="since">since 2005</span>
+        <div class="crop">
+          <img src="img/erica/Reporting-landing@2x.png" style="width:724px;left:-98px;top:-196px" alt="The report library, financial and accounts">
+        </div>
+      </div>
+      <div class="brick" style="width:389px;height:254px">
+        <h3>Lead capture</h3>
+        <p class="bsub">Next season&rsquo;s families.</p>
+        <span class="since">since 2014</span>
+        <div class="crop">
+          <img src="img/erica/Lead-Capture@2x.png" style="width:399px;left:-15px;top:-15px" alt="Next season's leads and where each one came from">
+        </div>
+      </div>
+      <div class="brick" style="width:390px;height:254px">
+        <h3>The off-season</h3>
+        <p class="bsub">Rentals and retreats.</p>
+        <span class="since">since 2018</span>
+        <!-- The rentals file is the Gazebo product and arrives inside a laptop
+             mockup. This crops inside the screen so no device shows, but the
+             chrome and the color are not Campminder's. -->
+        <div class="crop">
+          <img src="img/erica/Rentals@2x.png" style="width:820px;left:-369px;top:-146px" alt="Off-season rentals booked across the calendar">
+        </div>
+      </div>
+    </div>
+
+    <div class="storylink"><a class="tlink" href="#">See it in action with a camp&rsquo;s story &rarr;</a></div>
+  </section>
+
+  <!-- ═══ 06 TEAM ═══ -->
+  <section class="team">
+    <div class="shead">
+      <div class="kcol">
+        <p class="kick">Real people.<br>All season.</p>
+        <div class="krule"></div>
+      </div>
+      <div class="hcol">
+        <h2>We know your camp.<br>Inside and out.</h2>
+        <p class="lede">The team behind your platform.</p>
+        <p class="sbody">Reach a person who knows your camp in the middle of your season, or whenever you need them.</p>
+        <p class="prov mono">The best support team in camp. <b>Since 2000.</b></p>
+      </div>
+      <div class="gut"></div>
+    </div>
+    <div class="portraits">
+      <div class="portrait">
+        <img src="img/portrait-success.jpg" alt="">
+        <div class="plab"><div class="pn">Camp Success</div><div class="ps">Your point person.</div></div>
+      </div>
+      <div class="portrait">
+        <img src="img/portrait-onboarding.jpg" alt="">
+        <div class="plab"><div class="pn">Onboarding</div><div class="ps">There to set up your entire camp.</div></div>
+      </div>
+      <div class="portrait">
+        <img src="img/portrait-support.jpg" alt="">
+        <div class="plab"><div class="pn">Support</div><div class="ps">Ready no matter what happens.</div></div>
+      </div>
+      <div class="portrait">
+        <img src="img/portrait-product.jpg" alt="">
+        <div class="plab"><div class="pn">Product</div><div class="ps">Builds what camps need most.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 07 ROLES — HEAD ═══ -->
+  <section class="shead">
+    <div class="kcol">
+      <p class="kick">Your job. Your view.</p>
+      <div class="krule"></div>
+    </div>
+    <div class="hcol">
+      <h2>Built for everyone at your camp.</h2>
+      <p class="lede">Every role. All on one platform.</p>
+      <p class="prov">Campminder has been building alongside camp directors like you since 2000.</p>
+    </div>
+    <div class="gut"></div>
+  </section>
+
+  <!-- ═══ 08 ROLES ═══ -->
+  <section class="roles">
+    <div class="band"><img src="img/band-owner.jpg" alt=""></div>
+    <div class="rolerow">
+      <div class="tcol"><span class="tag lg">Leadership</span></div>
+      <div class="rbody">
+        <div>
+          <h3>Owner <span class="pl">+</span> Director</h3>
+          <p class="rsub">See your whole season in one view.</p>
+        </div>
+        <div class="panels">
+          <div class="crop" style="width:275px;height:212px">
+            <img src="img/erica/Season%20View%20Reporting@2x.png" style="width:386px;left:-60px;top:-140px" alt="Five seasons of enrollment, side by side">
+          </div>
+          <div class="crop" style="width:275px;height:198px">
+            <img src="img/erica/Reporting-details@2x.png" style="width:619px;left:-14px;top:-74px" alt="A report of the health forms still missing">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band"><img src="img/band-comms.jpg" alt=""></div>
+    <div class="rolerow">
+      <div class="tcol"><span class="tag lg">Comms</span></div>
+      <div class="rbody">
+        <div>
+          <h3>Communications <span class="pl">+</span> Marketing</h3>
+          <p class="rsub">Every family. One thread.</p>
+        </div>
+        <div class="panels">
+          <!-- Email here, text in the collage brick, so the two comms screens
+               do not repeat each other. -->
+          <div class="crop" style="width:566px;height:216px">
+            <img src="img/erica/Communication-Emails@2x.png" style="width:935px;left:-293px;top:-293px" alt="Building a camper pickup update for families">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band"><img src="img/band-finance.jpg" alt=""></div>
+    <div class="rolerow" style="border-bottom:0">
+      <div class="tcol"><span class="tag lg">Finance</span></div>
+      <div class="rbody">
+        <div>
+          <h3>Business <span class="pl">+</span> Finance</h3>
+          <p class="rsub">Billing that closes itself out.</p>
+        </div>
+        <div class="panels">
+          <!-- Both finance files are the older UI and carry seed data. These
+               crops avoid the rows named 2_test and 3_Test2. -->
+          <div class="crop" style="width:275px;height:212px">
+            <img src="img/erica/Ledger%20and%20Payment%20for%20finance-2@2x.png" style="width:631px;left:-230px;top:-262px" alt="A family ledger down to the balance">
+          </div>
+          <div class="crop" style="width:275px;height:198px">
+            <img src="img/erica/Ledger%20and%20Payment%20for%20finance-1@2x.png" style="width:777px;left:-82px;top:-413px" alt="Campers pulled into a batch transaction by session">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ 09 COMPANION (was Ask Camp) ═══
+       v2: leads with the app and its trust proof, per Paul's note.
+       Ask Camp comes after as a feature inside Campanion. -->
+  <section class="companion">
+    <div class="shead">
+      <div class="kcol">
+        <p class="kick">Every family, in one app.</p>
+        <div class="krule"></div>
+      </div>
+      <div class="hcol">
+        <h2>Meet Campanion.</h2>
+        <p class="lede">The mobile app parents actually open.</p>
+        <p class="sbody">Photos, facial recognition, letters to campers, forms, and re-enrollment, all in one place.</p>
+        <div class="trustline"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="tt">4.9 &middot; 37,000 App Store reviews</span></div>
+        <p class="prov">Ask Camp, built into Campanion, answers everyday questions instantly.</p>
+      </div>
+      <div class="gut"></div>
+    </div>
+    <div class="camprow">
+      <div class="tcol">
+        <!-- Campanion app icon. Concentric 270 degree arcs, butt cut at 45 degrees,
+             which is what forms the tent shape in the negative space.
+             Snug's favorite element on the page — unchanged in v2. -->
+        <svg class="appicon" viewBox="0 0 120 120" role="img" aria-label="Campanion">
+          <rect width="120" height="120" rx="27" fill="#1B294A"/>
+          <g fill="none" stroke-linecap="butt">
+            <path d="M30.2 93.3A42.1 42.1 0 1 1 89.8 93.3" stroke="#D05E40" stroke-width="7.8"/>
+            <path d="M40.5 83.0A27.6 27.6 0 1 1 79.5 83.0" stroke="#D9905A" stroke-width="7.7"/>
+            <path d="M51.1 72.4A12.6 12.6 0 1 1 68.9 72.4" stroke="#EFD074" stroke-width="7.8"/>
+          </g>
+        </svg>
+        <div class="appname">CAMPANION</div>
+        <div class="storebtns">
+          <span class="storebtn">
+            <svg width="19" height="21" viewBox="0 0 24 26" aria-hidden="true">
+              <path fill="#00D2FF" d="M1.2.4C.9.7.7 1.2.7 1.8v22.4c0 .6.2 1.1.5 1.4l.1.1 12.6-12.6v-.3L1.2.4z"/>
+              <path fill="#FFBC00" d="M18 17.3l-4.2-4.2v-.3l4.2-4.2.1.1 5 2.8c1.4.8 1.4 2.1 0 2.9l-5 2.9z"/>
+              <path fill="#FF3A44" d="M18.1 17.2L13.8 13 1.2 25.6c.5.5 1.2.5 2.1.1l14.8-8.5z"/>
+              <path fill="#00C853" d="M18.1 8.8L3.3.3C2.4-.2 1.7-.1 1.2.4L13.8 13l4.3-4.2z"/>
+            </svg>
+            <span class="sbt">GET IT ON<b>Google Play</b></span>
+          </span>
+          <span class="storebtn">
+            <svg width="18" height="22" viewBox="0 0 22 27" fill="#fff" aria-hidden="true">
+              <path d="M18.3 14.3c0-3.2 2.6-4.7 2.7-4.8-1.5-2.2-3.8-2.5-4.6-2.5-2-.2-3.8 1.1-4.8 1.1s-2.5-1.1-4.2-1.1c-2.1 0-4.1 1.3-5.2 3.2-2.2 3.9-.6 9.6 1.6 12.7 1.1 1.5 2.3 3.2 3.9 3.2 1.6-.1 2.2-1 4.1-1s2.5 1 4.2 1c1.7 0 2.8-1.5 3.9-3.1 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.3-1.3-3.3-5.1zM15.2 4.9c.9-1.1 1.5-2.6 1.3-4.1-1.3.1-2.8.9-3.7 1.9-.8.9-1.5 2.5-1.3 3.9 1.4.2 2.9-.6 3.7-1.7z"/>
+            </svg>
+            <span class="sbt">Download on the<b>App Store</b></span>
+          </span>
+        </div>
+      </div>
+      <div class="cbody">
+
+        <!-- v3: the parent facing flows, each as a vertical phone screen.
+             Placeholders for the real Campanion screens. -->
+        <div class="cblock">
+          <p class="kicker">Everything a parent needs, on their phone.</p>
+          <div class="phones">
+
+            <div class="phone">
+              <div class="screen"><div class="glass">
+                <div class="pbar"><span>9:41</span><span>Campanion</span></div>
+                <div class="phead"><div class="pt">Photos</div><div class="pm">Session A &middot; today</div></div>
+                <div class="pbody">
+                  <span class="pchip"><i></i>128 new today</span>
+                  <div class="pgrid">
+                    <span class="ptile"></span><span class="ptile acc"></span><span class="ptile"></span>
+                    <span class="ptile"></span><span class="ptile"></span><span class="ptile acc"></span>
+                    <span class="ptile acc"></span><span class="ptile"></span><span class="ptile"></span>
+                    <span class="ptile"></span><span class="ptile acc"></span><span class="ptile"></span>
+                    <span class="ptile"></span><span class="ptile"></span><span class="ptile acc"></span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="plabel">Photos</div>
+              <div class="psub">Every album from the day, the morning after.</div>
+            </div>
+
+            <div class="phone">
+              <div class="screen"><div class="glass">
+                <div class="pbar"><span>9:41</span><span>Campanion</span></div>
+                <div class="phead"><div class="pt">Find your camper</div><div class="pm">Facial recognition</div></div>
+                <div class="pbody">
+                  <div class="facebox"><i></i></div>
+                  <span class="pchip"><i></i>Maya, matched</span>
+                  <span class="sk line" style="width:56%"></span>
+                  <div class="pgrid">
+                    <span class="ptile"></span><span class="ptile acc"></span><span class="ptile"></span>
+                    <span class="ptile acc"></span><span class="ptile"></span><span class="ptile"></span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="plabel">Facial recognition</div>
+              <div class="psub">Every photo their camper is in, found for them.</div>
+            </div>
+
+            <div class="phone">
+              <div class="screen"><div class="glass">
+                <div class="pbar"><span>9:41</span><span>Campanion</span></div>
+                <div class="phead"><div class="pt">Write to Maya</div><div class="pm">Delivered with mail call</div></div>
+                <div class="pbody">
+                  <div class="pcard" style="flex:1;gap:9px">
+                    <span class="sk line acc" style="width:46%"></span>
+                    <span class="sk line" style="width:100%"></span>
+                    <span class="sk line" style="width:88%"></span>
+                    <span class="sk line" style="width:94%"></span>
+                    <span class="sk line" style="width:72%"></span>
+                    <span class="sk line" style="width:100%"></span>
+                    <span class="sk line" style="width:81%"></span>
+                    <span class="sk line" style="width:58%"></span>
+                    <span class="sk line" style="width:92%"></span>
+                    <span class="sk line" style="width:64%"></span>
+                  </div>
+                  <div class="pbtn">Send letter</div>
+                </div>
+              </div></div>
+              <div class="plabel">Letters to campers</div>
+              <div class="psub">Written at night, printed for mail call.</div>
+            </div>
+
+            <div class="phone">
+              <div class="screen"><div class="glass">
+                <div class="pbar"><span>9:41</span><span>Campanion</span></div>
+                <div class="phead"><div class="pt">Forms</div><div class="pm">Due before arrival</div></div>
+                <div class="pbody" style="gap:12px">
+                  <div class="pcheck"><span class="ck on"></span><span class="sk line" style="width:70%"></span></div>
+                  <div class="pcheck"><span class="ck on"></span><span class="sk line" style="width:58%"></span></div>
+                  <div class="pcheck"><span class="ck on"></span><span class="sk line" style="width:76%"></span></div>
+                  <div class="pcheck"><span class="ck on"></span><span class="sk line" style="width:62%"></span></div>
+                  <div class="pcheck"><span class="ck"></span><span class="sk line acc" style="width:52%"></span></div>
+                  <div class="pcheck"><span class="ck"></span><span class="sk line" style="width:68%"></span></div>
+                  <div class="pcheck"><span class="ck"></span><span class="sk line" style="width:55%"></span></div>
+                  <div class="pprog" style="margin-top:auto"><i style="width:57%"></i></div>
+                  <span class="pchip plain">4 of 7 complete</span>
+                </div>
+              </div></div>
+              <div class="plabel">Forms</div>
+              <div class="psub">Health, permissions, and everything you need signed.</div>
+            </div>
+
+            <div class="phone">
+              <div class="screen"><div class="glass">
+                <div class="pbar"><span>9:41</span><span>Campanion</span></div>
+                <div class="phead"><div class="pt">Come back next summer</div><div class="pm">Summer 2027</div></div>
+                <div class="pbody">
+                  <div class="pcard">
+                    <div class="pct">Session A</div>
+                    <div class="pcm">6/20-7/3</div>
+                    <span class="sk line acc" style="width:44%"></span>
+                  </div>
+                  <div class="pcard">
+                    <div class="pct">Session B</div>
+                    <div class="pcm">7/6-7/19</div>
+                    <span class="sk line" style="width:58%"></span>
+                  </div>
+                  <div class="pbtn" style="margin-top:auto">Reserve her spot</div>
+                  <div class="pbtn ghost">Add a sibling</div>
+                </div>
+              </div></div>
+              <div class="plabel">Re-enrollment</div>
+              <div class="psub">Next summer booked before this one ends.</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Ask Camp, now a phone as well, with the answered examples
+             beside it as phones rather than strips. -->
+        <div class="cblock">
+          <p class="kicker">Ask Camp, inside the app.</p>
+          <div class="phones">
+
+            <div class="phone">
+              <div class="screen"><div class="glass">
+                <div class="pbar"><span>9:41</span><span>Ask Camp</span></div>
+                <div class="pbody" style="gap:7px">
+                  <div class="bub a"><span>Visiting day is Saturday 7/12, 1pm to 4pm.</span></div>
+                  <div class="bub q"><span>What time is drop-off on Monday?</span></div>
+                  <div class="bub a"><span>Drop-off is 7:45am at the main lodge. Gates open at 7:30am.</span></div>
+                  <div class="bub q"><span>Is her allergy form in?</span></div>
+                  <div class="bub typing"><span><i></i><i></i><i></i></span></div>
+                  <div class="askfield">Ask anything about camp&hellip;</div>
+                </div>
+              </div></div>
+              <div class="plabel">Ask Camp</div>
+              <div class="psub">A question at 10pm, answered at 10pm.</div>
+            </div>
+
+            <div class="phone">
+              <div class="screen"><div class="glass">
+                <div class="pbar"><span>9:41</span><span>Ask Camp</span></div>
+                <div class="phead"><div class="pt">Packing list</div><div class="pm">Answered</div></div>
+                <div class="pbody anim-lines" style="gap:11px">
+                  <span class="sk line acc" style="width:52%"></span>
+                  <span class="sk line" style="width:88%"></span>
+                  <div class="pcheck"><span class="ck on"></span><span class="sk line" style="width:64%"></span></div>
+                  <div class="pcheck"><span class="ck on"></span><span class="sk line" style="width:78%"></span></div>
+                  <div class="pcheck"><span class="ck on"></span><span class="sk line" style="width:57%"></span></div>
+                  <div class="pcheck"><span class="ck"></span><span class="sk line" style="width:71%"></span></div>
+                  <div class="pcheck"><span class="ck"></span><span class="sk line" style="width:60%"></span></div>
+                  <div class="pcard" style="margin-top:auto">
+                    <div class="pct">Rain gear, still needed</div>
+                    <div class="pcm">From your camp&rsquo;s list</div>
+                  </div>
+                </div>
+              </div></div>
+              <div class="plabel">Packing list</div>
+              <div class="psub">Pulled straight from your camp&rsquo;s list.</div>
+            </div>
+
+            <div class="phone">
+              <div class="screen"><div class="glass">
+                <div class="pbar"><span>9:41</span><span>Ask Camp</span></div>
+                <div class="phead"><div class="pt">Form status</div><div class="pm">Answered</div></div>
+                <div class="pbody anim-lines" style="gap:11px">
+                  <span class="sk line" style="width:79%"></span>
+                  <span class="sk line acc" style="width:48%"></span>
+                  <div class="prow"><span class="av"></span><span class="sk line"></span><span class="pchip">In</span></div>
+                  <div class="prow"><span class="av"></span><span class="sk line"></span><span class="pchip">In</span></div>
+                  <div class="prow"><span class="av"></span><span class="sk line"></span><span class="pchip">In</span></div>
+                  <div class="prow"><span class="av"></span><span class="sk line"></span><span class="pchip plain">Due</span></div>
+                  <div class="prow"><span class="av"></span><span class="sk line"></span><span class="pchip plain">Due</span></div>
+                  <div class="pprog" style="margin-top:auto"><i style="width:60%"></i></div>
+                  <span class="pchip plain">Allergy form still open</span>
+                </div>
+              </div></div>
+              <div class="plabel">Form status</div>
+              <div class="psub">What is in and what is still open.</div>
+            </div>
+
+            <div class="phone">
+              <div class="screen"><div class="glass">
+                <div class="pbar"><span>9:41</span><span>Ask Camp</span></div>
+                <div class="phead"><div class="pt">Pickup times</div><div class="pm">Answered</div></div>
+                <div class="pbody anim-lines" style="gap:10px">
+                  <span class="sk line" style="width:70%"></span>
+                  <span class="sk line" style="width:84%"></span>
+                  <span class="sk line acc" style="width:44%"></span>
+                  <div class="pcard">
+                    <div class="pct">Session A pickup</div>
+                    <div class="pcm">Saturday 7/3, 10:30am</div>
+                    <span class="sk line" style="width:62%"></span>
+                  </div>
+                  <div class="pcard">
+                    <div class="pct">Session B pickup</div>
+                    <div class="pcm">Saturday 7/19, 10:30am</div>
+                    <span class="sk line" style="width:54%"></span>
+                  </div>
+                  <div class="pcard" style="margin-top:auto">
+                    <div class="pct">Main lot, west gate</div>
+                    <div class="pcm">Buses load at 11am</div>
+                  </div>
+                </div>
+              </div></div>
+              <div class="plabel">Pickup times</div>
+              <div class="psub">The answer, right in the app.</div>
+            </div>
+
+            <div class="pnote">
+              <p>Every answer comes from your camp&rsquo;s own forms, schedules, and packing lists.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 10 THE RECORD — HEAD ═══ -->
+  <section class="shead">
+    <div class="kcol">
+      <p class="kick">A lifetime of experience.<br>Built in and<br>ready to go.</p>
+      <div class="krule"></div>
+    </div>
+    <div class="hcol">
+      <h2>People and technology unite.</h2>
+      <p class="lede">Built by people who know camp, for the people who run one.</p>
+      <p class="prov mono">Twenty-five years of camp support. And counting.</p>
+    </div>
+    <div class="gut"></div>
+  </section>
+
+  <!-- ═══ 11 THE RECORD ═══ -->
+  <section class="record">
+    <div class="rpair">
+      <div class="claim" style="height:463px">
+        <p class="kicker">One pass.</p>
+        <h3>Every kid, registered in one pass.</h3>
+        <p class="cbody">The new registration experience. A family signs up every camper in one sitting, while you watch your sessions fill.</p>
+        <div class="num">4.2M</div>
+        <div class="unit">Camper applications processed</div>
+      </div>
+      <div class="shot" style="height:463px">
+        <!-- The sessions step, not the Add Campers step, so this and the
+             collage brick do not read as the same picture twice. -->
+        <div class="crop">
+          <img src="img/erica/new-desktop-registration-parent-sessions@2x.png" style="width:884px;left:-378px;top:-295px" alt="Picking sessions and seeing the price as you go">
+        </div>
+      </div>
+    </div>
+
+    <div class="rpair">
+      <div class="shot" style="height:437px">
+        <div class="crop">
+          <img src="img/erica/Staff-Pipelines@2x.png" style="width:833px;left:-59px;top:-159px" alt="Applicant counts across every hiring pipeline">
+        </div>
+      </div>
+      <div class="claim light" style="height:437px;background-image:url('img/rec-staff.jpg')">
+        <p class="kicker">Ready day one.</p>
+        <h3>Hired, onboarded, and ready for day one.</h3>
+        <p class="cbody">Hiring and onboarding in one place, so staff shows up already knowing the plan.</p>
+        <div class="num">86,000</div>
+        <div class="unit">Staff hired through the platform</div>
+      </div>
+    </div>
+
+    <div class="rpair">
+      <div class="claim" style="height:437px">
+        <p class="kicker">Nothing missed.</p>
+        <h3>The health center, all on one screen.</h3>
+        <p class="cbody">Health records, daily logs, and med passes in one place. Your health staff can see them from anywhere, and so can anyone on your team who needs them.</p>
+        <div class="num">1.8M</div>
+        <div class="unit">Medications administered last summer</div>
+      </div>
+      <div class="shot" style="height:437px">
+        <!-- Older UI generation, same note as the Health brick in the collage. -->
+        <div class="crop">
+          <img src="img/erica/Health%20Center%20eMAR%20-%20all%20campers.png" style="width:503px;left:-30px;top:-133px" alt="The day's medications, camper by camper">
+        </div>
+      </div>
+    </div>
+
+    <div class="rpair" style="margin-bottom:0">
+      <div class="shot" style="height:437px">
+        <div class="crop">
+          <img src="img/erica/campanion-photos@2x.png" style="width:443px;left:0px;top:-236px" alt="Photos of one camper, found by face and tagged">
+        </div>
+      </div>
+      <div class="claim light" style="height:437px;background-image:url('img/rec-family.jpg')">
+        <p class="kicker">The Campanion app</p>
+        <h3>Now every family sees the best side of your camp.</h3>
+        <p class="cbody">Photos, forms, answers. All in one app.<br>Rated 4.9 &#9733;&#9733;&#9733;&#9733;&#9733; across 37,000 reviews.</p>
+        <div class="num">32M</div>
+        <div class="unit">Camp photos shared with families</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 12 QUOTE ═══ -->
+  <section class="quotesec">
+    <div class="qpic"><img src="img/quote-portrait.jpg" alt=""></div>
+    <div class="qbody">
+      <p class="kicker">Camps you know.</p>
+      <blockquote><span class="qm">&ldquo;</span>The only platform where the support team <b>knows our camp inside and out.</b><span class="qm">&rdquo;</span></blockquote>
+      <div class="attr">
+        <div>
+          <div class="an">Sam Ellison</div>
+          <div class="ar">Camp Director, Camp Cedarwood</div>
+        </div>
+        <div class="asince">On Campminder since 2008</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 13 CAMP LOGOS ═══ -->
+  <section class="logos">
+    <div class="logohead">
+      <div class="lh">A few of our Campminded friends.</div>
+      <p class="lnote"><b>Decades, not seasons.</b> Most of the camps on this wall have run on Campminder for ten years or more.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile"><span class="mk"></span></div>
+      <div class="tile"><span class="mk"></span></div>
+      <div class="tile hov"><span class="mk"></span><span class="story">Read their story &rarr;</span></div>
+      <div class="tile"><span class="mk"></span></div>
+      <div class="tile"><span class="mk"></span></div>
+      <div class="tile"><span class="mk"></span></div>
+      <div class="tile"><span class="mk"></span></div>
+      <div class="tile"><span class="mk"></span></div>
+      <div class="tile"><span class="mk"></span></div>
+      <div class="tile"><span class="mk"></span></div>
+      <div class="tile"><span class="mk"></span></div>
+      <div class="tile"><span class="mk"></span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 14 CLOSE ═══ -->
+  <section class="close">
+    <div class="cpic"></div>
+    <img class="lockup" src="img/unpack-possible-white.svg" alt="Unpack possible">
+    <div class="cfoot">
+      <p class="cline">The trusted platform for everyone at your camp.</p>
+      <div class="cright">
+        <p>See what a season on Campminder looks like.</p>
+        <a class="btn solid" href="#">Book a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 15 FOOTER — unchanged in v2 ═══ -->
+  <footer class="hp-foot">
+    <img class="mark" src="img/campminder-logo-white.svg" alt="Campminder">
+    <a href="#">Features</a><a href="#">Solutions</a><a href="#">Company</a><a href="#">Support</a>
+    <span class="legal">&copy; 2026 Campminder &middot; Serving camps since 2000 &middot; Boulder, Colorado</span>
+  </footer>
+
+
+</div>
+
+<script>
+/* PARKSIDE HERO TOGGLE v1 — script half. Review-only, strip with the
+   CSS block and .hgrad markup once a hero is picked. */
+(function () {
+  var root = document.querySelector('.hp');
+  var buttons = document.querySelectorAll('.herotoggle button');
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      root.setAttribute('data-hero', b.getAttribute('data-set-hero'));
+      buttons.forEach(function (o) { o.classList.toggle('on', o === b); });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

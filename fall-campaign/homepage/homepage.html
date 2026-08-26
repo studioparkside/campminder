@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>Campminder Homepage</title>
+<style>
+/* ─────────────────────────────────────────────
+   Campminder Fall Campaign — Homepage, option 1
+
+   The page is a flat export of the Figma frame "Campminder Homepage ·
+   1440", cut into twelve slices at 2x and stacked. Figma is the source
+   of truth for this page now. Copy edits, imagery, and layout all happen
+   there, and a new export replaces img/figma/.
+
+   The one live element is the square rail. It is the same crop of the
+   export, floated in the reserved gutter and stuck to the top of the
+   viewport, sitting exactly over the version baked into the first slice
+   so the two are one block until the page scrolls.
+
+   To re-export: select the section in Figma, export PNG at 2x, then cut
+   the section padding off and slice at 2000px. Slice heights below are
+   in CSS pixels, which is half the exported height.
+
+   Studio Parkside, August 2026
+   ⚠ Every date and every number on the page is a placeholder pending
+   Campminder. The platform screens are Campminder's own.
+───────────────────────────────────────────── */
+
+@font-face { font-family:"General Sans"; src:url("fonts/GeneralSans-Semibold.woff2") format("woff2"); font-weight:600; font-display:block; }
+
+:root {
+  --canvas: #0d0a16;
+  --rgut: 210px;
+  --nav-h: 80px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+/* The canvas is a fixed 1440. A classic scrollbar takes 15px off the
+   viewport and pushes the page into a horizontal scroll, which shows up
+   as a bar along the bottom of the review window. No scrollbar, no bar.
+   The wheel and the trackpad are unaffected. */
+html { -webkit-text-size-adjust: 100%; scrollbar-width: none; }
+html::-webkit-scrollbar { width: 0; height: 0; }
+body { background: var(--canvas); -webkit-font-smoothing: antialiased; }
+img { display: block; }
+a { text-decoration: none; color: inherit; }
+
+.hp { width: 1440px; margin: 0 auto; position: relative; background: var(--canvas);
+  font-family: "General Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+
+/* The stack. line-height zero so no leading opens a seam between slices. */
+.flat { line-height: 0; font-size: 0; }
+.flat img { width: 1440px; height: auto; }
+
+/* ── the sticky rail ──
+   Sharp corners, on purpose. The gutter starts at the bottom of the nav,
+   which is where the rail sits in the export, so at rest the live rail
+   lands on the baked one exactly. */
+.railgutter { position: absolute; top: var(--nav-h); right: 0; bottom: 0; width: var(--rgut);
+  z-index: 30; pointer-events: none; }
+.railsq { position: sticky; top: 0; pointer-events: auto; display: block;
+  width: var(--rgut); height: 173px; }
+.railsq img { width: var(--rgut); height: 173px; }
+</style>
+</head>
+<body>
+<div class="hp">
+
+  <!-- ═══ the sticky rail, the one live element on the page ═══ -->
+  <div class="railgutter">
+    <a class="railsq" href="#" aria-label="Unpack possible. Book a demo.">
+      <img src="img/figma/rail.webp" alt="">
+    </a>
+  </div>
+
+  <!-- ═══ the page ═══ -->
+  <div class="flat">
+    <img src="img/figma/p01.webp" width="1440" height="1000" alt="Campminder homepage. One for all. The trusted platform for everyone at your camp.">
+    <img src="img/figma/p02.webp" width="1440" height="1000" alt="" loading="lazy">
+    <img src="img/figma/p03.webp" width="1440" height="1000" alt="" loading="lazy">
+    <img src="img/figma/p04.webp" width="1440" height="1000" alt="" loading="lazy">
+    <img src="img/figma/p05.webp" width="1440" height="1000" alt="" loading="lazy">
+    <img src="img/figma/p06.webp" width="1440" height="1000" alt="" loading="lazy">
+    <img src="img/figma/p07.webp" width="1440" height="1000" alt="" loading="lazy">
+    <img src="img/figma/p08.webp" width="1440" height="1000" alt="" loading="lazy">
+    <img src="img/figma/p09.webp" width="1440" height="1000" alt="" loading="lazy">
+    <img src="img/figma/p10.webp" width="1440" height="1000" alt="" loading="lazy">
+    <img src="img/figma/p11.webp" width="1440" height="1000" alt="" loading="lazy">
+    <img src="img/figma/p12.webp" width="1440" height="934" alt="" loading="lazy">
+  </div>
+
+</div>
+</body>
+</html>
