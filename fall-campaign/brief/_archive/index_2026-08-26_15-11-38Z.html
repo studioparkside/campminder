@@ -452,9 +452,6 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
 .viewport { position: relative; overflow: hidden; background: #0d0a16; min-height: 360px; }
 .viewport iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0;
   transform-origin: top left; }
-/* Reserved slot. Holds the shape of a 1440 x 900 page so the section keeps
-   its proportions while the opening is still being chosen. */
-.viewport.reserved { background: var(--dark); aspect-ratio: 1440 / 900; }
 .windowfoot { display: flex; justify-content: flex-end; padding: 16px 2px 0; font-size: 16.5px; }
 .windowfoot a {
   display: inline-flex; align-items: center; gap: 8px; color: var(--ink); text-decoration: none;
@@ -546,7 +543,7 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
   <div class="pill-group">
     <span class="pill filled">Campminder</span>
     <span class="pill light">Confidential</span>
-    <span class="pill meta">Shared 8/26</span>
+    <span class="pill meta">Shared 8/24</span>
   </div>
 </header>
 
@@ -685,13 +682,12 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
               <span class="url">campminder.com</span>
               <span class="spacer"></span>
             </div>
-            <!-- ═══ INTERNAL. DELETE BOTH LINES BEFORE THIS GOES TO GROUNDWRK ═══
-                 Reserved slot plus the note under it. Black on purpose while
-                 the opening is still being chosen. Restore the iframe, the
-                 windowfoot link, and the scaling script from
-                 _archive/index_2026-08-26_15-11-38Z.html once it is. -->
-            <div class="viewport reserved" id="hpwrap"></div>
-            <div class="frame-note">The homepage you select drops in here before this goes to Groundwrk.</div>
+            <div class="viewport" id="hpwrap">
+              <iframe id="hpframe" src="../homepage/index.html" title="Campminder homepage concept" scrolling="yes"></iframe>
+            </div>
+          </div>
+          <div class="windowfoot">
+            <a href="../homepage/index.html" target="_blank" rel="noopener">Open the homepage on its own <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
       </div>
@@ -819,5 +815,26 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
 
 </div>
 </main>
+
+<script>
+/* Scales the embedded homepage preview to the card width, same technique
+   as the old homepage review shell. The iframe holds a true 1440 x 900
+   viewport and scrolls inside its own frame. */
+(function () {
+  var wrap = document.getElementById('hpwrap');
+  var frame = document.getElementById('hpframe');
+  if (!wrap || !frame) return;
+  var W = 1440, H = 900;
+  function fit() {
+    var w = wrap.clientWidth;
+    var s = w / W;
+    frame.style.transform = 'scale(' + s + ')';
+    wrap.style.height = Math.round(H * s) + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(wrap);
+})();
+</script>
 
 </body></html>
