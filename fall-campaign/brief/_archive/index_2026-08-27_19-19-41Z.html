@@ -435,14 +435,8 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
 }
 /* ---------- Homepage preview, the same window-card component used on
    the homepage's own preview shell, so it looks the same in either
-   place. Each window runs its page live at 1440 and scales to the card,
-   so a hero-only opening sits on screen whole and the full page scrolls
-   inside its own frame. ---------- */
-.windowcard { padding: 0; margin: 26px 0 0; }
-.windowcard + .windowcard { margin-top: 44px; }
-.wtop { display: grid; grid-template-columns: 116px 1fr; gap: 24px; align-items: baseline; padding: 0 0 20px; }
-.wtop .wdesc { font-size: 17.5px; line-height: 1.5; color: var(--ink-soft); max-width: 60ch; }
-.wtop .wdesc strong { font-weight: 650; color: var(--ink); }
+   place. ---------- */
+.windowcard { padding: 0; }
 .window { border: 1px solid var(--outline); border-radius: 20px; overflow: hidden; background: #0d0a16; }
 .chrome {
   height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 14px;
@@ -455,9 +449,12 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
   background: var(--paper); border: 1px solid var(--outline); border-radius: 999px; padding: 4px 18px 3px;
 }
 .chrome .spacer { width: 47px; }
-.viewport { position: relative; overflow: hidden; background: #0d0a16; }
-.viewport iframe { position: absolute; top: 0; left: 0; width: 1440px; border: 0;
+.viewport { position: relative; overflow: hidden; background: #0d0a16; min-height: 360px; }
+.viewport iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0;
   transform-origin: top left; }
+/* Reserved slot. Holds the shape of a 1440 x 900 page so the section keeps
+   its proportions while the opening is still being chosen. */
+.viewport.reserved { background: var(--dark); aspect-ratio: 1440 / 900; }
 .windowfoot { display: flex; justify-content: flex-end; padding: 16px 2px 0; font-size: 16.5px; }
 .windowfoot a {
   display: inline-flex; align-items: center; gap: 8px; color: var(--ink); text-decoration: none;
@@ -467,6 +464,11 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
 .windowfoot a:hover { border-bottom-color: var(--ink); }
 .windowfoot svg { width: 12px; height: 12px; flex: none; transition: transform 140ms ease; }
 .windowfoot a:hover svg { transform: translate(2px, -2px); }
+.frame-note {
+  font-size: 13.5px; font-weight: 600; color: var(--dark-low);
+  padding: 14px 20px; background: var(--dark-2); text-align: right;
+  border-top: 1px solid var(--dark-line); letter-spacing: -0.004em;
+}
 
 /* ---------- Mobile ---------- */
 @media (max-width: 820px) {
@@ -502,8 +504,6 @@ h1 .h1-sub { display: block; font-weight: 400; color: var(--muted); }
   .panel { padding: 28px 24px 30px; }
   .copycard { padding: 34px 26px 30px; }
   .note { padding: 24px 22px 26px; }
-  .wtop { grid-template-columns: 1fr; gap: 12px; padding: 0 0 14px; }
-  .windowcard + .windowcard { margin-top: 34px; }
   .hier { gap: 8px; }
   .hier-side { grid-template-columns: 1fr; gap: 8px; }
   .block { padding: 28px 24px 30px; }
@@ -546,7 +546,7 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
   <div class="pill-group">
     <span class="pill filled">Campminder</span>
     <span class="pill light">Confidential</span>
-    <span class="pill meta">Shared 8/27</span>
+    <span class="pill meta">Shared 8/26</span>
   </div>
 </header>
 
@@ -677,74 +677,22 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
       <div class="section-body">
         <h2>Homepage</h2>
         <p>Everything under the hero is modular, so the order can change as we learn which features matter most.</p>
-        <p>We landed on three potential options for the homepage hero, with an approved preliminary design concept for the rest of the page.</p>
-        <p>The headlines and body copy on these pages are direction, not final copy.</p>
 
         <div class="windowcard">
-          <div class="wtop">
-            <span class="pill">Opening 01</span>
-            <p class="wdesc"><strong>The camp and the platform in one frame.</strong> The technology sits inside the camp environment. This window runs the whole page, so it scrolls.</p>
-          </div>
           <div class="window">
             <div class="chrome">
               <div class="dots"><i></i><i></i><i></i></div>
               <span class="url">campminder.com</span>
               <span class="spacer"></span>
             </div>
-            <div class="viewport" data-h="900">
-              <iframe src="https://campminder.studioparkside.co/fall-campaign/homepage/homepage.html" title="Campminder homepage, opening 01" scrolling="yes"></iframe>
-            </div>
+            <!-- ═══ INTERNAL. DELETE BOTH LINES BEFORE THIS GOES TO GROUNDWRK ═══
+                 Reserved slot plus the note under it. Black on purpose while
+                 the opening is still being chosen. Restore the iframe, the
+                 windowfoot link, and the scaling script from
+                 _archive/index_2026-08-26_15-11-38Z.html once it is. -->
+            <div class="viewport reserved" id="hpwrap"></div>
+            <div class="frame-note">The homepage you select drops in here before this goes to Groundwrk.</div>
           </div>
-          <div class="windowfoot">
-            <a href="https://campminder.studioparkside.co/fall-campaign/homepage/homepage.html" target="_blank" rel="noopener">Open the full page <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </div>
-
-        <div class="windowcard">
-          <div class="wtop">
-            <span class="pill">Opening 02</span>
-            <p class="wdesc"><strong>A gradient that opens on the words, then the platform.</strong> The dashboard sits directly under the headline, so the range of what Campminder does is at the top of the page.</p>
-          </div>
-          <div class="window">
-            <div class="chrome">
-              <div class="dots"><i></i><i></i><i></i></div>
-              <span class="url">campminder.com</span>
-              <span class="spacer"></span>
-            </div>
-            <div class="viewport" data-h="1780">
-              <iframe src="https://campminder.studioparkside.co/fall-campaign/homepage/option-2.html" title="Campminder homepage, opening 02" scrolling="no"></iframe>
-            </div>
-          </div>
-          <div class="windowfoot">
-            <a href="https://campminder.studioparkside.co/fall-campaign/homepage/option-2.html" target="_blank" rel="noopener">Open this version <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </div>
-
-        <div class="windowcard">
-          <div class="wtop">
-            <span class="pill">Opening 03</span>
-            <p class="wdesc"><strong>A gradient with the platform cropped into it.</strong> Pieces of the product run off the right edge instead of sitting in a frame. The row could slide to the left on scroll, so the longer someone stays on it the more of the platform they see.</p>
-          </div>
-          <div class="window">
-            <div class="chrome">
-              <div class="dots"><i></i><i></i><i></i></div>
-              <span class="url">campminder.com</span>
-              <span class="spacer"></span>
-            </div>
-            <div class="viewport" data-h="1000">
-              <iframe src="https://campminder.studioparkside.co/fall-campaign/homepage/option-3.html" title="Campminder homepage, opening 03" scrolling="no"></iframe>
-            </div>
-          </div>
-          <div class="windowfoot">
-            <a href="https://campminder.studioparkside.co/fall-campaign/homepage/option-3.html" target="_blank" rel="noopener">Open this version <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </div>
-
-        <div class="label">Reading these pages</div>
-        <div class="rows">
-          <div class="row"><div class="row-num">03-01</div><div class="row-text"><strong>Editorial layout.</strong> Oversized headlines, hairline rules, and rounded product screens to match the platform. The design should read as established and trustworthy.</div></div>
-          <div class="row"><div class="row-num">03-02</div><div class="row-text"><strong>Copy is not final.</strong> The Campminder team is working on updated copy and will confirm every claim on the page.</div></div>
-          <div class="row"><div class="row-num">03-03</div><div class="row-text"><strong>All imagery is for demonstration.</strong> Platform screens, camp photography, and team photos come from Campminder. See section 06.</div></div>
         </div>
       </div>
     </div>
@@ -775,7 +723,7 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
       <div class="rail-number">05</div>
       <div class="section-body">
         <h2>Guardrails</h2>
-        <p>Set in working sessions with Campminder. The guardrails below are fixed. Everything else is open.</p>
+        <p>Set in working sessions with Campminder.</p>
 
         <div class="rows">
           <div class="row"><div class="row-num">05-01</div><div class="row-text"><strong>No pain-point selling.</strong> We don’t remind directors that their job is hard. They know. We show what they get.</div></div>
@@ -810,7 +758,7 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
           <div class="panel">
             <div class="ptop"><span class="pill">06-03</span></div>
             <h3>Team photography</h3>
-            <p>Individual portraits and working shots of actual Campminder staff.</p>
+            <p>Individual portraits and working shots of actual Campminder staff. This may not be ready until October.</p>
           </div>
           <div class="panel">
             <div class="ptop"><span class="pill light">06-04</span></div>
@@ -826,11 +774,6 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
             <div class="ptop"><span class="pill light">06-06</span></div>
             <h3>Scale numbers</h3>
             <p>Confirmed figures for the proof points.</p>
-          </div>
-          <div class="panel">
-            <div class="ptop"><span class="pill">06-07</span></div>
-            <h3>Font licenses</h3>
-            <p>Spezia Narrow is the display typeface. General Sans is the reading face, including inside the product screens. Both need web licenses before launch.</p>
           </div>
         </div>
       </div>
@@ -864,12 +807,6 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
             <p>How the territory carries across the homepage, email, social, and the sales narrative.</p>
             <div class="plink"><a href="https://campminder.studioparkside.co/fall-campaign/message/">Open the message hierarchy <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </div>
-          <div class="panel">
-            <div class="ptop"><span class="pill">07-04</span></div>
-            <h3>Design file</h3>
-            <p>The homepage design in Figma. Layout, type, spacing, and the three hero options.</p>
-            <div class="plink"><a href="https://www.figma.com/design/KxjdD4CwZ6geRbTB6ix90V/Campminder-Fall-Campaign-%E2%80%94-Homepage?node-id=0-1&amp;t=xggdTpvTSJ6mBM1Q-1">Open the design file <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-          </div>
         </div>
       </div>
     </div>
@@ -882,36 +819,5 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-rad
 
 </div>
 </main>
-
-<script>
-/* Each window shows a true 1440-wide viewport, scaled to whatever width
-   the card gives it. The height comes off data-h on the viewport, so a
-   hero-only opening sits on screen whole and the full page scrolls in its
-   own frame. Everything inside a frame stays at full size. */
-(function () {
-  var W = 1440;
-  var views = Array.prototype.slice.call(document.querySelectorAll('.viewport'));
-  if (!views.length) return;
-  var last = 0;
-  function fit() {
-    var w = views[0].clientWidth;
-    if (!w || w === last) return;
-    last = w;
-    views.forEach(function (vp) {
-      var fr = vp.querySelector('iframe');
-      if (!fr) return;
-      var H = parseInt(vp.getAttribute('data-h'), 10) || 900;
-      var s = w / W;
-      fr.style.width = W + 'px';
-      fr.style.height = H + 'px';
-      fr.style.transform = 'scale(' + s + ')';
-      vp.style.height = Math.round(H * s) + 'px';
-    });
-  }
-  fit();
-  window.addEventListener('resize', fit);
-  if (window.ResizeObserver) { new ResizeObserver(fit).observe(views[0]); }
-})();
-</script>
 
 </body></html>
