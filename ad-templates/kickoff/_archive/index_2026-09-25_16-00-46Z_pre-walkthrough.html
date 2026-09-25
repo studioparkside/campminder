@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,16 +18,15 @@
    Round 1 comments. v1, the warm cream family, is archived.
    ============================================================ */
 :root{
-  color-scheme:light;
-
   /* Surfaces. Cards sit a step off white so nested panels read forward. */
   --ground:#F0F1F2;        /* page background, sits behind cards */
   --card:#FAFBFB;          /* default card surface */
   --panel:#FFFFFF;         /* rows, panels, notes, anything nested in a card */
   --paper:#FFFFFF;         /* text and fills on the dark card */
-  --deep:#000000;          /* the dark card */
+  --deep:#000000;          /* the dark card. Stays black in dark mode. */
 
-  /* Neutral. For anything a client is asked to judge. */
+  /* Neutral. For anything a client is asked to judge. Fixed in every
+     theme, so a swatch or a reference image never shifts under it. */
   --neutral-white:#FFFFFF;
   --neutral-black:#000000;
 
@@ -86,6 +85,53 @@
     --t-body:17.5px; --t-label:19.5px; }
 }
 
+/* --- Dark. Every visit opens on the reader's system setting. The theme
+       toggle in the header flips it for that visit only, nothing is stored.
+       The same values appear twice below: once under the system setting,
+       unless the toggle has forced light, and once for the toggle forcing
+       dark. Change both together. Structure is unchanged, only the ground,
+       the ink ramp, and the lines swap. The dark card stays black and gains
+       an outline. --neutral-white and --neutral-black never change.
+
+       Gold takes ink, and ink is white in dark mode, which is the pairing
+       the system forbids. A page using gold in dark mode holds a fixed dark
+       foreground on the gold itself rather than inheriting --ink. --- */
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E0F10;
+    --card:#17181A;
+    --panel:#1C1E20;
+    --ink:#FFFFFF;
+    --ink-soft:#B0B3B6;
+    --ink-muted:#94979A;
+    --muted:#6F7275;
+    --outline:rgba(255,255,255,0.13);
+    --hairline:rgba(255,255,255,0.10);
+    --group-rule:rgba(255,255,255,0.34);
+    --hairline-strong:rgba(255,255,255,0.80);
+    --hairline-light:rgba(255,255,255,0.22);
+    --glass:rgba(14,15,16,0.66);
+    --glass-solid:rgba(14,15,16,0.96);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E0F10;
+  --card:#17181A;
+  --panel:#1C1E20;
+  --ink:#FFFFFF;
+  --ink-soft:#B0B3B6;
+  --ink-muted:#94979A;
+  --muted:#6F7275;
+  --outline:rgba(255,255,255,0.13);
+  --hairline:rgba(255,255,255,0.10);
+  --group-rule:rgba(255,255,255,0.34);
+  --hairline-strong:rgba(255,255,255,0.80);
+  --hairline-light:rgba(255,255,255,0.22);
+  --glass:rgba(14,15,16,0.66);
+  --glass-solid:rgba(14,15,16,0.96);
+  color-scheme:dark;
+}
 /* ============================================================
    PARKSIDE SYSTEM TOKENS v2 — END
    ============================================================ */
@@ -110,8 +156,8 @@ a{color:var(--ink);text-underline-offset:3px}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
 .stack{max-width:var(--maxw);margin:0 auto;display:flex;flex-direction:column;gap:var(--pad)}
 
-/* --- Fixed glass header, full page width. Logo left, the pill group
-       on the right. --- */
+/* --- Fixed glass header, full page width. Logo left. On the right, the
+       pill group and then the theme toggle, outside the group. --- */
 .siteheader{
   position:fixed;top:0;left:0;right:0;z-index:60;height:var(--header-h);
   display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 34px;
@@ -128,6 +174,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .pill-group{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
 .pill-group.start{justify-content:flex-start}
 .section-body h2 + .pill-group.start{margin:-12px 0 26px}
+
+/* --- Theme toggle. Round, outline only, one icon at a time: a moon while
+       the page is light, a sun while it is dark. Needs the THEME script. --- */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;flex:none;
+  padding:0;border:1px solid var(--outline);border-radius:999px;background:transparent;color:var(--ink);
+  cursor:pointer;transition:border-color .2s ease}
+.theme-toggle:hover{border-color:var(--hairline-strong)}
+.theme-toggle svg{width:17px;height:17px;display:block}
+.theme-toggle .i-sun{display:none}
+:root[data-theme="dark"] .theme-toggle .i-sun{display:block}
+:root[data-theme="dark"] .theme-toggle .i-moon{display:none}
 
 /* --- Pills. Four tiers. Filled for the one thing that names the page,
        outline by default, light for a secondary name, meta for dates and
@@ -148,6 +205,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .card{background:var(--card);border:1px solid var(--outline);border-radius:var(--radius);
   padding:var(--cardpad-y) var(--cardpad-x)}
 .card.dark{background:var(--deep);border-color:var(--deep);color:var(--paper)}
+@media(prefers-color-scheme:dark){ :root:not([data-theme="light"]) .card.dark{border-color:var(--outline)} }
+:root[data-theme="dark"] .card.dark{border-color:var(--outline)}
 .card.dark a{color:var(--paper)}
 .card.dark .label{color:var(--paper)}
 
@@ -465,6 +524,8 @@ details.block:not([open]) summary .tog::after{content:" +"}
   .siteheader .pill-group{flex-wrap:nowrap;gap:4px}
   .siteheader .pill.meta{padding-left:6px;padding-right:6px}
   .pill{font-size:11.5px;padding:5px 11px 4px}
+  .theme-toggle{width:30px;height:30px}
+  .theme-toggle svg{width:15px;height:15px}
   .hero{padding:56px var(--cardpad-x) 52px}
   .hero-grid{flex-direction:column;gap:0}
   .hero .lede{font-size:18px;margin-top:22px}
@@ -514,17 +575,20 @@ details.block:not([open]) summary .tog::after{content:" +"}
 
 
 /* ---- Page-specific rules ---- */
+/* Light only. No theme toggle, data-theme="light" on the html element. */
+:root{color-scheme:light}
 .shot.manual{aspect-ratio:1741/985;background:var(--neutral-white)}
 
 
 /* ============================================================
    PARKSIDE SYSTEM PRINT v2 — START
-   Pages get saved as PDFs. This flattens
+   Pages get saved as PDFs. This forces the light theme, flattens
    every surface to white, darkens the rules so the structure
    survives on paper, and opens everything that was collapsed.
    ============================================================ */
 @media print{
-  :root{
+  :root,:root[data-theme]{
+    color-scheme:light;
     --ground:#FFFFFF; --card:#FFFFFF; --panel:#FFFFFF; --paper:#FFFFFF; --deep:#FFFFFF;
     --ink:#000000; --ink-soft:#2B2B2B; --ink-muted:#4A4A4A; --muted:#6E6E6E;
     --outline:rgba(0,0,0,0.28); --hairline:rgba(0,0,0,0.22); --group-rule:rgba(0,0,0,0.55);
@@ -539,7 +603,7 @@ details.block:not([open]) summary .tog::after{content:" +"}
   .siteheader{position:static;height:auto;background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;
     border-bottom:1.5pt solid #000;padding:0 0 10pt;margin-bottom:16pt}
   .siteheader .logo{height:13pt}
-  .pages,.no-print{display:none !important}
+  .theme-toggle,.pages,.no-print{display:none !important}
   .pill{font-size:9pt;padding:3px 10px 2px}
   .pill.filled{background:#000;color:#fff}
   .card{border:0;border-radius:0;padding:0 0 22pt;break-inside:auto}
@@ -595,7 +659,7 @@ details.block:not([open]) summary .tog::after{content:" +"}
   <div class="header-right">
     <div class="pill-group">
       <span class="pill filled">Campminder</span>
-      <span class="pill meta">Shared 00/00</span>
+      <span class="pill meta">Shared 10/1</span>
     </div>
   </div>
 </header>
@@ -639,7 +703,7 @@ details.block:not([open]) summary .tog::after{content:" +"}
       <div class="rail-number">02</div>
       <div class="section-body">
         <h2>Scope of work</h2>
-        <p>We start with this kickoff. From there the templates are designed in one pass, and we go through them together at a walkthrough meeting.</p>
+        <p>We start with this kickoff. From there the templates are designed and delivered in one pass.</p>
 
         <div class="label group"><span class="lnum">01</span>Kickoff</div>
         <div class="duo one">
@@ -664,7 +728,6 @@ details.block:not([open]) summary .tog::after{content:" +"}
             <ul class="plist">
               <li><strong>Creative direction.</strong> The concept for the visual system.</li>
               <li><strong>Visual system.</strong> Type, color, CTA button, logo placement, backgrounds.</li>
-              <li><strong>Walkthrough meeting.</strong> The finished templates, shown together.</li>
             </ul>
           </div>
           <div class="panel">
@@ -728,16 +791,16 @@ details.block:not([open]) summary .tog::after{content:" +"}
       <div class="rail-number">04</div>
       <div class="section-body">
         <h2>Project schedule</h2>
-        <p>About two weeks from deposit to the walkthrough.</p>
+        <p>About two weeks from deposit to final delivery.</p>
 
         <div class="rows sched">
           <div class="row">
             <div class="row-text"><strong>Kickoff meeting.</strong> The scope of work, your current ads, and the schedule.</div>
-            <div class="row-when">00/00</div>
+            <div class="row-when">Thu 10/1</div>
           </div>
           <div class="row">
-            <div class="row-text"><strong>Walkthrough meeting.</strong> We go through the finished templates together, and the Figma file and background exports go out the same day. The walkthrough closes the project.</div>
-            <div class="row-when">00/00</div>
+            <div class="row-text"><strong>Final delivery.</strong> Ad templates, safe areas, background exports, and the Figma file. Delivery closes the project.</div>
+            <div class="row-when">Wed 10/7</div>
           </div>
         </div>
 
